@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-/***
+/************************************
+ * Class aims to convert XML file 
+ * in String content
+ * 
  * @author RATEL Alexandre
  */
 public class xMLReader
@@ -15,13 +18,13 @@ public class xMLReader
 	 ****************/
 	
 	/**************************************************
-	 * Methode qui lit le fichier et place son contenu
-	 * dans un string
+	 * Method used to get XML file content and put it
+	 * in a String
 	 **************************************************/
 	public static String fileRead(String fileName) throws IOException, FileNotFoundException
 		{
 		String template = new String("");
-		variables.getLogger().info("Source = "+fileName);
+		variables.getLogger().info("File name = "+fileName);
 		FileReader monFichier = new FileReader(fileName);
 		BufferedReader tampon = new BufferedReader(monFichier);
 		
@@ -35,10 +38,10 @@ public class xMLReader
 				}
 			template += ligne;
 			}
-		variables.getLogger().info(template);
-		variables.getLogger().info("Lecture terminée");
+		variables.getLogger().info("File content : "+template);
+		variables.getLogger().info("Finished reading");
 		return template;
 		}
 	
-	/*2010*//*AR ;)*/
+	/*2013*//*RATEL Alexandre 8)*/
 	}

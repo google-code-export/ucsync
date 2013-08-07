@@ -2,9 +2,8 @@ package start;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
 import org.apache.log4j.Level;
-import utils.MethodesUtiles;
+import utils.methodesUtiles;
 import utils.initLogging;
 import utils.variables;
 
@@ -26,17 +25,17 @@ public class Principale
 	public Principale()
 		{
 		//version du logiciel
-		utils.variables.setVersion("3.1");
+		utils.variables.setVersion("1.0");
 		//Nom du logiciel
-		utils.variables.setNomProg("EXTools");
+		utils.variables.setNomProg("UCSync");
 		
-		/**********************
+		/**************************************
 		 * Initialisation de la journalisation
-		 ************/
+		 **************************************/
 		variables.setLogger(initLogging.init(variables.getNomProg()+"_LogFile.txt"));
-		variables.getLogger().info("\r\nEntering application");
-		variables.getLogger().info("## Welcome to : "+variables.getNomProg()+" : "+variables.getVersion()+" ##");
-		variables.getLogger().info("## Author : RATEL Alexandre : 2013##");
+		variables.getLogger().info("#### Entering application");
+		variables.getLogger().info("## Welcome to : "+variables.getNomProg()+" version "+variables.getVersion());
+		variables.getLogger().info("## Author : RATEL Alexandre : 2013");
 		/**************/
 		
 		/***********
@@ -45,32 +44,61 @@ public class Principale
 		new utils.variables();
 		/************/
 		
+		/*************
+		 * Lectures des fichiers xml de paramétrage
+		 */
+		try
+			{
+			variables.getLogger().info("Lecture du fichier de configuration : "+variables.getConfigFileName());
+			variables.setTabConfig(methodesUtiles.initConfigValue());
+			
+			variables.getLogger().info("Lecture du fichier des taches : "+variables.getTaskFileName());
+			variables.setTabTasks(methodesUtiles.initTaskValue());
+			}
+		catch(Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Il n'est pas acceptable que l'initialisation est échouée. Fin du programme : System.exit(0)");
+			System.exit(0);
+			}
+		/*********/
+		
 		/********************
 		 * Check if java version is compatible
 		 ********************/
-		MethodesUtiles.checkJavaVersion();
+		methodesUtiles.checkJavaVersion();
 		/*********************/
 		
 		/*************************
 		 * Set the logging level
 		 *************************/
-		String level = MethodesUtiles.getTargetOption("log4j");
-		if(level.compareTo("DEBUG")==0)
+		try
 			{
-			variables.getLogger().setLevel(Level.DEBUG);
+			String level = methodesUtiles.getTargetOption("log4j");
+			if(level.compareTo("DEBUG")==0)
+				{
+				variables.getLogger().setLevel(Level.DEBUG);
+				}
+			else if (level.compareTo("INFO")==0)
+				{
+				variables.getLogger().setLevel(Level.INFO);
+				}
+			variables.getLogger().info("Niveau de log d'après le fichier de configuration : "+variables.getLogger().getLevel().toString());
 			}
-		else if (level.compareTo("INFO")==0)
+		catch(Exception exc)
 			{
+			variables.getLogger().error(exc.getMessage());
+			variables.getLogger().error("Le niveau de log n'a pas réussi à être lu depuis le fichier de configuration");
+			variables.getLogger().error("Le niveau de log est donc fixé au niveau par défaut : INFO");
 			variables.getLogger().setLevel(Level.INFO);
 			}
-		
-		variables.getLogger().info("Niveau de log d'après le fichier de préférence : "+variables.getLogger().getLevel().toString());
 		/*************************/
 		
 		/*********************************
 		 * Lancement du Thread principal
 		 *********************************/
-		//Have to be written
+		//Yeahhh !!!!!
 		/*********************************/
 		}
 	
