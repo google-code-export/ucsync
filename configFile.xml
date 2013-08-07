@@ -1,0 +1,10 @@
+<xml>
+	<config>
+		<log4j>DEBUG</log4j>
+		<timeout>15</timeout>
+		<axlhost>10.110.92.1</axlhost>
+		<axlport>8443</axlport>
+		<axlusername>userAXL</axlusername>
+		<axlpassword>CCMCisco92</axlpassword>
+	</config>
+</xml>
