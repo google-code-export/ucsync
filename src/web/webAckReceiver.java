@@ -3,7 +3,9 @@ package web;
 import java.net.ServerSocket;
 import java.net.Socket;
 
-import utils.MethodesUtiles;
+import misc.workimpl;
+
+import utils.methodesUtiles;
 import utils.variables;
 
 /**********************************
@@ -11,7 +13,7 @@ import utils.variables;
  * 
  * @author RATEL Alexandre
  **********************************/
-public class webAckReceiver extends Thread
+public class webAckReceiver extends Thread implements workimpl
 	{
 	/**
 	 * Variables
@@ -31,7 +33,7 @@ public class webAckReceiver extends Thread
 		{
 		try
 			{
-			ss = new ServerSocket(Integer.parseInt(MethodesUtiles.getTargetOption("webserverport")));
+			ss = new ServerSocket(Integer.parseInt(methodesUtiles.getTargetOption("webserverport")));
 			
 			while(isWorking)
 				{

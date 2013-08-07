@@ -6,7 +6,7 @@ import java.util.Date;
 import execute.modify;
 
 import scan.inspection;
-import utils.MethodesUtiles;
+import utils.methodesUtiles;
 
 import misc.toDo;
 import misc.worker;
@@ -35,7 +35,7 @@ public class task
 		{
 		status = typeStatus.init;
 		age = 0;
-		id = MethodesUtiles.getID();
+		id = methodesUtiles.getID();
 		}
 	
 	/**

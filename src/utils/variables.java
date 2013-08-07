@@ -17,15 +17,11 @@ public class variables
 	private static String nomProg;
 	private static String version;
 	private static Logger logger;
-	private static String configFileContent;
 	private static String configFileName;
 	private static String taskFileName;
-	private static String taskFileContent;
-	private static ArrayList<String[][]> tabOptionGlobal;
+	private static ArrayList<String[][]> tabConfig;
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
-	private static String axlPort;
-	private static String versionCCM;
 	
 	
 	
@@ -35,11 +31,7 @@ public class variables
 	public variables()
 		{
 		configFileName = new String("configFile.xml");
-		setTabOptionGlobal(false);
-		setTabTasks(false);
-		
-		axlPort = "8443";
-		versionCCM = "8";
+		taskFileName = new String("taskFile.xml");
 		}
 	
 	/****
@@ -76,16 +68,6 @@ public class variables
 		variables.logger = logger;
 		}
 
-	public static String getConfigFileContent()
-		{
-		return configFileContent;
-		}
-
-	public static void setConfigFileContent(String configFileContent)
-		{
-		variables.configFileContent = configFileContent;
-		}
-
 	public static eMailSender geteMSender()
 		{
 		return eMSender;
@@ -106,26 +88,6 @@ public class variables
 		variables.configFileName = configFileName;
 		}
 
-	public static String getAxlPort()
-		{
-		return axlPort;
-		}
-
-	public static void setAxlPort(String axlPort)
-		{
-		variables.axlPort = axlPort;
-		}
-
-	public static String getVersionCCM()
-		{
-		return versionCCM;
-		}
-
-	public static void setVersionCCM(String versionCCM)
-		{
-		variables.versionCCM = versionCCM;
-		}
-
 	public static String getTaskFileName()
 		{
 		return taskFileName;
@@ -136,29 +98,14 @@ public class variables
 		variables.taskFileName = taskFileName;
 		}
 
-	public static String getTaskFileContent()
+	public static ArrayList<String[][]> getTabConfig()
 		{
-		return taskFileContent;
+		return tabConfig;
 		}
 
-	public static void setTaskFileContent(String taskFileContent)
+	public static void setTabConfig(ArrayList<String[][]> tabConfig)
 		{
-		variables.taskFileContent = taskFileContent;
-		}
-
-	public static ArrayList<String[][]> getTabOptionGlobal()
-		{
-		return tabOptionGlobal;
-		}
-
-	public static void setTabOptionGlobal(boolean override)
-		{
-		tabOptionGlobal = MethodesUtiles.getOptionValue(override);
-		if(!override)
-			{
-			//On écrit le fichier
-			MethodesUtiles.setOptionValue();
-			}
+		variables.tabConfig = tabConfig; 
 		}
 
 	public static ArrayList<String[][]> getTabTasks()
@@ -166,15 +113,12 @@ public class variables
 		return tabTasks;
 		}
 
-	public static void setTabTasks(boolean override)
+	public static void setTabTasks(ArrayList<String[][]> tabTasks)
 		{
-		tabTasks = MethodesUtiles.getTaskValue(override);
-		if(!override)
-			{
-			//On écrit le fichier
-			MethodesUtiles.setTaskValue();
-			}
+		variables.tabTasks = tabTasks;
 		}
+
+	
 	
 	
 	/*****
