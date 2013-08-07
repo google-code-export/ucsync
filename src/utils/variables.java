@@ -22,6 +22,7 @@ public class variables
 	private static String taskFileName;
 	private static String taskFileContent;
 	private static ArrayList<String[][]> tabOptionGlobal;
+	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
 	private static String axlPort;
 	private static String versionCCM;
@@ -35,6 +36,8 @@ public class variables
 		{
 		configFileName = new String("configFile.xml");
 		setTabOptionGlobal(false);
+		setTabTasks(false);
+		
 		axlPort = "8443";
 		versionCCM = "8";
 		}
@@ -155,6 +158,21 @@ public class variables
 			{
 			//On écrit le fichier
 			MethodesUtiles.setOptionValue();
+			}
+		}
+
+	public static ArrayList<String[][]> getTabTasks()
+		{
+		return tabTasks;
+		}
+
+	public static void setTabTasks(boolean override)
+		{
+		tabTasks = MethodesUtiles.getTaskValue(override);
+		if(!override)
+			{
+			//On écrit le fichier
+			MethodesUtiles.setTaskValue();
 			}
 		}
 	
