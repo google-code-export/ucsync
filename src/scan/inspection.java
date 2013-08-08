@@ -30,7 +30,21 @@ public class inspection extends worker
 		{
 		try
 			{
-			//Have to be written
+			/*******
+			 * Step 1 : Getting data from CUCM
+			 */
+			
+			/***************/
+			
+			
+			
+			/*****
+			 * Step 2 : Compare data and make to do list
+			 */
+			
+			/***************/
+			
+			
 			
 			
 			myTask.setStatus(typeStatus.waitingAck);
