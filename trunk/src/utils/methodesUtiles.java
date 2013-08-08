@@ -1,18 +1,12 @@
 
 package utils;
 
-import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
-
-import javax.swing.JOptionPane;
-
+//import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
 
 /*********************************************
@@ -150,7 +144,6 @@ public class methodesUtiles
 				if(Integer.parseInt(jVer.substring(6,8))<16)
 					{
 					variables.getLogger().info("Le programme a été terminé car la version de java n'est pas compatible");
-					JOptionPane.showMessageDialog(null,"La version de JAVA ("+jVer+") installée n'est pas compatible.\r\nUne version au minimum 1.6.0_20 est nécessaire\r\nLe programme va maintenant se terminer","Information",JOptionPane.INFORMATION_MESSAGE);
 					System.exit(0);
 					}
 				}
@@ -183,6 +176,29 @@ public class methodesUtiles
 		return DigestUtils.md5Hex(currentDate+Integer.toString(rnValue));
 		}
 	
+	
+	/********************************************
+	 * Method used to init the class eMailsender
+	 ********************************************/
+	public static void initEMailServer()
+		{
+		try
+			{
+			String port = methodesUtiles.getTargetOption("smtpemailport");
+			String protocol = methodesUtiles.getTargetOption("smtpemailprotocol");
+			String server = methodesUtiles.getTargetOption("smtpemailserver");
+			String user = methodesUtiles.getTargetOption("smtpemail");
+			String password = methodesUtiles.getTargetOption("smtpemailpassword");
+			variables.seteMSender(new eMailSender(port, protocol, server, user, password));
+			}
+		catch(Exception exc)
+			{
+			variables.getLogger().error("Le serveur n'a pas réussi à être initialisé : "+exc.getMessage());
+			exc.printStackTrace();
+			variables.getLogger().error("Le programme doit donc être arrêté : System.exit(0)");
+			System.exit(0);
+			}
+		}
 	
 	/*2013*//*RATEL Alexandre 8)*/
 	}

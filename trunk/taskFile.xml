@@ -22,6 +22,8 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<when>CONTINUOUS</when><!--DD/MM/YY HH:MM--><!--DAILY HH:MM--><!--CONTINUOUS-->
 			<description>user data synchronization</description>
 			<timeout>15</timeout>
+			<scandeepness>udp,phone,analog</scandeepness><!--udp,phone,analog--><!--You can choose each or just one-->
+			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<axlversion>8</axlversion>
 			<axlhost>10.110.92.1</axlhost>
 			<axlport>8443</axlport>
@@ -37,6 +39,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<displaytoolong>*M*cucm.enduser.nom</displaytoolong>
 			<linetextlabel>*M*cucm.enduser.nom+' '+*1M*cucm.enduser.prenom</linetextlabel>
 			<linetextlabeltoolong>*M*cucm.enduser.nom</linetextlabeltoolong>
+			<externalphonenumbermask></externalphonenumbermask>
 		</task>
 	</tasks>
 </xml>

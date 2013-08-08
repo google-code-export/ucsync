@@ -95,6 +95,12 @@ public class Principale
 			}
 		/*************************/
 		
+		/****
+		 * Init eMail server
+		 */
+		methodesUtiles.initEMailServer();
+		/****/
+		
 		/*********************************
 		 * Lancement du Thread principal
 		 *********************************/

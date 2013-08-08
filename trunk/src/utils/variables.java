@@ -4,6 +4,8 @@ package utils;
 import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
+import scan.userData;
+
 /*********************************************
  * Classe contenant les variables statiques
  * 
@@ -22,8 +24,7 @@ public class variables
 	private static ArrayList<String[][]> tabConfig;
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
-	
-	
+	private static ArrayList<userData> userList;
 	
 	/**
 	 * Contructeur
@@ -32,6 +33,7 @@ public class variables
 		{
 		configFileName = new String("configFile.xml");
 		taskFileName = new String("taskFile.xml");
+		userList = new ArrayList<userData>();
 		}
 	
 	/****
@@ -116,6 +118,16 @@ public class variables
 	public static void setTabTasks(ArrayList<String[][]> tabTasks)
 		{
 		variables.tabTasks = tabTasks;
+		}
+
+	public static ArrayList<userData> getUserList()
+		{
+		return userList;
+		}
+
+	public static void setUserList(ArrayList<userData> userList)
+		{
+		variables.userList = userList;
 		}
 
 	
