@@ -1,5 +1,8 @@
 package schedule;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -7,6 +10,7 @@ import execute.modify;
 
 import scan.inspection;
 import utils.methodesUtiles;
+import utils.variables;
 
 import misc.toDo;
 import misc.worker;
@@ -17,41 +21,31 @@ import misc.worker;
  * 
  * @author RATEL Alexandre
  **********************************/
-public class task
+public abstract class task
 	{
 	/**
 	 * Variables
 	 */
-	public enum typeStatus{init,working,waitingAck,done,toDelete,error};
-	protected typeStatus status;
+	public enum statusType{init,working,waitingAck,done,toDelete,error};
+	public enum taskType{userSync};
+	protected statusType status;
+	protected taskType type;
 	protected String description;
 	protected int age;
-	protected Date when;
+	protected String when;
 	protected worker myWorker;
-	protected ArrayList<toDo> toDoList;
 	protected final String id;
+	protected int taskIndex;
 	
-	public task()
+	public task(int taskIndex, taskType type) throws Exception
 		{
-		status = typeStatus.init;
+		this.taskIndex = taskIndex;
+		this.type = type;
+		status = statusType.init;
 		age = 0;
 		id = methodesUtiles.getID();
-		}
-	
-	/**
-	 * Method used to fill the toDo list
-	 */
-	public void fillToDoList()
-		{
-		myWorker = new inspection(this);	
-		}
-	
-	/**
-	 * Method used to execute the toDo list
-	 */
-	public void executeToDoList()
-		{
-		myWorker = new modify(this);	
+		when = methodesUtiles.getTargetTask("when",taskIndex);
+		description = methodesUtiles.getTargetTask("description",taskIndex);
 		}
 
 	/**
@@ -62,18 +56,74 @@ public class task
 		myWorker.interrupt();
 		}
 	
-	
+	public boolean isItLaunchedTime()
+		{
+		String[] dateTag = when.split(" ");
+		if(dateTag.length >= 2)
+			{
+			variables.getLogger().error("Task config file is corrupted, so it is not possible to know the correct launch time for the task "+this.getTaskIndex()+" ID:"+this.getId());
+			variables.getLogger().error("isItLaunchedTime, return false");
+			return false;
+			}
+		
+		if((when.compareTo("CONTINUOUS") == 0)||(when.compareTo("") == 0))
+			{
+			return true;
+			}
+		else if(dateTag[0].compareTo("DAILY") == 0)
+			{
+			try
+				{
+				/**
+				 * Here we have to launch task once a day
+				 */
+				//get the current day
+				Date now = new Date();
+				SimpleDateFormat dateFormat = new SimpleDateFormat("EEE dd MMM yyyy");
+				String currentDate = dateFormat.format(now); 
+				//Add it to the task file hour
+				String dateString = currentDate+" "+dateTag[1];
+				
+				//Then convert it to a Date object
+				DateFormat df = DateFormat.getDateInstance();
+				Date taskDate = df.parse(dateString);
+				
+				//We now have to find if it's time to launch the task
+				if(now.after(taskDate))
+					{
+					return true;
+					}
+				else
+					{
+					return false;
+					}
+				}
+			catch (ParseException exc)
+				{
+				exc.printStackTrace();
+				variables.getLogger().error(exc);
+				variables.getLogger().error("It was not possible to find the correct hour for a DAILY task "+this.getTaskIndex()+" ID:"+this.getId());
+				variables.getLogger().error("isItLaunchedTime, return false");
+				return false;
+				}
+			}
+		else
+			{
+			//By default, we don't launch the task
+			return false;
+			}
+		}
 	
 	
 	/**
 	 * Getters and setters
 	 */
-	public typeStatus getStatus()
+	public statusType getStatus()
 		{
 		return status;
 		}
 
-	public void setStatus(typeStatus status)
+	public void setStatus(statusType status)
 		{
 		this.status = status;
 		}
@@ -98,12 +148,12 @@ public class task
 		this.age = age;
 		}
 
-	public Date getWhen()
+	public String getWhen()
 		{
 		return when;
 		}
 
-	public void setWhen(Date when)
+	public void setWhen(String when)
 		{
 		this.when = when;
 		}
@@ -118,19 +168,29 @@ public class task
 		this.myWorker = myWorker;
 		}
 
-	public ArrayList<toDo> getToDoList()
-		{
-		return toDoList;
-		}
-
-	public void setToDoList(ArrayList<toDo> toDoList)
-		{
-		this.toDoList = toDoList;
-		}
-
 	public String getId()
 		{
 		return id;
+		}
+
+	public int getTaskIndex()
+		{
+		return taskIndex;
+		}
+
+	public void setTaskIndex(int taskIndex)
+		{
+		this.taskIndex = taskIndex;
+		}
+
+	public taskType getType()
+		{
+		return type;
+		}
+
+	public void setType(taskType type)
+		{
+		this.type = type;
 		}
 	
 	

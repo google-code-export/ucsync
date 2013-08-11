@@ -1,7 +1,7 @@
 package misc;
 
 import schedule.task;
-import schedule.task.typeStatus;
+import schedule.task.statusType;
 
 /**********************************
  * Class used to be extended
@@ -18,7 +18,7 @@ public abstract class worker extends Thread implements workimpl
 	public worker(task myTask)
 		{
 		isNotFinished = true;
-		myTask.setStatus(typeStatus.working);
+		myTask.setStatus(statusType.working);
 		this.myTask = myTask;
 		}
 

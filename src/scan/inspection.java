@@ -1,7 +1,7 @@
 package scan;
 
 import schedule.task;
-import schedule.task.typeStatus;
+import schedule.task.statusType;
 import utils.variables;
 import misc.worker;
 
@@ -47,7 +47,7 @@ public class inspection extends worker
 			
 			
 			
-			myTask.setStatus(typeStatus.waitingAck);
+			myTask.setStatus(statusType.waitingAck);
 			}
 		catch(Exception exc)
 			{

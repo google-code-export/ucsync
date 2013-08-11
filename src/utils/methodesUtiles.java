@@ -9,6 +9,8 @@ import java.util.Random;
 //import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import schedule.task;
+
 /*********************************************
  * Class used to store miscellaneous static method
  * 
@@ -111,6 +113,29 @@ public class methodesUtiles
 	 * Method used to get a specific value
 	 * in the task config file
 	 ***************************************/
+	public static String getTargetTask(String node) throws Exception
+		{
+		int index = getTaskIndex();
+		variables.getLogger().debug("Variable cherchée : "+node);
+		for(int i=0;i<variables.getTabTasks().get(index).length; i++)
+			{
+			if(variables.getTabTasks().get(index)[i][0].compareTo(node)==0)
+				{
+				variables.getLogger().debug("Valeure trouvée : "+variables.getTabTasks().get(index)[i][1]);
+				return variables.getTabTasks().get(index)[i][1];
+				}
+			}
+		
+		/***********
+		 * If this point is reached, the option looked for was not found
+		 */
+		throw new Exception("Option not found"); 
+		}
+	
+	/***************************************
+	 * Method used to get a specific value
+	 * in the task config file using task index
+	 ***************************************/
 	public static String getTargetTask(String node, int index) throws Exception
 		{
 		variables.getLogger().debug("Variable cherchée : "+node);
@@ -198,6 +223,28 @@ public class methodesUtiles
 			variables.getLogger().error("Le programme doit donc être arrêté : System.exit(0)");
 			System.exit(0);
 			}
+		}
+	
+	/**
+	 * Method used to get the task index 
+	 * using stack trace and reflexion
+	 * 
+	 * !!!! Have to be test !!!!
+	 */
+	public static int getTaskIndex() throws Exception
+		{
+		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
+		
+		for (int i=0; i<stackTraceElements.length; i++)
+			{
+			variables.getLogger().debug("StackTraceElement :"+i+" "+stackTraceElements[i].getClassName());
+			if(stackTraceElements[i].getClassName().compareTo("task") == 0)
+				{
+				String value = (String) stackTraceElements[i].getClass().getField("taskIndex").get(stackTraceElements[i]);
+				return Integer.parseInt(value);
+				}
+			}
+		throw new Exception("ERROR : It has not been possible to determine task index");
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

@@ -1,6 +1,7 @@
 <xml>
 	<config>
 		<log4j>DEBUG</log4j>
+		<checkfreq>1000</checkfreq>
 		<smtpemailport>465</smtpemailport>
 		<smtpemailprotocol>TLS</smtpemailprotocol>
 		<smtpemailserver>smtp.gmail.com</smtpemailserver>

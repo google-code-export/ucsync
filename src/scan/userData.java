@@ -2,6 +2,8 @@ package scan;
 
 import java.util.ArrayList;
 
+import utils.methodesUtiles;
+
 /**********************************
  * Class used to store device informations
  * 
@@ -14,7 +16,8 @@ public class userData
 	 */
 	private final String UUID; 
 	private String firstName, lastName, userid, telephoneNumber, departement;
-	private ArrayList<device> associatedDevice;
+	private ArrayList<device> associatedDevice; //Contient les devices associés
+	private ArrayList<line> associatedLine; //Le cas échéant, contient les lignes associées
 	
 	public userData(String UUID, String firstName, String lastName, String userid, String telephoneNumber, String departement)
 		{
@@ -24,7 +27,22 @@ public class userData
 		this.userid = userid;
 		this.telephoneNumber = telephoneNumber;
 		this.departement = departement;
+		
+		fillAssociated();
 		}
+	
+	/**
+	 * Method used to fill associated 
+	 * data like device or line
+	 */
+	public void fillAssociated()
+		{
+		fillAssociatedDevice();
+		
+		}
+	
+	
+	
 	
 	/**
 	 * Method used to fill the
@@ -38,6 +56,16 @@ public class userData
 		 * I mixed udp, device and line cause they are all device
 		 * in the CUCM database
 		 */
+		
+		}
+	
+	/**
+	 * Method used to fill the
+	 * associatedLine Arraylist
+	 */
+	public void fillAssociatedLine()
+		{
+		
 		
 		}
 	

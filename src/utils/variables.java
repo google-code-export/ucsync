@@ -4,7 +4,10 @@ package utils;
 import java.util.ArrayList;
 import org.apache.log4j.Logger;
 
+import scan.device;
+import scan.line;
 import scan.userData;
+import schedule.task;
 
 /*********************************************
  * Classe contenant les variables statiques
@@ -25,6 +28,9 @@ public class variables
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
 	private static ArrayList<userData> userList;
+	private static ArrayList<device> globalDeviceList;
+	private static ArrayList<line> globalLineList;
+	private static ArrayList<task> taskList;
 	
 	/**
 	 * Contructeur
@@ -34,6 +40,9 @@ public class variables
 		configFileName = new String("configFile.xml");
 		taskFileName = new String("taskFile.xml");
 		userList = new ArrayList<userData>();
+		globalDeviceList = new ArrayList<device>();
+		globalLineList = new ArrayList<line>();
+		taskList = new ArrayList<task>();
 		}
 	
 	/****
@@ -130,6 +139,35 @@ public class variables
 		variables.userList = userList;
 		}
 
+	public static ArrayList<device> getGlobalDeviceList()
+		{
+		return globalDeviceList;
+		}
+
+	public static void setGlobalDeviceList(ArrayList<device> globalDeviceList)
+		{
+		variables.globalDeviceList = globalDeviceList;
+		}
+
+	public static ArrayList<line> getGlobalLineList()
+		{
+		return globalLineList;
+		}
+
+	public static void setGlobalLineList(ArrayList<line> globalLineList)
+		{
+		variables.globalLineList = globalLineList;
+		}
+
+	public static ArrayList<task> getTaskList()
+		{
+		return taskList;
+		}
+
+	public static void setTaskList(ArrayList<task> taskList)
+		{
+		variables.taskList = taskList;
+		}	
 	
 	
 	
