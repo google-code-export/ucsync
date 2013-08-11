@@ -3,6 +3,8 @@ package start;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.apache.log4j.Level;
+
+import schedule.scheduler;
 import utils.methodesUtiles;
 import utils.initLogging;
 import utils.variables;
@@ -104,7 +106,7 @@ public class Principale
 		/*********************************
 		 * Lancement du Thread principal
 		 *********************************/
-		//Yeahhh !!!!!
+		new scheduler();
 		/*********************************/
 		}
 	
