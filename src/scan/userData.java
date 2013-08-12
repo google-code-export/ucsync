@@ -2,7 +2,9 @@ package scan;
 
 import java.util.ArrayList;
 
+import schedule.userSync;
 import utils.methodesUtiles;
+import utils.variables;
 
 /**********************************
  * Class used to store device informations
@@ -14,12 +16,13 @@ public class userData
 	/**
 	 * Variables
 	 */
+	private userSync myUSync;
 	private final String UUID; 
 	private String firstName, lastName, userid, telephoneNumber, departement;
 	private ArrayList<device> associatedDevice; //Contient les devices associés
 	private ArrayList<line> associatedLine; //Le cas échéant, contient les lignes associées
 	
-	public userData(String UUID, String firstName, String lastName, String userid, String telephoneNumber, String departement)
+	public userData(String UUID, String firstName, String lastName, String userid, String telephoneNumber, String departement, userSync myUSync) throws Exception
 		{
 		this.UUID = UUID;
 		this.firstName = firstName;
@@ -27,6 +30,10 @@ public class userData
 		this.userid = userid;
 		this.telephoneNumber = telephoneNumber;
 		this.departement = departement;
+		this.myUSync = myUSync;
+		
+		associatedDevice = new ArrayList<device>();
+		associatedLine = new ArrayList<line>();
 		
 		fillAssociated();
 		}
@@ -35,10 +42,23 @@ public class userData
 	 * Method used to fill associated 
 	 * data like device or line
 	 */
-	public void fillAssociated()
+	public void fillAssociated() throws Exception
 		{
-		fillAssociatedDevice();
-		
+		try
+			{
+			fillAssociatedDevice();
+			
+			if(methodesUtiles.getTargetTask("smartlinesearch",myUSync.getTaskIndex()).compareTo("") == 0)
+				{
+				fillAssociatedLine();
+				}
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			throw new Exception(myUSync.getTInfo()+"ERROR during associated device research");
+			}
 		}
 	
 	
@@ -53,10 +73,16 @@ public class userData
 		/****
 		 * In the first time I will get only 
 		 * UUIDs of associated device
-		 * I mixed udp, device and line cause they are all device
+		 * I mixed udp, device and analog cause they are all device
 		 * in the CUCM database
 		 */
-		
+		for(int i=0; i<myUSync.getGlobalAssociatedDeviceList().size(); i++)
+			{
+			if(myUSync.getGlobalAssociatedDeviceList().get(i).getUserPkid().compareTo(UUID) == 0)
+				{
+				associatedDevice.add(new device(myUSync.getGlobalAssociatedDeviceList().get(i).getDevicePkid(), myUSync));
+				}
+			}
 		}
 	
 	/**
