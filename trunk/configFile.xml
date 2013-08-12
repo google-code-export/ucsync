@@ -1,13 +1,14 @@
 <xml>
 	<config>
 		<log4j>DEBUG</log4j>
-		<checkfreq>1000</checkfreq>
+		<checkfreq>1000</checkfreq><!--Frequency for task status check. In milliseconds-->
 		<smtpemailport>465</smtpemailport>
 		<smtpemailprotocol>TLS</smtpemailprotocol>
 		<smtpemailserver>smtp.gmail.com</smtpemailserver>
 		<smtpemail>spiewiki.pro@gmail.com</smtpemail>
 		<smtpemailpassword>Wiki2alex</smtpemailpassword>
-		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin>
-		<webserverport>8080</webserverport>
+		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->
+		<webserverport>8080</webserverport><!--Port used by the internal web server to listen for ack-->
+		<maxtasktime>1440</maxtasktime><!--Max task time before automatic delete. In minute-->
 	</config>
 </xml>

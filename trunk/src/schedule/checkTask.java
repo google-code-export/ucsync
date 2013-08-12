@@ -44,6 +44,7 @@ public class checkTask
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
+					myTaskList.get(i).initStartTime();
 					((userSync)myTaskList.get(i)).fillToDoList();
 					}
 				else
@@ -51,16 +52,80 @@ public class checkTask
 					//if needed
 					}
 				}
-			else if((myTaskList.get(i).getStatus().equals(statusType.waitingAck))&&(myTaskList.get(i).isItLaunchedTime()))
-				{if(myTaskList.get(i).getType().equals(taskType.userSync))
+			else if((myTaskList.get(i).getStatus().equals(statusType.waitingAck))&&(myTaskList.get(i).isExpired()))
+				{
+				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					((userSync)myTaskList.get(i)).fillToDoList();
+					//Have to be written
 					}
 				else
 					{
 					//if needed
 					}
-				
+				}
+			else if((myTaskList.get(i).getStatus().equals(statusType.pending))&&(myTaskList.get(i).isItLaunchedTime()))
+				{
+				if(myTaskList.get(i).getType().equals(taskType.userSync))
+					{
+					//Have to be written
+					}
+				else
+					{
+					//if needed
+					}
+				}
+			else if(myTaskList.get(i).getStatus().equals(statusType.done))
+				{
+				if(myTaskList.get(i).getType().equals(taskType.userSync))
+					{
+					//Have to be written
+					}
+				else
+					{
+					//if needed
+					}
+				}
+			else if((myTaskList.get(i).getStatus().equals(statusType.working))&&(myTaskList.get(i).isExpired()))
+				{
+				if(myTaskList.get(i).getType().equals(taskType.userSync))
+					{
+					//Have to be written
+					}
+				else
+					{
+					//if needed
+					}
+				}
+			else if(myTaskList.get(i).getStatus().equals(statusType.error))
+				{
+				if(myTaskList.get(i).getType().equals(taskType.userSync))
+					{
+					myTaskList.get(i).setStatus(statusType.toDelete);
+					
+					//We have to send an email to the administrator to warn him
+					StringBuffer cont = new StringBuffer("ERROR : \r\n");
+					cont.append("The task "+myTaskList.get(i).getTaskIndex()+" ID:"+myTaskList.get(i).getId()+" has been deleted with error.\r\n");
+					cont.append("Please consult appropriate logs and contact your administrator\r\n\r\n");
+					cont.append("Best regards : The "+variables.getNomProg()+" team");
+					methodesUtiles.sendToAdminList("ERROR : "+variables.getNomProg(), cont.toString(), "emailerrorsend");
+					}
+				else
+					{
+					//if needed
+					}
+				}
+			}
+		
+		/**
+		 * Garbage collector
+		 * aims to delete task
+		 */
+		for(int i=0; i<myTaskList.size(); i++)
+			{
+			if(myTaskList.get(i).getStatus().equals(statusType.toDelete))
+				{
+				myTaskList.get(i).stopWorking();
+				myTaskList.remove(i);
 				}
 			}
 		}

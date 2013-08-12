@@ -247,5 +247,33 @@ public class methodesUtiles
 		throw new Exception("ERROR : It has not been possible to determine task index");
 		}
 	
+	/**
+	 * Methods used to send an email to the administrator
+	 */
+	public static void sendToAdminList(String sub, String cont, String desc)
+		{
+		try
+			{
+			String sendTo = new String("");
+			String subject = sub;
+			String content = cont;
+			String eMailDesc = desc;
+			
+			String[] emailTab = methodesUtiles.getTargetOption("smtpemailadmin").split(",");
+			
+			for(int j=0; j<emailTab.length; j++)
+				{
+				sendTo = emailTab[j];
+				variables.geteMSender().send(sendTo, subject, content, eMailDesc);
+				}
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Error during Email sending");
+			}
+		}
+	
 	/*2013*//*RATEL Alexandre 8)*/
 	}

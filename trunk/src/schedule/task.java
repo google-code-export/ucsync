@@ -4,6 +4,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 
 import execute.modify;
@@ -26,7 +27,7 @@ public abstract class task
 	/**
 	 * Variables
 	 */
-	public enum statusType{init,working,waitingAck,done,toDelete,error};
+	public enum statusType{init,working,waitingAck,pending,done,toDelete,error};
 	public enum taskType{userSync};
 	protected statusType status;
 	protected taskType type;
@@ -36,6 +37,8 @@ public abstract class task
 	protected worker myWorker;
 	protected final String id;
 	protected int taskIndex;
+	protected long startTime;
+	protected Date lastLaunchedTime;
 	
 	public task(int taskIndex, taskType type) throws Exception
 		{
@@ -46,6 +49,7 @@ public abstract class task
 		id = methodesUtiles.getID();
 		when = methodesUtiles.getTargetTask("when",taskIndex);
 		description = methodesUtiles.getTargetTask("description",taskIndex);
+		startTime = System.currentTimeMillis();
 		}
 
 	/**
@@ -88,6 +92,13 @@ public abstract class task
 				DateFormat df = DateFormat.getDateInstance();
 				Date taskDate = df.parse(dateString);
 				
+				//We have to check if the last launched time was the same day
+				SimpleDateFormat format = new SimpleDateFormat("dd");
+				if(format.format(now).compareTo(format.format(lastLaunchedTime)) == 0)
+					{
+					return false;
+					}
+				
 				//We now have to find if it's time to launch the task
 				if(now.after(taskDate))
 					{
@@ -112,6 +123,33 @@ public abstract class task
 			//By default, we don't launch the task
 			return false;
 			}
+		}
+	
+	/**
+	 * Method used to know if the task
+	 * is expired and therefore, if it should
+	 * be deleted
+	 */
+	public boolean isExpired() throws Exception
+		{
+		long currentTime = System.currentTimeMillis();
+		long maxTime = (long)(Integer.parseInt(methodesUtiles.getTargetOption("maxtasktime"))*60*1000);//in milliseconds
+		
+		if((currentTime - startTime)>= maxTime)
+			{
+			variables.getLogger().info("Task "+taskIndex+" ID:"+id+" has expired");
+			return true;
+			}
+		return false;
+		}
+	
+	/**
+	 * Method used to init start time
+	 */
+	public void initStartTime()
+		{
+		startTime = System.currentTimeMillis();
+		lastLaunchedTime = new Date();
 		}
 	
 	
