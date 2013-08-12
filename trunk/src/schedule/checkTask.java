@@ -56,7 +56,7 @@ public class checkTask
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					//Have to be written
+					myTaskList.get(i).setStatus(statusType.toDelete);
 					}
 				else
 					{
@@ -67,7 +67,7 @@ public class checkTask
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					//Have to be written
+					((userSync)myTaskList.get(i)).executeToDoList();
 					}
 				else
 					{
@@ -78,7 +78,7 @@ public class checkTask
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					//Have to be written
+					myTaskList.get(i).setStatus(statusType.toDelete);
 					}
 				else
 					{
@@ -89,7 +89,8 @@ public class checkTask
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					//Have to be written
+					myTaskList.get(i).setStatus(statusType.toDelete);
+					variables.getLogger().info(myTaskList.get(i).getTInfo()+"is working since too many time. Deleting process is launched");
 					}
 				else
 					{
@@ -104,7 +105,7 @@ public class checkTask
 					
 					//We have to send an email to the administrator to warn him
 					StringBuffer cont = new StringBuffer("ERROR : \r\n");
-					cont.append("The task "+myTaskList.get(i).getTaskIndex()+" ID:"+myTaskList.get(i).getId()+" has been deleted with error.\r\n");
+					cont.append(myTaskList.get(i).getTInfo()+"has been deleted with error.\r\n");
 					cont.append("Please consult appropriate logs and contact your administrator\r\n\r\n");
 					cont.append("Best regards : The "+variables.getNomProg()+" team");
 					methodesUtiles.sendToAdminList("ERROR : "+variables.getNomProg(), cont.toString(), "emailerrorsend");
@@ -126,6 +127,9 @@ public class checkTask
 				{
 				myTaskList.get(i).stopWorking();
 				myTaskList.remove(i);
+				//We start again from zero cause the taskList size is changed now. So 
+				//it is possible to miss a "toDelete" task
+				i=0;
 				}
 			}
 		}
@@ -142,7 +146,7 @@ public class checkTask
 		for(int i=0; i<myTaskList.size(); i++)
 			{
 			taskAlreadyExisting.add(new Integer(myTaskList.get(i).getTaskIndex()));
-			variables.getLogger().debug("Task :"+myTaskList.get(i).getTaskIndex()+" is already exiting");
+			variables.getLogger().debug(myTaskList.get(i).getTInfo()+"is already exiting");
 			}
 		
 		for(int i=0; i<variables.getTaskList().size(); i++)
@@ -169,7 +173,7 @@ public class checkTask
 						{
 						userSync myUserSync = new userSync(i); 
 						myTaskList.add(myUserSync);
-						variables.getLogger().debug("Task "+i+" of type UserSync has been launched with success. This ID is "+myUserSync.getId());
+						variables.getLogger().debug(myUserSync.getTInfo()+"of type UserSync has been launched with success");
 						}
 					catch (Exception exc)
 						{

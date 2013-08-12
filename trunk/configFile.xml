@@ -10,5 +10,6 @@
 		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->
 		<webserverport>8080</webserverport><!--Port used by the internal web server to listen for ack-->
 		<maxtasktime>1440</maxtasktime><!--Max task time before automatic delete. In minute-->
+		<mode>ackneeded</mode><!--Used to set if admin ack is needed to execute modification--><!--ackneeded, auto-->
 	</config>
 </xml>

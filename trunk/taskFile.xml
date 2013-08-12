@@ -20,10 +20,10 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 		<task>
 			<type>usersync</type><!--usersync-->
 			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h only-->
-			<description>user data synchronization</description>
+			<description>user data synchronization</description><!--Task description-->
 			<timeout>15</timeout>
 			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
-			<smartLineSearch>true</smartLineSearch><!--true,false-->
+			<smartlinesearch>false</smartlinesearch><!--true,false-->
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<axlversion>8</axlversion>
 			<axlhost>10.110.92.1</axlhost>

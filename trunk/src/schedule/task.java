@@ -65,7 +65,7 @@ public abstract class task
 		String[] dateTag = when.split(" ");
 		if(dateTag.length >= 2)
 			{
-			variables.getLogger().error("Task config file is corrupted, so it is not possible to know the correct launch time for the task "+this.getTaskIndex()+" ID:"+this.getId());
+			variables.getLogger().error("Task config file is corrupted, so it is not possible to know the correct launch time for the "+getTInfo());
 			variables.getLogger().error("isItLaunchedTime, return false");
 			return false;
 			}
@@ -113,7 +113,7 @@ public abstract class task
 				{
 				exc.printStackTrace();
 				variables.getLogger().error(exc);
-				variables.getLogger().error("It was not possible to find the correct hour for a DAILY task "+this.getTaskIndex()+" ID:"+this.getId());
+				variables.getLogger().error("It was not possible to find the correct hour for a DAILY "+getTInfo());
 				variables.getLogger().error("isItLaunchedTime, return false");
 				return false;
 				}
@@ -137,7 +137,7 @@ public abstract class task
 		
 		if((currentTime - startTime)>= maxTime)
 			{
-			variables.getLogger().info("Task "+taskIndex+" ID:"+id+" has expired");
+			variables.getLogger().info(getTInfo()+"has expired");
 			return true;
 			}
 		return false;
@@ -150,8 +150,17 @@ public abstract class task
 		{
 		startTime = System.currentTimeMillis();
 		lastLaunchedTime = new Date();
+		variables.getLogger().debug("task ");
 		}
 	
+	/**
+	 * Method used get task information
+	 * used to write logs 
+	 */
+	public String getTInfo()
+		{
+		return "Task "+this.taskIndex+" ID:"+this.id+" ";
+		}
 	
 	/**
 	 * Getters and setters

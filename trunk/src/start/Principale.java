@@ -5,6 +5,7 @@ import java.util.Date;
 import org.apache.log4j.Level;
 
 import schedule.scheduler;
+import utils.SOAPGear;
 import utils.methodesUtiles;
 import utils.initLogging;
 import utils.variables;

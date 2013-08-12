@@ -2,7 +2,14 @@ package schedule;
 
 import java.util.ArrayList;
 
+import scan.device;
+import scan.deviceAssociatedLine;
 import scan.inspection;
+import scan.line;
+import scan.userAssociatedDevice;
+import scan.userData;
+import utils.SOAPGear;
+import utils.methodesUtiles;
 import utils.variables;
 import execute.modify;
 
@@ -19,12 +26,25 @@ public class userSync extends task
 	 * Variables
 	 */
 	private ArrayList<toDo> toDoList;
-	
+	private SOAPGear soapGear;
+	private ArrayList<userData> userList;
+	private ArrayList<device> globalDeviceList;
+	private ArrayList<userAssociatedDevice> globalAssociatedDeviceList;
+	private ArrayList<deviceAssociatedLine> globalAssociatedLineList;
+	private ArrayList<line> globalLineList;
 	
 	
 	public userSync(int taskIndex) throws Exception
 		{
 		super(taskIndex,taskType.userSync);
+		
+		variables.getLogger().info("Init AXL connection");
+		String axlport = methodesUtiles.getTargetTask("axlport",this.getTaskIndex());
+		String axlhost = methodesUtiles.getTargetTask("axlhost",this.getTaskIndex());
+		String axluser = methodesUtiles.getTargetTask("axlusername",this.getTaskIndex());
+		String axlpassword = methodesUtiles.getTargetTask("axlpassword",this.getTaskIndex());
+		
+		soapGear = new SOAPGear(axlport,axlhost,axluser,axlpassword);
 		}
 	
 	/**
@@ -32,7 +52,17 @@ public class userSync extends task
 	 */
 	public void fillToDoList()
 		{
-		myWorker = new inspection(this);	
+		try
+			{
+			myWorker = new inspection(this);
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error(this.getTInfo()+"An error occured. Task will be deleted");
+			this.setStatus(statusType.toDelete);
+			}
 		}
 	
 	/**
@@ -40,10 +70,9 @@ public class userSync extends task
 	 */
 	public void executeToDoList()
 		{
-		myWorker = new modify(this);	
+		myWorker = new modify(this);
 		}
-	
-	
+
 	public ArrayList<toDo> getToDoList()
 		{
 		return toDoList;
@@ -53,6 +82,63 @@ public class userSync extends task
 		{
 		this.toDoList = toDoList;
 		}
+
+	public ArrayList<userData> getUserList()
+		{
+		return userList;
+		}
+
+	public void setUserList(ArrayList<userData> userList)
+		{
+		this.userList = userList;
+		}
+
+	public ArrayList<device> getGlobalDeviceList()
+		{
+		return globalDeviceList;
+		}
+
+	public void setGlobalDeviceList(ArrayList<device> globalDeviceList)
+		{
+		this.globalDeviceList = globalDeviceList;
+		}
+
+	public ArrayList<userAssociatedDevice> getGlobalAssociatedDeviceList()
+		{
+		return globalAssociatedDeviceList;
+		}
+
+	public void setGlobalAssociatedDeviceList(ArrayList<userAssociatedDevice> globalAssociatedDeviceList)
+		{
+		this.globalAssociatedDeviceList = globalAssociatedDeviceList;
+		}
+
+	public ArrayList<deviceAssociatedLine> getGlobalAssociatedLineList()
+		{
+		return globalAssociatedLineList;
+		}
+
+	public void setGlobalAssociatedLineList(ArrayList<deviceAssociatedLine> globalAssociatedLineList)
+		{
+		this.globalAssociatedLineList = globalAssociatedLineList;
+		}
+
+	public ArrayList<line> getGlobalLineList()
+		{
+		return globalLineList;
+		}
+
+	public void setGlobalLineList(ArrayList<line> globalLineList)
+		{
+		this.globalLineList = globalLineList;
+		}
+
+	public SOAPGear getSoapGear()
+		{
+		return soapGear;
+		}
+	
+
 	
 	
 	

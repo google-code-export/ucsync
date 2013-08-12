@@ -27,9 +27,6 @@ public class variables
 	private static ArrayList<String[][]> tabConfig;
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
-	private static ArrayList<userData> userList;
-	private static ArrayList<device> globalDeviceList;
-	private static ArrayList<line> globalLineList;
 	private static ArrayList<task> taskList;
 	
 	/**
@@ -39,9 +36,6 @@ public class variables
 		{
 		configFileName = new String("configFile.xml");
 		taskFileName = new String("taskFile.xml");
-		userList = new ArrayList<userData>();
-		globalDeviceList = new ArrayList<device>();
-		globalLineList = new ArrayList<line>();
 		taskList = new ArrayList<task>();
 		}
 	
@@ -129,36 +123,6 @@ public class variables
 		variables.tabTasks = tabTasks;
 		}
 
-	public static ArrayList<userData> getUserList()
-		{
-		return userList;
-		}
-
-	public static void setUserList(ArrayList<userData> userList)
-		{
-		variables.userList = userList;
-		}
-
-	public static ArrayList<device> getGlobalDeviceList()
-		{
-		return globalDeviceList;
-		}
-
-	public static void setGlobalDeviceList(ArrayList<device> globalDeviceList)
-		{
-		variables.globalDeviceList = globalDeviceList;
-		}
-
-	public static ArrayList<line> getGlobalLineList()
-		{
-		return globalLineList;
-		}
-
-	public static void setGlobalLineList(ArrayList<line> globalLineList)
-		{
-		variables.globalLineList = globalLineList;
-		}
-
 	public static ArrayList<task> getTaskList()
 		{
 		return taskList;
@@ -167,8 +131,7 @@ public class variables
 	public static void setTaskList(ArrayList<task> taskList)
 		{
 		variables.taskList = taskList;
-		}	
-	
+		}
 	
 	
 	/*****
