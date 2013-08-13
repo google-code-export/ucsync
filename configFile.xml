@@ -2,6 +2,7 @@
 	<config>
 		<log4j>DEBUG</log4j>
 		<checkfreq>1000</checkfreq><!--Frequency for task status check. In milliseconds-->
+		<garbagefreq>100</garbagefreq><!--Frequency for garbage collector check. In milliseconds-->
 		<smtpemailport>465</smtpemailport>
 		<smtpemailprotocol>TLS</smtpemailprotocol>
 		<smtpemailserver>smtp.gmail.com</smtpemailserver>
