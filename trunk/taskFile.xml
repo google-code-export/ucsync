@@ -1,8 +1,8 @@
 <!--Fichier de paramétrage des tâches de synchro-->
 <!--Rappel :
-Nom = cucm.enduser.nom
-Prénom = cucm.enduser.prenom
-UserID = cucm.enduser.userid
+Nom = cucm.nom
+Prénom = cucm.prenom
+UserID = cucm.userid
 Numéro de la ligne = cucm.nligne
 Département = cucm.dept
 Champs active directory : A venir. exemple : ad.ipphone
@@ -35,12 +35,12 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<devicedescriptiontoolong></devicedescriptiontoolong>
 			<linedescription></linedescription>
 			<linedescriptiontoolong></linedescriptiontoolong>
-			<alertingname>*M*cucm.enduser.nom+' '+*1M*cucm.enduser.prenom</alertingname>
-			<alertingnametoolong>*M*cucm.enduser.nom</alertingnametoolong>
-			<display>*M*cucm.enduser.nom+' '+*1M*cucm.enduser.prenom</display>
-			<displaytoolong>*M*cucm.enduser.nom</displaytoolong>
-			<linetextlabel>*M*cucm.enduser.nom+' '+*1M*cucm.enduser.prenom</linetextlabel>
-			<linetextlabeltoolong>*M*cucm.enduser.nom</linetextlabeltoolong>
+			<alertingname>*M*cucm.nom+' '+*1M*cucm.prenom</alertingname>
+			<alertingnametoolong>*M*cucm.nom</alertingnametoolong>
+			<display>*M*cucm.nom+' '+*1M*cucm.prenom</display>
+			<displaytoolong>*M*cucm.nom</displaytoolong>
+			<linetextlabel>*M*cucm.nom+' '+*1M*cucm.prenom</linetextlabel>
+			<linetextlabeltoolong>*M*cucm.nom</linetextlabeltoolong>
 			<externalphonenumbermask></externalphonenumbermask>
 		</task>
 	</tasks>

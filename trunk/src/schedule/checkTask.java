@@ -2,7 +2,7 @@ package schedule;
 
 import java.util.ArrayList;
 
-import schedule.task.statusType;
+import schedule.task.taskStatusType;
 import schedule.task.taskType;
 import utils.methodesUtiles;
 import utils.variables;
@@ -40,7 +40,7 @@ public class checkTask
 		
 		for(int i=0; i<myTaskList.size(); i++)
 			{
-			if((myTaskList.get(i).getStatus().equals(statusType.init))&&(myTaskList.get(i).isItLaunchedTime()))
+			if((myTaskList.get(i).getStatus().equals(taskStatusType.init))&&(myTaskList.get(i).isItLaunchedTime()))
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
@@ -52,18 +52,18 @@ public class checkTask
 					//if needed
 					}
 				}
-			else if((myTaskList.get(i).getStatus().equals(statusType.waitingAck))&&(myTaskList.get(i).isExpired()))
+			else if((myTaskList.get(i).getStatus().equals(taskStatusType.waitingAck))&&(myTaskList.get(i).isExpired()))
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					myTaskList.get(i).setStatus(statusType.toDelete);
+					myTaskList.get(i).setStatus(taskStatusType.toDelete);
 					}
 				else
 					{
 					//if needed
 					}
 				}
-			else if((myTaskList.get(i).getStatus().equals(statusType.pending))&&(myTaskList.get(i).isItLaunchedTime()))
+			else if((myTaskList.get(i).getStatus().equals(taskStatusType.pending))&&(myTaskList.get(i).isItLaunchedTime()))
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
@@ -74,22 +74,22 @@ public class checkTask
 					//if needed
 					}
 				}
-			else if(myTaskList.get(i).getStatus().equals(statusType.done))
+			else if(myTaskList.get(i).getStatus().equals(taskStatusType.done))
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					myTaskList.get(i).setStatus(statusType.toDelete);
+					myTaskList.get(i).setStatus(taskStatusType.toDelete);
 					}
 				else
 					{
 					//if needed
 					}
 				}
-			else if((myTaskList.get(i).getStatus().equals(statusType.working))&&(myTaskList.get(i).isExpired()))
+			else if((myTaskList.get(i).getStatus().equals(taskStatusType.working))&&(myTaskList.get(i).isExpired()))
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					myTaskList.get(i).setStatus(statusType.toDelete);
+					myTaskList.get(i).setStatus(taskStatusType.toDelete);
 					variables.getLogger().info(myTaskList.get(i).getTInfo()+"is working since too many time. Deleting process is launched");
 					}
 				else
@@ -97,11 +97,11 @@ public class checkTask
 					//if needed
 					}
 				}
-			else if(myTaskList.get(i).getStatus().equals(statusType.error))
+			else if(myTaskList.get(i).getStatus().equals(taskStatusType.error))
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					myTaskList.get(i).setStatus(statusType.toDelete);
+					myTaskList.get(i).setStatus(taskStatusType.toDelete);
 					
 					//We have to send an email to the administrator to warn him
 					StringBuffer cont = new StringBuffer("ERROR : \r\n");
@@ -133,19 +133,16 @@ public class checkTask
 			variables.getLogger().debug(myTaskList.get(i).getTInfo()+"is already exiting");
 			}
 		
-		for(int i=0; i<variables.getTaskList().size(); i++)
+		for(int i=0; i<variables.getTabTasks().size(); i++)
 			{
 			boolean exist = false;
-			for(int j=0; j<taskAlreadyExisting.size(); j++)
+			if(taskAlreadyExisting.contains((Integer) i))
 				{
-				if(taskAlreadyExisting.get(j).intValue() == i)
-					{
-					exist = true;
-					}
+				exist = true;
 				}
 
-			//If task doesn't already exist, we create it
-			if(!exist)
+			//If task doesn't already exist and it is not banned, we create it
+			if((!exist)&&(!variables.getBannedTaskList().contains((Integer) i)))
 				{
 				if(methodesUtiles.getTargetTask("type",i).compareTo("usersync") == 0)
 					{
@@ -163,6 +160,7 @@ public class checkTask
 						{
 						exc.printStackTrace();
 						variables.getLogger().error(exc);
+						variables.getBannedTaskList().add(new Integer(i));
 						}
 					}
 				else

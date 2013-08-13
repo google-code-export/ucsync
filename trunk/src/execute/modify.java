@@ -1,7 +1,7 @@
 package execute;
 
 import schedule.task;
-import schedule.task.statusType;
+import schedule.task.taskStatusType;
 import utils.variables;
 import misc.worker;
 
@@ -32,7 +32,7 @@ public class modify extends worker
 			
 			
 			
-			myTask.setStatus(statusType.done);
+			myTask.setStatus(taskStatusType.done);
 			}
 		catch(Exception exc)
 			{

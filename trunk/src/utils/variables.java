@@ -28,6 +28,7 @@ public class variables
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
 	private static ArrayList<task> taskList;
+	private static ArrayList<Integer> bannedTaskList; 
 	
 	/**
 	 * Contructeur
@@ -37,6 +38,7 @@ public class variables
 		configFileName = new String("configFile.xml");
 		taskFileName = new String("taskFile.xml");
 		taskList = new ArrayList<task>();
+		bannedTaskList = new ArrayList<Integer>();
 		}
 	
 	/****
@@ -131,6 +133,16 @@ public class variables
 	public static void setTaskList(ArrayList<task> taskList)
 		{
 		variables.taskList = taskList;
+		}
+
+	public static ArrayList<Integer> getBannedTaskList()
+		{
+		return bannedTaskList;
+		}
+
+	public static void setBannedTaskList(ArrayList<Integer> bannedTaskList)
+		{
+		variables.bannedTaskList = bannedTaskList;
 		}
 	
 	

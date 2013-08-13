@@ -3,14 +3,12 @@ package scan;
 import java.util.ArrayList;
 import java.util.Iterator;
 
-import javax.swing.text.html.FormSubmitEvent.MethodType;
 import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPBodyElement;
 import axlmisc.sqlQuery;
-import scan.device.deviceType;
 import schedule.task;
 import schedule.userSync;
-import schedule.task.statusType;
+import schedule.task.taskStatusType;
 import utils.methodesUtiles;
 import utils.variables;
 import misc.worker;
@@ -56,7 +54,7 @@ public class inspection extends worker
 			/*****
 			 * Step 2 : Compare data and make to do list
 			 */
-			
+			if(isNotFinished)findUnSyncData();
 			/***************/
 			
 			/*****
@@ -68,7 +66,7 @@ public class inspection extends worker
 			
 			if(isNotFinished)
 				{
-				myTask.setStatus(statusType.waitingAck);
+				myTask.setStatus(taskStatusType.waitingAck);
 				}
 			else
 				{
@@ -80,10 +78,12 @@ public class inspection extends worker
 			variables.getLogger().error(exc);
 			exc.printStackTrace();
 			variables.getLogger().error(myUSync.getTInfo()+"An error occured : "+exc.getMessage()+" Task will be deleted");
-			myUSync.setStatus(statusType.toDelete);
+			myUSync.setStatus(taskStatusType.toDelete);
 			}
 		}
-	
+	/**
+	 * Method used to fill every Global List
+	 */
 	private void fillLists() throws Exception
 		{
 		if(isNotFinished)fillAssociatedDeviceList();
@@ -91,6 +91,15 @@ public class inspection extends worker
 		if(isNotFinished)fillDeviceList();
 		if(isNotFinished)fillLineList();
 		if(isNotFinished)fillUserList();
+		}
+	
+	/**
+	 * Main method aims to compare existing data
+	 * and theoretical data
+	 */
+	private void findUnSyncData()
+		{
+		
 		}
 	
 	private void fillUserList() throws Exception

@@ -1,6 +1,6 @@
 package schedule;
 
-import schedule.task.statusType;
+import schedule.task.taskStatusType;
 import utils.methodesUtiles;
 import utils.variables;
 
@@ -45,7 +45,7 @@ public class scheduler extends Thread
 				 */
 				for(int i=0; i<variables.getTaskList().size(); i++)
 					{
-					if(variables.getTaskList().get(i).getStatus().equals(statusType.toDelete))
+					if(variables.getTaskList().get(i).getStatus().equals(taskStatusType.toDelete))
 						{
 						variables.getTaskList().get(i).stopWorking();
 						
