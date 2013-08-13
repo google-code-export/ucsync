@@ -2,6 +2,8 @@ package scan;
 
 import java.util.ArrayList;
 
+import misc.miscData;
+
 import schedule.userSync;
 import utils.methodesUtiles;
 import utils.variables;
@@ -11,38 +13,35 @@ import utils.variables;
  * 
  * @author RATEL Alexandre
  **********************************/
-public class userData
+public class userData extends miscData
 	{
 	/**
 	 * Variables
 	 */
-	private userSync myUSync;
-	private final String UUID; 
 	private String firstName, lastName, userid, telephoneNumber, departement;
 	private ArrayList<device> associatedDevice; //Contient les devices associés
 	private ArrayList<line> associatedLine; //Le cas échéant, contient les lignes associées
 	
 	public userData(String UUID, String firstName, String lastName, String userid, String telephoneNumber, String departement, userSync myUSync) throws Exception
 		{
-		this.UUID = UUID;
+		super(UUID,myUSync);
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.userid = userid;
 		this.telephoneNumber = telephoneNumber;
 		this.departement = departement;
-		this.myUSync = myUSync;
 		
 		associatedDevice = new ArrayList<device>();
 		associatedLine = new ArrayList<line>();
 		
-		fillAssociated();
+		autoComplete();
 		}
 	
 	/**
 	 * Method used to fill associated 
 	 * data like device or line
 	 */
-	public void fillAssociated() throws Exception
+	public void autoComplete() throws Exception
 		{
 		try
 			{
@@ -61,14 +60,11 @@ public class userData
 			}
 		}
 	
-	
-	
-	
 	/**
 	 * Method used to fill the
 	 * associatedDevice Arraylist
 	 */
-	public void fillAssociatedDevice()
+	public void fillAssociatedDevice() throws Exception
 		{
 		/****
 		 * In the first time I will get only 
@@ -89,10 +85,22 @@ public class userData
 	 * Method used to fill the
 	 * associatedLine Arraylist
 	 */
-	public void fillAssociatedLine()
+	public void fillAssociatedLine() throws Exception
 		{
-		
-		
+		/**
+		 * Je dois améliorer cette methode :
+		 * - Prendre en compte un filtre de modification du telephoneNumber
+		 * - Ne pas prendre en compte une ligne déja associé à l'utilisateur via un device
+		 * - Prendre en compte seulement une ligne associé à un device. Une ligne volante seul ne devra pas être prise en compte
+		 */
+		String number = this.telephoneNumber;
+		for(int i=0; i<myUSync.getGlobalLineList().size(); i++)
+			{
+			if(myUSync.getGlobalLineList().get(i).getPattern().compareTo(number) == 0)
+				{
+				this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync));
+				}
+			}
 		}
 	
 	
@@ -158,11 +166,6 @@ public class userData
 	public void setAssociatedDevice(ArrayList<device> associatedDevice)
 		{
 		this.associatedDevice = associatedDevice;
-		}
-
-	public String getUUID()
-		{
-		return UUID;
 		}
 	
 	

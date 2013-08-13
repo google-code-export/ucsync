@@ -116,22 +116,6 @@ public class checkTask
 					}
 				}
 			}
-		
-		/**
-		 * Garbage collector
-		 * aims to delete task
-		 */
-		for(int i=0; i<myTaskList.size(); i++)
-			{
-			if(myTaskList.get(i).getStatus().equals(statusType.toDelete))
-				{
-				myTaskList.get(i).stopWorking();
-				myTaskList.remove(i);
-				//We start again from zero cause the taskList size is changed now. So 
-				//it is possible to miss a "toDelete" task
-				i=0;
-				}
-			}
 		}
 	
 	/**

@@ -3,9 +3,11 @@ package scan;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import javax.swing.text.html.FormSubmitEvent.MethodType;
 import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPBodyElement;
 import axlmisc.sqlQuery;
+import scan.device.deviceType;
 import schedule.task;
 import schedule.userSync;
 import schedule.task.statusType;
@@ -46,7 +48,7 @@ public class inspection extends worker
 			 * Step 1 : Getting data from CUCM
 			 */
 			//Fill lists
-			fillLists();
+			if(isNotFinished)fillLists();
 			/***************/
 			
 			
@@ -64,7 +66,14 @@ public class inspection extends worker
 			/***************/
 			
 			
-			myTask.setStatus(statusType.waitingAck);
+			if(isNotFinished)
+				{
+				myTask.setStatus(statusType.waitingAck);
+				}
+			else
+				{
+				finished = true;
+				}
 			}
 		catch(Exception exc)
 			{
@@ -77,11 +86,11 @@ public class inspection extends worker
 	
 	private void fillLists() throws Exception
 		{
-		fillAssociatedDeviceList();
-		fillAssociatedLineList();
-		fillDeviceList();
-		fillLineList();
-		fillUserList();
+		if(isNotFinished)fillAssociatedDeviceList();
+		if(isNotFinished)fillAssociatedLineList();
+		if(isNotFinished)fillDeviceList();
+		if(isNotFinished)fillLineList();
+		if(isNotFinished)fillUserList();
 		}
 	
 	private void fillUserList() throws Exception
@@ -186,30 +195,175 @@ public class inspection extends worker
 	
 	private void fillAssociatedLineList() throws Exception
 		{
+		ArrayList<deviceAssociatedLine> List = new ArrayList<deviceAssociatedLine>();
+		String req = new String("select fkdevice,fknumplan,label,display,e164mask,numplanindex from devicenumplanmap");
+		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
+		Iterator iterator = replySB.getChildElements();
+		SOAPBodyElement bodyEle = (SOAPBodyElement)iterator.next();
+		//return
+		Iterator ite = bodyEle.getChildElements();
+		SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
+		//Element type
+		Iterator iter = bodyElem.getChildElements();
+		while(iter.hasNext())
+			{
+			SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
+			Iterator itera = bodyEleme.getChildElements();
+			
+			String fkdevice = new String();
+			String fkline = new String();
+			String label = new String();
+			String display = new String();
+			String mask = new String();
+			String index = new String();
+			
+			while(itera.hasNext())
+				{
+				SOAPBodyElement bodyElemen = (SOAPBodyElement)itera.next();
+				if(bodyElemen.getNodeName().compareTo("fknumplan") == 0)
+					{
+					fkline = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("fkdevice") == 0)
+					{
+					fkdevice = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("label") == 0)
+					{
+					label = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("display") == 0)
+					{
+					display = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("e164mask") == 0)
+					{
+					mask = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("numplanindex") == 0)
+					{
+					index = bodyElemen.getTextContent();
+					}
+				}
+			deviceAssociatedLine dal = new deviceAssociatedLine(fkdevice, fkline, display, label, mask, Integer.parseInt(index));
+			List.add(dal);
+			}
+		
+		myUSync.setGlobalAssociatedLineList(List);
 		}
 	
 	private void fillDeviceList() throws Exception
 		{
 		/**
-		 * Implement a filter to get only udp, phone and analog device
+		 * A filter to get only udp, phone and analog device is implemented
 		 */
+		ArrayList<device> List = new ArrayList<device>();
+		String req = new String("select d.pkid,d.name,d.description,t.name as type,m.name as model from device d,typeclass t,typemodel m where d.tkclass=t.enum and d.tkmodel=m.enum and (t.name=\"Phone\" or t.name=\"Device Profile\") and d.name NOT LIKE \"ModelProfileFor%\"");
+		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
+		Iterator iterator = replySB.getChildElements();
+		SOAPBodyElement bodyEle = (SOAPBodyElement)iterator.next();
+		//return
+		Iterator ite = bodyEle.getChildElements();
+		SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
+		//Element type
+		Iterator iter = bodyElem.getChildElements();
+		while(iter.hasNext())
+			{
+			SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
+			Iterator itera = bodyEleme.getChildElements();
+			
+			String UUID = new String();
+			String description = new String();
+			String name = new String();
+			String type = new String();
+			String model = new String();
+			
+			while(itera.hasNext())
+				{
+				SOAPBodyElement bodyElemen = (SOAPBodyElement)itera.next();
+				if(bodyElemen.getNodeName().compareTo("pkid") == 0)
+					{
+					UUID = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("name") == 0)
+					{
+					name = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("description") == 0)
+					{
+					description = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("type") == 0)
+					{
+					type = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("model") == 0)
+					{
+					model = bodyElemen.getTextContent();
+					}
+				}
+			device d = new device(UUID, myUSync, description, name, methodesUtiles.getDeviceTypeFromString(type), model);
+			List.add(d);
+			}
 		
+		myUSync.setGlobalDeviceList(List);
 		}
 	
 	private void fillLineList() throws Exception
 		{
 		/**
-		 * Implement a filter to get only line which is :
-		 * - Associated to a device
-		 * - In addition, device type has to be udp, phone or analog
-		 * 
-		 * I'm not sure it's possible a simple way :(
-		 * 
-		 * See "tkPatternUsage = Device" in the table "numPlan"
+		 * The following filters are implemented :
+		 * - Get only line associated to a device
+		 * - Get only line with usage is "Device"
 		 */
+		ArrayList<line> List = new ArrayList<line>();
+		String req = new String("select distinct n.pkid,n.dnorpattern,n.alertingname,n.description from numplan n,typepatternusage t,devicenumplanmap d where n.tkpatternusage=t.enum and n.pkid=d.fknumplan and t.name=\"Device\"");
+		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
+		Iterator iterator = replySB.getChildElements();
+		SOAPBodyElement bodyEle = (SOAPBodyElement)iterator.next();
+		//return
+		Iterator ite = bodyEle.getChildElements();
+		SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
+		//Element type
+		Iterator iter = bodyElem.getChildElements();
+		while(iter.hasNext())
+			{
+			SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
+			Iterator itera = bodyEleme.getChildElements();
+			
+			String UUID = new String();
+			String pattern = new String();
+			String alertingName = new String();
+			String description = new String();
+			
+			while(itera.hasNext())
+				{
+				SOAPBodyElement bodyElemen = (SOAPBodyElement)itera.next();
+				if(bodyElemen.getNodeName().compareTo("pkid") == 0)
+					{
+					UUID = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("dnorpattern") == 0)
+					{
+					pattern = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("alertingname") == 0)
+					{
+					alertingName = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("description") == 0)
+					{
+					description = bodyElemen.getTextContent();
+					}
+				}
+			line l = new line(UUID, myUSync, pattern, alertingName, description);
+			List.add(l);
+			}
+		
+		myUSync.setGlobalLineList(List);
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

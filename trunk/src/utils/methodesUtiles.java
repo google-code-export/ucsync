@@ -9,6 +9,9 @@ import java.util.Random;
 //import javax.swing.JOptionPane;
 import org.apache.commons.codec.digest.DigestUtils;
 
+import scan.device;
+import scan.deviceAssociatedLine;
+import scan.device.deviceType;
 import schedule.task;
 
 /*********************************************
@@ -273,6 +276,25 @@ public class methodesUtiles
 			variables.getLogger().error(exc);
 			variables.getLogger().error("Error during Email sending");
 			}
+		}
+	
+	/**
+	 * Method used to return an enum deviceType
+	 * from an approximative string
+	 */
+	public static deviceType getDeviceTypeFromString(String text) throws Exception
+		{
+		if((text != null) && (text.compareTo("") != 0))
+			{
+			for(deviceType type : deviceType.values())
+				{
+				if(text.equalsIgnoreCase(type.name()))
+					{
+					return type;
+					}
+				}
+			}
+		throw new Exception("ERROR : It has not been possible to determine a deviceType from this text : "+text);
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

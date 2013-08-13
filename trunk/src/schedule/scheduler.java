@@ -1,5 +1,6 @@
 package schedule;
 
+import schedule.task.statusType;
 import utils.methodesUtiles;
 import utils.variables;
 
@@ -37,6 +38,46 @@ public class scheduler extends Thread
 				 */
 				new checkTask();
 				/*****/
+				
+				/**
+				 * Garbage collector
+				 * aims to delete task
+				 */
+				for(int i=0; i<variables.getTaskList().size(); i++)
+					{
+					if(variables.getTaskList().get(i).getStatus().equals(statusType.toDelete))
+						{
+						variables.getTaskList().get(i).stopWorking();
+						
+						//We wait here for task ending
+						int timeout = Integer.parseInt(methodesUtiles.getTargetTask("",variables.getTaskList().get(i).getTaskIndex()));
+						int counter = 0;
+						
+						while(true)
+							{
+							if(variables.getTaskList().get(i).getMyWorker().isFinished())
+								{
+								variables.getTaskList().remove(i);
+								//We start again from zero cause the taskList size is changed now. So 
+								//it is possible to miss a "toDelete" task
+								i=0;
+								break;
+								}
+							else
+								{
+								this.sleep(Integer.parseInt(methodesUtiles.getTargetOption("garbagefreq")));
+								counter ++;
+								}
+							if(counter>=timeout)
+								{
+								variables.getLogger().error("ERROR : "+variables.getTaskList().get(i).getTInfo()+"has been too long to finished and was finally removed. Check for potential malfunctioning");
+								variables.getTaskList().remove(i);
+								i=0;
+								break;
+								}
+							}
+						}
+					}
 				}
 			catch (Exception exc)
 				{

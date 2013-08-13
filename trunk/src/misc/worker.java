@@ -13,11 +13,13 @@ import schedule.task.statusType;
 public abstract class worker extends Thread implements workimpl
 	{
 	protected boolean isNotFinished;
+	protected boolean finished;
 	protected task myTask;
 	
 	public worker(task myTask)
 		{
 		isNotFinished = true;
+		finished = false;
 		myTask.setStatus(statusType.working);
 		this.myTask = myTask;
 		}
@@ -25,7 +27,14 @@ public abstract class worker extends Thread implements workimpl
 	public void interrupt()
 		{
 		isNotFinished = false;
+		myTask.setStatus(statusType.toDelete);
 		}
+	
+	public boolean isFinished()
+		{
+		return finished;
+		}
+	
 	
 	/*2013*//*RATEL Alexandre 8)*/
 	}

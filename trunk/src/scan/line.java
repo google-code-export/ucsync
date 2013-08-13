@@ -1,25 +1,66 @@
 package scan;
 
+import schedule.userSync;
+import misc.miscData;
+
 /**********************************
  * Class used to store line information
  * 
  * @author RATEL Alexandre
  **********************************/
-public class line
+public class line extends miscData
 	{
 	/***
 	 * Variables
 	 */
-	private final String UUID;
-	private String alertingName, displayName, lineTextLabel, description, externalphonenumbermask;
+	private String pattern,alertingName, displayName, lineTextLabel, description, externalPhoneNumberMask;
+	private int index;
 	
-	
-	public line(String UUID)
+	/**
+	 * Constructor used for line association
+	 */
+	public line(String UUID, userSync myUSync) throws Exception
 		{
-		this.UUID = UUID;
+		super(UUID, myUSync);
+		
+		autoComplete();
 		}
 
+	/**
+	 * Constructor used for data storage only
+	 */
+	public line(String UUID, userSync myUSync, String pattern, String alertingName, String description) throws Exception
+		{
+		super(UUID, myUSync);
+		
+		this.pattern = pattern;
+		this.alertingName = alertingName;
+		this.description = description;
+		}
 	
+	
+	
+	public void autoComplete() throws Exception
+		{
+		fillpersonalDetail();
+		}
+
+
+	/**
+	 * Method used to get line personal detail
+	 */
+	private void fillpersonalDetail() throws Exception
+		{
+		for(int i=0; i<myUSync.getGlobalLineList().size(); i++)
+			{
+			if(myUSync.getGlobalLineList().get(i).getUUID().compareTo(UUID) == 0)
+				{
+				this.pattern = myUSync.getGlobalLineList().get(i).getPattern();
+				this.alertingName = myUSync.getGlobalLineList().get(i).getAlertingName();
+				this.description = myUSync.getGlobalLineList().get(i).getDescription();
+				}
+			}
+		}
 	
 	
 	/**
@@ -65,19 +106,39 @@ public class line
 		this.description = description;
 		}
 
-	public String getExternalphonenumbermask()
+	public String getExternalPhoneNumberMask()
 		{
-		return externalphonenumbermask;
-		}
-
-	public void setExternalphonenumbermask(String externalphonenumbermask)
-		{
-		this.externalphonenumbermask = externalphonenumbermask;
+		return externalPhoneNumberMask;
 		}
 
 	public String getUUID()
 		{
 		return UUID;
+		}
+
+	public String getPattern()
+		{
+		return pattern;
+		}
+
+	public void setPattern(String pattern)
+		{
+		this.pattern = pattern;
+		}
+
+	public int getIndex()
+		{
+		return index;
+		}
+
+	public void setIndex(int index)
+		{
+		this.index = index;
+		}
+
+	public void setExternalPhoneNumberMask(String externalPhoneNumberMask)
+		{
+		this.externalPhoneNumberMask = externalPhoneNumberMask;
 		}
 	
 	
