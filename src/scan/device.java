@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import misc.miscData;
 
 import schedule.userSync;
+import schedule.userSync.deviceType;
 import utils.methodesUtiles;
 
 /**********************************
@@ -16,10 +17,7 @@ public class device extends miscData
 	{
 	/**
 	 * Variables
-	 * 
-	 * On rajoutera ici les champs tkclass et model pour améliorer les rapports
 	 */
-	public enum deviceType{phone,udp};
 	private deviceType type;
 	private String description, name, model;
 	private ArrayList<line> associatedLine;

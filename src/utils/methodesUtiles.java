@@ -11,8 +11,8 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import scan.device;
 import scan.deviceAssociatedLine;
-import scan.device.deviceType;
 import schedule.task;
+import schedule.userSync.deviceType;
 
 /*********************************************
  * Class used to store miscellaneous static method

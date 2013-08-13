@@ -6,6 +6,7 @@ import scan.device;
 import scan.deviceAssociatedLine;
 import scan.inspection;
 import scan.line;
+import scan.patternContent;
 import scan.userAssociatedDevice;
 import scan.userData;
 import utils.SOAPGear;
@@ -25,6 +26,14 @@ public class userSync extends task
 	/***
 	 * Variables
 	 */
+	public enum patternType {devicedescription,devicedescriptiontoolong,
+							linedescription,linedescriptiontoolong,
+							alertingname,alertingnametoolong,
+							display,displaytoolong,
+							linetextlabel,linetextlabeltoolong,
+							externalphonenumbermask};
+	public enum deviceType{phone,udp,analog};
+	private patternType pattern;
 	private ArrayList<toDo> toDoList;
 	private SOAPGear soapGear;
 	private ArrayList<userData> userList;
@@ -32,6 +41,7 @@ public class userSync extends task
 	private ArrayList<userAssociatedDevice> globalAssociatedDeviceList;
 	private ArrayList<deviceAssociatedLine> globalAssociatedLineList;
 	private ArrayList<line> globalLineList;
+	private ArrayList<patternContent> userSyncTemplate;
 	
 	
 	public userSync(int taskIndex) throws Exception
@@ -45,6 +55,7 @@ public class userSync extends task
 		String axlpassword = methodesUtiles.getTargetTask("axlpassword",this.getTaskIndex());
 		
 		soapGear = new SOAPGear(axlport,axlhost,axluser,axlpassword);
+		fillUserSyncTemplate();
 		}
 	
 	/**
@@ -61,8 +72,28 @@ public class userSync extends task
 			exc.printStackTrace();
 			variables.getLogger().error(exc);
 			variables.getLogger().error(this.getTInfo()+"An error occured. Task will be deleted");
-			this.setStatus(statusType.toDelete);
+			this.setStatus(taskStatusType.toDelete);
 			}
+		}
+	
+	public void fillUserSyncTemplate() throws Exception
+		{
+		for(patternType pt : patternType.values())
+			{
+			try
+				{
+				userSyncTemplate.add(new patternContent(pt.name(), this));
+				}
+			catch(IllegalArgumentException iaexc)
+				{
+				variables.getLogger().debug(getTInfo()+iaexc.getMessage()+" : Pattern "+pt.name()+" is empty : IGNORED");
+				}
+			catch(Exception exc)
+				{
+				throw exc;
+				}
+			}
+		
 		}
 	
 	/**

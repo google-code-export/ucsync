@@ -27,9 +27,9 @@ public abstract class task
 	/**
 	 * Variables
 	 */
-	public enum statusType{init,working,waitingAck,pending,done,toDelete,error};
+	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
 	public enum taskType{userSync};
-	protected statusType status;
+	protected taskStatusType status;
 	protected taskType type;
 	protected String description;
 	protected int age;
@@ -44,7 +44,7 @@ public abstract class task
 		{
 		this.taskIndex = taskIndex;
 		this.type = type;
-		status = statusType.init;
+		status = taskStatusType.init;
 		age = 0;
 		id = methodesUtiles.getID();
 		when = methodesUtiles.getTargetTask("when",taskIndex);
@@ -165,12 +165,12 @@ public abstract class task
 	/**
 	 * Getters and setters
 	 */
-	public statusType getStatus()
+	public taskStatusType getStatus()
 		{
 		return status;
 		}
 
-	public void setStatus(statusType status)
+	public void setStatus(taskStatusType status)
 		{
 		this.status = status;
 		}
