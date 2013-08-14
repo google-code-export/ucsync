@@ -2,6 +2,7 @@ package misc;
 
 import javax.xml.soap.SOAPMessage;
 
+import schedule.userSync;
 import schedule.userSync.deviceType;
 import schedule.userSync.patternType;
 
@@ -21,15 +22,17 @@ public class toDo
 	private patternType type;
 	private String description, currentData, newData, soapResult;
 	private SOAPMessage soapMessage;
+	private userSync myUSync;
 	
-	public toDo(String currentData, String newData, patternType type)
+	public toDo(String currentData, String newData, patternType type, userSync myUSync, SOAPMessage soapMessage)
 		{
 		this.type = type;
 		this.description = new String(type.name()+" change needed");
 		this.currentData = currentData;
 		this.newData = newData;
 		this.soapResult = new String();
-		this.soapMessage = soapMessageMaker.make(type, currentData, newData);
+		this.myUSync = myUSync;
+		this.soapMessage = soapMessage;
 		}
 
 	

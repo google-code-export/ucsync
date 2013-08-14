@@ -105,6 +105,8 @@ public class patternContent
 				//In a future release
 				}
 			}
+		
+		//Rajouter une gestion des chaines trop longues et des caractères non supportés 
 		return buffer.toString();
 		}
 	
