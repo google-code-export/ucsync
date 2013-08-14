@@ -11,6 +11,7 @@ import schedule.userSync;
 import schedule.task.taskStatusType;
 import utils.methodesUtiles;
 import utils.variables;
+import misc.emptyUserException;
 import misc.worker;
 
 /**********************************
@@ -64,6 +65,15 @@ public class inspection extends worker
 			/***************/
 			
 			
+			/**
+			 * finished = true
+			 * 
+			 * This is used to know when the task
+			 * succeed to interrupt itself
+			 * 
+			 * The normal ending is to put the task in 
+			 * waiting ack
+			 */
 			if(isNotFinished)
 				{
 				myTask.setStatus(taskStatusType.waitingAck);
@@ -99,7 +109,10 @@ public class inspection extends worker
 	 */
 	private void findUnSyncData()
 		{
-		
+		for(int i=0; i<myUSync.getUserList().size() ; i++)
+			{
+			new userDataCompare(myUSync.getUserList().get(i), myUSync);
+			}
 		}
 	
 	private void fillUserList() throws Exception
@@ -155,8 +168,16 @@ public class inspection extends worker
     				department = bodyElemen.getTextContent();
     				}
     			}
-    		userData ud = new userData(pkid, firstName, lastName, userID, telephoneNumber, department, myUSync);
-    		List.add(ud);
+    		
+			try
+				{
+				userData ud = new userData(pkid, firstName, lastName, userID, telephoneNumber, department, myUSync);
+				List.add(ud);
+				}
+			catch (emptyUserException euexc)
+				{
+				variables.getLogger().debug(myUSync.getTInfo()+euexc.getMessage());
+				}
     		}
     	
 		myUSync.setUserList(List);

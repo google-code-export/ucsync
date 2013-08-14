@@ -28,10 +28,10 @@ public class userSync extends task
 	 */
 	public enum patternType {devicedescription,devicedescriptiontoolong,
 							linedescription,linedescriptiontoolong,
-							alertingname,alertingnametoolong,
-							display,displaytoolong,
+							linealertingname,linealertingnametoolong,
+							linedisplay,linedisplaytoolong,
 							linetextlabel,linetextlabeltoolong,
-							externalphonenumbermask};
+							lineexternalphonenumbermask};
 	public enum deviceType{phone,udp,analog};
 	private patternType pattern;
 	private ArrayList<toDo> toDoList;
@@ -55,6 +55,7 @@ public class userSync extends task
 		String axlpassword = methodesUtiles.getTargetTask("axlpassword",this.getTaskIndex());
 		
 		soapGear = new SOAPGear(axlport,axlhost,axluser,axlpassword);
+		toDoList = new ArrayList<toDo>();
 		fillUserSyncTemplate();
 		}
 	
@@ -82,7 +83,7 @@ public class userSync extends task
 			{
 			try
 				{
-				userSyncTemplate.add(new patternContent(pt.name(), this));
+				userSyncTemplate.add(new patternContent(pt, this));
 				}
 			catch(IllegalArgumentException iaexc)
 				{
@@ -167,6 +168,16 @@ public class userSync extends task
 	public SOAPGear getSoapGear()
 		{
 		return soapGear;
+		}
+
+	public ArrayList<patternContent> getUserSyncTemplate()
+		{
+		return userSyncTemplate;
+		}
+
+	public void setUserSyncTemplate(ArrayList<patternContent> userSyncTemplate)
+		{
+		this.userSyncTemplate = userSyncTemplate;
 		}
 	
 
