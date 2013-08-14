@@ -2,6 +2,7 @@ package scan;
 
 import java.util.ArrayList;
 
+import misc.emptyUserException;
 import misc.miscData;
 
 import schedule.userSync;
@@ -35,6 +36,12 @@ public class userData extends miscData
 		associatedLine = new ArrayList<line>();
 		
 		autoComplete();
+		
+		if((this.getAssociatedDevice().size() == 0)&&(this.getAssociatedLine().size() == 0))
+			{
+			//User with no associated data are excluded
+			throw new emptyUserException("The user "+this.getUserid()+" has no associated data. it will be ignored");
+			}
 		}
 	
 	/**
@@ -166,6 +173,16 @@ public class userData extends miscData
 	public void setAssociatedDevice(ArrayList<device> associatedDevice)
 		{
 		this.associatedDevice = associatedDevice;
+		}
+
+	public ArrayList<line> getAssociatedLine()
+		{
+		return associatedLine;
+		}
+
+	public void setAssociatedLine(ArrayList<line> associatedLine)
+		{
+		this.associatedLine = associatedLine;
 		}
 	
 	

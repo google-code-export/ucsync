@@ -22,14 +22,14 @@ public class toDo
 	private String description, currentData, newData, soapResult;
 	private SOAPMessage soapMessage;
 	
-	public toDo(String description, String currentData, String newData, SOAPMessage soapMessage, patternType type)
+	public toDo(String currentData, String newData, patternType type)
 		{
 		this.type = type;
-		this.description = description;
+		this.description = new String(type.name()+" change needed");
 		this.currentData = currentData;
 		this.newData = newData;
-		this.soapMessage = soapMessage;
 		this.soapResult = new String();
+		this.soapMessage = soapMessageMaker.make(type, currentData, newData);
 		}
 
 	
