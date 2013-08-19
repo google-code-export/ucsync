@@ -98,14 +98,16 @@ public class userData extends miscData
 		 * Je dois améliorer cette methode :
 		 * - Prendre en compte un filtre de modification du telephoneNumber
 		 * - Ne pas prendre en compte une ligne déja associé à l'utilisateur via un device
-		 * - Prendre en compte seulement une ligne associé à un device. Une ligne volante seul ne devra pas être prise en compte
 		 */
 		String number = this.telephoneNumber;
 		for(int i=0; i<myUSync.getGlobalLineList().size(); i++)
 			{
-			if(myUSync.getGlobalLineList().get(i).getPattern().compareTo(number) == 0)
+			for (int j=0; j<myUSync.getGlobalAssociatedLineList().size(); j++)
 				{
-				this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync));
+				if((myUSync.getGlobalLineList().get(i).getPattern().compareTo(number) == 0) && (myUSync.getGlobalLineList().get(i).getUUID() == myUSync.getGlobalAssociatedLineList().get(j).getLinePkid()))
+					{
+					this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync));
+					}
 				}
 			}
 		}

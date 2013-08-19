@@ -155,7 +155,7 @@ public class userDataCompare
 		variables.getLogger().debug("Device data comparison : '"+currentData+"' compare to '"+newData+"'");
 		if(currentData.compareTo(newData) != 0)
 			{
-			myUSync.getToDoList().add(new toDo(currentData, newData, pt, myUSync, soapMessageMaker.make(pt, newData, myUSync, d.getUUID())));
+			myUSync.getToDoList().add(new toDo(currentData, newData, pt, myUSync, soapMessageMaker.make(pt, newData, myUSync, d)));
 			}
 		}
 	
@@ -169,7 +169,7 @@ public class userDataCompare
 		variables.getLogger().debug("Line data comparison : '"+currentData+"' compare to '"+newData+"'");
 		if(currentData.compareTo(newData) != 0)
 			{
-			myUSync.getToDoList().add(new toDo(currentData, newData, pt, myUSync, soapMessageMaker.make(pt, newData, myUSync, l.getUUID())));
+			myUSync.getToDoList().add(new toDo(currentData, newData, pt, myUSync, soapMessageMaker.make(pt, newData, myUSync, l)));
 			}
 		}
 	

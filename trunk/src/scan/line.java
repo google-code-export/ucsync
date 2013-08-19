@@ -13,15 +13,16 @@ public class line extends miscData
 	/***
 	 * Variables
 	 */
-	private String pattern,alertingName, displayName, lineTextLabel, description, externalPhoneNumberMask;
+	private String pattern,alertingName, displayName, lineTextLabel, description, externalPhoneNumberMask, phoneUUID;
 	private int index;
 	
 	/**
 	 * Constructor used for line association
 	 */
-	public line(String UUID, userSync myUSync) throws Exception
+	public line(String UUID, userSync myUSync, String phoneUUID) throws Exception
 		{
 		super(UUID, myUSync);
+		this.phoneUUID = phoneUUID;
 		
 		autoComplete();
 		}
@@ -139,6 +140,16 @@ public class line extends miscData
 	public void setExternalPhoneNumberMask(String externalPhoneNumberMask)
 		{
 		this.externalPhoneNumberMask = externalPhoneNumberMask;
+		}
+
+	public String getPhoneUUID()
+		{
+		return phoneUUID;
+		}
+
+	public void setPhoneUUID(String phoneUUID)
+		{
+		this.phoneUUID = phoneUUID;
 		}
 	
 	
