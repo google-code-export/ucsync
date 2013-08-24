@@ -95,14 +95,14 @@ public class patternContent
 					{
 					buffer.append(specialRegex(myDevice.getName(),pat));
 					}
-				else
-					{
-					buffer.append(pat.replace("'", ""));
-					}
 				}
 			else if(Pattern.matches(".*mactived.*", pat))
 				{
 				//In a future release
+				}
+			else
+				{
+				buffer.append(pat.replace("'", ""));
 				}
 			}
 		
@@ -116,7 +116,7 @@ public class patternContent
 	 */
 	public String getRegex(line myLine, userData myUser)
 		{
-StringBuffer buffer = new StringBuffer("");
+		StringBuffer buffer = new StringBuffer("");
 		
 		for(int i=0; i<pattern.size(); i++)
 			{
@@ -148,14 +148,14 @@ StringBuffer buffer = new StringBuffer("");
 					{
 					buffer.append(specialRegex(myLine.getPattern(),pat));
 					}
-				else
-					{
-					buffer.append(pat.replace("'", ""));
-					}
 				}
 			else if(Pattern.matches(".*mactived.*", pat))
 				{
 				//In a future release
+				}
+			else
+				{
+				buffer.append(pat.replace("'", ""));
 				}
 			}
 		return buffer.toString();

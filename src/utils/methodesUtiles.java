@@ -25,7 +25,7 @@ public class methodesUtiles
 	/************************************************
 	 * Method used to get option write in the config file
 	 ************************************************/
-	public static ArrayList<String[][]> initConfigValue() throws Exception
+	public synchronized static ArrayList<String[][]> initConfigValue() throws Exception
 		{
 		String file = null;
 		ArrayList<String[][]> answer;
@@ -59,7 +59,7 @@ public class methodesUtiles
 		/************************************************
 		 * Method used to get data write in the task file
 		 ************************************************/
-		public static ArrayList<String[][]> initTaskValue() throws Exception
+		public synchronized static ArrayList<String[][]> initTaskValue() throws Exception
 			{
 			String file = null;
 			ArrayList<String[][]> answer;
@@ -94,7 +94,7 @@ public class methodesUtiles
 	 * Method used to get a specific value
 	 * in the user preference XML File
 	 ***************************************/
-	public static String getTargetOption(String node) throws Exception
+	public synchronized static String getTargetOption(String node) throws Exception
 		{
 		variables.getLogger().debug("Variable cherchée : "+node);
 		for(int i=0;i<variables.getTabConfig().get(0).length; i++)
@@ -116,7 +116,7 @@ public class methodesUtiles
 	 * Method used to get a specific value
 	 * in the task config file
 	 ***************************************/
-	public static String getTargetTask(String node) throws Exception
+	public synchronized static String getTargetTask(String node) throws Exception
 		{
 		int index = getTaskIndex();
 		variables.getLogger().debug("Variable cherchée : "+node);
@@ -139,7 +139,7 @@ public class methodesUtiles
 	 * Method used to get a specific value
 	 * in the task config file using task index
 	 ***************************************/
-	public static String getTargetTask(String node, int index) throws Exception
+	public synchronized static String getTargetTask(String node, int index) throws Exception
 		{
 		variables.getLogger().debug("Variable cherchée : "+node);
 		for(int i=0;i<variables.getTabTasks().get(index).length; i++)
@@ -161,7 +161,7 @@ public class methodesUtiles
 	 * Check if java version
 	 * is correct
 	 ***********************/
-	public static void checkJavaVersion()
+	public synchronized static void checkJavaVersion()
 		{
 		try
 			{
@@ -189,7 +189,7 @@ public class methodesUtiles
 	 * a unique ID based on current date and
 	 * a random number
 	 **********************************/
-	public static String getID()
+	public synchronized static String getID()
 		{
 		//Date and time
 		Date now = new Date();
@@ -208,7 +208,7 @@ public class methodesUtiles
 	/********************************************
 	 * Method used to init the class eMailsender
 	 ********************************************/
-	public static void initEMailServer()
+	public synchronized static void initEMailServer()
 		{
 		try
 			{
@@ -253,7 +253,7 @@ public class methodesUtiles
 	/**
 	 * Methods used to send an email to the administrator
 	 */
-	public static void sendToAdminList(String sub, String cont, String desc)
+	public synchronized static void sendToAdminList(String sub, String cont, String desc)
 		{
 		try
 			{
@@ -282,10 +282,11 @@ public class methodesUtiles
 	 * Method used to return an enum deviceType
 	 * from an approximative string
 	 */
-	public static deviceType getDeviceTypeFromString(String text) throws Exception
+	public synchronized static deviceType getDeviceTypeFromString(String text) throws Exception
 		{
 		if((text != null) && (text.compareTo("") != 0))
 			{
+			text = text.replace(" ", "");
 			for(deviceType type : deviceType.values())
 				{
 				if(text.equalsIgnoreCase(type.name()))

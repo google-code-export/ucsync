@@ -26,11 +26,21 @@ import utils.methodesUtiles;
  **********************************/
 public class soapMessageMaker
 	{
+	/**
+	 * Variables
+	 */
+	private SOAPMessage soapMessage;
+	private SOAPEnvelope envelope;
+	private SOAPBodyElement bodyElement;
 	
-	public static SOAPMessage make(patternType type, String newData, userSync myUSync, device d) throws Exception
+	
+	public soapMessageMaker()
+		{
+		}
+	
+	public SOAPMessage make(patternType type, String newData, userSync myUSync, device d) throws Exception
 		{
 		String cmdName;
-		SOAPMessage soapMessage = null;
 		
 		if(type.equals(patternType.devicedescription))
 			{
@@ -43,11 +53,9 @@ public class soapMessageMaker
 		return soapMessage;
 		}
 	
-	public static SOAPMessage make(patternType type, String newData, userSync myUSync, line l) throws Exception
+	public SOAPMessage make(patternType type, String newData, userSync myUSync, line l) throws Exception
 		{
 		String cmdName;
-		SOAPMessage soapMessage = null;
-		SOAPEnvelope envelope = soapMessage.getSOAPPart().getEnvelope();
 		
 		if(type.equals(patternType.linealertingname))
 			{
@@ -68,7 +76,7 @@ public class soapMessageMaker
 			{
 			cmdName = "updatePhone";
 		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getPhoneUUID());
-			
+		    
 		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
 		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
 		    mySOAPEleExten.addChildElement("dirn").addAttribute(envelope.createName("uuid"), l.getUUID());
@@ -80,7 +88,7 @@ public class soapMessageMaker
 			{
 			cmdName = "updatePhone";
 		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getPhoneUUID());
-			
+		    
 		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
 		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
 		    mySOAPEleExten.addChildElement("dirn").addAttribute(envelope.createName("uuid"), l.getUUID());
@@ -92,7 +100,8 @@ public class soapMessageMaker
 			{
 			cmdName = "updatePhone";
 		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getPhoneUUID());
-			
+		    
+		    
 		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
 		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
 		    mySOAPEleExten.addChildElement("dirn").addAttribute(envelope.createName("uuid"), l.getUUID());
@@ -106,11 +115,11 @@ public class soapMessageMaker
 	/**************************************************
 	 * Method used to prepare AXL Body
 	 **************************************************/
-	private static SOAPMessage prepareAXLBody(String versionCUCM, String cmdName) throws Exception
+	private void prepareAXLBody(String versionCUCM, String cmdName) throws Exception
 		{
-		SOAPMessage soapMessage = null;
-		SOAPBodyElement bodyElement = null;
-		SOAPEnvelope envelope = null;
+		soapMessage = null;
+		bodyElement = null;
+		envelope = null;
 		MessageFactory mf = MessageFactory.newInstance();
 		SOAPFactory soapFactory = SOAPFactory.newInstance();
 		
@@ -121,14 +130,11 @@ public class soapMessageMaker
 	    SOAPBody bdy = envelope.getBody();
 	    bodyElement = bdy.addBodyElement(soapFactory.createName(cmdName,"axl","http://www.cisco.com/AXL/API/"+versionCUCM+".0"));
 	    bodyElement.addAttribute(envelope.createName("sequence"), String.valueOf(System.currentTimeMillis()));
-		
-	    return soapMessage;
 		}
 	
-	private static SOAPElement getPreparedHeader(SOAPMessage soapMessage, String cmdName, String axlVersion, String UUID) throws Exception
+	private SOAPElement getPreparedHeader(SOAPMessage soapMessage, String cmdName, String axlVersion, String UUID) throws Exception
 		{
-		soapMessage = prepareAXLBody(axlVersion, cmdName);
-		SOAPEnvelope envelope = soapMessage.getSOAPPart().getEnvelope();
+		prepareAXLBody(axlVersion, cmdName);
 	    SOAPBody bdy = envelope.getBody();
 	    Iterator iterator = bdy.getChildElements();
 	    SOAPElement mySOAPEleExt = (SOAPElement)iterator.next();

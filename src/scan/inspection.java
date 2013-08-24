@@ -2,6 +2,7 @@ package scan;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.logging.Logger;
 
 import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPBodyElement;
@@ -9,6 +10,7 @@ import axlmisc.sqlQuery;
 import schedule.task;
 import schedule.userSync;
 import schedule.task.taskStatusType;
+import utils.convertSOAPToString;
 import utils.methodesUtiles;
 import utils.variables;
 import misc.emptyUserException;
@@ -50,8 +52,6 @@ public class inspection extends worker
 			if(isNotFinished)fillLists();
 			/***************/
 			
-			
-			
 			/*****
 			 * Step 2 : Compare data and make to do list
 			 */
@@ -61,7 +61,14 @@ public class inspection extends worker
 			/*****
 			 * Step 3 : Send a report email
 			 */
-			
+			for(int i=0; i<myUSync.getToDoList().size(); i++)
+				{
+				variables.getLogger().debug("Current Data : "+myUSync.getToDoList().get(i).getCurrentData());
+				variables.getLogger().debug("New Data : "+myUSync.getToDoList().get(i).getNewData());
+				variables.getLogger().debug("Description : "+myUSync.getToDoList().get(i).getDescription());
+				variables.getLogger().debug("SOAPMessage : "+convertSOAPToString.convert(myUSync.getToDoList().get(i).getSoapMessage()));
+				variables.getLogger().debug("Type : "+myUSync.getToDoList().get(i).getType().name());
+				}
 			/***************/
 			
 			
@@ -88,11 +95,13 @@ public class inspection extends worker
 			variables.getLogger().error(exc);
 			exc.printStackTrace();
 			variables.getLogger().error(myUSync.getTInfo()+"An error occured : "+exc.getMessage()+" Task will be deleted");
+			finished = true;
 			myUSync.setStatus(taskStatusType.toDelete);
 			}
 		}
 	/**
 	 * Method used to fill every Global List
+	 * - Have to remove duplicate data !!
 	 */
 	private void fillLists() throws Exception
 		{
@@ -109,7 +118,7 @@ public class inspection extends worker
 	 */
 	private void findUnSyncData()
 		{
-		for(int i=0; i<myUSync.getUserList().size() ; i++)
+		for(int i=0; (i<myUSync.getUserList().size())&&(isNotFinished) ; i++)
 			{
 			new userDataCompare(myUSync.getUserList().get(i), myUSync);
 			}
@@ -226,7 +235,7 @@ public class inspection extends worker
 	private void fillAssociatedLineList() throws Exception
 		{
 		ArrayList<deviceAssociatedLine> List = new ArrayList<deviceAssociatedLine>();
-		String req = new String("select fkdevice,fknumplan,label,display,e164mask,numplanindex from devicenumplanmap");
+		String req = new String("select fkdevice,fknumplan,label,display,e164mask,numplanindex from devicenumplanmap where numplanindex != 0");
 		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
 		Iterator iterator = replySB.getChildElements();
