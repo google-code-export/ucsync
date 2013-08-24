@@ -50,14 +50,16 @@ public class scheduler extends Thread
 						variables.getTaskList().get(i).stopWorking();
 						
 						//We wait here for task ending
-						int timeout = Integer.parseInt(methodesUtiles.getTargetTask("",variables.getTaskList().get(i).getTaskIndex()));
+						int timeout = Integer.parseInt(methodesUtiles.getTargetTask("timeout",variables.getTaskList().get(i).getTaskIndex()));
 						int counter = 0;
 						
 						while(true)
 							{
 							if(variables.getTaskList().get(i).getMyWorker().isFinished())
 								{
+								String TInfo = variables.getTaskList().get(i).getTInfo();
 								variables.getTaskList().remove(i);
+								variables.getLogger().debug(TInfo+"Had been removed successfully");
 								//We start again from zero cause the taskList size is changed now. So 
 								//it is possible to miss a "toDelete" task
 								i=0;
@@ -65,13 +67,15 @@ public class scheduler extends Thread
 								}
 							else
 								{
-								this.sleep(Integer.parseInt(methodesUtiles.getTargetOption("garbagefreq")));
+								sleep(Integer.parseInt(methodesUtiles.getTargetOption("garbagefreq")));
 								counter ++;
 								}
 							if(counter>=timeout)
 								{
 								variables.getLogger().error("ERROR : "+variables.getTaskList().get(i).getTInfo()+"has been too long to finished and was finally removed. Check for potential malfunctioning");
+								String TInfo = variables.getTaskList().get(i).getTInfo();
 								variables.getTaskList().remove(i);
+								variables.getLogger().debug(TInfo+"Has been removed successfully");
 								i=0;
 								break;
 								}

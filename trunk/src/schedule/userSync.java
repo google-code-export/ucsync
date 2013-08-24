@@ -32,7 +32,7 @@ public class userSync extends task
 							linedisplay,linedisplaytoolong,
 							linetextlabel,linetextlabeltoolong,
 							lineexternalphonenumbermask};
-	public enum deviceType{phone,udp,analog};
+	public enum deviceType{phone,deviceprofile,analog};
 	private patternType pattern;
 	private ArrayList<toDo> toDoList;
 	private SOAPGear soapGear;
@@ -56,6 +56,7 @@ public class userSync extends task
 		
 		soapGear = new SOAPGear(axlport,axlhost,axluser,axlpassword);
 		toDoList = new ArrayList<toDo>();
+		userSyncTemplate = new ArrayList<patternContent>();
 		fillUserSyncTemplate();
 		}
 	

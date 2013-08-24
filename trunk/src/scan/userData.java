@@ -54,7 +54,7 @@ public class userData extends miscData
 			{
 			fillAssociatedDevice();
 			
-			if(methodesUtiles.getTargetTask("smartlinesearch",myUSync.getTaskIndex()).compareTo("") == 0)
+			if(methodesUtiles.getTargetTask("smartlinesearch",myUSync.getTaskIndex()).compareTo("true") == 0)
 				{
 				fillAssociatedLine();
 				}
@@ -98,6 +98,7 @@ public class userData extends miscData
 		 * Je dois améliorer cette methode :
 		 * - Prendre en compte un filtre de modification du telephoneNumber
 		 * - Ne pas prendre en compte une ligne déja associé à l'utilisateur via un device
+		 * - Gérer une liste des objets bannis à ne pas traiter
 		 */
 		String number = this.telephoneNumber;
 		for(int i=0; i<myUSync.getGlobalLineList().size(); i++)
@@ -106,7 +107,10 @@ public class userData extends miscData
 				{
 				if((myUSync.getGlobalLineList().get(i).getPattern().compareTo(number) == 0) && (myUSync.getGlobalLineList().get(i).getUUID() == myUSync.getGlobalAssociatedLineList().get(j).getLinePkid()))
 					{
-					this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync));
+					if((myUSync.getGlobalAssociatedLineList().get(j).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
+						{
+						this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid()));
+						}
 					}
 				}
 			}

@@ -27,14 +27,14 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user-->
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<axlversion>8</axlversion>
-			<axlhost>10.110.92.1</axlhost>
+			<axlhost>10.0.1.167</axlhost>
 			<axlport>8443</axlport>
 			<axlusername>AXLUser</axlusername>
 			<axlpassword>CCMCisco92</axlpassword>
-			<devicedescription></devicedescription>
-			<devicedescriptiontoolong></devicedescriptiontoolong>
-			<linedescription></linedescription>
-			<linedescriptiontoolong></linedescriptiontoolong>
+			<devicedescription>cucm.dept+' - '+*M*cucm.nom+' '+*1**M*cucm.prenom+'.'</devicedescription>
+			<devicedescriptiontoolong>cucm.dept+' - '+*M*cucm.nom+' '+*1**M*cucm.prenom+'.'</devicedescriptiontoolong>
+			<linedescription>'DID '+cucm.dept</linedescription>
+			<linedescriptiontoolong>'DID '+cucm.dept</linedescriptiontoolong>
 			<linealertingname>*M*cucm.nom+' '+*1M*cucm.prenom</linealertingname>
 			<linealertingnametoolong>*M*cucm.nom</linealertingnametoolong>
 			<linedisplay>*M*cucm.nom+' '+*1M*cucm.prenom</linedisplay>
