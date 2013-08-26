@@ -1,6 +1,8 @@
 package scan;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Iterator;
 import java.util.logging.Logger;
 
@@ -14,7 +16,9 @@ import utils.convertSOAPToString;
 import utils.methodesUtiles;
 import utils.variables;
 import misc.emptyUserException;
+import misc.report;
 import misc.worker;
+import misc.toDo.toDoStatusType;
 
 /**********************************
  * Class used to inspect CUCM and
@@ -59,15 +63,82 @@ public class inspection extends worker
 			/***************/
 			
 			/*****
-			 * Step 3 : Send a report email
+			 * Step 3 : Detect and warn about detected conflict
+			 */
+			if(isNotFinished)findDataConflict();
+			/***************/
+			
+			/*****
+			 * Step 4 : Send a report email
 			 */
 			for(int i=0; i<myUSync.getToDoList().size(); i++)
 				{
+				variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
+				variables.getLogger().debug("Description : "+myUSync.getToDoList().get(i).getDescription());
 				variables.getLogger().debug("Current Data : "+myUSync.getToDoList().get(i).getCurrentData());
 				variables.getLogger().debug("New Data : "+myUSync.getToDoList().get(i).getNewData());
-				variables.getLogger().debug("Description : "+myUSync.getToDoList().get(i).getDescription());
 				variables.getLogger().debug("SOAPMessage : "+convertSOAPToString.convert(myUSync.getToDoList().get(i).getSoapMessage()));
 				variables.getLogger().debug("Type : "+myUSync.getToDoList().get(i).getType().name());
+				if(myUSync.getToDoList().get(i).isConflictDetected())
+					{
+					variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getConflictDesc());
+					}
+				}
+			
+			if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).compareTo("report") == 0)
+				{
+				Date now = new Date();
+				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
+				
+				/**
+				 * In case of smtp server failure, we try to send two times the email report
+				 */
+				int count = 0;
+				while(true)
+					{
+					try
+						{
+						methodesUtiles.sendToAdminList("UCSync : Scan report "+myUSync.getId()+" "+dateFormat.format(now), report.makeScanreport(myUSync), "Scan report email sending");
+						break;
+						}
+					catch (Exception exc)
+						{
+						exc.printStackTrace();
+						variables.getLogger().error(exc);
+						variables.getLogger().error("Error during Email sending");
+						if(count == 1)
+							{
+							throw new Exception("Too many attempts, failed to send email report, quit");
+							}
+						else
+							{
+							variables.getLogger().error("Try another time");
+							}
+						}
+					finally
+						{
+						try
+							{
+							sleep(5000);
+							count++;
+							}
+						catch(Exception exc)
+							{
+							exc.printStackTrace();
+							variables.getLogger().error(exc);
+							}
+						}
+					}
+				myUSync.setStatus(taskStatusType.waitingAck);
+				}
+			else
+				{
+				/**
+				 * Auto mode
+				 * 
+				 * ToDo List will be processed without administrator validation
+				 */
+				myUSync.setStatus(taskStatusType.pending);
 				}
 			/***************/
 			
@@ -121,6 +192,29 @@ public class inspection extends worker
 		for(int i=0; (i<myUSync.getUserList().size())&&(isNotFinished) ; i++)
 			{
 			new userDataCompare(myUSync.getUserList().get(i), myUSync);
+			}
+		}
+	
+	/**
+	 * Method used to find data conflict
+	 * in the toDo list
+	 */
+	private void findDataConflict()
+		{
+		for(int i=0; i<myUSync.getToDoList().size(); i++)
+			{
+			for(int j=i+1; j<myUSync.getToDoList().size(); j++)
+				{
+				if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getToDoList().get(j).getUUID()) == 0) 
+						&& (myUSync.getToDoList().get(i).getType().equals(myUSync.getToDoList().get(j).getType()))
+						&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getToDoList().get(j).getUser()) != 0))
+					{
+					//Conflict detected
+					myUSync.getToDoList().get(i).setConflict(myUSync.getToDoList().get(j).getInfo());
+					myUSync.getToDoList().get(j).setConflict(myUSync.getToDoList().get(i).getInfo());
+					}
+				}
+			
 			}
 		}
 	
@@ -228,6 +322,9 @@ public class inspection extends worker
 			userAssociatedDevice uad = new userAssociatedDevice(fkenduser, fkdevice);
 			List.add(uad);
 			}
+		
+		//We remove duplicate
+		List = removeDuplicateAssociatedUser(List);
 		
 		myUSync.setGlobalAssociatedDeviceList(List);
 		}
@@ -403,6 +500,33 @@ public class inspection extends worker
 			}
 		
 		myUSync.setGlobalLineList(List);
+		}
+	
+	private synchronized static ArrayList<userAssociatedDevice> removeDuplicateAssociatedUser(ArrayList<userAssociatedDevice> listIndex)
+		{
+		boolean rem = false;
+		String currentData;
+		for(int i=0; i<listIndex.size(); i++)
+			{
+			currentData = listIndex.get(i).getDevicePkid()+listIndex.get(i).getUserPkid();
+			for(int j=i+1; j<listIndex.size(); j++)
+				{
+				if(currentData.compareTo(listIndex.get(j).getDevicePkid()+listIndex.get(j).getUserPkid()) == 0)
+					{
+					listIndex.remove(j);
+					rem = true;
+					}
+				}
+			}
+		if(rem)
+			{
+			removeDuplicateAssociatedUser(listIndex);
+			}
+		else
+			{
+			return listIndex;
+			}
+		return listIndex;
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

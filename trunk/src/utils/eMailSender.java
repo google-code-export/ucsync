@@ -73,7 +73,7 @@ public class eMailSender
 			message.setFrom(new InternetAddress(user));
 			message.addRecipient(Message.RecipientType.TO, new InternetAddress(sendTo));
 			message.setSubject(subject,"utf-8");
-			message.setText(content+"\r\n\r\nEnvoyé avec "+variables.getNomProg()+" "+variables.getVersion(),"utf-8");
+			message.setText(content+"\r\n\r\nEmail sent with "+variables.getNomProg()+" "+variables.getVersion(),"utf-8");
 			
 			//Connection
 			transport.connect(server, Integer.parseInt(port), user, password);

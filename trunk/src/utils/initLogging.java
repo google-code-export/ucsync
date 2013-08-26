@@ -27,7 +27,7 @@ public class initLogging
 		myR.setName("myFileAppender");
 		myR.setFile(logFileName);
 		myR.setMaxFileSize("1000KB");
-		myR.setMaxBackupIndex(2);
+		myR.setMaxBackupIndex(7);
 		myR.setLayout(myPattern);
 		myR.activateOptions();
 		
