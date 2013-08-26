@@ -2,6 +2,8 @@
 package utils;
 
 import java.io.FileNotFoundException;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,6 +13,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import scan.device;
 import scan.deviceAssociatedLine;
+import scan.userAssociatedDevice;
 import schedule.task;
 import schedule.userSync.deviceType;
 
@@ -96,12 +99,12 @@ public class methodesUtiles
 	 ***************************************/
 	public synchronized static String getTargetOption(String node) throws Exception
 		{
-		variables.getLogger().debug("Variable cherchée : "+node);
+		//variables.getLogger().debug("Variable cherchée : "+node);
 		for(int i=0;i<variables.getTabConfig().get(0).length; i++)
 			{
 			if(variables.getTabConfig().get(0)[i][0].compareTo(node)==0)
 				{
-				variables.getLogger().debug("Valeure trouvée : "+variables.getTabConfig().get(0)[i][1]);
+				//variables.getLogger().debug("Valeure trouvée : "+variables.getTabConfig().get(0)[i][1]);
 				return variables.getTabConfig().get(0)[i][1];
 				}
 			}
@@ -112,28 +115,6 @@ public class methodesUtiles
 		throw new Exception("Option not found"); 
 		}
 	
-	/***************************************
-	 * Method used to get a specific value
-	 * in the task config file
-	 ***************************************/
-	public synchronized static String getTargetTask(String node) throws Exception
-		{
-		int index = getTaskIndex();
-		variables.getLogger().debug("Variable cherchée : "+node);
-		for(int i=0;i<variables.getTabTasks().get(index).length; i++)
-			{
-			if(variables.getTabTasks().get(index)[i][0].compareTo(node)==0)
-				{
-				variables.getLogger().debug("Valeure trouvée : "+variables.getTabTasks().get(index)[i][1]);
-				return variables.getTabTasks().get(index)[i][1];
-				}
-			}
-		
-		/***********
-		 * If this point is reached, the option looked for was not found
-		 */
-		throw new Exception("Option not found"); 
-		}
 	
 	/***************************************
 	 * Method used to get a specific value
@@ -141,12 +122,12 @@ public class methodesUtiles
 	 ***************************************/
 	public synchronized static String getTargetTask(String node, int index) throws Exception
 		{
-		variables.getLogger().debug("Variable cherchée : "+node);
+		//variables.getLogger().debug("Variable cherchée : "+node);
 		for(int i=0;i<variables.getTabTasks().get(index).length; i++)
 			{
 			if(variables.getTabTasks().get(index)[i][0].compareTo(node)==0)
 				{
-				variables.getLogger().debug("Valeure trouvée : "+variables.getTabTasks().get(index)[i][1]);
+				//variables.getLogger().debug("Valeure trouvée : "+variables.getTabTasks().get(index)[i][1]);
 				return variables.getTabTasks().get(index)[i][1];
 				}
 			}
@@ -253,28 +234,19 @@ public class methodesUtiles
 	/**
 	 * Methods used to send an email to the administrator
 	 */
-	public synchronized static void sendToAdminList(String sub, String cont, String desc)
+	public synchronized static void sendToAdminList(String sub, String cont, String desc) throws Exception
 		{
-		try
+		String sendTo = new String("");
+		String subject = sub;
+		String content = cont;
+		String eMailDesc = desc;
+		
+		String[] emailTab = methodesUtiles.getTargetOption("smtpemailadmin").split(",");
+		
+		for(int j=0; j<emailTab.length; j++)
 			{
-			String sendTo = new String("");
-			String subject = sub;
-			String content = cont;
-			String eMailDesc = desc;
-			
-			String[] emailTab = methodesUtiles.getTargetOption("smtpemailadmin").split(",");
-			
-			for(int j=0; j<emailTab.length; j++)
-				{
-				sendTo = emailTab[j];
-				variables.geteMSender().send(sendTo, subject, content, eMailDesc);
-				}
-			}
-		catch (Exception exc)
-			{
-			exc.printStackTrace();
-			variables.getLogger().error(exc);
-			variables.getLogger().error("Error during Email sending");
+			sendTo = emailTab[j];
+			variables.geteMSender().send(sendTo, subject, content, eMailDesc);
 			}
 		}
 	
@@ -296,6 +268,27 @@ public class methodesUtiles
 				}
 			}
 		throw new Exception("ERROR : It has not been possible to determine a deviceType from this text : "+text);
+		}
+	
+	/**
+	 * Method used to get acquittement URL 
+	 */
+	public synchronized static String getAckURL(String ID) throws Exception
+		{
+		//Get my IP Address
+		InetAddress addr = InetAddress.getLocalHost();
+        String ipAddr = addr.getHostAddress();
+		
+        StringBuffer url = new StringBuffer();
+        
+        url.append("http://");
+        url.append(ipAddr);
+        url.append(":");
+        url.append(methodesUtiles.getTargetOption("webserverport"));
+        url.append("/");
+        url.append(ID);
+		
+        return url.toString();
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

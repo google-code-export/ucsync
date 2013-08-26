@@ -97,7 +97,6 @@ public class userData extends miscData
 		/**
 		 * Je dois améliorer cette methode :
 		 * - Prendre en compte un filtre de modification du telephoneNumber
-		 * - Ne pas prendre en compte une ligne déja associé à l'utilisateur via un device
 		 * - Gérer une liste des objets bannis à ne pas traiter
 		 */
 		String number = this.telephoneNumber;
@@ -105,11 +104,30 @@ public class userData extends miscData
 			{
 			for (int j=0; j<myUSync.getGlobalAssociatedLineList().size(); j++)
 				{
-				if((myUSync.getGlobalLineList().get(i).getPattern().compareTo(number) == 0) && (myUSync.getGlobalLineList().get(i).getUUID() == myUSync.getGlobalAssociatedLineList().get(j).getLinePkid()))
+				if((myUSync.getGlobalLineList().get(i).getPattern().compareTo(number) == 0) && (myUSync.getGlobalLineList().get(i).getUUID().compareTo(myUSync.getGlobalAssociatedLineList().get(j).getLinePkid()) == 0))
 					{
-					if((myUSync.getGlobalAssociatedLineList().get(j).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
+					if(associatedDevice.size() != 0)
 						{
-						this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid()));
+						for(int a=0; a<associatedDevice.size(); a++)
+							{
+							//We check for line already associated with the user
+							if(myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid().compareTo(associatedDevice.get(a).getUUID()) != 0)
+								{
+								//We process only the first line if getmorethanprimaryline option is set to false
+								if((myUSync.getGlobalAssociatedLineList().get(j).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
+									{
+									this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid()));
+									}
+								}
+							}
+						}
+					else
+						{
+						//We process only the first line if getmorethanprimaryline option is set to false
+						if((myUSync.getGlobalAssociatedLineList().get(j).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
+							{
+							this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid()));
+							}
 						}
 					}
 				}

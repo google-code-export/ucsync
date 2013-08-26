@@ -78,6 +78,21 @@ public class userSync extends task
 			}
 		}
 	
+	/**
+	 * Method used to execute the toDo list
+	 */
+	public void executeToDoList()
+		{
+		myWorker = new modify(this);
+		}
+
+	
+	/**
+	 * Method used to get Task pattern
+	 * 
+	 * these pattern will be used next to
+	 * find and modify CUCM user data
+	 */
 	public void fillUserSyncTemplate() throws Exception
 		{
 		for(patternType pt : patternType.values())
@@ -98,14 +113,7 @@ public class userSync extends task
 		
 		}
 	
-	/**
-	 * Method used to execute the toDo list
-	 */
-	public void executeToDoList()
-		{
-		myWorker = new modify(this);
-		}
-
+	
 	public ArrayList<toDo> getToDoList()
 		{
 		return toDoList;

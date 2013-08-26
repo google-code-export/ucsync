@@ -20,21 +20,38 @@ public class toDo
 	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init};
 	
 	private patternType type;
-	private String description, currentData, newData, soapResult;
+	private String description, currentData, newData, soapResult, user, UUID, conflictDesc, dataType;
 	private SOAPMessage soapMessage;
-	private userSync myUSync;
+	private toDoStatusType status;
+	private boolean conflictDetected;
 	
-	public toDo(String currentData, String newData, patternType type, userSync myUSync, SOAPMessage soapMessage)
+	public toDo(String currentData, String newData, patternType type, SOAPMessage soapMessage, String user, String UUID, String dataDesc, String dataType)
 		{
 		this.type = type;
-		this.description = new String(type.name()+" change needed");
+		this.description = new String(dataDesc+" "+dataType+" "+type.name()+" change needed");
 		this.currentData = currentData;
 		this.newData = newData;
 		this.soapResult = new String();
-		this.myUSync = myUSync;
 		this.soapMessage = soapMessage;
+		this.user = user;
+		this.status = toDoStatusType.init;
+		this.UUID = UUID;
+		this.conflictDetected = false;
+		this.dataType = dataType;
 		}
 
+	
+	public void setConflict(String dataInfo)
+		{
+		this.setStatus(toDoStatusType.disabled);
+		this.conflictDetected = true;
+		conflictDesc = new String("A conflict has been detected with \""+dataInfo+"\" this data will not be updated");
+		}
+	
+	public String getInfo()
+		{
+		return user+" "+description;
+		}
 	
 	public String getDescription()
 		{
@@ -95,6 +112,67 @@ public class toDo
 		{
 		this.type = type;
 		}
+
+	public String getUser()
+		{
+		return user;
+		}
+
+	public void setUser(String user)
+		{
+		this.user = user;
+		}
+
+	public String getUUID()
+		{
+		return UUID;
+		}
+
+	public void setUUID(String uUID)
+		{
+		UUID = uUID;
+		}
+
+	public toDoStatusType getStatus()
+		{
+		return status;
+		}
+
+	public void setStatus(toDoStatusType status)
+		{
+		this.status = status;
+		}
+
+	public String getConflictDesc()
+		{
+		return conflictDesc;
+		}
+
+	public void setConflictDesc(String conflictDesc)
+		{
+		this.conflictDesc = conflictDesc;
+		}
+
+	public boolean isConflictDetected()
+		{
+		return conflictDetected;
+		}
+
+	public void setConflictDetected(boolean conflictDetected)
+		{
+		this.conflictDetected = conflictDetected;
+		}
+
+	public String getDataType()
+		{
+		return dataType;
+		}
+
+	public void setDataType(String dataType)
+		{
+		this.dataType = dataType;
+		}
+	
 	
 	
 	
