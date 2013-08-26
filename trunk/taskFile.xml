@@ -25,7 +25,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
 			<smartlinesearch>true</smartlinesearch><!--true,false-->
 			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user-->
-			<getmorethanprimaryline>true</getmorethanprimaryline><!--true,false-->
+			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<ackmode>report</ackmode><!--report,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>false</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
 			<axlversion>8</axlversion>
