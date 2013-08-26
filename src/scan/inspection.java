@@ -98,7 +98,7 @@ public class inspection extends worker
 					{
 					try
 						{
-						methodesUtiles.sendToAdminList("UCSync : Scan report "+myUSync.getId()+" "+dateFormat.format(now), report.makeScanreport(myUSync), "Scan report email sending");
+						//methodesUtiles.sendToAdminList("UCSync : Scan report "+myUSync.getId()+" "+dateFormat.format(now), report.makeScanreport(myUSync), "Scan report email sending");
 						break;
 						}
 					catch (Exception exc)
@@ -148,15 +148,8 @@ public class inspection extends worker
 			 * 
 			 * This is used to know when the task
 			 * succeed to interrupt itself
-			 * 
-			 * The normal ending is to put the task in 
-			 * waiting ack
 			 */
-			if(isNotFinished)
-				{
-				myTask.setStatus(taskStatusType.waitingAck);
-				}
-			else
+			if(!isNotFinished)
 				{
 				finished = true;
 				}
@@ -172,7 +165,6 @@ public class inspection extends worker
 		}
 	/**
 	 * Method used to fill every Global List
-	 * - Have to remove duplicate data !!
 	 */
 	private void fillLists() throws Exception
 		{
@@ -201,6 +193,9 @@ public class inspection extends worker
 	 */
 	private void findDataConflict()
 		{
+		/**
+		 * Find conflict inside the ToDo list
+		 */
 		for(int i=0; i<myUSync.getToDoList().size(); i++)
 			{
 			for(int j=i+1; j<myUSync.getToDoList().size(); j++)
@@ -214,7 +209,55 @@ public class inspection extends worker
 					myUSync.getToDoList().get(j).setConflict(myUSync.getToDoList().get(i).getInfo());
 					}
 				}
-			
+			}
+		
+		/**
+		 * Find potential conflict with existing data
+		 */
+		for(int i=0; i<myUSync.getToDoList().size(); i++)
+			{
+			for(int j=0; j<myUSync.getUserList().size(); j++)
+				{
+				//Looking for conflict in line associated with user
+				for(int x=0; x<myUSync.getUserList().get(j).getAssociatedLine().size(); x++)
+					{
+					if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getUserList().get(j).getAssociatedLine().get(x).getUUID())== 0)
+							&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getUserList().get(j).getUserid()) != 0))
+						{
+						if(!myUSync.getToDoList().get(i).isConflictDetected())
+							{
+							myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" directory number : "+
+									myUSync.getUserList().get(j).getAssociatedLine().get(x).getPattern());
+							}
+						}
+					}
+				//Looking for conflict in Device associated with user
+				for(int x=0; x<myUSync.getUserList().get(j).getAssociatedDevice().size(); x++)
+					{
+					if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getUserList().get(j).getAssociatedDevice().get(x).getUUID())== 0)
+							&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getUserList().get(j).getUserid()) != 0))
+						{
+						if(!myUSync.getToDoList().get(i).isConflictDetected())
+							{
+							myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" device name : "+
+									myUSync.getUserList().get(j).getAssociatedDevice().get(x).getName());
+							}
+						}
+					//Looking for conflict in line's Device associated with user
+					for(int y=0; y<myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().size(); y++)
+						{
+						if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().get(y).getUUID())== 0)
+								&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getUserList().get(j).getUserid()) != 0))
+							{
+							if(!myUSync.getToDoList().get(i).isConflictDetected())
+								{
+								myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" directory number : "+
+										myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().get(y).getPattern());
+								}
+							}
+						}
+					}
+				}
 			}
 		}
 	
