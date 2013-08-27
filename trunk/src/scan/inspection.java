@@ -12,6 +12,7 @@ import axlmisc.sqlQuery;
 import schedule.task;
 import schedule.userSync;
 import schedule.task.taskStatusType;
+import utils.SOAPGear;
 import utils.convertSOAPToString;
 import utils.methodesUtiles;
 import utils.variables;
@@ -39,7 +40,14 @@ public class inspection extends worker
 		{
 		super(myTask);
 		myUSync = (userSync)myTask;
-		axlversion = methodesUtiles.getTargetTask("axlversion",myTask.getTaskIndex());
+		axlversion = methodesUtiles.getTargetTask("axlversion",myUSync.getTaskIndex());
+		
+		variables.getLogger().info("Init AXL connection");
+		String axlport = methodesUtiles.getTargetTask("axlport",myUSync.getTaskIndex());
+		String axlhost = methodesUtiles.getTargetTask("axlhost",myUSync.getTaskIndex());
+		String axluser = methodesUtiles.getTargetTask("axlusername",myUSync.getTaskIndex());
+		String axlpassword = methodesUtiles.getTargetTask("axlpassword",myUSync.getTaskIndex());
+		myUSync.setSoapGear(new SOAPGear(axlport,axlhost,axluser,axlpassword));
 		
 		start();
 		}
@@ -52,7 +60,6 @@ public class inspection extends worker
 			/*******
 			 * Step 1 : Getting data from CUCM
 			 */
-			//Fill lists
 			if(isNotFinished)fillLists();
 			/***************/
 			
@@ -71,75 +78,7 @@ public class inspection extends worker
 			/*****
 			 * Step 4 : Send a report email
 			 */
-			for(int i=0; i<myUSync.getToDoList().size(); i++)
-				{
-				variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
-				variables.getLogger().debug("Description : "+myUSync.getToDoList().get(i).getDescription());
-				variables.getLogger().debug("Current Data : "+myUSync.getToDoList().get(i).getCurrentData());
-				variables.getLogger().debug("New Data : "+myUSync.getToDoList().get(i).getNewData());
-				variables.getLogger().debug("SOAPMessage : "+convertSOAPToString.convert(myUSync.getToDoList().get(i).getSoapMessage()));
-				variables.getLogger().debug("Type : "+myUSync.getToDoList().get(i).getType().name());
-				if(myUSync.getToDoList().get(i).isConflictDetected())
-					{
-					variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getConflictDesc());
-					}
-				}
-			
-			if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).compareTo("report") == 0)
-				{
-				Date now = new Date();
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
-				
-				/**
-				 * In case of smtp server failure, we try to send two times the email report
-				 */
-				int count = 0;
-				while(true)
-					{
-					try
-						{
-						//methodesUtiles.sendToAdminList("UCSync : Scan report "+myUSync.getId()+" "+dateFormat.format(now), report.makeScanreport(myUSync), "Scan report email sending");
-						break;
-						}
-					catch (Exception exc)
-						{
-						exc.printStackTrace();
-						variables.getLogger().error(exc);
-						variables.getLogger().error("Error during Email sending");
-						if(count == 1)
-							{
-							throw new Exception("Too many attempts, failed to send email report, quit");
-							}
-						else
-							{
-							variables.getLogger().error("Try another time");
-							}
-						}
-					finally
-						{
-						try
-							{
-							sleep(5000);
-							count++;
-							}
-						catch(Exception exc)
-							{
-							exc.printStackTrace();
-							variables.getLogger().error(exc);
-							}
-						}
-					}
-				myUSync.setStatus(taskStatusType.waitingAck);
-				}
-			else
-				{
-				/**
-				 * Auto mode
-				 * 
-				 * ToDo List will be processed without administrator validation
-				 */
-				myUSync.setStatus(taskStatusType.pending);
-				}
+			if(isNotFinished)sendEmailReport();
 			/***************/
 			
 			
@@ -157,10 +96,23 @@ public class inspection extends worker
 		catch(Exception exc)
 			{
 			variables.getLogger().error(exc);
+			variables.getLogger().error(exc.getMessage());
 			exc.printStackTrace();
 			variables.getLogger().error(myUSync.getTInfo()+"An error occured : "+exc.getMessage()+" Task will be deleted");
-			finished = true;
 			myUSync.setStatus(taskStatusType.toDelete);
+			}
+		finally
+			{
+			try
+				{
+				finished = true;
+				myUSync.getSoapGear().closeCon();
+				}
+			catch (Exception exc)
+				{
+				exc.printStackTrace();
+				variables.getLogger().error(exc);
+				}
 			}
 		}
 	/**
@@ -257,6 +209,103 @@ public class inspection extends worker
 							}
 						}
 					}
+				}
+			}
+		}
+	
+	/**
+	 * Method used to send Scan eMail report
+	 */
+	private void sendEmailReport() throws Exception
+		{
+		for(int i=0; i<myUSync.getToDoList().size(); i++)
+			{
+			variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
+			variables.getLogger().debug("Description : "+myUSync.getToDoList().get(i).getDescription());
+			variables.getLogger().debug("Current Data : "+myUSync.getToDoList().get(i).getCurrentData());
+			variables.getLogger().debug("New Data : "+myUSync.getToDoList().get(i).getNewData());
+			variables.getLogger().debug("SOAPMessage : "+convertSOAPToString.convert(myUSync.getToDoList().get(i).getSoapMessage()));
+			variables.getLogger().debug("Type : "+myUSync.getToDoList().get(i).getType().name());
+			variables.getLogger().debug("Status : "+myUSync.getToDoList().get(i).getStatus().name());
+			if(myUSync.getToDoList().get(i).isConflictDetected())
+				{
+				variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getConflictDesc());
+				}
+			}
+		
+		if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).compareTo("report") == 0)
+			{
+			Date now = new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
+			
+			/**
+			 * In case of smtp server failure, we try to send two times the email report
+			 */
+			int count = 0;
+			boolean isNotDone = true;
+			while(isNotDone)
+				{
+				try
+					{
+					methodesUtiles.sendToAdminList("UCSync : Scan report "+myUSync.getId()+" "+dateFormat.format(now), report.makeScanReport(myUSync), "Scan report email sending");
+					isNotDone = false;
+					}
+				catch (Exception exc)
+					{
+					exc.printStackTrace();
+					variables.getLogger().error(exc);
+					variables.getLogger().error("Error during Email sending");
+					if(count == 1)
+						{
+						throw new Exception("Too many attempts, failed to send email report, quit");
+						}
+					else
+						{
+						variables.getLogger().error("Try another time");
+						}
+					}
+				finally
+					{
+					try
+						{
+						if(isNotDone)
+							{
+							sleep(5000);
+							count++;
+							}
+						}
+					catch(Exception exc)
+						{
+						exc.printStackTrace();
+						variables.getLogger().error(exc);
+						}
+					}
+				}
+			if(myUSync.getToDoList().size() != 0)
+				{
+				myUSync.setStatus(taskStatusType.waitingAck);
+				}
+			else
+				{
+				variables.getLogger().info(myUSync.getTInfo()+"No unsynced data. Task will be deleted");
+				myUSync.setStatus(taskStatusType.toDelete);
+				}
+			}
+		else
+			{
+			/**
+			 * Auto mode
+			 * 
+			 * ToDo List will be processed without administrator validation
+			 */
+			if(myUSync.getToDoList().size() != 0)
+				{
+				myUSync.setStatus(taskStatusType.pending);
+				}
+			else
+				{
+				variables.getLogger().info(myUSync.getTInfo()+"No unsynced data. Task will be deleted");
+				myUSync.setStatus(taskStatusType.toDelete);
 				}
 			}
 		}

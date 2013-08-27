@@ -7,7 +7,9 @@ import org.apache.log4j.Logger;
 import scan.device;
 import scan.line;
 import scan.userData;
+import schedule.scheduler;
 import schedule.task;
+import web.webAckReceiver;
 
 /*********************************************
  * Classe contenant les variables statiques
@@ -28,7 +30,9 @@ public class variables
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
 	private static ArrayList<task> taskList;
-	private static ArrayList<Integer> bannedTaskList; 
+	private static ArrayList<Integer> bannedTaskList;
+	private static scheduler myScheduler;
+	private static webAckReceiver myWebServer;
 	
 	/**
 	 * Contructeur
@@ -143,6 +147,26 @@ public class variables
 	public static void setBannedTaskList(ArrayList<Integer> bannedTaskList)
 		{
 		variables.bannedTaskList = bannedTaskList;
+		}
+
+	public static scheduler getMyScheduler()
+		{
+		return myScheduler;
+		}
+
+	public static void setMyScheduler(scheduler myScheduler)
+		{
+		variables.myScheduler = myScheduler;
+		}
+
+	public static webAckReceiver getMyWebServer()
+		{
+		return myWebServer;
+		}
+
+	public static void setMyWebServer(webAckReceiver myWebServer)
+		{
+		variables.myWebServer = myWebServer;
 		}
 	
 	

@@ -50,6 +50,7 @@ public abstract class task
 		when = methodesUtiles.getTargetTask("when",taskIndex);
 		description = methodesUtiles.getTargetTask("description",taskIndex);
 		startTime = System.currentTimeMillis();
+		lastLaunchedTime = null;
 		}
 
 	/**
@@ -60,10 +61,13 @@ public abstract class task
 		myWorker.interrupt();
 		}
 	
+	/**
+	 * Method used to know if task has to be launch
+	 */
 	public boolean isItLaunchedTime()
 		{
 		String[] dateTag = when.split(" ");
-		if(dateTag.length >= 2)
+		if(dateTag.length > 2)
 			{
 			variables.getLogger().error("Task config file is corrupted, so it is not possible to know the correct launch time for the "+getTInfo());
 			variables.getLogger().error("isItLaunchedTime, return false");
@@ -83,19 +87,20 @@ public abstract class task
 				 */
 				//get the current day
 				Date now = new Date();
-				SimpleDateFormat dateFormat = new SimpleDateFormat("EEE dd MMM yyyy");
+				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 				String currentDate = dateFormat.format(now); 
 				//Add it to the task file hour
 				String dateString = currentDate+" "+dateTag[1];
 				
 				//Then convert it to a Date object
-				DateFormat df = DateFormat.getDateInstance();
-				Date taskDate = df.parse(dateString);
+				//DateFormat df = DateFormat.getDateInstance();
+				Date taskDate = dateFormat.parse(dateString);
 				
 				//We have to check if the last launched time was the same day
 				SimpleDateFormat format = new SimpleDateFormat("dd");
-				if(format.format(now).compareTo(format.format(lastLaunchedTime)) == 0)
+				if((lastLaunchedTime != null)&&(format.format(now).compareTo(format.format(lastLaunchedTime)) == 0))
 					{
+					variables.getLogger().debug("Task already launched today");
 					return false;
 					}
 				

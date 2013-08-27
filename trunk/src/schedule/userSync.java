@@ -33,7 +33,6 @@ public class userSync extends task
 							linetextlabel,linetextlabeltoolong,
 							lineexternalphonenumbermask};
 	public enum deviceType{phone,deviceprofile,analog};
-	private patternType pattern;
 	private ArrayList<toDo> toDoList;
 	private SOAPGear soapGear;
 	private ArrayList<userData> userList;
@@ -48,13 +47,6 @@ public class userSync extends task
 		{
 		super(taskIndex,taskType.userSync);
 		
-		variables.getLogger().info("Init AXL connection");
-		String axlport = methodesUtiles.getTargetTask("axlport",this.getTaskIndex());
-		String axlhost = methodesUtiles.getTargetTask("axlhost",this.getTaskIndex());
-		String axluser = methodesUtiles.getTargetTask("axlusername",this.getTaskIndex());
-		String axlpassword = methodesUtiles.getTargetTask("axlpassword",this.getTaskIndex());
-		
-		soapGear = new SOAPGear(axlport,axlhost,axluser,axlpassword);
 		toDoList = new ArrayList<toDo>();
 		userSyncTemplate = new ArrayList<patternContent>();
 		fillUserSyncTemplate();
@@ -83,7 +75,25 @@ public class userSync extends task
 	 */
 	public void executeToDoList()
 		{
-		myWorker = new modify(this);
+		try
+			{
+			if(methodesUtiles.getTargetTask("testmode", this.getTaskIndex()).compareTo("true") == 0)
+				{
+				variables.getLogger().info(this.getTInfo()+"Test mode activated. task will be deleted");
+				this.setStatus(taskStatusType.toDelete);
+				}
+			else
+				{
+				myWorker = new modify(this);
+				}
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error(this.getTInfo()+"An error occured. Task will be deleted");
+			this.setStatus(taskStatusType.toDelete);
+			}
 		}
 
 	
@@ -187,6 +197,11 @@ public class userSync extends task
 	public void setUserSyncTemplate(ArrayList<patternContent> userSyncTemplate)
 		{
 		this.userSyncTemplate = userSyncTemplate;
+		}
+
+	public void setSoapGear(SOAPGear soapGear)
+		{
+		this.soapGear = soapGear;
 		}
 	
 

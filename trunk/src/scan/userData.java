@@ -116,7 +116,12 @@ public class userData extends miscData
 								//We process only the first line if getmorethanprimaryline option is set to false
 								if((myUSync.getGlobalAssociatedLineList().get(j).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
 									{
-									this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid()));
+									line myLine = new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, new device(myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid(), myUSync));
+									myLine.setDisplayName(myUSync.getGlobalAssociatedLineList().get(j).getDisplayName());
+									myLine.setLineTextLabel(myUSync.getGlobalAssociatedLineList().get(j).getLineTextLabel());
+									myLine.setExternalPhoneNumberMask(myUSync.getGlobalAssociatedLineList().get(j).getExternalPhoneNumberMask());
+									myLine.setIndex(myUSync.getGlobalAssociatedLineList().get(j).getIndex());
+									this.associatedLine.add(myLine);
 									}
 								}
 							}
@@ -126,7 +131,12 @@ public class userData extends miscData
 						//We process only the first line if getmorethanprimaryline option is set to false
 						if((myUSync.getGlobalAssociatedLineList().get(j).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
 							{
-							this.associatedLine.add(new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid()));
+							line myLine = new line(myUSync.getGlobalLineList().get(i).getUUID(), myUSync, new device(myUSync.getGlobalAssociatedLineList().get(j).getDevicePkid(), myUSync));
+							myLine.setDisplayName(myUSync.getGlobalAssociatedLineList().get(j).getDisplayName());
+							myLine.setLineTextLabel(myUSync.getGlobalAssociatedLineList().get(j).getLineTextLabel());
+							myLine.setExternalPhoneNumberMask(myUSync.getGlobalAssociatedLineList().get(j).getExternalPhoneNumberMask());
+							myLine.setIndex(myUSync.getGlobalAssociatedLineList().get(j).getIndex());
+							this.associatedLine.add(myLine);
 							}
 						}
 					}

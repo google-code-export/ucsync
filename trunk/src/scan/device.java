@@ -1,9 +1,7 @@
 package scan;
 
 import java.util.ArrayList;
-
 import misc.miscData;
-
 import schedule.userSync;
 import schedule.userSync.deviceType;
 import utils.methodesUtiles;
@@ -65,7 +63,7 @@ public class device extends miscData
 				{
 				if((myUSync.getGlobalAssociatedLineList().get(i).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
 					{
-					line myLine = new line(myUSync.getGlobalAssociatedLineList().get(i).getLinePkid(), myUSync, this.getUUID());
+					line myLine = new line(myUSync.getGlobalAssociatedLineList().get(i).getLinePkid(), myUSync, this);
 					myLine.setDisplayName(myUSync.getGlobalAssociatedLineList().get(i).getDisplayName());
 					myLine.setLineTextLabel(myUSync.getGlobalAssociatedLineList().get(i).getLineTextLabel());
 					myLine.setExternalPhoneNumberMask(myUSync.getGlobalAssociatedLineList().get(i).getExternalPhoneNumberMask());

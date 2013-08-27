@@ -5,6 +5,7 @@ Prénom = cucm.prenom
 UserID = cucm.userid
 Numéro de la ligne = cucm.nligne
 Département = cucm.dept
+Télephone = cucm.number
 Champs active directory : A venir. exemple : mactived.ipphone
 Texte libre à mettre entre guillement simple, exemple = 'test'
 utiliser des + pour séparer les éléments
@@ -19,7 +20,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 	<tasks>
 		<task>
 			<type>usersync</type><!--usersync-->
-			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h only-->
+			<when>DAILY 01:41</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h or 12h it depend of your installed local-->
 			<description>user data synchronization</description><!--Task description-->
 			<timeout>15</timeout>
 			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
@@ -28,6 +29,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<ackmode>report</ackmode><!--report,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>false</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
+			<testmode>true</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->
 			<axlversion>8</axlversion>
 			<axlhost>10.0.1.167</axlhost>
 			<axlport>8443</axlport>
@@ -43,7 +45,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<linedisplaytoolong>*M*cucm.nom</linedisplaytoolong>
 			<linetextlabel>*M*cucm.nom+' '+*1M*cucm.prenom</linetextlabel>
 			<linetextlabeltoolong>*M*cucm.nom</linetextlabeltoolong>
-			<lineexternalphonenumbermask></lineexternalphonenumbermask>
+			<lineexternalphonenumbermask>cucm.nligne</lineexternalphonenumbermask>
 		</task>
 	</tasks>
 </xml>

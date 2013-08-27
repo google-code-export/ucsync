@@ -9,6 +9,7 @@ import utils.SOAPGear;
 import utils.methodesUtiles;
 import utils.initLogging;
 import utils.variables;
+import web.webAckReceiver;
 
 /*********************************************
  * Main class called "Principale in French"
@@ -104,10 +105,16 @@ public class Principale
 		methodesUtiles.initEMailServer();
 		/****/
 		
+		/****
+		 * Start internal web server
+		 */
+		variables.setMyWebServer(new webAckReceiver());
+		/****/
+		
 		/*********************************
 		 * Lancement du Thread principal
 		 *********************************/
-		new scheduler();
+		variables.setMyScheduler(new scheduler());
 		/*********************************/
 		}
 	

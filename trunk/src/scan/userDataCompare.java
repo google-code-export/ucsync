@@ -77,7 +77,7 @@ public class userDataCompare
 			pt = patternType.devicedescription;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findDeviceChange(d, pt, myUSync.getUserSyncTemplate().get(j));
+				findDeviceChange(d, d.getDescription(), pt, myUSync.getUserSyncTemplate().get(j));
 				}
 			}
 		/**
@@ -104,7 +104,7 @@ public class userDataCompare
 			pt = patternType.linedescription;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getDescription(), pt, myUSync.getUserSyncTemplate().get(j));
 				}
 			
 			/**
@@ -113,7 +113,7 @@ public class userDataCompare
 			pt = patternType.linetextlabel;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getLineTextLabel(), pt, myUSync.getUserSyncTemplate().get(j));
 				}
 			
 			/**
@@ -122,7 +122,7 @@ public class userDataCompare
 			pt = patternType.linedisplay;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getDisplayName(), pt, myUSync.getUserSyncTemplate().get(j));
 				}
 			
 			/**
@@ -131,7 +131,7 @@ public class userDataCompare
 			pt = patternType.linealertingname;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getAlertingName(), pt, myUSync.getUserSyncTemplate().get(j));
 				}
 			
 			/**
@@ -140,7 +140,7 @@ public class userDataCompare
 			pt = patternType.lineexternalphonenumbermask;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getExternalPhoneNumberMask(), pt, myUSync.getUserSyncTemplate().get(j));
 				}
 			}
 		}
@@ -148,10 +148,9 @@ public class userDataCompare
 	/**
 	 * Method used to find a "device" data change then add a new todo
 	 */
-	private void findDeviceChange(device d, patternType pt, patternContent pc) throws Exception
+	private void findDeviceChange(device d, String currentData, patternType pt, patternContent pc) throws Exception
 		{
 		String newData = new String(pc.getRegex(d, myUser));
-		String currentData = d.getDescription();
 		variables.getLogger().debug("Device data comparison : '"+currentData+"' compare to '"+newData+"'");
 		if(currentData.compareTo(newData) != 0)
 			{
@@ -162,10 +161,9 @@ public class userDataCompare
 	/**
 	 * Method used to find a "line" data change then add a new todo
 	 */
-	private void findLineChange(line l, patternType pt, patternContent pc) throws Exception
+	private void findLineChange(line l, String currentData, patternType pt, patternContent pc) throws Exception
 		{
 		String newData = new String(pc.getRegex(l, myUser));
-		String currentData = l.getDescription();
 		variables.getLogger().debug("Line data comparison : '"+currentData+"' compare to '"+newData+"'");
 		if(currentData.compareTo(newData) != 0)
 			{
