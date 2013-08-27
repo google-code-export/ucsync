@@ -93,6 +93,20 @@ public class testeur
 		return false;
 		}
 	
+	/**
+	 * Method used to know is a STring is an MD5 hash
+	 */
+	public static boolean isMD5(String md5) throws Exception
+		{
+		if((md5.compareTo("") != 0) && (md5.length() == 32) && Pattern.matches("\\p{XDigit}*", md5))
+			{
+			return true;
+			}
+		else
+			{
+			throw new Exception(md5+" is not a MD5 hash");
+			}
+		}
 	
 	
 	/*Fin classe*/

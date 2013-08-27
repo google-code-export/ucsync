@@ -15,6 +15,7 @@ import javax.xml.soap.SOAPMessage;
 import scan.device;
 import scan.line;
 import schedule.userSync;
+import schedule.userSync.deviceType;
 import schedule.userSync.patternType;
 import utils.methodesUtiles;
 
@@ -41,11 +42,11 @@ public class soapMessageMaker
 	public SOAPMessage make(patternType type, String newData, userSync myUSync, device d) throws Exception
 		{
 		String cmdName;
+		cmdName = d.getType().equals(deviceType.deviceprofile)?"updateDeviceProfile":"updatePhone";
 		
 		if(type.equals(patternType.devicedescription))
 			{
-			cmdName = "updatePhone";
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), d.getUUID());
+		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), d.getUUID());
 			
 		    mySOAPEleExt.addChildElement("description").addTextNode(newData);
 			}
@@ -55,27 +56,25 @@ public class soapMessageMaker
 	
 	public SOAPMessage make(patternType type, String newData, userSync myUSync, line l) throws Exception
 		{
-		String cmdName;
+		String lineCmdName = "updateLine"; 
+		String deviceCmdName = l.getMyDevice().getType().equals(deviceType.deviceprofile)?"updateDeviceProfile":"updatePhone";
 		
 		if(type.equals(patternType.linealertingname))
 			{
-			cmdName = "updateLine";
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getUUID());
+		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, lineCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getUUID());
 			
 		    mySOAPEleExt.addChildElement("alertingName").addTextNode(newData);
 		    mySOAPEleExt.addChildElement("asciiAlertingName").addTextNode(newData);
 			}
 		else if(type.equals(patternType.linedescription))
 			{
-			cmdName = "updateLine";
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getUUID());
+		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, lineCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getUUID());
 			
 		    mySOAPEleExt.addChildElement("description").addTextNode(newData);
 			}
 		else if(type.equals(patternType.linedisplay))
 			{
-			cmdName = "updatePhone";
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getPhoneUUID());
+		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getPhoneUUID());
 		    
 		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
 		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
@@ -86,8 +85,7 @@ public class soapMessageMaker
 			}
 		else if(type.equals(patternType.linetextlabel))
 			{
-			cmdName = "updatePhone";
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getPhoneUUID());
+		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getPhoneUUID());
 		    
 		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
 		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
@@ -98,9 +96,7 @@ public class soapMessageMaker
 			}
 		else if(type.equals(patternType.lineexternalphonenumbermask))
 			{
-			cmdName = "updatePhone";
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlport", myUSync.getTaskIndex()), l.getPhoneUUID());
-		    
+		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getPhoneUUID());
 		    
 		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
 		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");

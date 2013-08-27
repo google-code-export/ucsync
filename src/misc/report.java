@@ -4,6 +4,8 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
+import misc.toDo.toDoStatusType;
+
 import schedule.userSync;
 import utils.convertSOAPToString;
 import utils.methodesUtiles;
@@ -22,20 +24,24 @@ public class report
 	 */
 	
 	
-	public static String makeScanreport(userSync myUSync) throws Exception
+	/**
+	 * Method used to build CUCM Execute process report
+	 */
+	public synchronized static String makeExecuteReport(userSync myUSync) throws Exception
 		{
 		ArrayList<toDo> myToDoList = myUSync.getToDoList();
 		Date now = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
 		StringBuffer content = new StringBuffer();
-		content.append(dateFormat.format(now)+" SCAN REPORT from "+variables.getNomProg()+" ["+variables.getVersion()+"] : \r\n\r\n");
+		content.append(dateFormat.format(now)+" EXECUTE REPORT from "+variables.getNomProg()+" ["+variables.getVersion()+"] : \r\n\r\n");
 		String userID = new String(myToDoList.get(0).getUser());
+		boolean conflictPresent = false;
 		
 		//Header
 		if(methodesUtiles.getTargetTask("csvreport",myUSync.getTaskIndex()).compareTo("true") == 0)
 			{
 			content.append("Report type : CSV\r\n\r\n");
-			content.append("User ID,Description,Current data,New data,Conflict\r\n");
+			content.append("User ID,Description,Current data,New data,Result\r\n");
 			}
 		else
 			{
@@ -50,11 +56,8 @@ public class report
 				content.append(myToDoList.get(i).getUser()+","+
 						myToDoList.get(i).getDescription()+","+
 						myToDoList.get(i).getCurrentData()+","+
-						myToDoList.get(i).getNewData()+",");
-				if(myToDoList.get(i).isConflictDetected())
-					{
-					content.append(myToDoList.get(i).getConflictDesc());
-					}
+						myToDoList.get(i).getNewData()+","+
+						myToDoList.get(i).getStatus().name());
 				content.append("\r\n");
 				}
 			}
@@ -62,40 +65,149 @@ public class report
 			{
 			for(int i=0; i<myToDoList.size(); i++)
 				{
-				content.append("User : "+myToDoList.get(i).getUser()+", "+
-						myToDoList.get(i).getDescription()+", "+
-						"Data \""+myToDoList.get(i).getCurrentData()+"\""+
-						" will be replaced by \""+myToDoList.get(i).getNewData()+"\"");
-				if(myToDoList.get(i).isConflictDetected())
-					{
-					content.append("\r\nWARN : "+myToDoList.get(i).getConflictDesc());
-					}
-				
 				if(myToDoList.get(i).getUser().compareTo(userID) != 0)
 					{
 					userID = myToDoList.get(i).getUser();
 					content.append("\r\n-------------");
 					}
 				content.append("\r\n");
+				
+				content.append("User : "+myToDoList.get(i).getUser()+", "+
+						myToDoList.get(i).getDescription()+", "+
+						"Data \""+myToDoList.get(i).getCurrentData()+"\"");
+				
+				if(myToDoList.get(i).getStatus().equals(toDoStatusType.success))
+					{
+					content.append(" has been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+						" with "+myToDoList.get(i).getStatus().name());
+					}
+				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.error))
+					{
+					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+							" an "+myToDoList.get(i).getStatus().name()+" append : "+myToDoList.get(i).getSoapResult());
+					}
+				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.disabled))
+					{
+					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+							" this task has been "+myToDoList.get(i).getStatus().name());
+					}
+				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.conflict))
+					{
+					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+							" "+myToDoList.get(i).getConflictDesc());
+					conflictPresent = true;
+					}
 				}
 			}
 		
-		//Add ack URL
-		content.append("\r\nTo validate this report clic on the following link : ");
-		content.append(methodesUtiles.getAckURL(myUSync.getId()));
-		content.append("\r\n\r\nBe carreful, this is a local URL. It will only works from a local computer");
+		//Footer
+		content.append(getExecuteReportFooter(conflictPresent));
+		
+		return content.toString();
+		}
+	
+	/**
+	 * Method used to build CUCM scan process report
+	 */
+	public synchronized static String makeScanReport(userSync myUSync) throws Exception
+		{
+		ArrayList<toDo> myToDoList = myUSync.getToDoList();
+		Date now = new Date();
+		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
+		StringBuffer content = new StringBuffer();
+		content.append(dateFormat.format(now)+" SCAN REPORT from "+variables.getNomProg()+" ["+variables.getVersion()+"] : \r\n\r\n");
+		String userID = new String(myToDoList.get(0).getUser());
+		boolean conflictPresent = false;
+		
+		if(myToDoList.size() != 0)
+			{
+			//Header
+			if(methodesUtiles.getTargetTask("csvreport",myUSync.getTaskIndex()).compareTo("true") == 0)
+				{
+				content.append("Report type : CSV\r\n\r\n");
+				content.append("User ID,Description,Current data,New data,Conflict\r\n");
+				}
+			else
+				{
+				content.append("Report type : Verbose\r\n\r\n");	
+				}
+			
+			
+			if(methodesUtiles.getTargetTask("csvreport",myUSync.getTaskIndex()).compareTo("true") == 0)
+				{
+				for(int i=0; i<myToDoList.size(); i++)
+					{
+					content.append(myToDoList.get(i).getUser()+","+
+							myToDoList.get(i).getDescription()+","+
+							myToDoList.get(i).getCurrentData()+","+
+							myToDoList.get(i).getNewData()+",");
+					if(myToDoList.get(i).isConflictDetected())
+						{
+						content.append(myToDoList.get(i).getConflictDesc());
+						}
+					content.append("\r\n");
+					}
+				}
+			else
+				{
+				for(int i=0; i<myToDoList.size(); i++)
+					{
+					if(myToDoList.get(i).getUser().compareTo(userID) != 0)
+						{
+						userID = myToDoList.get(i).getUser();
+						content.append("\r\n-------------");
+						}
+					content.append("\r\n");
+					
+					content.append("User : "+myToDoList.get(i).getUser()+", "+
+							myToDoList.get(i).getDescription()+", "+
+							"Data \""+myToDoList.get(i).getCurrentData()+"\""+
+							" will be replaced by \""+myToDoList.get(i).getNewData()+"\"");
+					if(myToDoList.get(i).isConflictDetected())
+						{
+						content.append("\r\nWARN : "+myToDoList.get(i).getConflictDesc());
+						conflictPresent = true;
+						}
+					}
+				}
+			//Add ack URL
+			content.append(getScanReportFooter(myUSync.getId(), conflictPresent));
+			}
+		else
+			{
+			content.append("\r\nNo unsynced data. Nothing need to be corrected");
+			}
 		
 		return content.toString();
 		}
 	
 	
+	/**
+	 * Method used to build scan report footer
+	 * - Add process time
+	 */
+	private synchronized static String getScanReportFooter(String ID, boolean conflictPresent) throws Exception
+		{
+		StringBuffer footer = new StringBuffer();
+		footer.append("\r\n\r\nTo validate this report clic on the following link : ");
+		footer.append(methodesUtiles.getAckURL(ID));
+		footer.append("\r\n\r\nBe carreful, this is a local URL. It will only works from a local computer");
+		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take some time to resolve it. Otherwise, report will be complicated to understand");
+		
+		return footer.toString();
+		}
 	
-	
-	
-	
-	
-	
-	
+	/**
+	 * Method used to build Execute report footer
+	 */
+	private synchronized static String getExecuteReportFooter(boolean conflictPresent) throws Exception
+		{
+		StringBuffer footer = new StringBuffer();
+		
+		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take some time to resolve it. Otherwise, report will be complicated to understand");
+		
+		return footer.toString();
+		}
 	
 	
 	/*2013*//*RATEL Alexandre 8)*/

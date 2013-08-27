@@ -1,5 +1,6 @@
 package web;
 
+import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -37,9 +38,9 @@ public class webAckReceiver extends Thread implements workimpl
 			
 			while(isWorking)
 				{
-				System.out.println("En attente de connexion");
+				variables.getLogger().info("Internal web server : Waiting for a new connection");
 				
-				//Acceptation de la connexion
+				//Connection accepted
 				incoming = ss.accept();
 				variables.getLogger().info("Web server : Connection accepted from : "+incoming.getInetAddress().toString());
 				

@@ -28,7 +28,7 @@ public class checkTask
 		}
 	
 	/****
-	 * Method used to check tasks status'
+	 * Method used to check tasks status
 	 */
 	public void check() throws Exception
 		{
@@ -131,6 +131,7 @@ public class checkTask
 			{
 			taskAlreadyExisting.add(new Integer(myTaskList.get(i).getTaskIndex()));
 			variables.getLogger().debug(myTaskList.get(i).getTInfo()+"is already exiting");
+			variables.getLogger().debug(myTaskList.get(i).getTInfo()+"Status : "+myTaskList.get(i).getStatus().name());
 			}
 		
 		for(int i=0; i<variables.getTabTasks().size(); i++)

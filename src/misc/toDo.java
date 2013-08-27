@@ -1,9 +1,6 @@
 package misc;
 
 import javax.xml.soap.SOAPMessage;
-
-import schedule.userSync;
-import schedule.userSync.deviceType;
 import schedule.userSync.patternType;
 
 /**********************************
@@ -17,7 +14,7 @@ public class toDo
 	/**
 	 * Variables
 	 */
-	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init};
+	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict};
 	
 	private patternType type;
 	private String description, currentData, newData, soapResult, user, UUID, conflictDesc, dataType;
@@ -31,10 +28,11 @@ public class toDo
 		this.description = new String(dataDesc+" "+dataType+" "+type.name()+" change needed");
 		this.currentData = currentData;
 		this.newData = newData;
-		this.soapResult = new String();
+		this.soapResult = new String("");
+		this.conflictDesc = new String("");
 		this.soapMessage = soapMessage;
 		this.user = user;
-		this.status = toDoStatusType.init;
+		this.status = toDoStatusType.waiting;
 		this.UUID = UUID;
 		this.conflictDetected = false;
 		this.dataType = dataType;
@@ -43,7 +41,7 @@ public class toDo
 	
 	public void setConflict(String dataInfo)
 		{
-		this.setStatus(toDoStatusType.disabled);
+		this.setStatus(toDoStatusType.conflict);
 		this.conflictDetected = true;
 		conflictDesc = new String("A conflict has been detected with \""+dataInfo+"\" this data will not be updated");
 		}
