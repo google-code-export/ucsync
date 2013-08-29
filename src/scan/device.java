@@ -147,8 +147,6 @@ public class device extends miscData
 	
 	
 	
-	
-	
 	/*2013*//*RATEL Alexandre 8)*/
 	}
 

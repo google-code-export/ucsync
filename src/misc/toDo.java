@@ -14,13 +14,13 @@ public class toDo
 	/**
 	 * Variables
 	 */
-	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict};
+	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible};
 	
 	private patternType type;
-	private String description, currentData, newData, soapResult, user, UUID, conflictDesc, dataType;
+	private String description, currentData, newData, soapResult, user, UUID, conflictDesc, dataType, impossibleDesc;
 	private SOAPMessage soapMessage;
 	private toDoStatusType status;
-	private boolean conflictDetected;
+	private boolean conflictDetected, problemDetected;
 	
 	public toDo(String currentData, String newData, patternType type, SOAPMessage soapMessage, String user, String UUID, String dataDesc, String dataType)
 		{
@@ -30,11 +30,13 @@ public class toDo
 		this.newData = newData;
 		this.soapResult = new String("");
 		this.conflictDesc = new String("");
+		this.impossibleDesc = new String("");
 		this.soapMessage = soapMessage;
 		this.user = user;
 		this.status = toDoStatusType.waiting;
 		this.UUID = UUID;
 		this.conflictDetected = false;
+		this.problemDetected = false;
 		this.dataType = dataType;
 		}
 
@@ -44,6 +46,13 @@ public class toDo
 		this.setStatus(toDoStatusType.conflict);
 		this.conflictDetected = true;
 		conflictDesc = new String("A conflict has been detected with \""+dataInfo+"\" this data will not be updated");
+		}
+	
+	public void setImpossible(String dataInfo)
+		{
+		this.setStatus(toDoStatusType.impossible);
+		this.problemDetected = true;
+		impossibleDesc = new String("A problem has been detected : \""+dataInfo+"\" this data will not be updated");
 		}
 	
 	public String getInfo()
@@ -169,6 +178,26 @@ public class toDo
 	public void setDataType(String dataType)
 		{
 		this.dataType = dataType;
+		}
+
+	public String getImpossibleDesc()
+		{
+		return impossibleDesc;
+		}
+
+	public void setImpossibleDesc(String impossibleDesc)
+		{
+		this.impossibleDesc = impossibleDesc;
+		}
+
+	public boolean isProblemDetected()
+		{
+		return problemDetected;
+		}
+
+	public void setProblemDetected(boolean problemDetected)
+		{
+		this.problemDetected = problemDetected;
 		}
 	
 	

@@ -62,7 +62,7 @@ public class methodesUtiles
 		/************************************************
 		 * Method used to get data write in the task file
 		 ************************************************/
-		public synchronized static ArrayList<String[][]> initTaskValue() throws Exception
+		public static ArrayList<String[][]> initTaskValue() throws Exception
 			{
 			String file = null;
 			ArrayList<String[][]> answer;
@@ -90,6 +90,56 @@ public class methodesUtiles
 				exc.printStackTrace();
 				variables.getLogger().error(exc.getMessage(),exc);
 				throw new Exception("ERROR with the task file : "+exc.getMessage());
+				}
+			}
+		
+		/************************************************
+		 * Method used to get data write in the task file
+		 ************************************************/
+		public static ArrayList<ArrayList<String>> initExceptionValue() throws Exception
+			{
+			String file = null;
+			ArrayList<ArrayList<String>> returnedValues = new ArrayList<ArrayList<String>>();
+			ArrayList<ArrayList<String[][]>> answer;
+			ArrayList<String> listParams = new ArrayList<String>();
+			
+			try
+				{
+				variables.getLogger().info("Get the Exception list from this file : "+variables.getTaskFileName());
+				file = xMLReader.fileRead(".\\"+variables.getTaskFileName());
+				
+				listParams.add("tasks");
+				listParams.add("task");
+				listParams.add("exception");
+				answer= xMLGear.getResultListTabExt(file, listParams);
+				
+				for(int i=0; i<answer.size(); i++)
+					{
+					ArrayList<String> list = new ArrayList<String>();
+					for(int j=0; j<answer.get(i).size(); j++)
+						{
+						for(int a=0; a<answer.get(i).get(j).length; a++)
+							{
+							list.add(new String(answer.get(i).get(j)[a][1]));
+							variables.getLogger().debug("Exception found : "+answer.get(i).get(j)[a][1]);
+							}
+						}
+					returnedValues.add(list);
+					}
+				
+				return returnedValues;
+				}
+			catch(FileNotFoundException fnfexc)
+				{
+				variables.getLogger().error("Fichier "+variables.getTaskFileName()+" non trouvé",fnfexc);
+				fnfexc.printStackTrace();
+				throw new FileNotFoundException("ERROR : The task file was not found : "+fnfexc.getMessage());
+				}
+			catch(Exception exc)
+				{
+				exc.printStackTrace();
+				variables.getLogger().error(exc.getMessage(),exc);
+				throw new Exception("ERROR during exception list building : "+exc.getMessage());
 				}
 			}
 	
@@ -138,6 +188,22 @@ public class methodesUtiles
 		throw new Exception("Option not found"); 
 		}
 	
+	/***************************************
+	 * Method used to get a specific Exception value
+	 ***************************************/
+	public synchronized static boolean isExceptionWord(String str)
+		{
+		for(int i=0; i<variables.getExceptionList().size(); i++)
+			{
+			if(variables.getExceptionList().get(i).equals(str))
+				{
+				variables.getLogger().debug("Exception word found : "+str);
+				return true;
+				}
+			}
+		return false;
+		}
+	
 	/************************
 	 * Check if java version
 	 * is correct
@@ -147,12 +213,12 @@ public class methodesUtiles
 		try
 			{
 			String jVer = new String(System.getProperty("java.version"));
-			variables.getLogger().info("Version de JRE détecté sur machine cliente : "+jVer);
+			variables.getLogger().info("Detected JRE version : "+jVer);
 			if(jVer.contains("1.6"))
 				{
 				if(Integer.parseInt(jVer.substring(6,8))<16)
 					{
-					variables.getLogger().info("Le programme a été terminé car la version de java n'est pas compatible");
+					variables.getLogger().info("JRE version is not compatible. The application will now exit. system.exit(0)");
 					System.exit(0);
 					}
 				}
@@ -160,7 +226,7 @@ public class methodesUtiles
 		catch(Exception exc)
 			{
 			exc.printStackTrace();
-			variables.getLogger().info("Erreur lors de la détection de la version de Java",exc);
+			variables.getLogger().info("ERROR : It has not been possible to detect JRE version",exc);
 			}
 		}
 	/***********************/

@@ -37,6 +37,7 @@ public class Principale
 		 * Initialisation de la journalisation
 		 **************************************/
 		variables.setLogger(initLogging.init(variables.getNomProg()+"_LogFile.txt"));
+		variables.getLogger().info("\r\n");
 		variables.getLogger().info("#### Entering application");
 		variables.getLogger().info("## Welcome to : "+variables.getNomProg()+" version "+variables.getVersion());
 		variables.getLogger().info("## Author : RATEL Alexandre : 2013");
@@ -53,20 +54,34 @@ public class Principale
 		 */
 		try
 			{
-			variables.getLogger().info("Lecture du fichier de configuration : "+variables.getConfigFileName());
+			//Config file reading
 			variables.setTabConfig(methodesUtiles.initConfigValue());
 			
-			variables.getLogger().info("Lecture du fichier des taches : "+variables.getTaskFileName());
+			//Task file reading
 			variables.setTabTasks(methodesUtiles.initTaskValue());
 			}
 		catch(Exception exc)
 			{
 			exc.printStackTrace();
 			variables.getLogger().error(exc);
-			variables.getLogger().error("Il n'est pas acceptable que l'initialisation est échouée. Fin du programme : System.exit(0)");
+			variables.getLogger().error("Application failed to init : System.exit(0)");
 			System.exit(0);
 			}
 		/*********/
+		
+		/********************
+		 * Get exception list
+		 ********************/
+		try
+			{
+			variables.setExceptionList(methodesUtiles.initExceptionValue());
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc.getMessage());
+			}
+		/*********************/
 		
 		/********************
 		 * Check if java version is compatible

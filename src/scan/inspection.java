@@ -88,6 +88,7 @@ public class inspection extends worker
 			 * This is used to know when the task
 			 * succeed to interrupt itself
 			 */
+			variables.getLogger().info(myUSync.getTInfo()+"##Stop## : Normal End of inspection process");
 			if(!isNotFinished)
 				{
 				finished = true;
@@ -120,10 +121,15 @@ public class inspection extends worker
 	 */
 	private void fillLists() throws Exception
 		{
+		variables.getLogger().info(myUSync.getTInfo()+"##Start## : Getting CUCM data");
 		if(isNotFinished)fillAssociatedDeviceList();
+		variables.getLogger().debug("List associated device user size :"+myUSync.getGlobalAssociatedDeviceList().size());
 		if(isNotFinished)fillAssociatedLineList();
+		variables.getLogger().debug("List associated line device size :"+myUSync.getGlobalAssociatedLineList().size());
 		if(isNotFinished)fillDeviceList();
+		variables.getLogger().debug("List device size :"+myUSync.getGlobalDeviceList().size());
 		if(isNotFinished)fillLineList();
+		variables.getLogger().debug("List line size :"+myUSync.getGlobalLineList().size());
 		if(isNotFinished)fillUserList();
 		}
 	
@@ -133,6 +139,7 @@ public class inspection extends worker
 	 */
 	private void findUnSyncData()
 		{
+		variables.getLogger().info(myUSync.getTInfo()+"##Start## : data comparison");
 		for(int i=0; (i<myUSync.getUserList().size())&&(isNotFinished) ; i++)
 			{
 			new userDataCompare(myUSync.getUserList().get(i), myUSync);
@@ -145,20 +152,24 @@ public class inspection extends worker
 	 */
 	private void findDataConflict()
 		{
+		variables.getLogger().info(myUSync.getTInfo()+"##Start## : conflict detection");
 		/**
 		 * Find conflict inside the ToDo list
 		 */
 		for(int i=0; i<myUSync.getToDoList().size(); i++)
 			{
-			for(int j=i+1; j<myUSync.getToDoList().size(); j++)
+			if(!myUSync.getToDoList().get(i).isProblemDetected())
 				{
-				if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getToDoList().get(j).getUUID()) == 0) 
-						&& (myUSync.getToDoList().get(i).getType().equals(myUSync.getToDoList().get(j).getType()))
-						&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getToDoList().get(j).getUser()) != 0))
+				for(int j=i+1; j<myUSync.getToDoList().size(); j++)
 					{
-					//Conflict detected
-					myUSync.getToDoList().get(i).setConflict(myUSync.getToDoList().get(j).getInfo());
-					myUSync.getToDoList().get(j).setConflict(myUSync.getToDoList().get(i).getInfo());
+					if((myUSync.getToDoList().get(i).getUUID().equals(myUSync.getToDoList().get(j).getUUID())) 
+							&& (myUSync.getToDoList().get(i).getType().equals(myUSync.getToDoList().get(j).getType()))
+							&& (!myUSync.getToDoList().get(i).getUser().equals(myUSync.getToDoList().get(j).getUser())))
+						{
+						//Conflict detected
+						myUSync.getToDoList().get(i).setConflict(myUSync.getToDoList().get(j).getInfo());
+						myUSync.getToDoList().get(j).setConflict(myUSync.getToDoList().get(i).getInfo());
+						}
 					}
 				}
 			}
@@ -168,43 +179,37 @@ public class inspection extends worker
 		 */
 		for(int i=0; i<myUSync.getToDoList().size(); i++)
 			{
-			for(int j=0; j<myUSync.getUserList().size(); j++)
+			if((!myUSync.getToDoList().get(i).isProblemDetected()) && (!myUSync.getToDoList().get(i).isConflictDetected()))
 				{
-				//Looking for conflict in line associated with user
-				for(int x=0; x<myUSync.getUserList().get(j).getAssociatedLine().size(); x++)
+				for(int j=0; j<myUSync.getUserList().size(); j++)
 					{
-					if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getUserList().get(j).getAssociatedLine().get(x).getUUID())== 0)
-							&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getUserList().get(j).getUserid()) != 0))
+					if(!myUSync.getToDoList().get(i).getUser().equals(myUSync.getUserList().get(j).getUserid()))
 						{
-						if(!myUSync.getToDoList().get(i).isConflictDetected())
+						//Looking for conflict in line associated with user
+						for(int x=0; x<myUSync.getUserList().get(j).getAssociatedLine().size(); x++)
 							{
-							myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" directory number : "+
-									myUSync.getUserList().get(j).getAssociatedLine().get(x).getPattern());
-							}
-						}
-					}
-				//Looking for conflict in Device associated with user
-				for(int x=0; x<myUSync.getUserList().get(j).getAssociatedDevice().size(); x++)
-					{
-					if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getUserList().get(j).getAssociatedDevice().get(x).getUUID())== 0)
-							&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getUserList().get(j).getUserid()) != 0))
-						{
-						if(!myUSync.getToDoList().get(i).isConflictDetected())
-							{
-							myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" device name : "+
-									myUSync.getUserList().get(j).getAssociatedDevice().get(x).getName());
-							}
-						}
-					//Looking for conflict in line's Device associated with user
-					for(int y=0; y<myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().size(); y++)
-						{
-						if((myUSync.getToDoList().get(i).getUUID().compareTo(myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().get(y).getUUID())== 0)
-								&& (myUSync.getToDoList().get(i).getUser().compareTo(myUSync.getUserList().get(j).getUserid()) != 0))
-							{
-							if(!myUSync.getToDoList().get(i).isConflictDetected())
+							if(myUSync.getToDoList().get(i).getUUID().equals(myUSync.getUserList().get(j).getAssociatedLine().get(x).getUUID()))
 								{
 								myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" directory number : "+
-										myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().get(y).getPattern());
+										myUSync.getUserList().get(j).getAssociatedLine().get(x).getPattern());
+								}
+							}
+						//Looking for conflict in Device associated with user
+						for(int x=0; x<myUSync.getUserList().get(j).getAssociatedDevice().size(); x++)
+							{
+							if(myUSync.getToDoList().get(i).getUUID().equals(myUSync.getUserList().get(j).getAssociatedDevice().get(x).getUUID()))
+								{
+								myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" device name : "+
+										myUSync.getUserList().get(j).getAssociatedDevice().get(x).getName());
+								}
+							//Looking for conflict in line's Device associated with user
+							for(int y=0; y<myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().size(); y++)
+								{
+								if(myUSync.getToDoList().get(i).getUUID().equals(myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().get(y).getUUID()))
+									{
+									myUSync.getToDoList().get(i).setConflict(myUSync.getUserList().get(j).getUserid()+" directory number : "+
+											myUSync.getUserList().get(j).getAssociatedDevice().get(x).getAssociatedLine().get(y).getPattern());
+									}
 								}
 							}
 						}
@@ -218,6 +223,7 @@ public class inspection extends worker
 	 */
 	private void sendEmailReport() throws Exception
 		{
+		variables.getLogger().info("##Start## : Report email sending");
 		for(int i=0; i<myUSync.getToDoList().size(); i++)
 			{
 			variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
@@ -230,6 +236,10 @@ public class inspection extends worker
 			if(myUSync.getToDoList().get(i).isConflictDetected())
 				{
 				variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getConflictDesc());
+				}
+			if(myUSync.getToDoList().get(i).isProblemDetected())
+				{
+				variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getImpossibleDesc());
 				}
 			}
 		
@@ -313,7 +323,7 @@ public class inspection extends worker
 	private void fillUserList() throws Exception
 		{
 		ArrayList<userData> List = new ArrayList<userData>();
-    	String req = new String("select pkid,firstname,lastname,userid,telephonenumber,department from enduser");
+    	String req = new String("select pkid,firstname,lastname,userid,telephonenumber,department from enduser where telephonenumber != \"\" and department != \"\"");
 		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
     	Iterator iterator = replySB.getChildElements();
@@ -323,7 +333,7 @@ public class inspection extends worker
     	SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
     	//Element type
     	Iterator iter = bodyElem.getChildElements();
-    	while(iter.hasNext())
+    	while(iter.hasNext()&&isNotFinished)
     		{
     		SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
     		Iterator itera = bodyEleme.getChildElements();
@@ -368,6 +378,7 @@ public class inspection extends worker
 				{
 				userData ud = new userData(pkid, firstName, lastName, userID, telephoneNumber, department, myUSync);
 				List.add(ud);
+				variables.getLogger().debug("###User : "+ud.getUserid()+" correctly added");
 				}
 			catch (emptyUserException euexc)
 				{
@@ -381,7 +392,7 @@ public class inspection extends worker
 	private void fillAssociatedDeviceList() throws Exception
 		{
 		ArrayList<userAssociatedDevice> List = new ArrayList<userAssociatedDevice>();
-		String req = new String("select fkenduser,fkdevice from enduserdevicemap");
+		String req = new String("select distinct fkenduser,fkdevice from enduserdevicemap");
 		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
 		Iterator iterator = replySB.getChildElements();
@@ -391,7 +402,7 @@ public class inspection extends worker
 		SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
 		//Element type
 		Iterator iter = bodyElem.getChildElements();
-		while(iter.hasNext())
+		while(iter.hasNext()&&isNotFinished)
 			{
 			SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
 			Iterator itera = bodyEleme.getChildElements();
@@ -415,9 +426,6 @@ public class inspection extends worker
 			List.add(uad);
 			}
 		
-		//We remove duplicate
-		List = removeDuplicateAssociatedUser(List);
-		
 		myUSync.setGlobalAssociatedDeviceList(List);
 		}
 	
@@ -434,7 +442,7 @@ public class inspection extends worker
 		SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
 		//Element type
 		Iterator iter = bodyElem.getChildElements();
-		while(iter.hasNext())
+		while(iter.hasNext()&&isNotFinished)
 			{
 			SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
 			Iterator itera = bodyEleme.getChildElements();
@@ -497,7 +505,7 @@ public class inspection extends worker
 		SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
 		//Element type
 		Iterator iter = bodyElem.getChildElements();
-		while(iter.hasNext())
+		while(iter.hasNext()&&isNotFinished)
 			{
 			SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
 			Iterator itera = bodyEleme.getChildElements();
@@ -507,6 +515,7 @@ public class inspection extends worker
 			String name = new String();
 			String type = new String();
 			String model = new String();
+			String dpname = new String();
 			
 			while(itera.hasNext())
 				{
@@ -530,6 +539,10 @@ public class inspection extends worker
 				else if(bodyElemen.getNodeName().compareTo("model") == 0)
 					{
 					model = bodyElemen.getTextContent();
+					}
+				else if(bodyElemen.getNodeName().compareTo("dpname") == 0)
+					{
+					dpname = bodyElemen.getTextContent();
 					}
 				}
 			device d = new device(UUID, myUSync, description, name, methodesUtiles.getDeviceTypeFromString(type), model);
@@ -557,7 +570,7 @@ public class inspection extends worker
 		SOAPBodyElement bodyElem = (SOAPBodyElement)ite.next();
 		//Element type
 		Iterator iter = bodyElem.getChildElements();
-		while(iter.hasNext())
+		while(iter.hasNext()&&isNotFinished)
 			{
 			SOAPBodyElement bodyEleme = (SOAPBodyElement)iter.next();
 			Iterator itera = bodyEleme.getChildElements();
@@ -592,33 +605,6 @@ public class inspection extends worker
 			}
 		
 		myUSync.setGlobalLineList(List);
-		}
-	
-	private synchronized static ArrayList<userAssociatedDevice> removeDuplicateAssociatedUser(ArrayList<userAssociatedDevice> listIndex)
-		{
-		boolean rem = false;
-		String currentData;
-		for(int i=0; i<listIndex.size(); i++)
-			{
-			currentData = listIndex.get(i).getDevicePkid()+listIndex.get(i).getUserPkid();
-			for(int j=i+1; j<listIndex.size(); j++)
-				{
-				if(currentData.compareTo(listIndex.get(j).getDevicePkid()+listIndex.get(j).getUserPkid()) == 0)
-					{
-					listIndex.remove(j);
-					rem = true;
-					}
-				}
-			}
-		if(rem)
-			{
-			removeDuplicateAssociatedUser(listIndex);
-			}
-		else
-			{
-			return listIndex;
-			}
-		return listIndex;
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/
