@@ -174,7 +174,8 @@ public class modify extends worker
 			try
 				{
 				if((myUSync.getToDoList().get(i).getStatus().equals(toDoStatusType.disabled))
-						||(myUSync.getToDoList().get(i).getStatus().equals(toDoStatusType.conflict)))
+						||(myUSync.getToDoList().get(i).getStatus().equals(toDoStatusType.conflict))
+						|| (myUSync.getToDoList().get(i).getStatus().equals(toDoStatusType.impossible)))
 					{
 					variables.getLogger().info("ToDo : "+myUSync.getToDoList().get(i).getDescription()+" has not been executed : "+myUSync.getToDoList().get(i).getStatus().name());
 					myUSync.getToDoList().get(i).setSoapResult("ToDo : "+myUSync.getToDoList().get(i).getDescription()+" has not been executed : "+myUSync.getToDoList().get(i).getStatus().name());

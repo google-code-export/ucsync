@@ -33,6 +33,7 @@ public class variables
 	private static ArrayList<Integer> bannedTaskList;
 	private static scheduler myScheduler;
 	private static webAckReceiver myWebServer;
+	private static ArrayList<ArrayList<String>> exceptionList; 
 	
 	/**
 	 * Contructeur
@@ -43,6 +44,7 @@ public class variables
 		taskFileName = new String("taskFile.xml");
 		taskList = new ArrayList<task>();
 		bannedTaskList = new ArrayList<Integer>();
+		exceptionList = new ArrayList<ArrayList<String>>();
 		}
 	
 	/****
@@ -69,7 +71,7 @@ public class variables
 		variables.version = version;
 		}
 
-	public static Logger getLogger()
+	public synchronized static Logger getLogger()
 		{
 		return logger;
 		}
@@ -167,6 +169,16 @@ public class variables
 	public static void setMyWebServer(webAckReceiver myWebServer)
 		{
 		variables.myWebServer = myWebServer;
+		}
+
+	public static ArrayList<ArrayList<String>> getExceptionList()
+		{
+		return exceptionList;
+		}
+
+	public static void setExceptionList(ArrayList<ArrayList<String>> exceptionList)
+		{
+		variables.exceptionList = exceptionList;
 		}
 	
 	

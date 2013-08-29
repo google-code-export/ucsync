@@ -95,7 +95,7 @@ public class SOAPGear
         	soapRequest = utils.convertSOAPToString.convert(requestMessage);
         	variables.getLogger().debug(soapRequest);
             //requestMessage.writeTo(System.out);
-            variables.getLogger().debug("\n---------------------");
+            variables.getLogger().debug("---------------------");
 
             reply = con.call(requestMessage, getUrlEndpoint());
 
@@ -112,13 +112,16 @@ public class SOAPGear
                 	}
                 else 
                 	{
-                	variables.getLogger().info("AXL : Positive response received.");
+                	variables.getLogger().info("AXL : Positive response received...........................................");
                 	}
+                /**
+                 * I comment this part because logs files are really big if they contains AXL answer 
+                 */
                 variables.getLogger().debug("---------------------");
                 //reply.writeTo(System.out);
-                soapAnswer = utils.convertSOAPToString.convert(reply);
-                variables.getLogger().debug("AXL reply convert to string : "+soapAnswer);
-                variables.getLogger().debug("\n---------------------");
+                //soapAnswer = utils.convertSOAPToString.convert(reply);
+                //variables.getLogger().debug("AXL reply convert to string : "+soapAnswer);
+                //variables.getLogger().debug("\n---------------------");
             	return reply;
             	}
             else

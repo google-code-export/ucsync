@@ -1,11 +1,11 @@
 package scan;
 
-import javax.xml.soap.SOAPMessage;
-
 import misc.soapMessageMaker;
 import misc.toDo;
 import schedule.userSync;
 import schedule.userSync.patternType;
+import utils.ClearFrenchString;
+import utils.methodesUtiles;
 import utils.variables;
 
 /**********************************
@@ -77,7 +77,7 @@ public class userDataCompare
 			pt = patternType.devicedescription;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findDeviceChange(d, d.getDescription(), pt, myUSync.getUserSyncTemplate().get(j));
+				findDeviceChange(d, d.getDescription(), pt, j);
 				}
 			}
 		/**
@@ -104,7 +104,7 @@ public class userDataCompare
 			pt = patternType.linedescription;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, l.getDescription(), pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getDescription(), pt, j);
 				}
 			
 			/**
@@ -113,7 +113,7 @@ public class userDataCompare
 			pt = patternType.linetextlabel;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, l.getLineTextLabel(), pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getLineTextLabel(), pt, j);
 				}
 			
 			/**
@@ -122,7 +122,7 @@ public class userDataCompare
 			pt = patternType.linedisplay;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, l.getDisplayName(), pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getDisplayName(), pt, j);
 				}
 			
 			/**
@@ -131,7 +131,7 @@ public class userDataCompare
 			pt = patternType.linealertingname;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, l.getAlertingName(), pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getAlertingName(), pt, j);
 				}
 			
 			/**
@@ -140,7 +140,7 @@ public class userDataCompare
 			pt = patternType.lineexternalphonenumbermask;
 			if(myUSync.getUserSyncTemplate().get(j).getName().equals(pt))
 				{
-				findLineChange(l, l.getExternalPhoneNumberMask(), pt, myUSync.getUserSyncTemplate().get(j));
+				findLineChange(l, l.getExternalPhoneNumberMask(), pt, j);
 				}
 			}
 		}
@@ -148,26 +148,122 @@ public class userDataCompare
 	/**
 	 * Method used to find a "device" data change then add a new todo
 	 */
-	private void findDeviceChange(device d, String currentData, patternType pt, patternContent pc) throws Exception
+	private void findDeviceChange(device d, String currentData, patternType pt, int indexPatternContent) throws Exception
 		{
-		String newData = new String(pc.getRegex(d, myUser));
-		variables.getLogger().debug("Device data comparison : '"+currentData+"' compare to '"+newData+"'");
-		if(currentData.compareTo(newData) != 0)
+		if(!methodesUtiles.isExceptionWord(currentData))
 			{
-			myUSync.getToDoList().add(new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, d), myUser.getUserid(), d.getUUID(), d.getName(), d.getType().name()));
+			Boolean newDataIsImpossible = false;
+			String problemDesc = new String("");
+			String newData = new String(myUSync.getUserSyncTemplate().get(indexPatternContent).getRegex(d, myUser));//We get the theoretical value build with regex
+			if(!pt.equals(patternType.lineexternalphonenumbermask))
+				{
+				if(isTooLong(newData))//We test if value is too long
+					{
+					newData = new String(myUSync.getUserSyncTemplate().get(indexPatternContent+1).getRegex(d, myUser));//We get the too long theoretical value build with regex
+					if(isTooLong(newData))//We test if value is still too long
+						{
+						newDataIsImpossible = true;
+						problemDesc = "Value is too long";
+						}
+					}
+				if(methodesUtiles.getTargetTask("replacefrenchchar", myUSync.getTaskIndex()).equals("true"))
+					{
+					try
+						{
+						newData = ClearFrenchString.translate(newData);
+						}
+					catch (Exception exc)
+						{
+						exc.printStackTrace();
+						problemDesc = exc.getMessage();
+						newDataIsImpossible = true;
+						}
+					}
+				}
+			variables.getLogger().debug("Device data comparison "+pt.name()+": '"+currentData+"' compare to '"+newData+"'");
+			if(!currentData.equals(newData))
+				{
+				toDo myToDo = new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, d), myUser.getUserid(), d.getUUID(), d.getName(), d.getType().name());
+				if(newDataIsImpossible)
+					{
+					myToDo.setImpossible(problemDesc);
+					}
+				myUSync.getToDoList().add(myToDo);
+				}
 			}
 		}
 	
 	/**
 	 * Method used to find a "line" data change then add a new todo
 	 */
-	private void findLineChange(line l, String currentData, patternType pt, patternContent pc) throws Exception
+	private void findLineChange(line l, String currentData, patternType pt, int indexPatternContent) throws Exception
 		{
-		String newData = new String(pc.getRegex(l, myUser));
-		variables.getLogger().debug("Line data comparison : '"+currentData+"' compare to '"+newData+"'");
-		if(currentData.compareTo(newData) != 0)
+		if(!methodesUtiles.isExceptionWord(currentData))
 			{
-			myUSync.getToDoList().add(new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, l), myUser.getUserid(), l.getUUID(), l.getPattern(), "line"));
+			Boolean newDataIsImpossible = false;
+			String problemDesc = new String("");
+			String newData = new String(myUSync.getUserSyncTemplate().get(indexPatternContent).getRegex(l, myUser));
+			if(!pt.equals(patternType.lineexternalphonenumbermask))
+				{
+				if(isTooLong(newData))//We test if value is too long
+					{
+					newData = new String(myUSync.getUserSyncTemplate().get(indexPatternContent+1).getRegex(l, myUser));//We get the too long theoretical value build with regex
+					if(isTooLong(newData))//We test if value is still too long
+						{
+						newDataIsImpossible = true;
+						problemDesc = "Value is too long";
+						}
+					}
+				if(methodesUtiles.getTargetTask("replacefrenchchar", myUSync.getTaskIndex()).equals("true"))
+					{
+					try
+						{
+						newData = ClearFrenchString.translate(newData);
+						}
+					catch (Exception exc)
+						{
+						exc.printStackTrace();
+						problemDesc = exc.getMessage();
+						newDataIsImpossible = true;
+						}
+					}
+				}
+			
+			variables.getLogger().debug("Line data comparison "+pt.name()+" : '"+currentData+"' compare to '"+newData+"'");
+			if(!currentData.equals(newData))
+				{
+				toDo myToDo = new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, l), myUser.getUserid(), l.getUUID(), l.getPattern(), "line");
+				if(newDataIsImpossible)
+					{
+					myToDo.setImpossible(problemDesc);
+					}
+				myUSync.getToDoList().add(myToDo);
+				}
+			}
+		}
+	
+	/**
+	 * Method used to check if data is too long
+	 */
+	private boolean isTooLong(String str)
+		{
+		int maxLength = 30;
+		try
+			{
+			maxLength = Integer.parseInt(methodesUtiles.getTargetTask("maxnumchar", myUSync.getTaskIndex()));
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc.getMessage());
+			}
+		if(str.length()>maxLength)
+			{
+			return true;
+			}
+		else
+			{
+			return false;
 			}
 		}
 	

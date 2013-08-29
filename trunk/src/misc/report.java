@@ -36,6 +36,7 @@ public class report
 		content.append(dateFormat.format(now)+" EXECUTE REPORT from "+variables.getNomProg()+" ["+variables.getVersion()+"] : \r\n\r\n");
 		String userID = new String(myToDoList.get(0).getUser());
 		boolean conflictPresent = false;
+		boolean problemPresent = false;
 		
 		//Header
 		if(methodesUtiles.getTargetTask("csvreport",myUSync.getTaskIndex()).compareTo("true") == 0)
@@ -84,12 +85,12 @@ public class report
 				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.error))
 					{
 					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-							" an "+myToDoList.get(i).getStatus().name()+" append : "+myToDoList.get(i).getSoapResult());
+							" an "+myToDoList.get(i).getStatus().name()+" appends : "+myToDoList.get(i).getSoapResult());
 					}
 				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.disabled))
 					{
 					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-							" this task has been "+myToDoList.get(i).getStatus().name());
+							" because this task has been "+myToDoList.get(i).getStatus().name());
 					}
 				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.conflict))
 					{
@@ -97,11 +98,17 @@ public class report
 							" "+myToDoList.get(i).getConflictDesc());
 					conflictPresent = true;
 					}
+				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.impossible))
+					{
+					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+							" because "+myToDoList.get(i).getImpossibleDesc());
+					problemPresent = true;
+					}
 				}
 			}
 		
 		//Footer
-		content.append(getExecuteReportFooter(conflictPresent));
+		content.append(getExecuteReportFooter(conflictPresent, problemPresent));
 		
 		return content.toString();
 		}
@@ -118,6 +125,18 @@ public class report
 		content.append(dateFormat.format(now)+" SCAN REPORT from "+variables.getNomProg()+" ["+variables.getVersion()+"] : \r\n\r\n");
 		String userID = new String(myToDoList.get(0).getUser());
 		boolean conflictPresent = false;
+		boolean problemPresent = false;
+		
+		int toDoListSize = myToDoList.size();
+		int toDoListConflict = 0;
+		int toDoListProblem = 0;
+		
+		for(int i=0; i<myToDoList.size(); i++)
+			{
+			if(myToDoList.get(i).isConflictDetected())toDoListConflict++;
+			if(myToDoList.get(i).isProblemDetected())toDoListProblem++;
+			}
+		
 		
 		if(myToDoList.size() != 0)
 			{
@@ -144,6 +163,12 @@ public class report
 					if(myToDoList.get(i).isConflictDetected())
 						{
 						content.append(myToDoList.get(i).getConflictDesc());
+						conflictPresent = true;
+						}
+					else if(myToDoList.get(i).isProblemDetected())
+						{
+						content.append(myToDoList.get(i).getImpossibleDesc());
+						problemPresent = true;
 						}
 					content.append("\r\n");
 					}
@@ -168,10 +193,21 @@ public class report
 						content.append("\r\nWARN : "+myToDoList.get(i).getConflictDesc());
 						conflictPresent = true;
 						}
+					else if(myToDoList.get(i).isProblemDetected())
+						{
+						content.append("\r\nWARN : "+myToDoList.get(i).getImpossibleDesc());
+						problemPresent = true;
+						}
 					}
 				}
+			//Add score
+			content.append("\r\n\r\nTotal : "+toDoListSize);
+			content.append("\r\nConflict : "+toDoListConflict);
+			content.append("\r\nProblem : "+toDoListProblem);
+			content.append("\r\nTotal : "+(toDoListSize-(toDoListConflict+toDoListProblem))+" values will be updated");
+			
 			//Add ack URL
-			content.append(getScanReportFooter(myUSync.getId(), conflictPresent));
+			content.append(getScanReportFooter(myUSync.getId(), conflictPresent, problemPresent));
 			}
 		else
 			{
@@ -186,13 +222,14 @@ public class report
 	 * Method used to build scan report footer
 	 * - Add process time
 	 */
-	private synchronized static String getScanReportFooter(String ID, boolean conflictPresent) throws Exception
+	private synchronized static String getScanReportFooter(String ID, boolean conflictPresent, boolean problemPresent) throws Exception
 		{
 		StringBuffer footer = new StringBuffer();
 		footer.append("\r\n\r\nTo validate this report clic on the following link : ");
 		footer.append(methodesUtiles.getAckURL(ID));
 		footer.append("\r\n\r\nBe carreful, this is a local URL. It will only works from a local computer");
-		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take some time to resolve it. Otherwise, report will be complicated to understand");
+		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take a moment to resolve it. Otherwise, report will be complicated to understand");
+		if(conflictPresent)footer.append("\r\n\r\nSome problem has been detected during scan process, please take a moment to check if it's normal");
 		
 		return footer.toString();
 		}
@@ -200,11 +237,12 @@ public class report
 	/**
 	 * Method used to build Execute report footer
 	 */
-	private synchronized static String getExecuteReportFooter(boolean conflictPresent) throws Exception
+	private synchronized static String getExecuteReportFooter(boolean conflictPresent, boolean problemPresent) throws Exception
 		{
 		StringBuffer footer = new StringBuffer();
 		
 		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take some time to resolve it. Otherwise, report will be complicated to understand");
+		if(conflictPresent)footer.append("\r\n\r\nSome problem has been detected during scan process, please take a moment to check if it's normal");
 		
 		return footer.toString();
 		}

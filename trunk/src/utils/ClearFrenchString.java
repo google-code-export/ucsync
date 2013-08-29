@@ -33,39 +33,15 @@ public class ClearFrenchString
 					}
 				else
 					{
-					throw new Exception("Un caractère n'a pas pu être remplacé");
-					}
-				}
-			/******************************************
-			 * Remove spaces present at the beginning or
-			 * at the end of a sentence
-			 *************************/
-			for(int i=0; i<result.length(); i++)
-				{
-				c = result.charAt(i);
-				if((" ".indexOf(c) == 0) && (i == 0))
-					{
-					result.deleteCharAt(0);
-					}
-				else if((" ".indexOf(c) == 0) && (i == result.length()-1))
-					{
-					result.deleteCharAt(result.length()-1);
+					throw new Exception("A character is invalid : "+src.charAt(i));
 					}
 				}
 			
-			/*************************
-			 * Remove double spaces
-			 *************************/
-			for(int i=1; i<result.length(); i++)
-				{
-				if((" ".indexOf(result.charAt(i)) == 0) && (" ".indexOf(result.charAt(i-1)) == 0))
-					{
-					result.deleteCharAt(i);
-					i--;
-					}
-				}
+			src = result.toString();
+			src = src.replaceAll("( )+", " ");//Remove double whitespace
+			src = src.trim();//Remove any leading and trailing whitespace
 			}
-		return result.toString();
+		return src;
 		}
 	
 	

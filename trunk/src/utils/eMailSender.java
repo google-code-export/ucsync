@@ -58,7 +58,7 @@ public class eMailSender
 	        props.put("mail."+proto+".host", server);
 	        props.put("mail."+proto+".auth", "true");
 	        //Maybe remove this
-	        props.put("mail.smtps.quitwait", "false");
+	        props.put("mail."+proto+".quitwait", "false");
 			
 			
 			// Get session

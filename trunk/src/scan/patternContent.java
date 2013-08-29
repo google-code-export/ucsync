@@ -106,7 +106,7 @@ public class patternContent
 				}
 			}
 		
-		//Rajouter une gestion des chaines trop longues et des caractères non supportés 
+		//Rajouter une gestion des chaines trop longues et des caractères non supportés
 		return buffer.toString();
 		}
 	
@@ -205,7 +205,7 @@ public class patternContent
 					}
 				}
 			/**
-			 * Fin number
+			 * End number
 			 *************/
 			
 			/*************
@@ -220,14 +220,13 @@ public class patternContent
 				int majuscule = howMany("\\*\\d+M\\*", param);
 				if(newValue.length() >= majuscule)
 					{
-					String temp = new String("");
-					temp = newValue.substring(0, majuscule);
+					String temp = newValue.substring(0, majuscule);
 					temp = temp.toUpperCase();
-					newValue = temp+newValue.substring(majuscule,newValue.length()).toLowerCase();
+					newValue = temp+newValue.substring(majuscule,newValue.length());
 					}
 				}
 			/**
-			 * Fin majuscule
+			 * End majuscule
 			 ****************/
 			
 			/*************
@@ -242,14 +241,61 @@ public class patternContent
 				int minuscule = howMany("\\*\\d+m\\*", param);
 				if(newValue.length() >= minuscule)
 					{
-					String temp = new String("");
-					temp = newValue.substring(0, minuscule);
+					String temp = newValue.substring(0, minuscule);
 					temp = temp.toLowerCase();
 					newValue = temp+newValue.substring(minuscule,newValue.length());
 					}
 				}
 			/**
-			 * Fin minuscule
+			 * End minuscule
+			 ****************/
+			
+			/*************
+			 * Split
+			 **/
+			if(Pattern.matches(".*\\*\\d+S.+\\*.*", param))
+				{
+				int split = howMany("\\*\\d+S.+\\*", param);
+				String splitter = getSplitter("\\*\\d+S.+\\*", param);
+				newValue = newValue.split(splitter)[split-1];
+				}
+			/**
+			 * End Split
+			 ****************/
+			
+			/*************
+			 * Replace
+			 **/
+			if(Pattern.matches(".*\\*\".+\"R\".*\"\\*.*", param))
+				{
+				String pattern = null;
+				String replaceBy = null;
+				Pattern begin = Pattern.compile("\".+\"R");
+				Matcher mBegin = begin.matcher(param);
+				Pattern end = Pattern.compile("R\".*\"");
+				Matcher mEnd = end.matcher(param);
+				
+				if(mBegin.find())
+					{
+					String str = mBegin.group();
+					str = str.substring(0,str.length()-1);//We remove the "R"
+					str = str.replace("\"", "");
+					pattern = str;
+					}
+				if(mEnd.find())
+					{
+					String str = mEnd.group();
+					str = str.substring(1,str.length());//We remove the "R"
+					str = str.replace("\"", "");
+					replaceBy = str;
+					}
+				if((pattern != null) && (replaceBy != null))
+					{
+					newValue = newValue.replace(pattern, replaceBy);
+					}
+				}
+			/**
+			 * End Replace
 			 ****************/
 			
 			return newValue;
@@ -284,8 +330,22 @@ public class patternContent
 		return 0;
 		}
 	
-	
-	
+	/**
+	 * Method used to find and return 
+	 * Character used to split
+	 */
+	private String getSplitter(String regex, String param) throws Exception
+		{
+		Pattern p = Pattern.compile(regex);
+		Matcher m = p.matcher(param);
+		
+		if(m.find())
+			{
+			String temp = m.group().replace("*", "");
+			return temp.split("S")[1];
+			}
+		throw new Exception();
+		}
 	
 	/*2013*//*RATEL Alexandre 8)*/
 	}
