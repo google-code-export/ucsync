@@ -84,6 +84,20 @@ public class Principale
 		/*********************/
 		
 		/********************
+		 * Get banned ToDo List
+		 ********************/
+		try
+			{
+			variables.setBannedToDoList(methodesUtiles.initBannedToDoList());
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc.getMessage());
+			}
+		/*********************/
+		
+		/********************
 		 * Check if java version is compatible
 		 ********************/
 		methodesUtiles.checkJavaVersion();

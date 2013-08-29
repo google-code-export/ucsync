@@ -2,6 +2,9 @@
 package utils;
 
 import java.util.ArrayList;
+
+import misc.toDo;
+
 import org.apache.log4j.Logger;
 
 import scan.device;
@@ -26,6 +29,7 @@ public class variables
 	private static Logger logger;
 	private static String configFileName;
 	private static String taskFileName;
+	private static String bannedToDoListFileName;
 	private static ArrayList<String[][]> tabConfig;
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
@@ -33,7 +37,8 @@ public class variables
 	private static ArrayList<Integer> bannedTaskList;
 	private static scheduler myScheduler;
 	private static webAckReceiver myWebServer;
-	private static ArrayList<ArrayList<String>> exceptionList; 
+	private static ArrayList<ArrayList<String>> exceptionList;
+	private static ArrayList<toDo> bannedToDoList;
 	
 	/**
 	 * Contructeur
@@ -42,9 +47,11 @@ public class variables
 		{
 		configFileName = new String("configFile.xml");
 		taskFileName = new String("taskFile.xml");
+		bannedToDoListFileName = new String("bannedToDoList.xml");
 		taskList = new ArrayList<task>();
 		bannedTaskList = new ArrayList<Integer>();
 		exceptionList = new ArrayList<ArrayList<String>>();
+		bannedToDoList = new ArrayList<toDo>();
 		}
 	
 	/****
@@ -179,6 +186,26 @@ public class variables
 	public static void setExceptionList(ArrayList<ArrayList<String>> exceptionList)
 		{
 		variables.exceptionList = exceptionList;
+		}
+
+	public static ArrayList<toDo> getBannedToDoList()
+		{
+		return bannedToDoList;
+		}
+
+	public static void setBannedToDoList(ArrayList<toDo> bannedToDoList)
+		{
+		variables.bannedToDoList = bannedToDoList;
+		}
+
+	public static String getBannedToDoListFileName()
+		{
+		return bannedToDoListFileName;
+		}
+
+	public static void setBannedToDoListFileName(String bannedToDoListFileName)
+		{
+		variables.bannedToDoListFileName = bannedToDoListFileName;
 		}
 	
 	

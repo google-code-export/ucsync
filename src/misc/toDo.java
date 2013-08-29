@@ -1,5 +1,7 @@
 package misc;
 
+import java.util.ArrayList;
+
 import javax.xml.soap.SOAPMessage;
 import schedule.userSync.patternType;
 
@@ -17,9 +19,10 @@ public class toDo
 	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible};
 	
 	private patternType type;
-	private String description, currentData, newData, soapResult, user, UUID, conflictDesc, dataType, impossibleDesc;
+	private String description, currentData, newData, soapResult, user, UUID, dataType;
 	private SOAPMessage soapMessage;
 	private toDoStatusType status;
+	private ArrayList<String> conflictList, problemList;
 	private boolean conflictDetected, problemDetected;
 	
 	public toDo(String currentData, String newData, patternType type, SOAPMessage soapMessage, String user, String UUID, String dataDesc, String dataType)
@@ -29,8 +32,8 @@ public class toDo
 		this.currentData = currentData;
 		this.newData = newData;
 		this.soapResult = new String("");
-		this.conflictDesc = new String("");
-		this.impossibleDesc = new String("");
+		this.conflictList = new ArrayList<String>();
+		this.problemList = new ArrayList<String>();
 		this.soapMessage = soapMessage;
 		this.user = user;
 		this.status = toDoStatusType.waiting;
@@ -39,20 +42,35 @@ public class toDo
 		this.problemDetected = false;
 		this.dataType = dataType;
 		}
-
 	
+	/**
+	 * Constructor used to define a new banned toDo
+	 */
+	public toDo(String UUID, String description, String user)
+		{
+		this.UUID = UUID;
+		this.description = description;
+		this.user = user;
+		}
+
+	/**
+	 * Method used to define conflict 
+	 */
 	public void setConflict(String dataInfo)
 		{
 		this.setStatus(toDoStatusType.conflict);
 		this.conflictDetected = true;
-		conflictDesc = new String("A conflict has been detected with \""+dataInfo+"\" this data will not be updated");
+		conflictList.add(new String("A conflict has been detected with \""+dataInfo+"\" this data will not be updated"));
 		}
 	
-	public void setImpossible(String dataInfo)
+	/**
+	 * Method used to define problem 
+	 */
+	public void setProblem(String dataInfo)
 		{
 		this.setStatus(toDoStatusType.impossible);
 		this.problemDetected = true;
-		impossibleDesc = new String("A problem has been detected : \""+dataInfo+"\" this data will not be updated");
+		problemList.add(new String("A problem has been detected : \""+dataInfo+"\" this data will not be updated"));
 		}
 	
 	public String getInfo()
@@ -150,16 +168,6 @@ public class toDo
 		this.status = status;
 		}
 
-	public String getConflictDesc()
-		{
-		return conflictDesc;
-		}
-
-	public void setConflictDesc(String conflictDesc)
-		{
-		this.conflictDesc = conflictDesc;
-		}
-
 	public boolean isConflictDetected()
 		{
 		return conflictDetected;
@@ -180,16 +188,6 @@ public class toDo
 		this.dataType = dataType;
 		}
 
-	public String getImpossibleDesc()
-		{
-		return impossibleDesc;
-		}
-
-	public void setImpossibleDesc(String impossibleDesc)
-		{
-		this.impossibleDesc = impossibleDesc;
-		}
-
 	public boolean isProblemDetected()
 		{
 		return problemDetected;
@@ -199,6 +197,27 @@ public class toDo
 		{
 		this.problemDetected = problemDetected;
 		}
+
+	public ArrayList<String> getConflictList()
+		{
+		return conflictList;
+		}
+
+	public void setConflictList(ArrayList<String> conflictList)
+		{
+		this.conflictList = conflictList;
+		}
+
+	public ArrayList<String> getProblemList()
+		{
+		return problemList;
+		}
+
+	public void setProblemList(ArrayList<String> problemList)
+		{
+		this.problemList = problemList;
+		}
+	
 	
 	
 	

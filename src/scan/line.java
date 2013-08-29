@@ -24,6 +24,7 @@ public class line extends miscData
 		{
 		super(UUID, myUSync);
 		this.myDevice = myDevice;
+		index = 1;
 		
 		autoComplete();
 		}

@@ -235,11 +235,17 @@ public class inspection extends worker
 			variables.getLogger().debug("Status : "+myUSync.getToDoList().get(i).getStatus().name());
 			if(myUSync.getToDoList().get(i).isConflictDetected())
 				{
-				variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getConflictDesc());
+				for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
+					{
+					variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getConflictList().get(x));
+					}
 				}
 			if(myUSync.getToDoList().get(i).isProblemDetected())
 				{
-				variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getImpossibleDesc());
+				for(int x=0; x<myUSync.getToDoList().get(i).getProblemList().size(); x++)
+					{
+					variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getProblemList().get(x));
+					}
 				}
 			}
 		

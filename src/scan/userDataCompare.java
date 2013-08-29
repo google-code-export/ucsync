@@ -186,7 +186,7 @@ public class userDataCompare
 				toDo myToDo = new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, d), myUser.getUserid(), d.getUUID(), d.getName(), d.getType().name());
 				if(newDataIsImpossible)
 					{
-					myToDo.setImpossible(problemDesc);
+					myToDo.setProblem(problemDesc);
 					}
 				myUSync.getToDoList().add(myToDo);
 				}
@@ -222,7 +222,6 @@ public class userDataCompare
 						}
 					catch (Exception exc)
 						{
-						exc.printStackTrace();
 						problemDesc = exc.getMessage();
 						newDataIsImpossible = true;
 						}
@@ -235,7 +234,7 @@ public class userDataCompare
 				toDo myToDo = new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, l), myUser.getUserid(), l.getUUID(), l.getPattern(), "line");
 				if(newDataIsImpossible)
 					{
-					myToDo.setImpossible(problemDesc);
+					myToDo.setProblem(problemDesc);
 					}
 				myUSync.getToDoList().add(myToDo);
 				}

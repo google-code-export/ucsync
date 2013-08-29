@@ -103,6 +103,7 @@ public class modify extends worker
 	 */
 	private void sendEmailReport() throws Exception
 		{
+		variables.getLogger().info("##Start## : Execution report email sending");
 		for(int i=0; i<myUSync.getToDoList().size(); i++)
 			{
 			variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
@@ -164,6 +165,7 @@ public class modify extends worker
 	 */
 	private void executeToDoList()
 		{
+		variables.getLogger().info("##Start## : ToDO List execution");
 		for(int i=0;((i<myUSync.getToDoList().size()) && (isNotFinished)); i++)
 			{
 			/**
