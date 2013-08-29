@@ -56,9 +56,10 @@ public class eMailSender
 			// Setup mail server
 			props.put("mail.transport.protocol", proto);
 	        props.put("mail."+proto+".host", server);
+	        props.put("mail."+proto+".port", port);//Has been added
 	        props.put("mail."+proto+".auth", "true");
 	        //Maybe remove this
-	        props.put("mail."+proto+".quitwait", "false");
+	        //props.put("mail."+proto+".quitwait", "false");//Has been removed
 			
 			
 			// Get session

@@ -3,11 +3,8 @@ package misc;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-
 import misc.toDo.toDoStatusType;
-
 import schedule.userSync;
-import utils.convertSOAPToString;
 import utils.methodesUtiles;
 import utils.variables;
 
@@ -37,12 +34,13 @@ public class report
 		String userID = new String(myToDoList.get(0).getUser());
 		boolean conflictPresent = false;
 		boolean problemPresent = false;
+		String separator = methodesUtiles.getTargetTask("csvseparator", myUSync.getTaskIndex());
 		
 		//Header
 		if(methodesUtiles.getTargetTask("csvreport",myUSync.getTaskIndex()).compareTo("true") == 0)
 			{
 			content.append("Report type : CSV\r\n\r\n");
-			content.append("User ID,Description,Current data,New data,Result\r\n");
+			content.append("User ID"+separator+"Description"+separator+"Current data"+separator+"New data"+separator+"Result"+separator+"Result Description\r\n");
 			}
 		else
 			{
@@ -54,11 +52,32 @@ public class report
 			{
 			for(int i=0; i<myToDoList.size(); i++)
 				{
-				content.append(myToDoList.get(i).getUser()+","+
-						myToDoList.get(i).getDescription()+","+
-						myToDoList.get(i).getCurrentData()+","+
-						myToDoList.get(i).getNewData()+","+
-						myToDoList.get(i).getStatus().name());
+				content.append(myToDoList.get(i).getUser()+separator+
+						myToDoList.get(i).getDescription()+separator+
+						myToDoList.get(i).getCurrentData()+separator+
+						myToDoList.get(i).getNewData()+separator+
+						myToDoList.get(i).getStatus().name()+separator);
+				
+				if(myToDoList.get(i).isConflictDetected())
+					{
+					for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
+						{
+						content.append(myToDoList.get(i).getConflictList().get(x)+" ");
+						}
+					conflictPresent = true;
+					}
+				else if(myToDoList.get(i).isProblemDetected())
+					{
+					for(int x=0; x<myUSync.getToDoList().get(i).getProblemList().size(); x++)
+						{
+						content.append(myToDoList.get(i).getProblemList().get(x)+" ");
+						}
+					problemPresent = true;
+					}
+				else
+					{
+					content.append("Has been processed with success");
+					}
 				content.append("\r\n");
 				}
 			}
@@ -94,14 +113,20 @@ public class report
 					}
 				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.conflict))
 					{
-					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-							" "+myToDoList.get(i).getConflictDesc());
+					for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
+						{
+						content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+								" "+myToDoList.get(i).getConflictList().get(x)+" ");
+						}
 					conflictPresent = true;
 					}
 				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.impossible))
 					{
-					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-							" because "+myToDoList.get(i).getImpossibleDesc());
+					for(int x=0; x<myUSync.getToDoList().get(i).getProblemList().size(); x++)
+						{
+						content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+								" because "+myToDoList.get(i).getProblemList().get(x)+" ");
+						}
 					problemPresent = true;
 					}
 				}
@@ -126,6 +151,7 @@ public class report
 		String userID = new String(myToDoList.get(0).getUser());
 		boolean conflictPresent = false;
 		boolean problemPresent = false;
+		String separator = methodesUtiles.getTargetTask("csvseparator", myUSync.getTaskIndex());
 		
 		int toDoListSize = myToDoList.size();
 		int toDoListConflict = 0;
@@ -144,7 +170,7 @@ public class report
 			if(methodesUtiles.getTargetTask("csvreport",myUSync.getTaskIndex()).compareTo("true") == 0)
 				{
 				content.append("Report type : CSV\r\n\r\n");
-				content.append("User ID,Description,Current data,New data,Conflict\r\n");
+				content.append("User ID"+separator+"Description"+separator+"Current data"+separator+"New data"+separator+"Status\r\n");
 				}
 			else
 				{
@@ -156,19 +182,29 @@ public class report
 				{
 				for(int i=0; i<myToDoList.size(); i++)
 					{
-					content.append(myToDoList.get(i).getUser()+","+
-							myToDoList.get(i).getDescription()+","+
-							myToDoList.get(i).getCurrentData()+","+
-							myToDoList.get(i).getNewData()+",");
+					content.append(myToDoList.get(i).getUser()+separator+
+							myToDoList.get(i).getDescription()+separator+
+							myToDoList.get(i).getCurrentData()+separator+
+							myToDoList.get(i).getNewData()+separator);
 					if(myToDoList.get(i).isConflictDetected())
 						{
-						content.append(myToDoList.get(i).getConflictDesc());
+						for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
+							{
+							content.append(myToDoList.get(i).getConflictList().get(x)+" ");
+							}
 						conflictPresent = true;
 						}
 					else if(myToDoList.get(i).isProblemDetected())
 						{
-						content.append(myToDoList.get(i).getImpossibleDesc());
+						for(int x=0; x<myUSync.getToDoList().get(i).getProblemList().size(); x++)
+							{
+							content.append(myToDoList.get(i).getProblemList().get(x)+" ");
+							}
 						problemPresent = true;
+						}
+					else
+						{
+						content.append("Will be processed");
 						}
 					content.append("\r\n");
 					}
@@ -190,12 +226,18 @@ public class report
 							" will be replaced by \""+myToDoList.get(i).getNewData()+"\"");
 					if(myToDoList.get(i).isConflictDetected())
 						{
-						content.append("\r\nWARN : "+myToDoList.get(i).getConflictDesc());
+						for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
+							{
+							content.append("\r\nWARN : "+myToDoList.get(i).getConflictList().get(x)+" ");
+							}
 						conflictPresent = true;
 						}
 					else if(myToDoList.get(i).isProblemDetected())
 						{
-						content.append("\r\nWARN : "+myToDoList.get(i).getImpossibleDesc());
+						for(int x=0; x<myUSync.getToDoList().get(i).getProblemList().size(); x++)
+							{
+							content.append("\r\nWARN : "+myToDoList.get(i).getProblemList().get(x)+" ");
+							}
 						problemPresent = true;
 						}
 					}
@@ -229,7 +271,7 @@ public class report
 		footer.append(methodesUtiles.getAckURL(ID));
 		footer.append("\r\n\r\nBe carreful, this is a local URL. It will only works from a local computer");
 		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take a moment to resolve it. Otherwise, report will be complicated to understand");
-		if(conflictPresent)footer.append("\r\n\r\nSome problem has been detected during scan process, please take a moment to check if it's normal");
+		if(problemPresent)footer.append("\r\n\r\nSome problem has been detected during scan process, please take a moment to check if it's normal");
 		
 		return footer.toString();
 		}
@@ -242,7 +284,7 @@ public class report
 		StringBuffer footer = new StringBuffer();
 		
 		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take some time to resolve it. Otherwise, report will be complicated to understand");
-		if(conflictPresent)footer.append("\r\n\r\nSome problem has been detected during scan process, please take a moment to check if it's normal");
+		if(problemPresent)footer.append("\r\n\r\nSome problem has been detected during scan process. These values has not been updated");
 		
 		return footer.toString();
 		}

@@ -21,7 +21,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 	<tasks>
 		<task>
 			<type>usersync</type><!--usersync-->
-			<when>DAILY 12:00</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h or 12h it depend of your installed local-->
+			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h or 12h it depend of your installed local-->
 			<description>user data synchronization</description><!--Task description-->
 			<timeout>15</timeout>
 			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
@@ -30,15 +30,15 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<ackmode>report</ackmode><!--report,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>true</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
-			<csvseparator>,</csvseparator><!--You can choose which character is used to separate values in csv report-->
-			<testmode>true</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->
+			<csvseparator>;</csvseparator><!--You can choose which character is used to separate values in csv report-->
+			<testmode>false</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->
 			<axlversion>8</axlversion>
-			<axlhost>10.5.1.179</axlhost>
+			<axlhost>10.0.1.167</axlhost>
 			<axlport>8443</axlport>
-			<axlusername>AXLAlex</axlusername>
+			<axlusername>AXLUser</axlusername>
 			<axlpassword>CCMCisco92</axlpassword>
-			<devicedescription></devicedescription>
-			<devicedescriptiontoolong></devicedescriptiontoolong>
+			<devicedescription>*M*cucm.nom</devicedescription>
+			<devicedescriptiontoolong>*M*cucm.nom</devicedescriptiontoolong>
 			<linedescription></linedescription>
 			<linedescriptiontoolong></linedescriptiontoolong>
 			<linealertingname>*M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept</linealertingname>

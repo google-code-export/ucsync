@@ -9,6 +9,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Random;
 //import javax.swing.JOptionPane;
+import misc.toDo;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 import scan.device;
@@ -59,89 +61,137 @@ public class methodesUtiles
         }
 	
 	
-		/************************************************
-		 * Method used to get data write in the task file
-		 ************************************************/
-		public static ArrayList<String[][]> initTaskValue() throws Exception
-			{
-			String file = null;
-			ArrayList<String[][]> answer;
-			ArrayList<String> listParams = new ArrayList<String>();
-			
-			try
-				{
-				variables.getLogger().info("Lecture du fichier des taches : "+variables.getTaskFileName());
-				file = xMLReader.fileRead(".\\"+variables.getTaskFileName());
-				
-				listParams.add("tasks");
-				listParams.add("task");
-				answer= xMLGear.getResultListTab(file, listParams);
-				
-				return answer;
-				}
-			catch(FileNotFoundException fnfexc)
-				{
-				variables.getLogger().error("Fichier "+variables.getTaskFileName()+" non trouvé",fnfexc);
-				fnfexc.printStackTrace();
-				throw new FileNotFoundException("ERROR : The task file was not found : "+fnfexc.getMessage());
-				}
-			catch(Exception exc)
-				{
-				exc.printStackTrace();
-				variables.getLogger().error(exc.getMessage(),exc);
-				throw new Exception("ERROR with the task file : "+exc.getMessage());
-				}
-			}
+	/************************************************
+	 * Method used to get data write in the task file
+	 ************************************************/
+	public static ArrayList<String[][]> initTaskValue() throws Exception
+		{
+		String file = null;
+		ArrayList<String[][]> answer;
+		ArrayList<String> listParams = new ArrayList<String>();
 		
-		/************************************************
-		 * Method used to get data write in the task file
-		 ************************************************/
-		public static ArrayList<ArrayList<String>> initExceptionValue() throws Exception
+		try
 			{
-			String file = null;
-			ArrayList<ArrayList<String>> returnedValues = new ArrayList<ArrayList<String>>();
-			ArrayList<ArrayList<String[][]>> answer;
-			ArrayList<String> listParams = new ArrayList<String>();
+			variables.getLogger().info("Lecture du fichier des taches : "+variables.getTaskFileName());
+			file = xMLReader.fileRead(".\\"+variables.getTaskFileName());
 			
-			try
-				{
-				variables.getLogger().info("Get the Exception list from this file : "+variables.getTaskFileName());
-				file = xMLReader.fileRead(".\\"+variables.getTaskFileName());
-				
-				listParams.add("tasks");
-				listParams.add("task");
-				listParams.add("exception");
-				answer= xMLGear.getResultListTabExt(file, listParams);
-				
-				for(int i=0; i<answer.size(); i++)
-					{
-					ArrayList<String> list = new ArrayList<String>();
-					for(int j=0; j<answer.get(i).size(); j++)
-						{
-						for(int a=0; a<answer.get(i).get(j).length; a++)
-							{
-							list.add(new String(answer.get(i).get(j)[a][1]));
-							variables.getLogger().debug("Exception found : "+answer.get(i).get(j)[a][1]);
-							}
-						}
-					returnedValues.add(list);
-					}
-				
-				return returnedValues;
-				}
-			catch(FileNotFoundException fnfexc)
-				{
-				variables.getLogger().error("Fichier "+variables.getTaskFileName()+" non trouvé",fnfexc);
-				fnfexc.printStackTrace();
-				throw new FileNotFoundException("ERROR : The task file was not found : "+fnfexc.getMessage());
-				}
-			catch(Exception exc)
-				{
-				exc.printStackTrace();
-				variables.getLogger().error(exc.getMessage(),exc);
-				throw new Exception("ERROR during exception list building : "+exc.getMessage());
-				}
+			listParams.add("tasks");
+			listParams.add("task");
+			answer= xMLGear.getResultListTab(file, listParams);
+			
+			return answer;
 			}
+		catch(FileNotFoundException fnfexc)
+			{
+			variables.getLogger().error("Fichier "+variables.getTaskFileName()+" non trouvé",fnfexc);
+			fnfexc.printStackTrace();
+			throw new FileNotFoundException("ERROR : The task file was not found : "+fnfexc.getMessage());
+			}
+		catch(Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc.getMessage(),exc);
+			throw new Exception("ERROR with the task file : "+exc.getMessage());
+			}
+		}
+		
+	/************************************************
+	 * Method used to get data write in the task file
+	 ************************************************/
+	public static ArrayList<ArrayList<String>> initExceptionValue() throws Exception
+		{
+		String file = null;
+		ArrayList<ArrayList<String>> returnedValues = new ArrayList<ArrayList<String>>();
+		ArrayList<ArrayList<String[][]>> answer;
+		ArrayList<String> listParams = new ArrayList<String>();
+		
+		try
+			{
+			variables.getLogger().info("Get the Exception list from this file : "+variables.getTaskFileName());
+			file = xMLReader.fileRead(".\\"+variables.getTaskFileName());
+			
+			listParams.add("tasks");
+			listParams.add("task");
+			listParams.add("exception");
+			answer= xMLGear.getResultListTabExt(file, listParams);
+			
+			for(int i=0; i<answer.size(); i++)
+				{
+				ArrayList<String> list = new ArrayList<String>();
+				for(int j=0; j<answer.get(i).size(); j++)
+					{
+					for(int a=0; a<answer.get(i).get(j).length; a++)
+						{
+						list.add(new String(answer.get(i).get(j)[a][1]));
+						variables.getLogger().debug("Exception found : "+answer.get(i).get(j)[a][1]);
+						}
+					}
+				returnedValues.add(list);
+				}
+			
+			return returnedValues;
+			}
+		catch(FileNotFoundException fnfexc)
+			{
+			variables.getLogger().error("Fichier "+variables.getTaskFileName()+" non trouvé",fnfexc);
+			fnfexc.printStackTrace();
+			throw new FileNotFoundException("ERROR : The task file was not found : "+fnfexc.getMessage());
+			}
+		catch(Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc.getMessage(),exc);
+			throw new Exception("ERROR during exception list building : "+exc.getMessage());
+			}
+		}
+		
+	/************************************************
+	 * Method used to get data write in the task file
+	 * @throws Exception 
+	 ************************************************/
+	public static ArrayList<toDo> initBannedToDoList() throws Exception
+		{
+		String file = null;
+		ArrayList<ArrayList<String[][]>> answer;
+		ArrayList<toDo> bannedList = new ArrayList<toDo>();
+		ArrayList<String> listParams = new ArrayList<String>();
+		
+		try
+			{
+			variables.getLogger().info("Get the Banned ToDo list from this file : "+variables.getBannedToDoListFileName());
+			file = xMLReader.fileRead(".\\"+variables.getBannedToDoListFileName());
+			
+			listParams.add("task");
+			listParams.add("todo");
+			answer= xMLGear.getResultListTabExt(file, listParams);
+			
+			for(int i=0; i<answer.size(); i++)
+				{
+				for(int j=0; j<answer.get(i).size(); j++)
+					{
+					for(int a=0; a<answer.get(i).get(j).length; a++)
+						{
+						if(answer.get(i)[j][0].equals("uuid"))
+							bannedList.add(new toDo());
+						}
+					}
+				}
+			
+			return bannedList;
+			}
+		catch(FileNotFoundException fnfexc)
+			{
+			variables.getLogger().error("Fichier "+variables.getTaskFileName()+" non trouvé",fnfexc);
+			fnfexc.printStackTrace();
+			throw new FileNotFoundException("ERROR : The Banned ToDo List file was not found : "+fnfexc.getMessage());
+			}
+		catch(Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc.getMessage(),exc);
+			throw new Exception("ERROR during Banned ToDo list building : "+exc.getMessage());
+			}
+		}
 	
 	/***************************************
 	 * Method used to get a specific value
