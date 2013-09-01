@@ -1,0 +1,14 @@
+#Fat Jar Configuration File
+#Thu Aug 29 18:57:17 CEST 2013
+onejar.license.required=true
+manifest.classpath=
+manifest.removesigners=true
+onejar.checkbox=false
+jarname=UCSync_fat.jar
+manifest.mergeall=true
+manifest.mainclass=start.Principale
+manifest.file=<createnew>
+jarname.isextern=false
+onejar.expand=
+excludes=
+includes=

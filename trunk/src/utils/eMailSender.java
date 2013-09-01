@@ -79,7 +79,7 @@ public class eMailSender
 			//Connection
 			transport.connect(server, Integer.parseInt(port), user, password);
 			
-			// Send message
+			//Send message
 			transport.sendMessage(message, message.getRecipients(Message.RecipientType.TO));
 			transport.close();
 			variables.getLogger().info("Email envoyé ! Subject : "+subject+" To : "+sendTo+ " Type : "+eMailDesc);

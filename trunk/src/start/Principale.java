@@ -9,7 +9,9 @@ import utils.SOAPGear;
 import utils.methodesUtiles;
 import utils.initLogging;
 import utils.variables;
+import web.mngtReceiver;
 import web.webAckReceiver;
+import web.webMngtManager;
 
 /*********************************************
  * Main class called "Principale in French"
@@ -138,6 +140,12 @@ public class Principale
 		 * Start internal web server
 		 */
 		variables.setMyWebServer(new webAckReceiver());
+		/****/
+		
+		/****
+		 * Start internal management server
+		 */
+		variables.setMyMngtServer(new webMngtManager());
 		/****/
 		
 		/*********************************

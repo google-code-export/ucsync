@@ -1,9 +1,10 @@
 package misc;
 
 import java.util.ArrayList;
-
+import java.util.LinkedHashSet;
+import java.util.Set;
 import javax.xml.soap.SOAPMessage;
-import schedule.userSync.patternType;
+import utils.variables.patternType;
 
 /**********************************
  * Class used to store data which 
@@ -76,6 +77,13 @@ public class toDo
 	public String getInfo()
 		{
 		return user+" "+description;
+		}
+	
+	public void removeDuplicate()
+		{
+		Set setItems = new LinkedHashSet(conflictList);
+		conflictList.clear();
+		conflictList.addAll(setItems);
 		}
 	
 	public String getDescription()

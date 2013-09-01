@@ -61,7 +61,7 @@ public class device extends miscData
 			{
 			if(myUSync.getGlobalAssociatedLineList().get(i).getDevicePkid().compareTo(UUID) == 0)
 				{
-				if((myUSync.getGlobalAssociatedLineList().get(i).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).compareTo("true") == 0))
+				if((myUSync.getGlobalAssociatedLineList().get(i).getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).equals("true")))
 					{
 					line myLine = new line(myUSync.getGlobalAssociatedLineList().get(i).getLinePkid(), myUSync, this);
 					myLine.setDisplayName(myUSync.getGlobalAssociatedLineList().get(i).getDisplayName());

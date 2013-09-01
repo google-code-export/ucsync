@@ -1,14 +1,14 @@
 <xml>
-<task>
-<todo>
-<uuid></uuid>
-<description></description>
-<user></user>
-</todo>
-<todo>
-<uuid></uuid>
-<description></description>
-<user></user>
-</todo>
-</task>
+	<task>
+		<todo>
+			<uuid></uuid>
+			<description></description>
+			<user></user>
+		</todo>
+		<todo>
+			<uuid></uuid>
+			<description></description>
+			<user></user>
+		</todo>
+	</task>
 </xml>

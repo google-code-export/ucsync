@@ -27,6 +27,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
 			<smartlinesearch>true</smartlinesearch><!--true,false-->
 			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user-->
+			<linesearchpattern>811%</linesearchpattern><!--Used to exculde some directory number. Must be a SQL "not like" filter-->
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<ackmode>report</ackmode><!--report,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>true</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
@@ -37,8 +38,8 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<axlport>8443</axlport>
 			<axlusername>AXLUser</axlusername>
 			<axlpassword>CCMCisco92</axlpassword>
-			<devicedescription>*M*cucm.nom</devicedescription>
-			<devicedescriptiontoolong>*M*cucm.nom</devicedescriptiontoolong>
+			<devicedescription></devicedescription>
+			<devicedescriptiontoolong></devicedescriptiontoolong>
 			<linedescription></linedescription>
 			<linedescriptiontoolong></linedescriptiontoolong>
 			<linealertingname>*M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept</linealertingname>
