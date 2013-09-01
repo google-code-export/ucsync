@@ -1,18 +1,11 @@
 package schedule;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
-
-import execute.modify;
-
-import scan.inspection;
 import utils.methodesUtiles;
 import utils.variables;
-
 import misc.toDo;
 import misc.worker;
 
@@ -32,6 +25,7 @@ public abstract class task
 	protected taskStatusType status;
 	protected taskType type;
 	protected String description;
+	private ArrayList<toDo> toDoList;
 	protected int age;
 	protected String when;
 	protected worker myWorker;
@@ -45,6 +39,7 @@ public abstract class task
 		this.taskIndex = taskIndex;
 		this.type = type;
 		status = taskStatusType.init;
+		toDoList = new ArrayList<toDo>();
 		age = 0;
 		id = methodesUtiles.getID();
 		when = methodesUtiles.getTargetTask("when",taskIndex);
@@ -243,6 +238,16 @@ public abstract class task
 	public void setType(taskType type)
 		{
 		this.type = type;
+		}
+
+	public ArrayList<toDo> getToDoList()
+		{
+		return toDoList;
+		}
+
+	public void setToDoList(ArrayList<toDo> toDoList)
+		{
+		this.toDoList = toDoList;
 		}
 	
 	

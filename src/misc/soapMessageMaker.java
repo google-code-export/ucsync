@@ -16,8 +16,8 @@ import scan.device;
 import scan.line;
 import schedule.userSync;
 import schedule.userSync.deviceType;
-import schedule.userSync.patternType;
 import utils.methodesUtiles;
+import utils.variables.patternType;
 
 /**********************************
  * Class used to store static method

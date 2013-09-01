@@ -3,10 +3,10 @@ package scan;
 import misc.soapMessageMaker;
 import misc.toDo;
 import schedule.userSync;
-import schedule.userSync.patternType;
 import utils.ClearFrenchString;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.patternType;
 
 /**********************************
  * Class used to compare data for 

@@ -12,6 +12,7 @@ import scan.userData;
 import utils.SOAPGear;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.patternType;
 import execute.modify;
 
 import misc.toDo;
@@ -26,14 +27,7 @@ public class userSync extends task
 	/***
 	 * Variables
 	 */
-	public enum patternType {devicedescription,devicedescriptiontoolong,
-							linedescription,linedescriptiontoolong,
-							linealertingname,linealertingnametoolong,
-							linedisplay,linedisplaytoolong,
-							linetextlabel,linetextlabeltoolong,
-							lineexternalphonenumbermask};
 	public enum deviceType{phone,deviceprofile,analog};
-	private ArrayList<toDo> toDoList;
 	private SOAPGear soapGear;
 	private ArrayList<userData> userList;
 	private ArrayList<device> globalDeviceList;
@@ -47,7 +41,6 @@ public class userSync extends task
 		{
 		super(taskIndex,taskType.userSync);
 		
-		toDoList = new ArrayList<toDo>();
 		userSyncTemplate = new ArrayList<patternContent>();
 		fillUserSyncTemplate();
 		}
@@ -123,16 +116,6 @@ public class userSync extends task
 		
 		}
 	
-	
-	public ArrayList<toDo> getToDoList()
-		{
-		return toDoList;
-		}
-
-	public void setToDoList(ArrayList<toDo> toDoList)
-		{
-		this.toDoList = toDoList;
-		}
 
 	public ArrayList<userData> getUserList()
 		{

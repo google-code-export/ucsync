@@ -5,9 +5,9 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import schedule.userSync;
-import schedule.userSync.patternType;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.patternType;
 
 /**********************************
  * Class used to store pattern content

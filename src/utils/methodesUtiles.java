@@ -149,11 +149,11 @@ public class methodesUtiles
 	 * Method used to get data write in the task file
 	 * @throws Exception 
 	 ************************************************/
-	public static ArrayList<toDo> initBannedToDoList() throws Exception
+	public static ArrayList<ArrayList<toDo>> initBannedToDoList() throws Exception
 		{
 		String file = null;
 		ArrayList<ArrayList<String[][]>> answer;
-		ArrayList<toDo> bannedList = new ArrayList<toDo>();
+		ArrayList<ArrayList<toDo>> bannedList = new ArrayList<ArrayList<toDo>>();
 		ArrayList<String> listParams = new ArrayList<String>();
 		
 		try
@@ -167,14 +167,30 @@ public class methodesUtiles
 			
 			for(int i=0; i<answer.size(); i++)
 				{
+				ArrayList<toDo> tempBannedList = new ArrayList<toDo>();
+				
 				for(int j=0; j<answer.get(i).size(); j++)
 					{
+					String uuid = null;
+					String description = null;
+					String user = null;
+					
 					for(int a=0; a<answer.get(i).get(j).length; a++)
 						{
-						if(answer.get(i)[j][0].equals("uuid"))
-							bannedList.add(new toDo());
+						if(answer.get(i).get(j)[a][0].equals("uuid"))uuid = answer.get(i).get(j)[a][1];
+						if(answer.get(i).get(j)[a][0].equals("description"))description = answer.get(i).get(j)[a][1];
+						if(answer.get(i).get(j)[a][0].equals("user"))user = answer.get(i).get(j)[a][1];
+						}
+					if((uuid != null) && (description != null) && (user != null))
+						{
+						tempBannedList.add(new toDo(uuid, description, user));
+						}
+					else
+						{
+						throw new Exception("Failed to build banned to do List");
 						}
 					}
+				bannedList.add(tempBannedList);
 				}
 			
 			return bannedList;

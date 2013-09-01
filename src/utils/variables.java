@@ -13,6 +13,7 @@ import scan.userData;
 import schedule.scheduler;
 import schedule.task;
 import web.webAckReceiver;
+import web.webMngtManager;
 
 /*********************************************
  * Classe contenant les variables statiques
@@ -24,6 +25,13 @@ public class variables
 	/**
 	 * Listes des variables statiques
 	 */
+	public enum patternType {devicedescription,devicedescriptiontoolong,
+	linedescription,linedescriptiontoolong,
+	linealertingname,linealertingnametoolong,
+	linedisplay,linedisplaytoolong,
+	linetextlabel,linetextlabeltoolong,
+	lineexternalphonenumbermask};
+	
 	private static String nomProg;
 	private static String version;
 	private static Logger logger;
@@ -37,8 +45,9 @@ public class variables
 	private static ArrayList<Integer> bannedTaskList;
 	private static scheduler myScheduler;
 	private static webAckReceiver myWebServer;
+	private static webMngtManager myMngtServer;
 	private static ArrayList<ArrayList<String>> exceptionList;
-	private static ArrayList<toDo> bannedToDoList;
+	private static ArrayList<ArrayList<toDo>> bannedToDoList;
 	
 	/**
 	 * Contructeur
@@ -51,7 +60,7 @@ public class variables
 		taskList = new ArrayList<task>();
 		bannedTaskList = new ArrayList<Integer>();
 		exceptionList = new ArrayList<ArrayList<String>>();
-		bannedToDoList = new ArrayList<toDo>();
+		bannedToDoList = new ArrayList<ArrayList<toDo>>();
 		}
 	
 	/****
@@ -188,16 +197,6 @@ public class variables
 		variables.exceptionList = exceptionList;
 		}
 
-	public static ArrayList<toDo> getBannedToDoList()
-		{
-		return bannedToDoList;
-		}
-
-	public static void setBannedToDoList(ArrayList<toDo> bannedToDoList)
-		{
-		variables.bannedToDoList = bannedToDoList;
-		}
-
 	public static String getBannedToDoListFileName()
 		{
 		return bannedToDoListFileName;
@@ -207,6 +206,27 @@ public class variables
 		{
 		variables.bannedToDoListFileName = bannedToDoListFileName;
 		}
+
+	public static ArrayList<ArrayList<toDo>> getBannedToDoList()
+		{
+		return bannedToDoList;
+		}
+
+	public static void setBannedToDoList(ArrayList<ArrayList<toDo>> bannedToDoList)
+		{
+		variables.bannedToDoList = bannedToDoList;
+		}
+
+	public static webMngtManager getMyMngtServer()
+		{
+		return myMngtServer;
+		}
+
+	public static void setMyMngtServer(webMngtManager myMngtServer)
+		{
+		variables.myMngtServer = myMngtServer;
+		}
+	
 	
 	
 	/*****

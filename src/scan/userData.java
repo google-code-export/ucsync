@@ -81,7 +81,7 @@ public class userData extends miscData
 		 */
 		for(int i=0; i<myUSync.getGlobalAssociatedDeviceList().size(); i++)
 			{
-			if(myUSync.getGlobalAssociatedDeviceList().get(i).getUserPkid().compareTo(UUID) == 0)
+			if(myUSync.getGlobalAssociatedDeviceList().get(i).getUserPkid().equals(UUID))
 				{
 				associatedDevice.add(new device(myUSync.getGlobalAssociatedDeviceList().get(i).getDevicePkid(), myUSync));
 				}
@@ -96,9 +96,7 @@ public class userData extends miscData
 		{
 		/**
 		 * Je dois améliorer cette methode :
-		 * - Prendre en compte un filtre de modification du telephoneNumber
-		 * - Gérer une liste des objets bannis à ne pas traiter
-		 * - Gérer un pattern de numéro à ne pas utiliser (Numéro technique par exemple)
+		 * - Prendre en compte un regex de modification du telephoneNumber
 		 */
 		String number = this.telephoneNumber;
 		for(int i=0; i<myUSync.getGlobalLineList().size(); i++)
@@ -109,25 +107,31 @@ public class userData extends miscData
 				for(int j=0; j<myUSync.getGlobalAssociatedLineList().size(); j++)
 					{
 					deviceAssociatedLine ad = myUSync.getGlobalAssociatedLineList().get(j);
+					boolean isAssociated = false;
 					if(l.getUUID().equals(ad.getLinePkid()))//If the line found is associated to a phone
 						{
 						if(associatedDevice.size() != 0)//We want to exclude line that are already associated to the user
 							{
 							for(int a=0; a<associatedDevice.size(); a++)
 								{
-								//We check for line already associated with the user
-								if(!ad.getDevicePkid().equals(associatedDevice.get(a).getUUID()))
+								//We check for line already associated with the user throw an associated device
+								if(ad.getDevicePkid().equals(associatedDevice.get(a).getUUID()))
 									{
-									//We process only the first line if getmorethanprimaryline option is set to false
-									if((ad.getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).equals("true")))
-										{
-										line myLine = new line(l.getUUID(), myUSync, new device(ad.getDevicePkid(), myUSync));
-										myLine.setDisplayName(ad.getDisplayName());
-										myLine.setLineTextLabel(ad.getLineTextLabel());
-										myLine.setExternalPhoneNumberMask(ad.getExternalPhoneNumberMask());
-										myLine.setIndex(ad.getIndex());
-										this.associatedLine.add(myLine);
-										}
+									isAssociated = true;
+									break;
+									}
+								}
+							if(!isAssociated)
+								{
+								//We process only the first line if getmorethanprimaryline option is set to false
+								if((ad.getIndex()==1)||(methodesUtiles.getTargetTask("getmorethanprimaryline",myUSync.getTaskIndex()).equals("true")))
+									{
+									line myLine = new line(l.getUUID(), myUSync, new device(ad.getDevicePkid(), myUSync));
+									myLine.setDisplayName(ad.getDisplayName());
+									myLine.setLineTextLabel(ad.getLineTextLabel());
+									myLine.setExternalPhoneNumberMask(ad.getExternalPhoneNumberMask());
+									myLine.setIndex(ad.getIndex());
+									this.associatedLine.add(myLine);
 									}
 								}
 							}

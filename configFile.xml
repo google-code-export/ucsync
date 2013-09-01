@@ -10,7 +10,7 @@
 		<smtpemailpassword>Wiki2alex</smtpemailpassword>
 		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->
 		<webserverport>8080</webserverport><!--Port used by the internal web server to listen for ack-->
+		<managerserverport>8081</managerserverport><!--Port used by the internal Management server to listen-->
 		<maxtasktime>1440</maxtasktime><!--Max task time before automatic delete. In minute 1440 = 1 day-->
-		<mode>ackneeded</mode><!--Used to set if admin ack is needed to execute modification--><!--ackneeded, auto-->
 	</config>
 </xml>

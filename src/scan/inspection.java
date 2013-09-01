@@ -18,6 +18,7 @@ import utils.methodesUtiles;
 import utils.variables;
 import misc.emptyUserException;
 import misc.report;
+import misc.toDo;
 import misc.worker;
 import misc.toDo.toDoStatusType;
 
@@ -76,7 +77,13 @@ public class inspection extends worker
 			/***************/
 			
 			/*****
-			 * Step 4 : Send a report email
+			 * Step 4 : Remove banned todo
+			 */
+			if(isNotFinished)removeBannedToDo();
+			/***************/
+			
+			/*****
+			 * Step 5 : Send a report email
 			 */
 			if(isNotFinished)sendEmailReport();
 			/***************/
@@ -156,7 +163,7 @@ public class inspection extends worker
 		/**
 		 * Find conflict inside the ToDo list
 		 */
-		for(int i=0; i<myUSync.getToDoList().size(); i++)
+		for(int i=0; (i<myUSync.getToDoList().size())&&(isNotFinished); i++)
 			{
 			if(!myUSync.getToDoList().get(i).isProblemDetected())
 				{
@@ -177,7 +184,7 @@ public class inspection extends worker
 		/**
 		 * Find potential conflict with existing data
 		 */
-		for(int i=0; i<myUSync.getToDoList().size(); i++)
+		for(int i=0; (i<myUSync.getToDoList().size())&&(isNotFinished); i++)
 			{
 			if((!myUSync.getToDoList().get(i).isProblemDetected()) && (!myUSync.getToDoList().get(i).isConflictDetected()))
 				{
@@ -216,7 +223,53 @@ public class inspection extends worker
 					}
 				}
 			}
+		
+		//Remove toDoList conflict duplicate
+		for(int i=0; i<myUSync.getToDoList().size() ; i++)
+			{
+			myUSync.getToDoList().get(i).removeDuplicate();
+			}
+		
+		//Remove to do list duplicate
+		
 		}
+	
+	/**
+	 * Method used to remove banned todo
+	 */
+	private void removeBannedToDo()
+		{
+		variables.getLogger().info("##Start## : Remove banned toDo list");
+		try
+			{
+			ArrayList<toDo> myBannedToDoList = variables.getBannedToDoList().get(myUSync.getTaskIndex());
+			ArrayList<Integer> toRemove = new ArrayList<Integer>();
+			
+			//Finding
+			for(int i=0; (i<myBannedToDoList.size())&&(isNotFinished); i++)
+				{
+				for(int j=0; j<myUSync.getToDoList().size(); j++)
+					{
+					if(myBannedToDoList.get(i).getUUID().equals(myUSync.getToDoList().get(j).getUUID()))
+						{
+						toRemove.add(new Integer(j));
+						}
+					}
+				}
+			
+			//Removing
+			for(int i=0; i<toRemove.size(); i++)
+				{
+				myUSync.getToDoList().remove(toRemove.get(i).intValue());
+				}
+			}
+		catch(Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error("ERROR during banned toDo list process : "+exc.getMessage());
+			}
+		}
+	
 	
 	/**
 	 * Method used to send Scan eMail report
@@ -384,7 +437,7 @@ public class inspection extends worker
 				{
 				userData ud = new userData(pkid, firstName, lastName, userID, telephoneNumber, department, myUSync);
 				List.add(ud);
-				variables.getLogger().debug("###User : "+ud.getUserid()+" correctly added");
+				//variables.getLogger().debug("###User : "+ud.getUserid()+" correctly added");
 				}
 			catch (emptyUserException euexc)
 				{
@@ -438,7 +491,18 @@ public class inspection extends worker
 	private void fillAssociatedLineList() throws Exception
 		{
 		ArrayList<deviceAssociatedLine> List = new ArrayList<deviceAssociatedLine>();
-		String req = new String("select fkdevice,fknumplan,label,display,e164mask,numplanindex from devicenumplanmap where numplanindex != 0");
+		String req = new String();
+		String regex = methodesUtiles.getTargetTask("linesearchpattern", myUSync.getTaskIndex());
+		
+		if((regex != null) && (!regex.equals("")))
+			{
+			req = new String("select map.fkdevice,map.fknumplan,map.label,map.display,map.e164mask,map.numplanindex,n.dnorpattern from devicenumplanmap map, numplan n where n.pkid=map.fknumplan and numplanindex != \"0\" and n.dnorpattern not like \""+regex+"%\"");
+			}
+		else
+			{
+			req = new String("select fkdevice,fknumplan,label,display,e164mask,numplanindex from devicenumplanmap where numplanindex != \"0\"");
+			}
+		
 		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
 		Iterator iterator = replySB.getChildElements();
@@ -566,7 +630,18 @@ public class inspection extends worker
 		 * - Get only line with usage is "Device"
 		 */
 		ArrayList<line> List = new ArrayList<line>();
-		String req = new String("select distinct n.pkid,n.dnorpattern,n.alertingname,n.description from numplan n,typepatternusage t,devicenumplanmap d where n.tkpatternusage=t.enum and n.pkid=d.fknumplan and t.name=\"Device\"");
+		String req = new String();
+		String regex = methodesUtiles.getTargetTask("linesearchpattern", myUSync.getTaskIndex());
+		
+		if((regex != null) && (!regex.equals("")))
+			{
+			req = new String("select distinct n.pkid,n.dnorpattern,n.alertingname,n.description from numplan n,typepatternusage t,devicenumplanmap d where n.tkpatternusage=t.enum and n.pkid=d.fknumplan and t.name=\"Device\" and n.dnorpattern not like \""+regex+"\"");
+			}
+		else
+			{
+			req =  new String("select distinct n.pkid,n.dnorpattern,n.alertingname,n.description from numplan n,typepatternusage t,devicenumplanmap d where n.tkpatternusage=t.enum and n.pkid=d.fknumplan and t.name=\"Device\"");
+			}
+		
 		SOAPBody replySB = sqlQuery.execute(req, myUSync.getSoapGear(), axlversion);
 		
 		Iterator iterator = replySB.getChildElements();
