@@ -34,7 +34,7 @@ public class variables
 	linetextlabel,linetextlabeltoolong,
 	lineexternalphonenumbermask};
 	
-	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible};
+	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible,banned};
 	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
 	public enum taskType{userSync};
 	
@@ -65,6 +65,7 @@ public class variables
 		bannedToDoList = new ArrayList<ArrayList<simpleToDo>>();
 		taskIndex = 0;
 		myToDoLister = new toDoLister();
+		myBannedLister = new bannedLister();
 		myConfigLister = new configLister();
 		}
 

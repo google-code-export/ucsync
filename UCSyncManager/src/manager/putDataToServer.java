@@ -52,7 +52,7 @@ public class putDataToServer extends serverDataMisc
 			
 			variables.getOut().flush();
 			
-			JOptionPane.showMessageDialog(null,"Report has been updated with success","Success",JOptionPane.INFORMATION_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Update has been sent with success","Success",JOptionPane.INFORMATION_MESSAGE);
 			
 			if(clear)
 				{

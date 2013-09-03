@@ -37,6 +37,7 @@ public class toDoLister extends JPanel implements ActionListener
 	private JCheckBox selectAll;
 	private JButton validation;
 	private JButton update;
+	private JButton newScan;
 	private ArrayList<statusLine> listeLine;
 	private JPanel listToDoList;
 	private JScrollPane scrollbar;
@@ -48,17 +49,20 @@ public class toDoLister extends JPanel implements ActionListener
 		{
 		validation = new JButton("Validate this report");
 		update = new JButton("Update this report");
+		newScan = new JButton("new scan now");
 		selectAll = new JCheckBox("Check All",true);
 		listeLine = new ArrayList<statusLine>();
 		
 		control = new JPanel();
 		Principale = new JPanel();
-		control.setPreferredSize(new Dimension(600,25));
+		control.setPreferredSize(new Dimension(3000,25));
 		control.setBackground(Color.GRAY);
 		validation.setBackground(Color.GRAY);
 		validation.setForeground(Color.WHITE);
 		update.setBackground(Color.GRAY);
 		update.setForeground(Color.WHITE);
+		newScan.setBackground(Color.GRAY);
+		newScan.setForeground(Color.WHITE);
 		selectAll.setBackground(Color.GRAY);
 		
 		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
@@ -71,6 +75,7 @@ public class toDoLister extends JPanel implements ActionListener
 		//Assignation
 		control.add(selectAll);
 		control.add(Box.createHorizontalGlue());
+		control.add(newScan);
 		control.add(update);
 		control.add(validation);
 		Principale.add(scrollbar);
@@ -80,8 +85,9 @@ public class toDoLister extends JPanel implements ActionListener
 		//Event
 		validation.addActionListener(this);
 		update.addActionListener(this);
+		newScan.addActionListener(this);
 		selectAll.addActionListener(this);
-		
+				
 		fill();
 		}
 	
@@ -107,6 +113,10 @@ public class toDoLister extends JPanel implements ActionListener
 					if(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.impossible))
 						{
 						myLine.setDefaultColor(Color.red);
+						}
+					else if(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.banned))
+						{
+						myLine.bannedThis();
 						}
 					else
 						{
@@ -138,6 +148,12 @@ public class toDoLister extends JPanel implements ActionListener
 		if(evt.getSource() == update)
 			{
 			putDataToServer myPut = new putDataToServer(false);
+			new finishedMonitor(myPut);
+			}
+		if(evt.getSource() == newScan)
+			{
+			variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.toDelete);
+			putDataToServer myPut = new putDataToServer(true);
 			new finishedMonitor(myPut);
 			}
 		if(evt.getSource() == selectAll)

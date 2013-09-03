@@ -48,6 +48,7 @@ public class getDataFromServer extends serverDataMisc
 			variables.getLogger().info("Banned toDo List imported with success");
 			
 			variables.getMyToDoLister().fill();
+			variables.getMyBannedLister().fill();
 			}
 		catch(Exception exc)
 			{

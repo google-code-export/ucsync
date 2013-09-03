@@ -169,11 +169,7 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 			{
 			if(banned.getText().compareTo(">")==0)
 				{
-				this.setFond(Color.GRAY);
-				variables.getBannedToDoList().get(variables.getTaskIndex()).add(myToDo);
-				this.desc.setText(myToDo.getDescription()+" |  Will be banned");
-				this.displayResult.setText("Banned ");
-				this.banned.setText("<");
+				bannedThis();
 				}
 			else
 				{
@@ -181,6 +177,7 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 				init();
 				this.setFond(this.defaultFond);
 				this.banned.setText(">");
+				manageSelect();
 				}
 			}
 		
@@ -188,6 +185,16 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 			{
 			manageSelect();
 			}
+		}
+	
+	public void bannedThis()
+		{
+		this.setFond(Color.GRAY);
+		variables.getBannedToDoList().get(variables.getTaskIndex()).add(myToDo);
+		this.desc.setText(myToDo.getDescription()+" |  Will be banned");
+		this.displayResult.setText("Banned ");
+		this.banned.setText("<");
+		myToDo.setStatus(toDoStatusType.banned);
 		}
 	
 	private void init()
