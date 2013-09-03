@@ -20,10 +20,12 @@ public class getDataFromServer extends serverDataMisc
 	/**
 	 * Variables
 	 */
+	private boolean clear;
 	
-	public getDataFromServer()
+	public getDataFromServer(boolean clear)
 		{
 		super();
+		this.clear = clear;
 		
 		start();
 		}
@@ -47,8 +49,12 @@ public class getDataFromServer extends serverDataMisc
 			variables.setBannedToDoList((ArrayList<ArrayList<simpleToDo>>)variables.getIn().readObject());
 			variables.getLogger().info("Banned toDo List imported with success");
 			
-			variables.getMyToDoLister().fill();
-			variables.getMyBannedLister().fill();
+			if(clear)
+				{
+				variables.getMyToDoLister().fill();
+				variables.getMyToDoLister().enableControl(true);
+				variables.getMyBannedLister().fill();
+				}
 			}
 		catch(Exception exc)
 			{

@@ -195,7 +195,7 @@ public class methodesUtiles
 			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
 			variables.getLogger().info("Connected to UCSync server");
 			
-			getDataFromServer myData = new getDataFromServer();
+			getDataFromServer myData = new getDataFromServer(true);
 			new finishedMonitor(myData);
 			}
 		catch (Exception exc)
@@ -225,8 +225,40 @@ public class methodesUtiles
 			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
 			variables.getLogger().info("Connected to UCSync server");
 			
-			getDataFromServer myData = new getDataFromServer();
+			getDataFromServer myData = new getDataFromServer(true);
 			new finishedMonitor(myData);
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Application failed to update socket : "+exc.getMessage());
+			JOptionPane.showMessageDialog(null,"Unable to get data","Erreur",JOptionPane.ERROR_MESSAGE);
+			}
+		}
+	
+	/**
+	 * Method used to update connection and get
+	 * new data
+	 */
+	public static void updateData(boolean clear)
+		{
+		try
+			{
+			/**
+			 * Restart connection
+			 */
+			variables.getMyS().close();
+			variables.setMyS(new Socket(methodesUtiles.getTargetOption("ucsyncserverhost"), Integer.parseInt(methodesUtiles.getTargetOption("ucsyncserverport"))));
+			variables.setOut(new ObjectOutputStream(variables.getMyS().getOutputStream()));
+			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
+			variables.getLogger().info("Connected to UCSync server");
+			
+			getDataFromServer myData = new getDataFromServer(false);
+			new finishedMonitor(myData);
+			
+			putDataToServer myPut = new putDataToServer(clear);
+			new finishedMonitor(myPut);
 			}
 		catch (Exception exc)
 			{

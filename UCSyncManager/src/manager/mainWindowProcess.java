@@ -38,6 +38,7 @@ public class mainWindowProcess implements ActionListener, WindowListener
 		{
 		if(evt.getSource() == myWindow.go)
 			{
+			myWindow.go.setEnabled(false);
 			variables.setTaskIndex(myWindow.taskList.getSelectedIndex());
 			methodesUtiles.updateConnection();
 			}

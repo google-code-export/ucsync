@@ -34,6 +34,7 @@ public class finishedMonitor extends serverDataMisc
 					{
 					variables.getMyWindow().updateList();
 					variables.getMyWindow().getWait().setText(" ");
+					variables.getMyWindow().go.setEnabled(true);
 					}
 				finished = true;
 				}
@@ -43,9 +44,10 @@ public class finishedMonitor extends serverDataMisc
 					{
 					if(variables.getMyWindow() != null)
 						{
+						variables.getMyWindow().go.setEnabled(false);
 						variables.getMyWindow().getWait().setText("Please wait");
 						}
-					sleep(250);
+					sleep(500);
 					}
 				catch(Exception exc)
 					{

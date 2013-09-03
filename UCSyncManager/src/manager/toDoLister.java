@@ -10,6 +10,7 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComboBox;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -22,6 +23,7 @@ import utils.variables.taskStatusType;
 import utils.variables.toDoStatusType;
 
 import misc.finishedMonitor;
+import misc.simpleToDo;
 import misc.statusLine;
 
 /**********************************
@@ -43,15 +45,27 @@ public class toDoLister extends JPanel implements ActionListener
 	private JScrollPane scrollbar;
 	private JPanel control;
 	private JPanel Principale;
+	private JLabel infoList;
+	private boolean canBeUpdate;
+	
+	private String[] filter;
+	private JComboBox filterCombo;
 	
 	
 	public toDoLister()
 		{
+		canBeUpdate = true;
+		filter = new String[]{"No Filter","Only Warn","Only Waiting"};
+		filterCombo = new JComboBox(filter);
+		filterCombo.setMaximumSize(new Dimension(60,20));
+		
 		validation = new JButton("Validate this report");
 		update = new JButton("Update this report");
 		newScan = new JButton("new scan now");
 		selectAll = new JCheckBox("Check All",true);
 		listeLine = new ArrayList<statusLine>();
+		infoList = new JLabel("");
+		infoList.setForeground(Color.WHITE);
 		
 		control = new JPanel();
 		Principale = new JPanel();
@@ -74,6 +88,8 @@ public class toDoLister extends JPanel implements ActionListener
 		
 		//Assignation
 		control.add(selectAll);
+		control.add(infoList);
+		control.add(filterCombo);
 		control.add(Box.createHorizontalGlue());
 		control.add(newScan);
 		control.add(update);
@@ -87,7 +103,10 @@ public class toDoLister extends JPanel implements ActionListener
 		update.addActionListener(this);
 		newScan.addActionListener(this);
 		selectAll.addActionListener(this);
-				
+		filterCombo.addActionListener(this);
+		
+		enableControl(false);
+		
 		fill();
 		}
 	
@@ -125,6 +144,7 @@ public class toDoLister extends JPanel implements ActionListener
 					listeLine.add(myLine);
 					listToDoList.add(myLine);
 					}
+				setInfoList();
 				}
 			}
 		catch (Exception exc)
@@ -141,30 +161,149 @@ public class toDoLister extends JPanel implements ActionListener
 		{
 		if(evt.getSource() == validation)
 			{
-			variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
-			putDataToServer myPut = new putDataToServer(true);
-			new finishedMonitor(myPut);
+			if((variables.getTaskList().size() != 0)&&(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() != 0))
+				{
+				variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
+				methodesUtiles.updateData(true);
+				}
+			else
+				{
+				JOptionPane.showMessageDialog(null,"No data to update","Information",JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		if(evt.getSource() == update)
 			{
-			putDataToServer myPut = new putDataToServer(false);
-			new finishedMonitor(myPut);
+			if((variables.getTaskList().size() != 0)&&(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() != 0))
+				{
+				methodesUtiles.updateData(false);
+				}
+			else
+				{
+				JOptionPane.showMessageDialog(null,"No data to update","Information",JOptionPane.INFORMATION_MESSAGE);
+				}
 			}
 		if(evt.getSource() == newScan)
 			{
-			variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.toDelete);
-			putDataToServer myPut = new putDataToServer(true);
-			new finishedMonitor(myPut);
+			if((variables.getTaskList().size() != 0)&&(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() != 0))
+				{
+				variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.toDelete);
+				methodesUtiles.updateData(true);
+				}
+			else
+				{
+				JOptionPane.showMessageDialog(null,"A scan is currently in progress, please wait","Information",JOptionPane.INFORMATION_MESSAGE);
+				}
+			}
+		if(evt.getSource() == filterCombo)
+			{
+			variables.getMyWindow().getWait().setText("Please wait");
+			
+			if(filterCombo.getSelectedIndex() == 0)
+				{
+				//All
+				for(int i=0; i<listeLine.size(); i++)
+					{
+					listToDoList.getComponents()[i].setVisible(true);
+					}
+				}
+			else if(filterCombo.getSelectedIndex() == 1)
+				{
+				//Warn only
+				for(int i=0; i<listeLine.size(); i++)
+					{
+					if((listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.waiting))
+							||(listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.disabled)))
+						{
+						listToDoList.getComponents()[i].setVisible(false);
+						}
+					else
+						{
+						listToDoList.getComponents()[i].setVisible(true);
+						}
+					}
+				}
+			else
+				{
+				//Wait only
+				for(int i=0; i<listeLine.size(); i++)
+					{
+					if((listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.conflict))
+							||(listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.impossible))
+							||(listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.banned)))
+						{
+						listToDoList.getComponents()[i].setVisible(false);
+						}
+					else
+						{
+						listToDoList.getComponents()[i].setVisible(true);
+						}
+					}
+				}
+			variables.getMyWindow().getWait().setText(" ");
+			this.repaint();
+			this.validate();
 			}
 		if(evt.getSource() == selectAll)
 			{
+			variables.getMyWindow().getWait().setText("Please wait");
+			canBeUpdate = false;
 			for(int i=0; i<listeLine.size(); i++)
 				{
-				listeLine.get(i).check();
+				if((listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.conflict))
+						||(listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.impossible))
+						||(listeLine.get(i).getMyToDo().getStatus().equals(toDoStatusType.banned)))
+					{
+					//we do nothing
+					}
+				else
+					{
+					listeLine.get(i).check();
+					}
 				}
+			canBeUpdate = true;
+			setInfoList();
+			variables.getMyWindow().getWait().setText(" ");
 			}
 		}
 	
+	public void setInfoList()
+		{
+		if(canBeUpdate)
+			{
+			int total = variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size();
+			int warn = 0;
+			int wait = 0;
+			
+			for(int i=0; i<variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); i++)
+				{
+				if((variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.conflict))
+						||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.impossible))
+						||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.banned))
+						||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.disabled)))
+					{
+					warn++;
+					}
+				else
+					{
+					wait++;
+					}
+				}
+			
+			infoList.setText(" "+total+" / "+warn+" / "+wait+"  ");
+			}
+		}
+	
+	/**
+	 * Method used to enable/disable control bar
+	 */
+	public void enableControl(boolean b)
+		{
+		this.selectAll.setEnabled(b);
+		this.validation.setEnabled(b);
+		this.update.setEnabled(b);
+		this.newScan.setEnabled(b);
+		this.filterCombo.setEnabled(b);
+		}
 	
 	
 	/*2013*//*RATEL Alexandre 8)*/

@@ -28,7 +28,7 @@ public class mainWindow extends JFrame
 	private JPanel headerPanel;
 	private JPanel footerPanel;
 	
-	private JLabel wait; 
+	private JLabel wait;
 	
 	private JTabbedPane myTabbedPane;
 	

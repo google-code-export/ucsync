@@ -39,17 +39,18 @@ public class putDataToServer extends serverDataMisc
 		try
 			{
 			//TaskList
-			variables.getOut().writeObject((Object)variables.getTaskList());
+			variables.getOut().writeObject(variables.getTaskList());
 			variables.getLogger().info("Task list exported with success");
+			variables.getOut().flush();
 			
 			//BannedList
-			variables.getOut().writeObject((Object)variables.getBannedToDoList());
+			variables.getOut().writeObject(variables.getBannedToDoList());
 			variables.getLogger().info("Banned toDo List exported with success");
+			variables.getOut().flush();
 			
 			//TabTask
-			variables.getOut().writeObject((Object)variables.getTabTasks());
+			variables.getOut().writeObject(variables.getTabTasks());
 			variables.getLogger().info("TabTask exported with success");
-			
 			variables.getOut().flush();
 			
 			JOptionPane.showMessageDialog(null,"Update has been sent with success","Success",JOptionPane.INFORMATION_MESSAGE);

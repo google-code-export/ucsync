@@ -1,0 +1,1266 @@
+03/09/2013 - 12:11:32 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 12:11:32 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 12:11:32 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 12:11:32 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 12:11:33 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 12:11:33 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 12:11:33 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 12:11:33 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 12:11:33 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 12:11:33 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 12:11:33 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 12:11:36 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 12:11:38 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 12:11:38 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 12:11:58 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 12:12:01 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 12:12:02 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 12:12:02 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 12:15:28 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 12:15:28 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 12:15:28 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 12:18:02 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 12:18:02 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 12:18:02 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 12:19:26 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 12:24:36 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 12:24:36 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 12:24:36 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 12:24:36 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 12:24:36 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 12:24:36 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 12:24:36 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 12:24:36 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 12:24:36 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 12:24:36 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 12:24:36 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 12:24:39 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 12:24:41 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 12:24:41 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 12:26:07 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 12:26:10 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 12:26:11 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 12:26:11 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 12:26:19 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 12:26:19 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 12:26:19 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 12:27:18 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 12:27:21 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 12:27:23 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 12:27:23 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 12:28:13 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 12:28:13 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 12:28:13 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 12:28:18 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 12:28:18 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 12:28:18 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 12:28:30 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 13:54:39 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 13:54:39 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 13:54:39 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 13:54:39 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 13:54:39 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 13:54:39 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 13:54:39 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 13:54:39 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 13:54:39 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 13:54:39 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 13:54:39 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 13:54:42 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 13:54:43 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 13:54:43 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:06:59 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 14:06:59 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 14:06:59 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 14:07:08 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 14:07:08 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:07:08 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:07:08 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:07:24 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 14:07:24 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:07:24 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:07:24 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:07:33 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 14:07:33 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:07:33 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:07:33 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:08:07 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 14:08:10 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:08:11 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:08:11 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:10:48 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:15:16 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:15:16 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:15:16 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:15:16 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:15:16 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:15:16 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:15:16 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:15:16 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:15:16 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:15:16 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:15:16 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:15:16 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:15:16 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:15:16 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:15:19 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 14:15:19 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:15:19 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:15:19 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:15:49 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 14:15:49 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:15:49 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:15:49 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:17:50 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:20:28 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:20:28 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:20:28 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:20:28 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:20:28 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:20:28 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:20:28 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:20:28 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:20:28 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:20:28 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:20:28 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:20:31 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:20:32 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:20:32 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:24:58 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:29:36 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:29:36 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:29:36 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:29:36 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:29:36 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:29:36 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:29:36 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:29:36 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:29:36 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:29:36 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:29:36 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:29:39 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:29:40 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:29:40 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:30:12 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:30:25 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:30:25 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:30:25 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:30:25 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:30:26 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:30:26 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:30:26 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:30:26 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:30:26 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:30:26 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:30:26 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:30:28 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:30:30 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:30:30 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:32:22 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:43:02 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:43:02 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:43:02 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:43:02 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:43:02 - [ERROR] (manager.toDoLister:138) - java.lang.IndexOutOfBoundsException: Index: 0, Size: 0
+03/09/2013 - 14:43:02 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:43:02 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:43:02 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:43:02 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:43:02 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:43:02 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:43:02 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:43:04 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:43:06 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:43:06 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:44:24 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:44:24 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:44:24 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:44:24 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:44:24 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:44:24 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:44:24 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:44:24 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:44:24 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:44:24 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:44:24 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:44:26 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:44:28 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:44:28 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:44:43 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:45:20 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:45:20 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:45:20 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:45:20 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:45:20 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:45:20 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:45:20 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:45:20 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:45:20 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:45:20 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:45:20 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:45:23 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:45:24 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:45:24 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:46:01 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:46:39 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:46:39 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:46:39 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:46:39 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:46:39 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:46:39 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:46:39 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:46:39 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:46:39 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:46:39 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:46:39 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:46:42 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:46:43 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:46:43 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:47:01 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:51:40 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:51:40 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:51:40 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:51:40 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:51:40 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:51:40 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:51:40 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:51:40 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:51:40 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:51:40 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:51:40 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:51:43 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:51:44 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:51:44 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:52:25 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:53:11 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:53:11 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:53:11 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:53:11 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:53:11 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:53:11 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:53:11 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:53:11 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:53:11 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:53:11 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:53:11 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:53:14 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:53:15 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:53:15 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:54:06 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:57:50 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:57:50 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:57:50 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:57:50 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:57:50 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:57:50 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:57:50 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:57:50 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:57:50 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:57:50 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:57:50 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:57:53 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:57:54 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:57:54 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:58:28 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 14:58:59 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 14:58:59 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 14:58:59 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 14:58:59 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 14:58:59 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 14:58:59 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 14:58:59 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 14:58:59 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 14:58:59 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 14:58:59 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 14:58:59 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 14:59:02 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 14:59:03 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 14:59:03 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 14:59:14 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 14:59:14 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 14:59:14 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 14:59:18 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 14:59:18 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 14:59:18 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 14:59:28 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:00:44 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:00:44 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:00:44 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:00:44 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:00:45 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:00:45 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:00:45 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:00:45 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:00:45 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:00:45 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:00:45 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:00:47 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:00:49 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:00:49 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:01:07 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 15:01:07 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 15:01:07 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 15:18:53 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:31:12 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:31:12 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:31:12 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:31:12 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:31:12 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:31:12 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:31:12 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:31:12 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:31:12 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:31:12 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:31:12 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:31:14 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:31:16 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:31:16 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:33:56 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:33:56 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:33:56 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:33:56 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:33:56 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:33:56 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:33:56 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:33:56 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:33:56 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:33:56 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:33:56 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:33:59 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:34:00 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:34:00 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:34:22 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:36:06 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:36:06 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:36:06 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:36:06 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:36:06 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:36:06 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:36:06 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:36:06 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:36:06 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:36:06 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:36:06 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:36:08 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:36:10 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:36:10 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:36:25 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:36:33 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:36:33 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:36:33 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:36:33 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:36:33 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:36:33 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:36:33 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:36:33 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:36:33 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:36:33 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:36:33 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:36:36 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:36:37 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:36:37 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:37:34 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:38:53 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:38:53 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:38:53 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:38:53 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:38:53 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:38:53 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:38:53 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:38:53 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:38:53 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:38:53 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:38:53 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:38:55 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:38:57 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:38:57 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:39:47 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:53:50 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:53:50 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:53:50 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:53:50 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:53:50 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:53:50 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:53:50 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:53:50 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:53:50 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:53:50 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:53:50 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:53:52 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:53:54 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:53:54 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:54:10 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:54:39 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:54:39 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:54:39 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:54:39 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:54:39 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:54:39 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:54:39 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:54:39 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:54:39 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:54:39 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:54:39 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:54:42 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:54:43 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:54:43 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:55:04 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:55:43 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:55:43 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:55:43 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:55:43 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:55:43 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:55:43 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:55:43 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:55:43 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:55:43 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:55:43 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:55:43 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:55:45 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:55:47 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:55:47 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:55:59 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:56:25 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:56:25 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:56:25 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:56:25 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:56:25 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:56:25 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:56:25 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:56:25 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:56:25 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:56:25 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:56:25 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:56:28 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:56:29 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:56:29 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 15:57:17 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 15:58:54 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 15:58:54 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 15:58:54 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 15:58:54 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 15:58:54 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 15:58:54 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 15:58:54 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 15:58:54 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 15:58:54 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 15:58:54 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 15:58:54 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 15:58:57 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 15:58:58 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 15:58:58 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:00:08 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:00:19 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:00:19 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:00:19 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:00:19 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:00:19 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:00:19 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:00:19 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:00:19 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:00:19 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:00:19 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:00:19 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:00:21 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:00:23 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:00:23 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:01:17 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:07:12 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:07:12 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:07:12 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:07:12 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:07:12 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:07:12 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:07:12 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:07:12 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:07:12 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:07:12 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:07:12 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:07:15 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:07:16 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:07:16 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:07:34 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:29:32 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:29:32 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:29:32 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:29:32 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:29:32 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:29:32 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:29:32 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:29:32 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:29:32 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:29:32 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:29:32 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:29:35 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:29:36 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:29:36 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:29:50 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:32:27 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:32:27 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:32:27 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:32:27 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:32:27 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:32:27 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:32:27 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:32:27 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:32:27 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:32:27 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:32:27 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:32:29 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:32:31 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:32:31 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:32:46 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:33:48 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:33:48 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:33:48 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:33:48 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:33:48 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:33:48 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:33:48 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:33:48 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:33:48 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:33:48 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:33:48 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:33:50 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:33:52 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:33:52 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:34:14 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:35:10 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:35:10 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:35:10 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:35:10 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:35:10 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:35:10 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:35:10 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:35:10 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:35:10 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:35:10 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:35:10 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:35:13 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:35:13 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:46:09 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:46:09 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:46:09 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:46:09 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:46:09 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:46:09 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:46:09 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:46:09 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:46:09 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:46:09 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:46:09 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:46:12 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:46:14 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:46:14 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:46:24 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 16:46:27 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:46:28 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:46:28 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:46:41 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 16:46:41 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 16:46:41 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 16:46:52 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 16:46:52 - [INFO] (manager.putDataToServer:47) - Banned toDo List exported with success
+03/09/2013 - 16:46:52 - [INFO] (manager.putDataToServer:51) - TabTask exported with success
+03/09/2013 - 16:46:59 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:48:02 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:48:02 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:48:02 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:48:02 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:48:02 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:48:02 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:48:02 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:48:02 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:48:02 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:48:02 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:48:02 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:48:05 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:48:06 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:48:06 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:48:21 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 16:48:21 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 16:48:21 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 16:48:30 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 16:48:30 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 16:48:30 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 16:48:50 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:52:32 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:52:32 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:52:32 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:52:32 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:52:32 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:52:32 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:52:32 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:52:32 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:52:32 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:52:32 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:52:32 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:52:32 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:52:32 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:52:32 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:52:53 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 16:52:53 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:52:53 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:52:53 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:54:13 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 16:54:16 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 16:54:17 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 16:54:17 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 16:54:47 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 16:54:47 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 16:54:47 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 16:54:59 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 16:54:59 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 16:54:59 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 16:55:08 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 16:59:23 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 16:59:23 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 16:59:23 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 16:59:23 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 16:59:23 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 16:59:23 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 16:59:23 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 16:59:23 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 16:59:23 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 16:59:23 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 16:59:23 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 16:59:27 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 17:08:32 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 17:08:32 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 17:08:32 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 17:08:32 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 17:08:32 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 17:08:32 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 17:08:32 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 17:08:32 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 17:08:32 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 17:08:32 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 17:08:32 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 17:08:35 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 17:08:35 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 17:08:35 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 17:10:00 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 17:10:04 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 17:10:04 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 17:10:04 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 17:10:04 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 17:10:04 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 17:10:04 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 17:10:04 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 17:10:04 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 17:10:04 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 17:10:04 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 17:10:04 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 17:10:06 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 17:10:08 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 17:10:08 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 17:10:18 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:10:18 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 17:10:18 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 17:10:23 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:10:23 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 17:10:23 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 17:10:35 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 17:11:21 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 17:11:21 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 17:11:21 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 17:11:21 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 17:11:21 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 17:11:21 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 17:11:21 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 17:11:21 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 17:11:21 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 17:11:21 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 17:11:21 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 17:11:24 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 17:11:25 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 17:11:25 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 17:11:33 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:11:33 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 17:11:33 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 17:11:37 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:11:37 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 17:11:37 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 17:11:45 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 17:11:48 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 17:11:49 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 17:11:49 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 17:11:56 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:11:56 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 17:11:56 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 17:11:59 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 17:49:01 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 17:49:01 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 17:49:01 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 17:49:01 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 17:49:01 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 17:49:01 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 17:49:01 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 17:49:01 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 17:49:01 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 17:49:01 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 17:49:01 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 17:49:03 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 17:49:05 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 17:49:05 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 17:49:20 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:49:20 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 17:49:20 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 17:49:29 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:49:29 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 17:49:29 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 17:49:37 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 17:59:00 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 17:59:00 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 17:59:00 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 17:59:00 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 17:59:00 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 17:59:00 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 17:59:00 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 17:59:00 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 17:59:00 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 17:59:00 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 17:59:00 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 17:59:03 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 17:59:05 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 17:59:05 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 17:59:19 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:59:19 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 17:59:19 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 17:59:25 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 17:59:25 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 17:59:25 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 17:59:33 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:00:10 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:00:10 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:00:10 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:00:10 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:00:10 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:00:10 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:00:10 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:00:10 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:00:10 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:00:10 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:00:10 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:00:13 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:00:14 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:00:14 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:00:23 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:00:23 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:00:23 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:00:32 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:00:36 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:00:36 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:00:36 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:00:36 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:00:37 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:00:37 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:00:37 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:00:37 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:00:37 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:00:37 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:00:37 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:00:39 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:00:41 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:00:41 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:00:49 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:00:49 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:00:49 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:00:53 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:00:53 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:00:53 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:01:01 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:02:09 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:02:09 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:02:09 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:02:09 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:02:09 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:02:09 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:02:09 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:02:09 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:02:09 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:02:09 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:02:09 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:02:12 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:02:13 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:02:13 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:02:39 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:02:39 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:02:39 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:02:42 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:02:42 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:02:42 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:02:47 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:02:47 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:02:47 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:02:50 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:02:50 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:02:50 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:02:57 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:02:57 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:02:57 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:03:08 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:03:08 - [INFO] (manager.putDataToServer:50) - Banned toDo List exported with success
+03/09/2013 - 18:03:08 - [INFO] (manager.putDataToServer:55) - TabTask exported with success
+03/09/2013 - 18:03:14 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:06:58 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:06:58 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:06:58 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:06:58 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:06:58 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:06:58 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:06:58 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:06:58 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:06:58 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:06:58 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:06:58 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:07:01 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:07:03 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:07:03 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:07:11 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:07:11 - [INFO] (manager.putDataToServer:53) - Banned toDo List exported with success
+03/09/2013 - 18:07:11 - [INFO] (manager.putDataToServer:58) - TabTask exported with success
+03/09/2013 - 18:07:19 - [INFO] (manager.putDataToServer:45) - Task list exported with success
+03/09/2013 - 18:07:19 - [INFO] (manager.putDataToServer:53) - Banned toDo List exported with success
+03/09/2013 - 18:07:19 - [INFO] (manager.putDataToServer:58) - TabTask exported with success
+03/09/2013 - 18:09:52 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:09:52 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:09:52 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:09:52 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:09:52 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:09:52 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:09:52 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:09:52 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:09:52 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:09:52 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:09:52 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:09:55 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:09:56 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:09:56 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:10:07 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:10:11 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:10:14 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:10:14 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:10:14 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:10:14 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:10:14 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:10:14 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:10:14 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:10:14 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:10:14 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:10:14 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:10:14 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:10:17 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:10:18 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:10:18 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:10:29 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:10:29 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:10:29 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:10:36 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:10:36 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:10:36 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:10:43 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:10:46 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:10:47 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:10:47 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:10:53 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:10:53 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:10:53 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:11:12 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:11:15 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:11:16 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:11:16 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:11:22 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:11:22 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:11:22 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:11:25 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:11:25 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:11:25 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:11:34 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:11:37 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:11:38 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:11:38 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:11:50 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:11:50 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:11:50 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:11:52 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:16:54 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:16:54 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:16:54 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:16:54 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:16:54 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:16:54 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:16:54 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:16:54 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:16:54 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:16:54 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:16:54 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:16:57 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:16:58 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:16:58 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:17:08 - [INFO] (manager.putDataToServer:44) - Task list exported with success
+03/09/2013 - 18:17:08 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 18:17:08 - [INFO] (manager.putDataToServer:54) - TabTask exported with success
+03/09/2013 - 18:17:21 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:17:24 - [INFO] (manager.getDataFromServer:40) - TabTask imported with success
+03/09/2013 - 18:17:25 - [INFO] (manager.getDataFromServer:44) - Task list imported with success
+03/09/2013 - 18:17:25 - [INFO] (manager.getDataFromServer:48) - Banned toDo List imported with success
+03/09/2013 - 18:17:31 - [INFO] (manager.putDataToServer:44) - Task list exported with success
+03/09/2013 - 18:17:31 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 18:17:31 - [INFO] (manager.putDataToServer:54) - TabTask exported with success
+03/09/2013 - 18:17:34 - [INFO] (manager.putDataToServer:44) - Task list exported with success
+03/09/2013 - 18:17:34 - [INFO] (manager.putDataToServer:49) - Banned toDo List exported with success
+03/09/2013 - 18:17:34 - [INFO] (manager.putDataToServer:54) - TabTask exported with success
+03/09/2013 - 18:17:39 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:26:16 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:26:16 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:26:16 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:26:16 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:26:16 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:26:16 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:26:16 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:26:16 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:26:17 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:26:17 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:26:17 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:26:19 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:26:21 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:26:21 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:26:31 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:26:33 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:26:35 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:26:35 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:26:36 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:26:36 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:26:36 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:27:11 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:27:14 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:27:15 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:27:15 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:27:16 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:27:16 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:27:16 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:27:28 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:27:31 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:27:32 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:27:32 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:27:39 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:27:42 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:27:43 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:27:43 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:27:44 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:27:44 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:27:44 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:27:49 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:27:52 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:27:54 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:27:54 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:27:55 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:27:55 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:27:55 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:27:59 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:28:01 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:28:03 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:28:03 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:28:10 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:28:10 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:28:10 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:29:09 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:31:00 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:31:00 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:31:00 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:31:00 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:31:00 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:31:00 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:31:00 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:31:00 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:31:00 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:31:00 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:31:00 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:31:00 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:31:00 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:31:00 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:31:12 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:31:12 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:31:12 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:31:12 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:32:19 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:32:22 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:32:23 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:32:23 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:32:35 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:32:38 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:32:39 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:32:39 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:32:41 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:32:41 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:32:41 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:32:46 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:32:49 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:32:50 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:32:50 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:32:52 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:32:52 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:32:52 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:33:06 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:33:08 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:33:10 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:33:10 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:33:16 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:33:19 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:33:20 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:33:20 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:33:22 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:33:22 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:33:22 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:33:29 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:36:30 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:36:30 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:36:30 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:36:30 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:36:31 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:36:31 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:36:31 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:36:31 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:36:31 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:36:31 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:36:31 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:36:34 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:36:35 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:36:35 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:36:51 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:36:54 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:36:55 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:36:55 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:36:57 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:36:57 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:36:57 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:37:01 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:37:04 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:37:05 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:37:05 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:37:07 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:37:07 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:37:07 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:37:22 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:38:43 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:38:43 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:38:43 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:38:43 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:38:43 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:38:43 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:38:43 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:38:43 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:38:43 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:38:43 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:38:43 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:38:46 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:38:47 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:38:47 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:38:56 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:38:59 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:39:00 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:39:00 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:39:24 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:39:26 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:39:27 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:39:27 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:39:29 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:39:29 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:39:29 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:39:46 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:41:14 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:41:14 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:41:14 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:41:14 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:41:14 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:41:14 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:41:14 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:41:14 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:41:14 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:41:14 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:41:14 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:41:16 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:41:18 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:41:18 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:41:25 - [INFO] (manager.mainWindowProcess:60) - Closing window : System.exit(0)
+03/09/2013 - 18:42:18 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:42:18 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:42:18 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:42:18 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:42:18 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:42:18 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:42:18 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:42:18 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:42:18 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:42:18 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:42:18 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:42:21 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:42:22 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:42:22 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:42:32 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:42:34 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:42:35 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:42:35 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:43:14 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:43:17 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:43:18 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:43:18 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:43:20 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:43:20 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:43:20 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:43:39 - [INFO] (manager.mainWindowProcess:61) - Closing window : System.exit(0)
+03/09/2013 - 18:48:55 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 18:48:55 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 18:48:55 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 18:48:55 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 18:48:55 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 18:48:55 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 18:48:55 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 18:48:55 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 18:48:55 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 18:48:55 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 18:48:55 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 18:48:58 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:48:59 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:48:59 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:49:30 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:49:33 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:49:34 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:49:34 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:49:36 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:49:36 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:49:36 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:50:57 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:51:00 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:51:00 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:51:00 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:51:17 - [INFO] (utils.methodesUtiles:226) - Connected to UCSync server
+03/09/2013 - 18:51:20 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:51:21 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:51:21 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:54:17 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 18:54:20 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 18:54:22 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 18:54:22 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 18:54:23 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 18:54:23 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 18:54:23 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 18:55:01 - [INFO] (manager.mainWindowProcess:61) - Closing window : System.exit(0)
+03/09/2013 - 19:03:59 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 19:03:59 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 19:03:59 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 19:03:59 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 19:03:59 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 19:03:59 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 19:03:59 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 19:03:59 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 19:03:59 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 19:03:59 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 19:03:59 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 19:04:02 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 19:04:03 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 19:04:03 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 19:05:22 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 19:05:25 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 19:05:26 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 19:05:26 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 19:05:28 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 19:05:28 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 19:05:28 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 19:05:32 - [INFO] (manager.mainWindowProcess:61) - Closing window : System.exit(0)
+03/09/2013 - 19:18:14 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 19:18:14 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 19:18:14 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 19:18:14 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 19:18:14 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 19:18:14 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 19:18:14 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>10.5.1.171</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 19:18:14 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 19:18:14 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 19:18:14 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 19:18:14 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 19:18:18 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 19:18:21 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 19:18:21 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 19:19:50 - [INFO] (utils.methodesUtiles:255) - Connected to UCSync server
+03/09/2013 - 19:19:52 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 19:19:54 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 19:19:54 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 19:19:57 - [INFO] (manager.putDataToServer:43) - Task list exported with success
+03/09/2013 - 19:19:57 - [INFO] (manager.putDataToServer:48) - Banned toDo List exported with success
+03/09/2013 - 19:19:57 - [INFO] (manager.putDataToServer:53) - TabTask exported with success
+03/09/2013 - 19:20:02 - [INFO] (manager.mainWindowProcess:61) - Closing window : System.exit(0)
+03/09/2013 - 19:21:13 - [INFO] (start.Principale:42) - 
+
+03/09/2013 - 19:21:13 - [INFO] (start.Principale:43) - #### Entering application
+03/09/2013 - 19:21:13 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+03/09/2013 - 19:21:13 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+03/09/2013 - 19:21:13 - [INFO] (utils.methodesUtiles:47) - Lecture du fichier de configuration : configFile.xml
+03/09/2013 - 19:21:13 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+03/09/2013 - 19:21:13 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>10.5.1.171</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+03/09/2013 - 19:21:13 - [INFO] (utils.xMLReader:42) - Finished reading
+03/09/2013 - 19:21:13 - [INFO] (utils.methodesUtiles:122) - Detected JRE version : 1.6.0_32
+03/09/2013 - 19:21:13 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+03/09/2013 - 19:21:13 - [INFO] (utils.methodesUtiles:196) - Connected to UCSync server
+03/09/2013 - 19:21:15 - [INFO] (manager.getDataFromServer:42) - TabTask imported with success
+03/09/2013 - 19:21:18 - [INFO] (manager.getDataFromServer:46) - Task list imported with success
+03/09/2013 - 19:21:18 - [INFO] (manager.getDataFromServer:50) - Banned toDo List imported with success
+03/09/2013 - 19:22:02 - [INFO] (manager.mainWindowProcess:61) - Closing window : System.exit(0)

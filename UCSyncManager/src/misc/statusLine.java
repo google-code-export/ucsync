@@ -137,11 +137,6 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 		{
 		return select.isSelected();
 		}
-	
-	public void enableDisableSelect(boolean b)
-		{
-		select.setEnabled(b);
-		}
 
 	public String getResult()
 		{
@@ -163,6 +158,16 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 		this.desc.setText(desc);
 		}
 
+	public simpleToDo getMyToDo()
+		{
+		return myToDo;
+		}
+
+	public void setMyToDo(simpleToDo myToDo)
+		{
+		this.myToDo = myToDo;
+		}
+
 	public void actionPerformed(ActionEvent evt)
 		{
 		if(evt.getSource() == this.banned)
@@ -174,10 +179,12 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 			else
 				{
 				variables.getBannedToDoList().get(variables.getTaskIndex()).remove(myToDo);
+				myToDo.setStatus(toDoStatusType.disabled);
 				init();
 				this.setFond(this.defaultFond);
 				this.banned.setText(">");
 				manageSelect();
+				enablePane();
 				}
 			}
 		
@@ -192,9 +199,11 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 		this.setFond(Color.GRAY);
 		variables.getBannedToDoList().get(variables.getTaskIndex()).add(myToDo);
 		this.desc.setText(myToDo.getDescription()+" |  Will be banned");
-		this.displayResult.setText("Banned ");
 		this.banned.setText("<");
 		myToDo.setStatus(toDoStatusType.banned);
+		this.displayResult.setText(myToDo.getStatus().name()+" ");
+		select.setSelected(false);
+		disablePane();
 		}
 	
 	private void init()
@@ -242,6 +251,11 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 		select.setEnabled(false);
 		}
 	
+	private void enablePane()
+		{
+		select.setEnabled(true);
+		}
+	
 	private void manageSelect()
 		{
 		if(select.isSelected())
@@ -252,6 +266,8 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 			{
 			myToDo.setStatus(toDoStatusType.disabled);
 			}
+		this.displayResult.setText(myToDo.getStatus().name()+" ");
+		variables.getMyToDoLister().setInfoList();
 		}
 	
 	public void mouseClicked(MouseEvent evt)
