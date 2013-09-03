@@ -11,16 +11,16 @@ import javax.xml.soap.SOAPBodyElement;
 import axlmisc.sqlQuery;
 import schedule.task;
 import schedule.userSync;
-import schedule.task.taskStatusType;
 import utils.SOAPGear;
 import utils.convertSOAPToString;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.taskStatusType;
 import misc.emptyUserException;
 import misc.report;
+import misc.simpleToDo;
 import misc.toDo;
 import misc.worker;
-import misc.toDo.toDoStatusType;
 
 /**********************************
  * Class used to inspect CUCM and
@@ -71,15 +71,16 @@ public class inspection extends worker
 			/***************/
 			
 			/*****
-			 * Step 3 : Detect and warn about detected conflict
+			 * Step 3 : Remove banned todo
 			 */
-			if(isNotFinished)findDataConflict();
+			variables.getLogger().info("##Start## : Remove banned toDo list");
+			if(isNotFinished)removeBannedToDo();
 			/***************/
 			
 			/*****
-			 * Step 4 : Remove banned todo
+			 * Step 4 : Detect and warn about detected conflict
 			 */
-			if(isNotFinished)removeBannedToDo();
+			if(isNotFinished)findDataConflict();
 			/***************/
 			
 			/*****
@@ -229,9 +230,6 @@ public class inspection extends worker
 			{
 			myUSync.getToDoList().get(i).removeDuplicate();
 			}
-		
-		//Remove to do list duplicate
-		
 		}
 	
 	/**
@@ -239,11 +237,11 @@ public class inspection extends worker
 	 */
 	private void removeBannedToDo()
 		{
-		variables.getLogger().info("##Start## : Remove banned toDo list");
+		boolean duplicatesFound = false;
+		
 		try
 			{
-			ArrayList<toDo> myBannedToDoList = variables.getBannedToDoList().get(myUSync.getTaskIndex());
-			ArrayList<Integer> toRemove = new ArrayList<Integer>();
+			ArrayList<simpleToDo> myBannedToDoList = variables.getBannedToDoList().get(myUSync.getTaskIndex());
 			
 			//Finding
 			for(int i=0; (i<myBannedToDoList.size())&&(isNotFinished); i++)
@@ -252,15 +250,15 @@ public class inspection extends worker
 					{
 					if(myBannedToDoList.get(i).getUUID().equals(myUSync.getToDoList().get(j).getUUID()))
 						{
-						toRemove.add(new Integer(j));
+						myUSync.getToDoList().remove(j);
+						duplicatesFound = true;
 						}
 					}
 				}
 			
-			//Removing
-			for(int i=0; i<toRemove.size(); i++)
+			if(duplicatesFound)
 				{
-				myUSync.getToDoList().remove(toRemove.get(i).intValue());
+				removeBannedToDo();
 				}
 			}
 		catch(Exception exc)
@@ -302,7 +300,7 @@ public class inspection extends worker
 				}
 			}
 		
-		if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).compareTo("report") == 0)
+		if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).equals("report"))
 			{
 			Date now = new Date();
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
@@ -358,6 +356,21 @@ public class inspection extends worker
 				{
 				variables.getLogger().info(myUSync.getTInfo()+"No unsynced data. Task will be deleted");
 				myUSync.setStatus(taskStatusType.toDelete);
+				}
+			}
+		else if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).equals("manual"))
+			{
+			/**
+			 * Manual mode :
+			 * 
+			 * Administrator have to validate report
+			 * using the Management interface
+			 * 
+			 * No email are sent
+			 */
+			if(myUSync.getToDoList().size() != 0)
+				{
+				myUSync.setStatus(taskStatusType.waitingAck);
 				}
 			}
 		else

@@ -1,7 +1,9 @@
 package misc;
 
+import java.io.Serializable;
+
 import schedule.task;
-import schedule.task.taskStatusType;
+import utils.variables.taskStatusType;
 
 /**********************************
  * Class used to be extended

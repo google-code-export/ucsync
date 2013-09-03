@@ -3,6 +3,7 @@ package utils;
 
 import java.util.ArrayList;
 
+import misc.simpleToDo;
 import misc.toDo;
 
 import org.apache.log4j.Logger;
@@ -11,6 +12,7 @@ import scan.device;
 import scan.line;
 import scan.userData;
 import schedule.scheduler;
+import schedule.simpleTask;
 import schedule.task;
 import web.webAckReceiver;
 import web.webMngtManager;
@@ -32,6 +34,10 @@ public class variables
 	linetextlabel,linetextlabeltoolong,
 	lineexternalphonenumbermask};
 	
+	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible};
+	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
+	public enum taskType{userSync};
+	
 	private static String nomProg;
 	private static String version;
 	private static Logger logger;
@@ -47,7 +53,8 @@ public class variables
 	private static webAckReceiver myWebServer;
 	private static webMngtManager myMngtServer;
 	private static ArrayList<ArrayList<String>> exceptionList;
-	private static ArrayList<ArrayList<toDo>> bannedToDoList;
+	private static ArrayList<ArrayList<simpleToDo>> bannedToDoList;
+	private static ArrayList<simpleTask> simpleTaskList;
 	
 	/**
 	 * Contructeur
@@ -60,7 +67,8 @@ public class variables
 		taskList = new ArrayList<task>();
 		bannedTaskList = new ArrayList<Integer>();
 		exceptionList = new ArrayList<ArrayList<String>>();
-		bannedToDoList = new ArrayList<ArrayList<toDo>>();
+		bannedToDoList = new ArrayList<ArrayList<simpleToDo>>();
+		simpleTaskList = new ArrayList<simpleTask>();
 		}
 	
 	/****
@@ -207,12 +215,12 @@ public class variables
 		variables.bannedToDoListFileName = bannedToDoListFileName;
 		}
 
-	public static ArrayList<ArrayList<toDo>> getBannedToDoList()
+	public static ArrayList<ArrayList<simpleToDo>> getBannedToDoList()
 		{
 		return bannedToDoList;
 		}
 
-	public static void setBannedToDoList(ArrayList<ArrayList<toDo>> bannedToDoList)
+	public static void setBannedToDoList(ArrayList<ArrayList<simpleToDo>> bannedToDoList)
 		{
 		variables.bannedToDoList = bannedToDoList;
 		}
@@ -226,7 +234,31 @@ public class variables
 		{
 		variables.myMngtServer = myMngtServer;
 		}
-	
+
+	public static ArrayList<simpleTask> getSimpleTaskList()
+		{
+		return simpleTaskList;
+		}
+
+	public static void setSimpleTaskList(ArrayList<simpleTask> simpleTaskList)
+		{
+		variables.simpleTaskList = simpleTaskList;
+		
+		/**
+		 * We update the real task list
+		 */
+		for(int i=0; i<variables.getSimpleTaskList().size(); i++)
+			{
+			for(int j=0; j<variables.getSimpleTaskList().get(i).getToDoList().size(); j++)
+				{
+				//ToDo List
+				variables.getTaskList().get(i).getToDoList().get(j).setStatus(variables.getSimpleTaskList().get(i).getToDoList().get(j).getStatus());
+				}
+			//Task
+			variables.getTaskList().get(i).setStatus(variables.getSimpleTaskList().get(i).getStatus());
+			}
+		}
+
 	
 	
 	/*****

@@ -1,10 +1,12 @@
 package misc;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import javax.xml.soap.SOAPMessage;
 import utils.variables.patternType;
+import utils.variables.toDoStatusType;
 
 /**********************************
  * Class used to store data which 
@@ -17,8 +19,6 @@ public class toDo
 	/**
 	 * Variables
 	 */
-	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible};
-	
 	private patternType type;
 	private String description, currentData, newData, soapResult, user, UUID, dataType;
 	private SOAPMessage soapMessage;
@@ -42,16 +42,6 @@ public class toDo
 		this.conflictDetected = false;
 		this.problemDetected = false;
 		this.dataType = dataType;
-		}
-	
-	/**
-	 * Constructor used to define a new banned toDo
-	 */
-	public toDo(String UUID, String description, String user)
-		{
-		this.UUID = UUID;
-		this.description = description;
-		this.user = user;
 		}
 
 	/**

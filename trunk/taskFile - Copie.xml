@@ -29,14 +29,14 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user-->
 			<linesearchpattern>811%</linesearchpattern><!--Used to exculde some directory number. Must be a SQL "not like" filter-->
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
-			<ackmode>manual</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
+			<ackmode>report</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>true</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
 			<csvseparator>;</csvseparator><!--You can choose which character is used to separate values in csv report-->
-			<testmode>false</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->
+			<testmode>true</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->
 			<axlversion>8</axlversion>
-			<axlhost>10.0.1.167</axlhost>
+			<axlhost>10.5.1.179</axlhost>
 			<axlport>8443</axlport>
-			<axlusername>AXLUser</axlusername>
+			<axlusername>AXLAlex</axlusername>
 			<axlpassword>CCMCisco92</axlpassword>
 			<devicedescription></devicedescription>
 			<devicedescriptiontoolong></devicedescriptiontoolong>

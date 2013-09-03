@@ -3,10 +3,10 @@ package misc;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
-import misc.toDo.toDoStatusType;
 import schedule.userSync;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.toDoStatusType;
 
 /**********************************
  * Class used to make scan and
@@ -52,12 +52,16 @@ public class report
 			{
 			for(int i=0; i<myToDoList.size(); i++)
 				{
-				content.append(myToDoList.get(i).getUser()+separator+
-						myToDoList.get(i).getDescription()+separator+
-						myToDoList.get(i).getCurrentData()+separator+
-						myToDoList.get(i).getNewData()+separator+
-						myToDoList.get(i).getStatus().name()+separator);
+				if((myToDoList.get(i).getStatus().equals(toDoStatusType.success))||(myToDoList.get(i).getStatus().equals(toDoStatusType.error)))
+					{
+					content.append(myToDoList.get(i).getUser()+separator+
+							myToDoList.get(i).getDescription()+separator+
+							myToDoList.get(i).getCurrentData()+separator+
+							myToDoList.get(i).getNewData()+separator+
+							myToDoList.get(i).getStatus().name()+separator);
+					}
 				
+				/*
 				if(myToDoList.get(i).isConflictDetected())
 					{
 					for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
@@ -78,56 +82,60 @@ public class report
 					{
 					content.append("Has been processed with success");
 					}
-				content.append("\r\n");
+				content.append("\r\n");*/
 				}
 			}
 		else
 			{
 			for(int i=0; i<myToDoList.size(); i++)
 				{
-				if(myToDoList.get(i).getUser().compareTo(userID) != 0)
+				if((myToDoList.get(i).getStatus().equals(toDoStatusType.success))||(myToDoList.get(i).getStatus().equals(toDoStatusType.error)))
 					{
-					userID = myToDoList.get(i).getUser();
-					content.append("\r\n-------------");
-					}
-				content.append("\r\n");
-				
-				content.append("User : "+myToDoList.get(i).getUser()+", "+
-						myToDoList.get(i).getDescription()+", "+
-						"Data \""+myToDoList.get(i).getCurrentData()+"\"");
-				
-				if(myToDoList.get(i).getStatus().equals(toDoStatusType.success))
-					{
-					content.append(" has been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-						" with "+myToDoList.get(i).getStatus().name());
-					}
-				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.error))
-					{
-					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-							" an "+myToDoList.get(i).getStatus().name()+" appends : "+myToDoList.get(i).getSoapResult());
-					}
-				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.disabled))
-					{
-					content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-							" because this task has been "+myToDoList.get(i).getStatus().name());
-					}
-				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.conflict))
-					{
-					for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
+					if(myToDoList.get(i).getUser().compareTo(userID) != 0)
+						{
+						userID = myToDoList.get(i).getUser();
+						content.append("\r\n-------------");
+						}
+					content.append("\r\n");
+					
+					content.append("User : "+myToDoList.get(i).getUser()+", "+
+							myToDoList.get(i).getDescription()+", "+
+							"Data \""+myToDoList.get(i).getCurrentData()+"\"");
+					
+					if(myToDoList.get(i).getStatus().equals(toDoStatusType.success))
+						{
+						content.append(" has been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+							" with "+myToDoList.get(i).getStatus().name());
+						}
+					else if(myToDoList.get(i).getStatus().equals(toDoStatusType.error))
 						{
 						content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-								" "+myToDoList.get(i).getConflictList().get(x)+" ");
+								" an "+myToDoList.get(i).getStatus().name()+" appends : "+myToDoList.get(i).getSoapResult());
 						}
-					conflictPresent = true;
-					}
-				else if(myToDoList.get(i).getStatus().equals(toDoStatusType.impossible))
-					{
-					for(int x=0; x<myUSync.getToDoList().get(i).getProblemList().size(); x++)
+					/*
+					else if(myToDoList.get(i).getStatus().equals(toDoStatusType.disabled))
 						{
 						content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
-								" because "+myToDoList.get(i).getProblemList().get(x)+" ");
+								" because this task has been "+myToDoList.get(i).getStatus().name());
 						}
-					problemPresent = true;
+					else if(myToDoList.get(i).getStatus().equals(toDoStatusType.conflict))
+						{
+						for(int x=0; x<myUSync.getToDoList().get(i).getConflictList().size(); x++)
+							{
+							content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+									" "+myToDoList.get(i).getConflictList().get(x)+" ");
+							}
+						conflictPresent = true;
+						}
+					else if(myToDoList.get(i).getStatus().equals(toDoStatusType.impossible))
+						{
+						for(int x=0; x<myUSync.getToDoList().get(i).getProblemList().size(); x++)
+							{
+							content.append(" has not been replaced by \""+myToDoList.get(i).getNewData()+"\""+
+									" because "+myToDoList.get(i).getProblemList().get(x)+" ");
+							}
+						problemPresent = true;
+						}*/
 					}
 				}
 			}
