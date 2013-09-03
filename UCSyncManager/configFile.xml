@@ -1,0 +1,13 @@
+<xml>
+	<config>
+		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->
+		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->
+		<log4j>DEBUG</log4j>
+		<smtpemailport>25</smtpemailport>
+		<smtpemailprotocol>smtp</smtpemailprotocol>
+		<smtpemailserver>10.5.2.224</smtpemailserver>
+		<smtpemail>inal</smtpemail>
+		<smtpemailpassword>25802580</smtpemailpassword>
+		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->
+	</config>
+</xml>
