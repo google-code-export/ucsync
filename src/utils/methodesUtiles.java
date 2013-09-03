@@ -148,7 +148,7 @@ public class methodesUtiles
 	public static ArrayList<ArrayList<simpleToDo>> initBannedToDoList() throws Exception
 		{
 		String file = null;
-		ArrayList<ArrayList<String[][]>> answer;
+		ArrayList<String[][]> answer;
 		ArrayList<ArrayList<simpleToDo>> bannedList = new ArrayList<ArrayList<simpleToDo>>();
 		ArrayList<String> listParams = new ArrayList<String>();
 		
@@ -159,6 +159,35 @@ public class methodesUtiles
 			
 			listParams.add("task");
 			listParams.add("todo");
+			
+			answer= xMLGear.getResultListTab(file, listParams);
+			
+			ArrayList<simpleToDo> tempBannedList = new ArrayList<simpleToDo>();
+			
+			for(int i=0; i<answer.size(); i++)
+				{
+				String uuid = null;
+				String description = null;
+				String user = null;	
+				
+				for(int a=0; a<answer.get(i).length; a++)
+					{
+					if(answer.get(i)[a][0].equals("uuid"))uuid = answer.get(i)[a][1];
+					if(answer.get(i)[a][0].equals("description"))description = answer.get(i)[a][1];
+					if(answer.get(i)[a][0].equals("user"))user = answer.get(i)[a][1];
+					}
+				if((uuid != null) && (description != null) && (user != null))
+					{
+					tempBannedList.add(new simpleToDo(description,user,uuid));
+					}
+				else
+					{
+					throw new Exception("Failed to build banned to do List");
+					}
+				}
+			bannedList.add(tempBannedList);
+			
+			/*Have to be improve
 			answer= xMLGear.getResultListTabExt(file, listParams);
 			
 			for(int i=0; i<answer.size(); i++)
@@ -188,7 +217,8 @@ public class methodesUtiles
 						}
 					}
 				bannedList.add(tempBannedList);
-				}
+				}*/
+			
 			variables.getLogger().info("Banned toDo Lit size : "+bannedList.get(0).size());
 			
 			return bannedList;
