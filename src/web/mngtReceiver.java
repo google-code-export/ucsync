@@ -9,12 +9,14 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.ArrayList;
 
+import misc.simpleToDo;
 import misc.toDo;
 
+import schedule.simpleTask;
 import schedule.task;
 import schedule.userSync;
-import schedule.task.taskStatusType;
-import schedule.task.taskType;
+import utils.convertSOAPToString;
+import utils.methodesUtiles;
 import utils.testeur;
 import utils.variables;
 
@@ -57,7 +59,7 @@ public class mngtReceiver extends Thread
 			/***************/
 			
 			/*******
-			 * Step 3 : get new task List
+			 * Step 3 : get task List asked and reply
 			 */
 			manageTask();
 			/***************/
@@ -89,36 +91,39 @@ public class mngtReceiver extends Thread
 		{
 		try
 			{
-			if((variables.getTaskList() != null) && (variables.getTaskList().size() != 0))
+			initValues();
+			
+			if((variables.getTabTasks() != null))
 				{
-				out.writeObject((Object)variables.getTaskList());
+				out.writeObject((Object)variables.getTabTasks());
+				variables.getLogger().info("Task config values sent with success");
+				}
+			else
+				{
+				out.writeObject((Object)new ArrayList<String[][]>());
+				variables.getLogger().info("No available Task config values to manage");
+				}
+			if((variables.getSimpleTaskList() != null))
+				{
+				out.writeObject((Object)variables.getSimpleTaskList());
 				variables.getLogger().info("Task list sent with sucess");
-				if((variables.getBannedToDoList() != null) && (variables.getBannedToDoList().size() != 0))
-					{
-					out.writeObject((Object)variables.getBannedToDoList());
-					variables.getLogger().info("Banned ToDo list sent with success");
-					}
-				else
-					{
-					out.writeObject((Object)new ArrayList<ArrayList<toDo>>());
-					variables.getLogger().info("No available banned toDo to manage");
-					}
-				if((variables.getTabTasks() != null) && (variables.getTabTasks().size() != 0))
-					{
-					out.writeObject((Object)variables.getTabTasks());
-					variables.getLogger().info("Task config values sent with success");
-					}
-				else
-					{
-					out.writeObject((Object)new ArrayList<String[][]>());
-					variables.getLogger().info("No available Task config values to manage");
-					}
 				}
 			else
 				{
 				out.writeObject((Object)new ArrayList<task>());
 				variables.getLogger().info("No available task to manage");
 				}
+			if((variables.getBannedToDoList() != null))
+				{
+				out.writeObject((Object)variables.getBannedToDoList());
+				variables.getLogger().info("Banned ToDo list sent with success");
+				}
+			else
+				{
+				out.writeObject((Object)new ArrayList<ArrayList<toDo>>());
+				variables.getLogger().info("No available banned toDo to manage");
+				}
+			out.flush();
 			}
 		catch(Exception exc)
 			{
@@ -137,12 +142,14 @@ public class mngtReceiver extends Thread
 			{
 			while(true)
 				{
-				variables.setTaskList((ArrayList<task>)in.readObject());
+				variables.setSimpleTaskList((ArrayList<simpleTask>)in.readObject());
 				variables.getLogger().info("New Task List received with success");
-				variables.setBannedToDoList(((ArrayList<ArrayList<toDo>>)in.readObject()));
+				variables.setBannedToDoList(((ArrayList<ArrayList<simpleToDo>>)in.readObject()));
 				variables.getLogger().info("New Banned List received with success");
 				variables.setTabTasks(((ArrayList<String[][]>)in.readObject()));
 				variables.getLogger().info("New Tab Task received with success");
+				
+				methodesUtiles.writeBannedToDoList();
 				}
 			}
 		catch(Exception exc)
@@ -150,6 +157,31 @@ public class mngtReceiver extends Thread
 			exc.printStackTrace();
 			variables.getLogger().error(exc);
 			}
+		}
+	
+	/***
+	 * Method used to Init values which will be exchange throw 
+	 * ObjectStream
+	 * @throws Exception 
+	 */
+	private void initValues() throws Exception
+		{
+		//Simple Task List
+		ArrayList<simpleTask> mySimpleTaskList = new ArrayList<simpleTask>();
+		for(int i=0; i<variables.getTaskList().size(); i++)
+			{
+			ArrayList<simpleToDo> myToDoList = new ArrayList<simpleToDo>();
+			for(int j=0; j<variables.getTaskList().get(i).getToDoList().size(); j++)
+				{
+				toDo myToDo = variables.getTaskList().get(i).getToDoList().get(j);
+				myToDoList.add(new simpleToDo(myToDo.getDescription(), myToDo.getCurrentData(), myToDo.getNewData(), 
+						myToDo.getUser(), myToDo.getUUID(), convertSOAPToString.convert(myToDo.getSoapMessage()), 
+						myToDo.getStatus(), myToDo.getConflictList(), myToDo.getProblemList(), myToDo.isConflictDetected(), myToDo.isProblemDetected()));
+				}
+			task myTask = variables.getTaskList().get(i);
+			mySimpleTaskList.add(new simpleTask(myTask.getStatus(), myTask.getType(), myTask.getDescription(), myToDoList, myTask.getId(), myTask.getTaskIndex()));
+			}
+		variables.setSimpleTaskList(mySimpleTaskList);
 		}
 	
 	

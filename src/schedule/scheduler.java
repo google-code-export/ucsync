@@ -1,8 +1,8 @@
 package schedule;
 
-import schedule.task.taskStatusType;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.taskStatusType;
 
 /**********************************
  * Class used to launch tasks at 

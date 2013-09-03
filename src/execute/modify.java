@@ -9,13 +9,13 @@ import javax.xml.soap.SOAPMessage;
 import javax.xml.soap.SOAPPart;
 import schedule.task;
 import schedule.userSync;
-import schedule.task.taskStatusType;
 import utils.SOAPGear;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.taskStatusType;
+import utils.variables.toDoStatusType;
 import misc.report;
 import misc.worker;
-import misc.toDo.toDoStatusType;
 
 /**********************************
  * Class used to commit modification

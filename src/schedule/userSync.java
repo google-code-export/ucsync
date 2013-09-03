@@ -13,6 +13,8 @@ import utils.SOAPGear;
 import utils.methodesUtiles;
 import utils.variables;
 import utils.variables.patternType;
+import utils.variables.taskStatusType;
+import utils.variables.taskType;
 import execute.modify;
 
 import misc.toDo;

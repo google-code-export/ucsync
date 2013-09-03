@@ -5,10 +5,9 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
-
-import schedule.task.taskStatusType;
 import utils.testeur;
 import utils.variables;
+import utils.variables.taskStatusType;
 
 /**********************************
  * Class used to manage Web request

@@ -1,11 +1,14 @@
 package schedule;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.taskStatusType;
+import utils.variables.taskType;
 import misc.toDo;
 import misc.worker;
 
@@ -20,8 +23,6 @@ public abstract class task
 	/**
 	 * Variables
 	 */
-	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
-	public enum taskType{userSync};
 	protected taskStatusType status;
 	protected taskType type;
 	protected String description;

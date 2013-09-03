@@ -1,7 +1,11 @@
 package start;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+
+import misc.simpleToDo;
+
 import org.apache.log4j.Level;
 
 import schedule.scheduler;
@@ -82,6 +86,7 @@ public class Principale
 			{
 			exc.printStackTrace();
 			variables.getLogger().error(exc.getMessage());
+			variables.setExceptionList(new ArrayList<ArrayList<String>>());
 			}
 		/*********************/
 		
@@ -91,11 +96,17 @@ public class Principale
 		try
 			{
 			variables.setBannedToDoList(methodesUtiles.initBannedToDoList());
+			
+			if(variables.getBannedToDoList().size() == 0)
+				{
+				methodesUtiles.defaultBannedToDoList();
+				}
 			}
 		catch (Exception exc)
 			{
 			exc.printStackTrace();
 			variables.getLogger().error(exc.getMessage());
+			methodesUtiles.defaultBannedToDoList();
 			}
 		/*********************/
 		

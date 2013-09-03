@@ -1,22 +1,18 @@
 
 package utils;
 
+import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
 import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Random;
-//import javax.swing.JOptionPane;
-import misc.toDo;
-
+import misc.simpleToDo;
 import org.apache.commons.codec.digest.DigestUtils;
-
-import scan.device;
-import scan.deviceAssociatedLine;
-import scan.userAssociatedDevice;
-import schedule.task;
 import schedule.userSync.deviceType;
 
 /*********************************************
@@ -149,11 +145,11 @@ public class methodesUtiles
 	 * Method used to get data write in the task file
 	 * @throws Exception 
 	 ************************************************/
-	public static ArrayList<ArrayList<toDo>> initBannedToDoList() throws Exception
+	public static ArrayList<ArrayList<simpleToDo>> initBannedToDoList() throws Exception
 		{
 		String file = null;
 		ArrayList<ArrayList<String[][]>> answer;
-		ArrayList<ArrayList<toDo>> bannedList = new ArrayList<ArrayList<toDo>>();
+		ArrayList<ArrayList<simpleToDo>> bannedList = new ArrayList<ArrayList<simpleToDo>>();
 		ArrayList<String> listParams = new ArrayList<String>();
 		
 		try
@@ -167,23 +163,24 @@ public class methodesUtiles
 			
 			for(int i=0; i<answer.size(); i++)
 				{
-				ArrayList<toDo> tempBannedList = new ArrayList<toDo>();
+				ArrayList<simpleToDo> tempBannedList = new ArrayList<simpleToDo>();
 				
 				for(int j=0; j<answer.get(i).size(); j++)
 					{
 					String uuid = null;
 					String description = null;
-					String user = null;
+					String user = null;	
 					
 					for(int a=0; a<answer.get(i).get(j).length; a++)
 						{
+						System.out.println("##"+answer.get(i).get(j)[a][0]+" "+answer.get(i).get(j)[a][1]);
 						if(answer.get(i).get(j)[a][0].equals("uuid"))uuid = answer.get(i).get(j)[a][1];
 						if(answer.get(i).get(j)[a][0].equals("description"))description = answer.get(i).get(j)[a][1];
 						if(answer.get(i).get(j)[a][0].equals("user"))user = answer.get(i).get(j)[a][1];
 						}
 					if((uuid != null) && (description != null) && (user != null))
 						{
-						tempBannedList.add(new toDo(uuid, description, user));
+						tempBannedList.add(new simpleToDo(description,user,uuid));
 						}
 					else
 						{
@@ -192,6 +189,7 @@ public class methodesUtiles
 					}
 				bannedList.add(tempBannedList);
 				}
+			variables.getLogger().info("Banned toDo Lit size : "+bannedList.get(0).size());
 			
 			return bannedList;
 			}
@@ -421,6 +419,115 @@ public class methodesUtiles
         url.append(ID);
 		
         return url.toString();
+		}
+	
+	/**
+	 * Method used to write the XML
+	 * banned toDo List
+	 */
+	public static void writeBannedToDoList()
+		{
+		File fichierRapport = new File(variables.getBannedToDoListFileName());
+		FileWriter monFichierRapport = null;
+		BufferedWriter tamponRapport  = null;
+		
+		try
+			{
+			removeBannedToDoDuplicate();
+			
+			monFichierRapport = new FileWriter(fichierRapport, false);
+			tamponRapport = new BufferedWriter(monFichierRapport);
+			StringBuffer buffRapport = new StringBuffer("");
+			
+			//Ecriture
+			buffRapport.append("<xml>\r\n");
+			
+			for(int i=0; i<variables.getBannedToDoList().size(); i++)
+				{
+				buffRapport.append("	<task>\r\n");
+				if((variables.getBannedToDoList().get(i) != null) &&(variables.getBannedToDoList().get(i).size() != 0))
+					{
+					for(int j=0; j<variables.getBannedToDoList().get(i).size(); j++)
+						{
+						buffRapport.append("		<todo>\r\n");
+						buffRapport.append("			<uuid>"+variables.getBannedToDoList().get(i).get(j).getUUID()+"</uuid>\r\n");
+						buffRapport.append("			<description>"+variables.getBannedToDoList().get(i).get(j).getDescription()+"</description>\r\n");
+						buffRapport.append("			<user>"+variables.getBannedToDoList().get(i).get(j).getUser()+"</user>\r\n");
+						buffRapport.append("		</todo>\r\n");
+						}
+					}
+				buffRapport.append("	</task>\r\n");
+				}
+			
+			buffRapport.append("</xml>\r\n");
+			
+			tamponRapport.write(buffRapport.toString());
+			}
+		catch(Exception exception)
+			{
+			exception.printStackTrace();
+			variables.getLogger().error(exception);
+			}
+		finally
+			{
+			try
+				{
+				tamponRapport.flush();
+				tamponRapport.close();
+				monFichierRapport.close();
+				variables.getLogger().info("Banned toDo List XML file has been written with success");
+				}
+			catch(Exception e)
+				{
+				e.printStackTrace();
+				variables.getLogger().error(e);
+				}
+			}
+		}
+	
+	/**
+	 * Method used to fill the banned ToDo list
+	 * with an empty list
+	 */
+	public static void defaultBannedToDoList()
+		{
+		ArrayList<ArrayList<simpleToDo>> myList = new ArrayList<ArrayList<simpleToDo>>();
+		
+		for(int i=0; i<variables.getTabTasks().size(); i++)
+			{
+			ArrayList<simpleToDo> myToDoList = new ArrayList<simpleToDo>();
+			myList.add(myToDoList);
+			}
+		variables.setBannedToDoList(myList);
+		}
+	
+	/**
+	 * Method used to remove banned to do list duplicates
+	 */
+	public static void removeBannedToDoDuplicate()
+		{
+		boolean duplicatefound = false;
+		
+		for(int x=0; x<variables.getBannedToDoList().size(); x++)
+			{
+			for(int i=0; i<variables.getBannedToDoList().get(x).size(); i++)
+				{
+				simpleToDo myToDo1= variables.getBannedToDoList().get(x).get(i);
+				for(int j=i+1; j<variables.getBannedToDoList().get(x).size(); j++)
+					{
+					simpleToDo myToDo2= variables.getBannedToDoList().get(x).get(j);
+					if(myToDo1.getUUID().equals(myToDo2.getUUID()))
+						{
+						variables.getBannedToDoList().get(x).remove(j);
+						duplicatefound = true;
+						}
+					}
+				}
+			}
+		if(duplicatefound)
+			{
+			removeBannedToDoDuplicate();
+			}
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

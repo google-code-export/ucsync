@@ -1,6 +1,8 @@
 package utils;
 
 //Imports
+import java.io.Serializable;
+
 import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.HttpsURLConnection;
 import javax.net.ssl.SSLContext;

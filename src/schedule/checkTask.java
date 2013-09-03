@@ -1,11 +1,10 @@
 package schedule;
 
 import java.util.ArrayList;
-
-import schedule.task.taskStatusType;
-import schedule.task.taskType;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.taskStatusType;
+import utils.variables.taskType;
 
 /**********************************
  * Class used to check if tasks have

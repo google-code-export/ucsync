@@ -1,5 +1,7 @@
 package misc;
 
+import java.io.Serializable;
+
 import schedule.userSync;
 
 /**********************************

@@ -2,9 +2,7 @@ package web;
 
 import java.net.ServerSocket;
 import java.net.Socket;
-
 import misc.workimpl;
-
 import utils.methodesUtiles;
 import utils.variables;
 
@@ -26,6 +24,14 @@ public class webMngtManager extends Thread implements workimpl
 	public webMngtManager()
 		{
 		isWorking = true;
+		
+		/**
+		 * Init values which will be exchange throw 
+		 * ObjectStream
+		 */
+		
+		/********/
+		
 		start();
 		}
 	
