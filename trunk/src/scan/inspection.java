@@ -372,6 +372,11 @@ public class inspection extends worker
 				{
 				myUSync.setStatus(taskStatusType.waitingAck);
 				}
+			else
+				{
+				variables.getLogger().info(myUSync.getTInfo()+"No unsynced data. Task will be deleted");
+				myUSync.setStatus(taskStatusType.toDelete);
+				}
 			}
 		else
 			{

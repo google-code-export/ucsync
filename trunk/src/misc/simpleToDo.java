@@ -55,6 +55,7 @@ public class simpleToDo implements Serializable
 		this.description = description;
 		this.user = user;
 		this.UUID = UUID;
+		this.status = toDoStatusType.banned;
 		}
 
 	public String getDescription()

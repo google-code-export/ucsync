@@ -34,7 +34,7 @@ public class variables
 	linetextlabel,linetextlabeltoolong,
 	lineexternalphonenumbermask};
 	
-	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible};
+	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible,banned};
 	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
 	public enum taskType{userSync};
 	
