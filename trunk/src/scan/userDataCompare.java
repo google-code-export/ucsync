@@ -180,7 +180,7 @@ public class userDataCompare
 						}
 					}
 				}
-			variables.getLogger().debug("Device data comparison "+pt.name()+": '"+currentData+"' compare to '"+newData+"'");
+			//variables.getLogger().debug("Device data comparison "+pt.name()+": '"+currentData+"' compare to '"+newData+"'");
 			if(!currentData.equals(newData))
 				{
 				toDo myToDo = new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, d), myUser.getUserid(), d.getUUID(), d.getName(), d.getType().name());
@@ -228,7 +228,7 @@ public class userDataCompare
 					}
 				}
 			
-			variables.getLogger().debug("Line data comparison "+pt.name()+" : '"+currentData+"' compare to '"+newData+"'");
+			//variables.getLogger().debug("Line data comparison "+pt.name()+" : '"+currentData+"' compare to '"+newData+"'");
 			if(!currentData.equals(newData))
 				{
 				toDo myToDo = new toDo(currentData, newData, pt, new soapMessageMaker().make(pt, newData, myUSync, l), myUser.getUserid(), l.getUUID(), l.getPattern(), "line");

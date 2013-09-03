@@ -104,11 +104,13 @@ public class modify extends worker
 	private void sendEmailReport() throws Exception
 		{
 		variables.getLogger().info("##Start## : Execution report email sending");
+		
+		/*
 		for(int i=0; i<myUSync.getToDoList().size(); i++)
 			{
 			variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
 			variables.getLogger().debug("Status : "+myUSync.getToDoList().get(i).getStatus().name());
-			}
+			}*/
 		
 		Date now = new Date();
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
@@ -179,7 +181,7 @@ public class modify extends worker
 						||(myUSync.getToDoList().get(i).getStatus().equals(toDoStatusType.conflict))
 						|| (myUSync.getToDoList().get(i).getStatus().equals(toDoStatusType.impossible)))
 					{
-					variables.getLogger().info("ToDo : "+myUSync.getToDoList().get(i).getDescription()+" has not been executed : "+myUSync.getToDoList().get(i).getStatus().name());
+					//variables.getLogger().info("ToDo : "+myUSync.getToDoList().get(i).getDescription()+" has not been executed : "+myUSync.getToDoList().get(i).getStatus().name());
 					myUSync.getToDoList().get(i).setSoapResult("ToDo : "+myUSync.getToDoList().get(i).getDescription()+" has not been executed : "+myUSync.getToDoList().get(i).getStatus().name());
 					}
 				else

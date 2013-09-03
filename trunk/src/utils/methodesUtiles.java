@@ -13,6 +13,8 @@ import java.util.HashSet;
 import java.util.Random;
 import misc.simpleToDo;
 import org.apache.commons.codec.digest.DigestUtils;
+
+import schedule.simpleTask;
 import schedule.userSync.deviceType;
 
 /*********************************************
@@ -558,6 +560,29 @@ public class methodesUtiles
 			{
 			removeBannedToDoDuplicate();
 			}
+		}
+	
+	/**
+	 * Method used to update task list 
+	 * after changes made by the Manager
+	 */
+	public static void updateTaskList(ArrayList<simpleTask> simpleTaskList)
+		{
+		/**
+		 * We update the real task list
+		 */
+		for(int i=0; i<simpleTaskList.size(); i++)
+			{
+			for(int j=0; j<simpleTaskList.get(i).getToDoList().size(); j++)
+				{
+				//ToDo List
+				variables.getTaskList().get(i).getToDoList().get(j).setStatus(simpleTaskList.get(i).getToDoList().get(j).getStatus());
+				}
+			//Task
+			variables.getTaskList().get(i).setStatus(simpleTaskList.get(i).getStatus());
+			}
+		
+		variables.setSimpleTaskList(simpleTaskList);
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

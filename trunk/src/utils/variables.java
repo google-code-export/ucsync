@@ -55,6 +55,7 @@ public class variables
 	private static ArrayList<ArrayList<String>> exceptionList;
 	private static ArrayList<ArrayList<simpleToDo>> bannedToDoList;
 	private static ArrayList<simpleTask> simpleTaskList;
+	private static boolean ReadyToPublish;
 	
 	/**
 	 * Contructeur
@@ -69,6 +70,7 @@ public class variables
 		exceptionList = new ArrayList<ArrayList<String>>();
 		bannedToDoList = new ArrayList<ArrayList<simpleToDo>>();
 		simpleTaskList = new ArrayList<simpleTask>();
+		ReadyToPublish = false;
 		}
 	
 	/****
@@ -155,12 +157,12 @@ public class variables
 		variables.tabTasks = tabTasks;
 		}
 
-	public static ArrayList<task> getTaskList()
+	public synchronized static ArrayList<task> getTaskList()
 		{
 		return taskList;
 		}
 
-	public static void setTaskList(ArrayList<task> taskList)
+	public synchronized static void setTaskList(ArrayList<task> taskList)
 		{
 		variables.taskList = taskList;
 		}
@@ -235,29 +237,26 @@ public class variables
 		variables.myMngtServer = myMngtServer;
 		}
 
-	public static ArrayList<simpleTask> getSimpleTaskList()
+	public synchronized static ArrayList<simpleTask> getSimpleTaskList()
 		{
 		return simpleTaskList;
 		}
 
-	public static void setSimpleTaskList(ArrayList<simpleTask> simpleTaskList)
+	public synchronized static void setSimpleTaskList(ArrayList<simpleTask> simpleTaskList)
 		{
 		variables.simpleTaskList = simpleTaskList;
-		
-		/**
-		 * We update the real task list
-		 */
-		for(int i=0; i<variables.getSimpleTaskList().size(); i++)
-			{
-			for(int j=0; j<variables.getSimpleTaskList().get(i).getToDoList().size(); j++)
-				{
-				//ToDo List
-				variables.getTaskList().get(i).getToDoList().get(j).setStatus(variables.getSimpleTaskList().get(i).getToDoList().get(j).getStatus());
-				}
-			//Task
-			variables.getTaskList().get(i).setStatus(variables.getSimpleTaskList().get(i).getStatus());
-			}
 		}
+
+	public static boolean isReadyToPublish()
+		{
+		return ReadyToPublish;
+		}
+
+	public static void setReadyToPublish(boolean isReadyToPublish)
+		{
+		variables.ReadyToPublish = isReadyToPublish;
+		}
+	
 
 	
 	

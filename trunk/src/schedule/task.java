@@ -47,6 +47,7 @@ public abstract class task
 		description = methodesUtiles.getTargetTask("description",taskIndex);
 		startTime = System.currentTimeMillis();
 		lastLaunchedTime = null;
+		variables.setReadyToPublish(false);
 		}
 
 	/**
