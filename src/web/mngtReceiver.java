@@ -1,12 +1,14 @@
 package web;
 
 import java.io.BufferedReader;
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.PrintWriter;
 import java.net.Socket;
+import java.net.SocketException;
 import java.util.ArrayList;
 
 import misc.simpleToDo;
@@ -103,7 +105,7 @@ public class mngtReceiver extends Thread
 				out.writeObject((Object)new ArrayList<String[][]>());
 				variables.getLogger().info("No available Task config values to manage");
 				}
-			if((variables.getSimpleTaskList() != null))
+			if((variables.getSimpleTaskList() != null) && (variables.isReadyToPublish()))
 				{
 				out.writeObject((Object)variables.getSimpleTaskList());
 				variables.getLogger().info("Task list sent with sucess");
@@ -142,7 +144,7 @@ public class mngtReceiver extends Thread
 			{
 			while(true)
 				{
-				variables.setSimpleTaskList((ArrayList<simpleTask>)in.readObject());
+				methodesUtiles.updateTaskList((ArrayList<simpleTask>)in.readObject());
 				variables.getLogger().info("New Task List received with success");
 				variables.setBannedToDoList(((ArrayList<ArrayList<simpleToDo>>)in.readObject()));
 				variables.getLogger().info("New Banned List received with success");
@@ -151,6 +153,14 @@ public class mngtReceiver extends Thread
 				
 				methodesUtiles.writeBannedToDoList();
 				}
+			}
+		catch(SocketException sexc)
+			{
+			variables.getLogger().error("END manager connection "+sexc.getMessage());
+			}
+		catch(EOFException eoexc)
+			{
+			variables.getLogger().error("END manager connection "+eoexc.getMessage());
 			}
 		catch(Exception exc)
 			{

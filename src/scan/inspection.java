@@ -96,6 +96,7 @@ public class inspection extends worker
 			 * This is used to know when the task
 			 * succeed to interrupt itself
 			 */
+			variables.setReadyToPublish(true);
 			variables.getLogger().info(myUSync.getTInfo()+"##Stop## : Normal End of inspection process");
 			if(!isNotFinished)
 				{
@@ -275,6 +276,7 @@ public class inspection extends worker
 	private void sendEmailReport() throws Exception
 		{
 		variables.getLogger().info("##Start## : Report email sending");
+		/*
 		for(int i=0; i<myUSync.getToDoList().size(); i++)
 			{
 			variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
@@ -298,7 +300,7 @@ public class inspection extends worker
 					variables.getLogger().debug("WARN : "+myUSync.getToDoList().get(i).getProblemList().get(x));
 					}
 				}
-			}
+			}*/
 		
 		if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).equals("report"))
 			{
