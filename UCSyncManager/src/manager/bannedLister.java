@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import schedule.simpleTask;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.sendReceiveType;
 import utils.variables.taskStatusType;
 import utils.variables.toDoStatusType;
 
@@ -96,12 +97,15 @@ public class bannedLister extends JPanel implements ActionListener
 			listToDoList.removeAll();
 			listeLine.clear();
 			
-			if((variables.getBannedToDoList().size() == 0) || (variables.getBannedToDoList().get(variables.getTaskIndex()).size() == 0))
+			if((variables.getBannedToDoList().size() == 0) || (variables.getBannedToDoList().get(variables.getTaskIndex()).size() == 0) || (variables.getTaskList().size() == 0))
 				{
 				listToDoList.add(new JLabel("No banned toDo"));
 				}
 			else
 				{
+				//We remove BannedToDoList duplicates
+				methodesUtiles.removeBannedToDoDuplicate();
+				
 				for(int i=0; i<variables.getBannedToDoList().get(variables.getTaskIndex()).size(); i++)
 					{
 					bannedLine myLine = new bannedLine(variables.getBannedToDoList().get(variables.getTaskIndex()).get(i));
@@ -127,12 +131,12 @@ public class bannedLister extends JPanel implements ActionListener
 		{
 		if(evt.getSource() == update)
 			{
-			putDataToServer myPut = new putDataToServer(false);
-			new finishedMonitor(myPut);
+			methodesUtiles.updateData(false);
 			}
 		if(evt.getSource() == deleteAll)
 			{
 			removeBanned();
+			
 			this.repaint();
 			this.validate();
 			}
@@ -152,9 +156,19 @@ public class bannedLister extends JPanel implements ActionListener
 			{
 			if(listeLine.get(i).getCheckStatus())
 				{
+				//we change the corresponding task status
+				for(int j=0; j<variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); j++)
+					{
+					if(variables.getBannedToDoList().get(variables.getTaskIndex()).get(i).getUUID().equals(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(j).getUUID()))
+						{
+						variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(j).setStatus(toDoStatusType.disabled);
+						variables.getMyToDoLister().getListeLine().get(j).unBannedThis(false);
+						}
+					}
+				
 				listeLine.remove(i);
 				listToDoList.remove(i);
-				variables.getBannedToDoList().remove(i);
+				variables.getBannedToDoList().get(variables.getTaskIndex()).remove(i);
 				deleteFound = true;
 				}
 			}

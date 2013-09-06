@@ -8,7 +8,9 @@ import javax.swing.JOptionPane;
 import misc.serverDataMisc;
 import misc.simpleToDo;
 import schedule.simpleTask;
+import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.sendReceiveType;
 
 /**********************************
  * Class used to manage data import
@@ -21,11 +23,14 @@ public class putDataToServer extends serverDataMisc
 	 * Variables
 	 */
 	private boolean clear;
+	private sendReceiveType myType;
+	
 	
 	public putDataToServer(boolean clear)
 		{
 		super();
 		this.clear = clear;
+		this.myType = myType;
 		
 		start();
 		}
@@ -38,17 +43,15 @@ public class putDataToServer extends serverDataMisc
 		 */
 		try
 			{
-			//TaskList
+			//First we send data type
+			variables.getOut().writeObject((Object)sendReceiveType.sendAll);
+			variables.getLogger().info("Data type sent with success");
+			
+			//Then we send the corresponding data
 			variables.getOut().writeObject(variables.getTaskList());
 			variables.getLogger().info("Task list exported with success");
-			variables.getOut().flush();
-			
-			//BannedList
 			variables.getOut().writeObject(variables.getBannedToDoList());
 			variables.getLogger().info("Banned toDo List exported with success");
-			variables.getOut().flush();
-			
-			//TabTask
 			variables.getOut().writeObject(variables.getTabTasks());
 			variables.getLogger().info("TabTask exported with success");
 			variables.getOut().flush();

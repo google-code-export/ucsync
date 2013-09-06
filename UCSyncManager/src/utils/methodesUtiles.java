@@ -23,6 +23,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 
 import schedule.simpleTask;
 import schedule.task;
+import utils.variables.sendReceiveType;
 
 
 /*********************************************
@@ -203,7 +204,7 @@ public class methodesUtiles
 			exc.printStackTrace();
 			variables.getLogger().error(exc);
 			variables.getLogger().error("Application failed to init Socket : System.exit(0) : "+exc.getMessage());
-			JOptionPane.showMessageDialog(null,"Connection to UCSync server has failed\r\nCheck if network connectivity and server informations are correct","Erreur",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null,"Unable to contact UCSync server\r\nCheck if network connectivity and server informations are correct","Erreur",JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			}
 		}
@@ -254,9 +255,6 @@ public class methodesUtiles
 			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
 			variables.getLogger().info("Connected to UCSync server");
 			
-			getDataFromServer myData = new getDataFromServer(false);
-			new finishedMonitor(myData);
-			
 			putDataToServer myPut = new putDataToServer(clear);
 			new finishedMonitor(myPut);
 			}
@@ -289,6 +287,32 @@ public class methodesUtiles
 		
 		//Generate the md5 hash and return
 		return DigestUtils.md5Hex(currentDate+Integer.toString(rnValue));
+		}
+	
+	/**
+	 * Method used to remove banned to do list duplicates
+	 */
+	public static void removeBannedToDoDuplicate()
+		{
+		boolean duplicatefound = false;
+		
+		for(int i=0; i<variables.getBannedToDoList().get(variables.getTaskIndex()).size(); i++)
+			{
+			simpleToDo myToDo1= variables.getBannedToDoList().get(variables.getTaskIndex()).get(i);
+			for(int j=i+1; j<variables.getBannedToDoList().get(variables.getTaskIndex()).size(); j++)
+				{
+				simpleToDo myToDo2= variables.getBannedToDoList().get(variables.getTaskIndex()).get(j);
+				if(myToDo1.getUUID().equals(myToDo2.getUUID()))
+					{
+					variables.getBannedToDoList().get(variables.getTaskIndex()).remove(j);
+					duplicatefound = true;
+					}
+				}
+			}
+		if(duplicatefound)
+			{
+			removeBannedToDoDuplicate();
+			}
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/

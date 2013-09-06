@@ -71,7 +71,6 @@ public class bannedLine extends JPanel implements ActionListener
 		this.add(main);
 		
 		//Events
-		select.addActionListener(this);
 		}
 	
 	public void setFond(Color couleur)
@@ -132,7 +131,7 @@ public class bannedLine extends JPanel implements ActionListener
 		{
 		name.setText(myToDo.getUser());
 		
-		this.desc.setText(myToDo.getDescription()+" | UUID : \""+myToDo.getUUID()+"\" Has been banned");
+		this.desc.setText(" UUID : \""+myToDo.getUUID()+"\" Has been banned");
 		
 		info.setText(" [..] ");
 		displayResult.setText(myToDo.getStatus().name()+" ");

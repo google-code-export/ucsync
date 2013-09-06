@@ -48,7 +48,7 @@ public class mainWindow extends JFrame
 		this.setTitle(variables.getNomProg()+" - "+variables.getVersion());
 		
 		//Positionnement
-		this.setSize(new Dimension(1000,600));
+		this.setSize(new Dimension(1200,600));
 		new Centrer(this);
 		
 		this.getContentPane().setLayout(new BoxLayout(this.getContentPane(), BoxLayout.Y_AXIS));

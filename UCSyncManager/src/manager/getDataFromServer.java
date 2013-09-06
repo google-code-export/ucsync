@@ -9,6 +9,7 @@ import misc.serverDataMisc;
 import misc.simpleToDo;
 import schedule.simpleTask;
 import utils.variables;
+import utils.variables.sendReceiveType;
 
 /**********************************
  * Class used to manage data import
@@ -37,6 +38,10 @@ public class getDataFromServer extends serverDataMisc
 		 */
 		try
 			{
+			//First we send data type involved in the communication
+			variables.getOut().writeObject((Object)sendReceiveType.getAll);
+			variables.getLogger().info("Data type sent with success : "+sendReceiveType.getAll);
+			
 			//TabTask
 			variables.setTabTasks((ArrayList<String[][]>)variables.getIn().readObject());
 			variables.getLogger().info("TabTask imported with success");

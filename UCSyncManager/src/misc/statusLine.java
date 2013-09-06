@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.util.ArrayList;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -174,17 +175,17 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 			{
 			if(banned.getText().compareTo(">")==0)
 				{
-				bannedThis();
+				for(Integer i: findSimilar(this.myToDo.getUUID()))
+					{
+					variables.getMyToDoLister().getListeLine().get(i).bannedThis();
+					}
 				}
 			else
 				{
-				variables.getBannedToDoList().get(variables.getTaskIndex()).remove(myToDo);
-				myToDo.setStatus(toDoStatusType.disabled);
-				init();
-				this.setFond(this.defaultFond);
-				this.banned.setText(">");
-				manageSelect();
-				enablePane();
+				for(Integer i: findSimilar(this.myToDo.getUUID()))
+					{
+					variables.getMyToDoLister().getListeLine().get(i).unBannedThis(true);
+					}
 				}
 			}
 		
@@ -196,14 +197,54 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 	
 	public void bannedThis()
 		{
-		this.setFond(Color.GRAY);
+		//Manage Banned tab
 		variables.getBannedToDoList().get(variables.getTaskIndex()).add(myToDo);
+		myToDo.setStatus(toDoStatusType.banned);
+		variables.getMyBannedLister().fill();
+		
+		//manage task pane
+		this.setFond(Color.GRAY);
 		this.desc.setText(myToDo.getDescription()+" |  Will be banned");
 		this.banned.setText("<");
-		myToDo.setStatus(toDoStatusType.banned);
 		this.displayResult.setText(myToDo.getStatus().name()+" ");
 		select.setSelected(false);
 		disablePane();
+		}
+	
+	public void unBannedThis(boolean clear)
+		{
+		if(clear)
+			{
+			//Manage banned tab
+			variables.getBannedToDoList().get(variables.getTaskIndex()).remove(myToDo);
+			variables.getMyBannedLister().fill();
+			}
+		
+		//manage task pane
+		myToDo.setStatus(toDoStatusType.disabled);
+		init();
+		this.setFond(this.defaultFond);
+		this.banned.setText(">");
+		manageSelect();
+		enablePane();
+		}
+	
+	/**
+	 * Method used to find task with same UUID
+	 */
+	private ArrayList<Integer> findSimilar(String UUID)
+		{
+		ArrayList<Integer> myList = new ArrayList<Integer>();
+		
+		for (int i = 0; i <variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); i++)
+			{
+			if(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getUUID().equals(UUID))
+				{
+				myList.add((Integer)i);
+				}
+			}
+		
+		return myList;
 		}
 	
 	private void init()

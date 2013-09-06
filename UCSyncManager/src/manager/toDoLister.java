@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -19,6 +20,7 @@ import javax.swing.JScrollPane;
 import schedule.simpleTask;
 import utils.methodesUtiles;
 import utils.variables;
+import utils.variables.sendReceiveType;
 import utils.variables.taskStatusType;
 import utils.variables.toDoStatusType;
 
@@ -46,6 +48,7 @@ public class toDoLister extends JPanel implements ActionListener
 	private JPanel control;
 	private JPanel Principale;
 	private JLabel infoList;
+	private JLabel currentStatus;
 	private boolean canBeUpdate;
 	
 	private String[] filter;
@@ -55,7 +58,7 @@ public class toDoLister extends JPanel implements ActionListener
 	public toDoLister()
 		{
 		canBeUpdate = true;
-		filter = new String[]{"No Filter","Only Warn","Only Waiting"};
+		filter = new String[]{"No Filter","Only Warn","Only Waiting","Find..."};
 		filterCombo = new JComboBox(filter);
 		filterCombo.setMaximumSize(new Dimension(60,20));
 		
@@ -66,6 +69,8 @@ public class toDoLister extends JPanel implements ActionListener
 		listeLine = new ArrayList<statusLine>();
 		infoList = new JLabel("");
 		infoList.setForeground(Color.WHITE);
+		currentStatus = new JLabel("");
+		currentStatus.setForeground(Color.WHITE);
 		
 		control = new JPanel();
 		Principale = new JPanel();
@@ -90,6 +95,7 @@ public class toDoLister extends JPanel implements ActionListener
 		control.add(selectAll);
 		control.add(infoList);
 		control.add(filterCombo);
+		control.add(currentStatus);
 		control.add(Box.createHorizontalGlue());
 		control.add(newScan);
 		control.add(update);
@@ -144,8 +150,10 @@ public class toDoLister extends JPanel implements ActionListener
 					listeLine.add(myLine);
 					listToDoList.add(myLine);
 					}
-				setInfoList();
 				}
+			filterCombo.setSelectedIndex(0);
+			setInfoList();
+			getReportStatus();
 			}
 		catch (Exception exc)
 			{
@@ -163,8 +171,16 @@ public class toDoLister extends JPanel implements ActionListener
 			{
 			if((variables.getTaskList().size() != 0)&&(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() != 0))
 				{
-				variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
-				methodesUtiles.updateData(true);
+				if(variables.getTaskList().get(variables.getTaskIndex()).getStatus().equals(taskStatusType.pending))
+					{
+					variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.waitingAck);
+					methodesUtiles.updateData(true);
+					}
+				else
+					{
+					variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
+					methodesUtiles.updateData(true);
+					}
 				}
 			else
 				{
@@ -191,13 +207,11 @@ public class toDoLister extends JPanel implements ActionListener
 				}
 			else
 				{
-				JOptionPane.showMessageDialog(null,"A scan is currently in progress, please wait","Information",JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(null,"No data to update","Information",JOptionPane.INFORMATION_MESSAGE);
 				}
 			}
 		if(evt.getSource() == filterCombo)
 			{
-			variables.getMyWindow().getWait().setText("Please wait");
-			
 			if(filterCombo.getSelectedIndex() == 0)
 				{
 				//All
@@ -222,7 +236,7 @@ public class toDoLister extends JPanel implements ActionListener
 						}
 					}
 				}
-			else
+			else if(filterCombo.getSelectedIndex() == 2)
 				{
 				//Wait only
 				for(int i=0; i<listeLine.size(); i++)
@@ -239,7 +253,30 @@ public class toDoLister extends JPanel implements ActionListener
 						}
 					}
 				}
-			variables.getMyWindow().getWait().setText(" ");
+			else
+				{
+				//Personalize filter
+				//Get filter pattern
+				String filter = JOptionPane.showInputDialog(null, "Contains ?", "Find...", JOptionPane.QUESTION_MESSAGE);
+				
+				if((filter != null) && (!filter.equals("")))
+					{
+					for (int i = 0; i <variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); i++)
+						{
+						simpleToDo myTodo = variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i);
+						String compare = myTodo.getUser()+" "+myTodo.getDescription();
+						
+						if(Pattern.matches(".*"+filter+".*", compare))
+							{
+							listToDoList.getComponents()[i].setVisible(true);
+							}
+						else
+							{
+							listToDoList.getComponents()[i].setVisible(false);
+							}
+						}
+					}
+				}
 			this.repaint();
 			this.validate();
 			}
@@ -268,28 +305,35 @@ public class toDoLister extends JPanel implements ActionListener
 	
 	public void setInfoList()
 		{
-		if(canBeUpdate)
+		if((variables.getTaskList().size() == 0) || (variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() == 0))
 			{
-			int total = variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size();
-			int warn = 0;
-			int wait = 0;
-			
-			for(int i=0; i<variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); i++)
+			infoList.setText("");
+			}
+		else
+			{
+			if(canBeUpdate)
 				{
-				if((variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.conflict))
-						||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.impossible))
-						||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.banned))
-						||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.disabled)))
+				int total = variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size();
+				int warn = 0;
+				int wait = 0;
+				
+				for(int i=0; i<variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); i++)
 					{
-					warn++;
+					if((variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.conflict))
+							||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.impossible))
+							||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.banned))
+							||(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i).getStatus().equals(toDoStatusType.disabled)))
+						{
+						warn++;
+						}
+					else
+						{
+						wait++;
+						}
 					}
-				else
-					{
-					wait++;
-					}
+				
+				infoList.setText(" "+total+" / "+warn+" / "+wait+"  ");
 				}
-			
-			infoList.setText(" "+total+" / "+warn+" / "+wait+"  ");
 			}
 		}
 	
@@ -304,6 +348,54 @@ public class toDoLister extends JPanel implements ActionListener
 		this.newScan.setEnabled(b);
 		this.filterCombo.setEnabled(b);
 		}
+	
+	/**
+	 * Method used to display actual task status
+	 */
+	private void getReportStatus()
+		{
+		if((variables.getTaskList().size() == 0) || (variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() == 0))
+			{
+			currentStatus.setText("");
+			}
+		else
+			{
+			variables.getLogger().info("Report Status : "+variables.getTaskList().get(variables.getTaskIndex()).getStatus().name());
+			
+			currentStatus.setText(" Current status : "+variables.getTaskList().get(variables.getTaskIndex()).getStatus().name());
+			
+			if(variables.getTaskList().get(variables.getTaskIndex()).getStatus().equals(taskStatusType.pending))
+				{
+				validation.setText("Deactivate this report");
+				}
+			else
+				{
+				validation.setText("Validate this report");
+				}
+			}
+		}
+
+	public JPanel getListToDoList()
+		{
+		return listToDoList;
+		}
+
+	public void setListToDoList(JPanel listToDoList)
+		{
+		this.listToDoList = listToDoList;
+		}
+
+	public ArrayList<statusLine> getListeLine()
+		{
+		return listeLine;
+		}
+
+	public void setListeLine(ArrayList<statusLine> listeLine)
+		{
+		this.listeLine = listeLine;
+		}
+	
+	
 	
 	
 	/*2013*//*RATEL Alexandre 8)*/
