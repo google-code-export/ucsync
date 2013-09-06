@@ -4,22 +4,18 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
-import java.util.logging.Logger;
-
 import javax.xml.soap.SOAPBody;
 import javax.xml.soap.SOAPBodyElement;
 import axlmisc.sqlQuery;
 import schedule.task;
 import schedule.userSync;
 import utils.SOAPGear;
-import utils.convertSOAPToString;
 import utils.methodesUtiles;
 import utils.variables;
 import utils.variables.taskStatusType;
 import misc.emptyUserException;
 import misc.report;
 import misc.simpleToDo;
-import misc.toDo;
 import misc.worker;
 
 /**********************************

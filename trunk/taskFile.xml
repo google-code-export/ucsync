@@ -21,7 +21,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 	<tasks>
 		<task>
 			<type>usersync</type><!--usersync-->
-			<when>DAILY 19:08</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h or 12h it depend of your installed local-->
+			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h or 12h it depend of your installed local-->
 			<description>user data synchronization</description><!--Task description-->
 			<timeout>15</timeout>
 			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
@@ -29,7 +29,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user-->
 			<linesearchpattern>811%</linesearchpattern><!--Used to exculde some directory number. Must be a SQL "not like" filter-->
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
-			<ackmode>report</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
+			<ackmode>manual</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>true</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
 			<csvseparator>;</csvseparator><!--You can choose which character is used to separate values in csv report-->
 			<testmode>false</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->

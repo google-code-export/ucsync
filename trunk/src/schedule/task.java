@@ -60,6 +60,11 @@ public abstract class task
 	
 	/**
 	 * Method used to know if task has to be launch
+	 * 
+	 * - Rajouter une possibilité de lancement toute les x heures:
+	 * 		EVERY 6 lance la tache toutes les 6 heures
+	 * 
+	 * - Changer le fonctionnement pour lancer la tâche lorsque c'est l'heure en regardant la minute
 	 */
 	public boolean isItLaunchedTime()
 		{
@@ -71,38 +76,21 @@ public abstract class task
 			return false;
 			}
 		
-		if((when.compareTo("CONTINUOUS") == 0)||(when.compareTo("") == 0))
+		if((when.equals("CONTINUOUS"))||(when.equals("")))
 			{
 			return true;
 			}
-		else if(dateTag[0].compareTo("DAILY") == 0)
+		else if(dateTag[0].equals("DAILY"))
 			{
 			try
 				{
-				/**
-				 * Here we have to launch task once a day
-				 */
-				//get the current day
+				//get the current hour
 				Date now = new Date();
-				SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-				String currentDate = dateFormat.format(now); 
-				//Add it to the task file hour
-				String dateString = currentDate+" "+dateTag[1];
+				SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
+				String currentHour = dateFormat.format(now); 
 				
-				//Then convert it to a Date object
-				//DateFormat df = DateFormat.getDateInstance();
-				Date taskDate = dateFormat.parse(dateString);
-				
-				//We have to check if the last launched time was the same day
-				SimpleDateFormat format = new SimpleDateFormat("dd");
-				if((lastLaunchedTime != null)&&(format.format(now).compareTo(format.format(lastLaunchedTime)) == 0))
-					{
-					variables.getLogger().debug("Task already launched today");
-					return false;
-					}
-				
-				//We now have to find if it's time to launch the task
-				if(now.after(taskDate))
+				//We now have to find if it's time to launch the task using minute precision
+				if(currentHour.equals(dateTag[1]))
 					{
 					return true;
 					}
@@ -111,11 +99,42 @@ public abstract class task
 					return false;
 					}
 				}
-			catch (ParseException exc)
+			catch(Exception exc)
 				{
 				exc.printStackTrace();
 				variables.getLogger().error(exc);
-				variables.getLogger().error("It was not possible to find the correct hour for a DAILY "+getTInfo());
+				variables.getLogger().error("It was not possible to find the correct hour for a DAILY schedule "+getTInfo());
+				variables.getLogger().error("isItLaunchedTime, return false");
+				return false;
+				}
+			}
+		else if(dateTag[0].equals("EVERY"))
+			{
+			try
+				{
+				//get the current hour
+				Date now = new Date();
+				long currentHour = now.getTime(); 
+				long lastLaunchedHour = lastLaunchedTime.getTime();
+				
+				long diff = currentHour - lastLaunchedHour;
+				
+				//We now have to find if it's time to launch the task using minute precision
+				if((diff/(1000*60*60))>Integer.parseInt(dateTag[1]))
+					{
+					lastLaunchedTime = now;
+					return true;
+					}
+				else
+					{
+					return false;
+					}
+				}
+			catch(Exception exc)
+				{
+				exc.printStackTrace();
+				variables.getLogger().error(exc);
+				variables.getLogger().error("It was not possible to find the correct hour for a DAILY schedule "+getTInfo());
 				variables.getLogger().error("isItLaunchedTime, return false");
 				return false;
 				}
@@ -131,6 +150,8 @@ public abstract class task
 	 * Method used to know if the task
 	 * is expired and therefore, if it should
 	 * be deleted
+	 * 
+	 * - Définir un max à une journée 1440
 	 */
 	public boolean isExpired() throws Exception
 		{

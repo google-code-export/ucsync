@@ -39,7 +39,7 @@ public class checkTask
 		
 		for(int i=0; i<myTaskList.size(); i++)
 			{
-			if((myTaskList.get(i).getStatus().equals(taskStatusType.init))&&(myTaskList.get(i).isItLaunchedTime()))
+			if(myTaskList.get(i).getStatus().equals(taskStatusType.init))
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
