@@ -21,6 +21,7 @@ import utils.convertSOAPToString;
 import utils.methodesUtiles;
 import utils.testeur;
 import utils.variables;
+import utils.variables.sendReceiveType;
 
 /**********************************
  * Class used to manage Management request
@@ -55,15 +56,9 @@ public class mngtReceiver extends Thread
 			/***************/
 			
 			/*******
-			 * Step 2 : Send task list
+			 * Step 2 : receive and reply
 			 */
-			sendTask();
-			/***************/
-			
-			/*******
-			 * Step 3 : get task List asked and reply
-			 */
-			manageTask();
+			sendAndReceive();
 			/***************/
 			}
 		catch (Exception exc)
@@ -87,71 +82,69 @@ public class mngtReceiver extends Thread
 		}
 	
 	/**
-	 * Method used to send Object
+	 * Method used to manage communication with
+	 * the management client
 	 */
-	private void sendTask()
-		{
-		try
-			{
-			initValues();
-			
-			if((variables.getTabTasks() != null))
-				{
-				out.writeObject((Object)variables.getTabTasks());
-				variables.getLogger().info("Task config values sent with success");
-				}
-			else
-				{
-				out.writeObject((Object)new ArrayList<String[][]>());
-				variables.getLogger().info("No available Task config values to manage");
-				}
-			if((variables.getSimpleTaskList() != null) && (variables.isReadyToPublish()))
-				{
-				out.writeObject((Object)variables.getSimpleTaskList());
-				variables.getLogger().info("Task list sent with sucess");
-				}
-			else
-				{
-				out.writeObject((Object)new ArrayList<task>());
-				variables.getLogger().info("No available task to manage");
-				}
-			if((variables.getBannedToDoList() != null))
-				{
-				out.writeObject((Object)variables.getBannedToDoList());
-				variables.getLogger().info("Banned ToDo list sent with success");
-				}
-			else
-				{
-				out.writeObject((Object)new ArrayList<ArrayList<toDo>>());
-				variables.getLogger().info("No available banned toDo to manage");
-				}
-			out.flush();
-			}
-		catch(Exception exc)
-			{
-			exc.printStackTrace();
-			variables.getLogger().error(exc);
-			}
-		}
-	
-	/**
-	 * Method used to manage user modification on
-	 * the current Task
-	 */
-	private void manageTask()
+	private void sendAndReceive()
 		{
 		try
 			{
 			while(true)
 				{
-				methodesUtiles.updateTaskList((ArrayList<simpleTask>)in.readObject());
-				variables.getLogger().info("New Task List received with success");
-				variables.setBannedToDoList(((ArrayList<ArrayList<simpleToDo>>)in.readObject()));
-				variables.getLogger().info("New Banned List received with success");
-				variables.setTabTasks(((ArrayList<String[][]>)in.readObject()));
-				variables.getLogger().info("New Tab Task received with success");
+				sendReceiveType myType = ((sendReceiveType)in.readObject());
 				
-				methodesUtiles.writeBannedToDoList();
+				if(myType.equals(sendReceiveType.getAll))
+					{
+					initValues();
+					
+					//Here we send all list
+					if((variables.getTabTasks() != null))
+						{
+						out.writeObject((Object)variables.getTabTasks());
+						variables.getLogger().info("Task config values sent with success");
+						}
+					else
+						{
+						out.writeObject((Object)new ArrayList<String[][]>());
+						variables.getLogger().info("No available Task config values to manage");
+						}
+					if((variables.getSimpleTaskList() != null) && (variables.isReadyToPublish()))
+						{
+						out.writeObject((Object)variables.getSimpleTaskList());
+						variables.getLogger().info("Task list sent with sucess");
+						}
+					else
+						{
+						out.writeObject((Object)new ArrayList<task>());
+						variables.getLogger().info("No available task to manage");
+						}
+					if((variables.getBannedToDoList() != null))
+						{
+						out.writeObject((Object)variables.getBannedToDoList());
+						variables.getLogger().info("Banned ToDo list sent with success");
+						}
+					else
+						{
+						out.writeObject((Object)new ArrayList<ArrayList<toDo>>());
+						variables.getLogger().info("No available banned toDo to manage");
+						}
+					out.flush();
+					}
+				else if(myType.equals(sendReceiveType.sendAll))
+					{
+					//Here we get task list
+					methodesUtiles.updateTaskList((ArrayList<simpleTask>)in.readObject());
+					variables.getLogger().info("New Task List received with success");
+					
+					//here we get Banned to do list
+					variables.setBannedToDoList(((ArrayList<ArrayList<simpleToDo>>)in.readObject()));
+					variables.getLogger().info("New Banned List received with success");
+					methodesUtiles.writeBannedToDoList();
+					
+					//here we get config list
+					variables.setTabTasks(((ArrayList<String[][]>)in.readObject()));
+					variables.getLogger().info("New Tab Task received with success");
+					}
 				}
 			}
 		catch(SocketException sexc)

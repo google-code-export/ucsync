@@ -1,8 +1,6 @@
 package misc;
 
-import java.sql.PreparedStatement;
 import java.util.Iterator;
-
 import javax.xml.soap.MessageFactory;
 import javax.xml.soap.MimeHeaders;
 import javax.xml.soap.SOAPBody;
@@ -11,7 +9,6 @@ import javax.xml.soap.SOAPElement;
 import javax.xml.soap.SOAPEnvelope;
 import javax.xml.soap.SOAPFactory;
 import javax.xml.soap.SOAPMessage;
-
 import scan.device;
 import scan.line;
 import schedule.userSync;
@@ -42,13 +39,19 @@ public class soapMessageMaker
 	public SOAPMessage make(patternType type, String newData, userSync myUSync, device d) throws Exception
 		{
 		String cmdName;
-		cmdName = d.getType().equals(deviceType.deviceprofile)?"updateDeviceProfile":"updatePhone";
+		cmdName = "executeSQLUpdate";
 		
 		if(type.equals(patternType.devicedescription))
 			{
+			SOAPElement mySOAPEleExt = getPreparedSQLHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()));
+		    
+		    String req = "UPDATE device SET description=\""+newData+"\" WHERE pkid=\""+d.getUUID()+"\"";
+		    
+		    mySOAPEleExt.addChildElement("sql").addTextNode(req);
+		    /*
 		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, cmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), d.getUUID());
 			
-		    mySOAPEleExt.addChildElement("description").addTextNode(newData);
+		    mySOAPEleExt.addChildElement("description").addTextNode(newData);*/
 			}
 		
 		return soapMessage;
@@ -57,52 +60,56 @@ public class soapMessageMaker
 	public SOAPMessage make(patternType type, String newData, userSync myUSync, line l) throws Exception
 		{
 		String lineCmdName = "updateLine"; 
-		String deviceCmdName = l.getMyDevice().getType().equals(deviceType.deviceprofile)?"updateDeviceProfile":"updatePhone";
+		String deviceCmdName = "executeSQLUpdate";
 		
 		if(type.equals(patternType.linealertingname))
 			{
+			SOAPElement mySOAPEleExt = getPreparedSQLHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()));
+		    
+		    String req = "UPDATE numplan SET alertingname=\""+newData+"\", alertingnameascii=\""+newData+"\" WHERE pkid=\""+l.getUUID()+"\"";
+		    
+		    mySOAPEleExt.addChildElement("sql").addTextNode(req);
+			/*
 		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, lineCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getUUID());
 			
 		    mySOAPEleExt.addChildElement("alertingName").addTextNode(newData);
-		    mySOAPEleExt.addChildElement("asciiAlertingName").addTextNode(newData);
+		    mySOAPEleExt.addChildElement("asciiAlertingName").addTextNode(newData);*/
 			}
 		else if(type.equals(patternType.linedescription))
 			{
+			SOAPElement mySOAPEleExt = getPreparedSQLHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()));
+		    
+		    String req = "UPDATE numplan SET description=\""+newData+"\" WHERE pkid=\""+l.getUUID()+"\"";
+		    
+		    mySOAPEleExt.addChildElement("sql").addTextNode(req);
+			/*
 		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, lineCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getUUID());
 			
-		    mySOAPEleExt.addChildElement("description").addTextNode(newData);
+		    mySOAPEleExt.addChildElement("description").addTextNode(newData);*/
 			}
 		else if(type.equals(patternType.linedisplay))
 			{
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getPhoneUUID());
+		    SOAPElement mySOAPEleExt = getPreparedSQLHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()));
 		    
-		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
-		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
-		    mySOAPEleExten.addChildElement("dirn").addAttribute(envelope.createName("uuid"), l.getUUID());
-		    mySOAPEleExten.addChildElement("index").addTextNode(Integer.toString(l.getIndex()));
-		    mySOAPEleExten.addChildElement("display").addTextNode(newData);
-		    mySOAPEleExten.addChildElement("displayAscii").addTextNode(newData);
+		    String req = "UPDATE devicenumplanmap SET display=\""+newData+"\", displayascii=\""+newData+"\" WHERE fknumplan=\""+l.getUUID()+"\" and fkdevice=\""+l.getPhoneUUID()+"\" and numplanindex=\""+l.getIndex()+"\"";
+		    
+		    mySOAPEleExt.addChildElement("sql").addTextNode(req);
 			}
 		else if(type.equals(patternType.linetextlabel))
 			{
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getPhoneUUID());
+			SOAPElement mySOAPEleExt = getPreparedSQLHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()));
 		    
-		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
-		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
-		    mySOAPEleExten.addChildElement("dirn").addAttribute(envelope.createName("uuid"), l.getUUID());
-		    mySOAPEleExten.addChildElement("index").addTextNode(Integer.toString(l.getIndex()));
-		    mySOAPEleExten.addChildElement("label").addTextNode(newData);
-		    mySOAPEleExten.addChildElement("asciiLabel").addTextNode(newData);
+		    String req = "UPDATE devicenumplanmap SET label=\""+newData+"\", labelascii=\""+newData+"\" WHERE fknumplan=\""+l.getUUID()+"\" and fkdevice=\""+l.getPhoneUUID()+"\" and numplanindex=\""+l.getIndex()+"\"";
+		    
+		    mySOAPEleExt.addChildElement("sql").addTextNode(req);
 			}
 		else if(type.equals(patternType.lineexternalphonenumbermask))
 			{
-		    SOAPElement mySOAPEleExt = getPreparedHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()), l.getPhoneUUID());
+			SOAPElement mySOAPEleExt = getPreparedSQLHeader(soapMessage, deviceCmdName, methodesUtiles.getTargetTask("axlversion", myUSync.getTaskIndex()));
 		    
-		    SOAPElement mySOAPEleExte = mySOAPEleExt.addChildElement("lines");
-		    SOAPElement mySOAPEleExten = mySOAPEleExte.addChildElement("line");
-		    mySOAPEleExten.addChildElement("dirn").addAttribute(envelope.createName("uuid"), l.getUUID());
-		    mySOAPEleExten.addChildElement("index").addTextNode(Integer.toString(l.getIndex()));
-		    mySOAPEleExten.addChildElement("e164Mask").addTextNode(newData);
+		    String req = "UPDATE devicenumplanmap SET e164mask=\""+newData+"\" WHERE fknumplan=\""+l.getUUID()+"\" and fkdevice=\""+l.getPhoneUUID()+"\" and numplanindex=\""+l.getIndex()+"\"";
+		    
+		    mySOAPEleExt.addChildElement("sql").addTextNode(req);
 			}
 		
 		return soapMessage;
@@ -136,6 +143,16 @@ public class soapMessageMaker
 	    SOAPElement mySOAPEleExt = (SOAPElement)iterator.next();
 	    
 	    mySOAPEleExt.addChildElement("uuid").addTextNode(UUID);
+	    return mySOAPEleExt;
+		}
+	
+	private SOAPElement getPreparedSQLHeader(SOAPMessage soapMessage, String cmdName, String axlVersion) throws Exception
+		{
+		prepareAXLBody(axlVersion, cmdName);
+	    SOAPBody bdy = envelope.getBody();
+	    Iterator iterator = bdy.getChildElements();
+	    SOAPElement mySOAPEleExt = (SOAPElement)iterator.next();
+	    
 	    return mySOAPEleExt;
 		}
 	

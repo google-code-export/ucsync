@@ -58,7 +58,7 @@ public class report
 							myToDoList.get(i).getDescription()+separator+
 							myToDoList.get(i).getCurrentData()+separator+
 							myToDoList.get(i).getNewData()+separator+
-							myToDoList.get(i).getStatus().name()+separator);
+							myToDoList.get(i).getStatus().name()+separator+"\r\n");
 					}
 				
 				/*
