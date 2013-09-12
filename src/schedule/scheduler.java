@@ -1,5 +1,7 @@
 package schedule;
 
+import java.util.ArrayList;
+
 import utils.methodesUtiles;
 import utils.variables;
 import utils.variables.taskStatusType;
@@ -23,11 +25,11 @@ public class scheduler extends Thread
 		{
 		isNotFinished = true;
 		
-		launch();
+		start();
 		}
 	
 	
-	public void launch()
+	public void run()
 		{
 		while(isNotFinished)
 			{
@@ -82,6 +84,11 @@ public class scheduler extends Thread
 							}
 						}
 					}
+				/*******
+				 * Force Garbage Collector
+				 */
+				System.gc();
+				/*******/
 				}
 			catch (Exception exc)
 				{
@@ -93,7 +100,7 @@ public class scheduler extends Thread
 				try
 					{
 					//We wait before check again if a task is ready
-					this.sleep(Integer.parseInt(methodesUtiles.getTargetOption("checkfreq")));
+					sleep(Integer.parseInt(methodesUtiles.getTargetOption("checkfreq")));
 					}
 				catch(Exception exc)
 					{

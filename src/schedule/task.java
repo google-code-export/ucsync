@@ -60,11 +60,6 @@ public abstract class task
 	
 	/**
 	 * Method used to know if task has to be launch
-	 * 
-	 * - Rajouter une possibilité de lancement toute les x heures:
-	 * 		EVERY 6 lance la tache toutes les 6 heures
-	 * 
-	 * - Changer le fonctionnement pour lancer la tâche lorsque c'est l'heure en regardant la minute
 	 */
 	public boolean isItLaunchedTime()
 		{
@@ -119,8 +114,7 @@ public abstract class task
 				
 				long diff = currentHour - lastLaunchedHour;
 				
-				//We now have to find if it's time to launch the task using minute precision
-				if((diff/(1000*60*60))>Integer.parseInt(dateTag[1]))
+				if((diff/(1000*60*60))>=Integer.parseInt(dateTag[1]))
 					{
 					lastLaunchedTime = now;
 					return true;
@@ -173,7 +167,6 @@ public abstract class task
 		{
 		startTime = System.currentTimeMillis();
 		lastLaunchedTime = new Date();
-		variables.getLogger().debug("task ");
 		}
 	
 	/**

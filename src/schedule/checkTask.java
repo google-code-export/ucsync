@@ -32,7 +32,7 @@ public class checkTask
 	public void check() throws Exception
 		{
 		/******
-		 * If task list is empty or task are finish, we have to look for
+		 * If task list is empty or tasks are finished, we have to look for
 		 * tasks in the taskFile and launch brand new task
 		 *****/
 		launchNewTask();
@@ -125,12 +125,11 @@ public class checkTask
 		{
 		ArrayList<Integer> taskAlreadyExisting = new ArrayList<Integer>(); 
 		
-		variables.getLogger().debug("Check for tasks which are already existing");
+		//variables.getLogger().debug("Check for tasks which are already existing");
 		for(int i=0; i<myTaskList.size(); i++)
 			{
 			taskAlreadyExisting.add(new Integer(myTaskList.get(i).getTaskIndex()));
-			variables.getLogger().debug(myTaskList.get(i).getTInfo()+"is already exiting");
-			variables.getLogger().debug(myTaskList.get(i).getTInfo()+"Status : "+myTaskList.get(i).getStatus().name());
+			variables.getLogger().debug(myTaskList.get(i).getTInfo()+"is already existing with status : "+myTaskList.get(i).getStatus().name());
 			}
 		
 		for(int i=0; i<variables.getTabTasks().size(); i++)

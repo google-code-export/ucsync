@@ -103,58 +103,65 @@ public class modify extends worker
 	 */
 	private void sendEmailReport() throws Exception
 		{
-		variables.getLogger().info("##Start## : Execution report email sending");
-		
-		/*
-		for(int i=0; i<myUSync.getToDoList().size(); i++)
+		if(methodesUtiles.getTargetTask("ackmode", myUSync.getTaskIndex()).equals("manual"))
 			{
-			variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
-			variables.getLogger().debug("Status : "+myUSync.getToDoList().get(i).getStatus().name());
-			}*/
-		
-		Date now = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
-		
-		/**
-		 * In case of smtp server failure, we try to send two times the email report
-		 */
-		int count = 0;
-		boolean isNotDone = true;
-		while(isNotDone)
+			//nothing
+			}
+		else
 			{
-			try
+			variables.getLogger().info("##Start## : Execution report email sending");
+			
+			/*
+			for(int i=0; i<myUSync.getToDoList().size(); i++)
 				{
-				methodesUtiles.sendToAdminList("UCSync : Execute report "+myUSync.getId()+" "+dateFormat.format(now), report.makeExecuteReport(myUSync), "Execute report email sending");
-				isNotDone = false;
-				}
-			catch (Exception exc)
-				{
-				exc.printStackTrace();
-				variables.getLogger().error(exc);
-				variables.getLogger().error("Error during Email sending");
-				if(count == 1)
-					{
-					throw new Exception("Too many attempts, failed to send email report, quit");
-					}
-				else
-					{
-					variables.getLogger().error("Try another time");
-					}
-				}
-			finally
+				variables.getLogger().debug("##User : "+myUSync.getToDoList().get(i).getUser());
+				variables.getLogger().debug("Status : "+myUSync.getToDoList().get(i).getStatus().name());
+				}*/
+			
+			Date now = new Date();
+			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yy HH:mm:ss"); 
+			
+			/**
+			 * In case of smtp server failure, we try to send two times the email report
+			 */
+			int count = 0;
+			boolean isNotDone = true;
+			while(isNotDone)
 				{
 				try
 					{
-					if(isNotDone)
-						{
-						sleep(5000);
-						count++;
-						}
+					methodesUtiles.sendToAdminList("UCSync : Execute report "+myUSync.getId()+" "+dateFormat.format(now), report.makeExecuteReport(myUSync), "Execute report email sending");
+					isNotDone = false;
 					}
-				catch(Exception exc)
+				catch (Exception exc)
 					{
 					exc.printStackTrace();
 					variables.getLogger().error(exc);
+					variables.getLogger().error("Error during Email sending");
+					if(count == 1)
+						{
+						throw new Exception("Too many attempts, failed to send email report, quit");
+						}
+					else
+						{
+						variables.getLogger().error("Try another time");
+						}
+					}
+				finally
+					{
+					try
+						{
+						if(isNotDone)
+							{
+							sleep(5000);
+							count++;
+							}
+						}
+					catch(Exception exc)
+						{
+						exc.printStackTrace();
+						variables.getLogger().error(exc);
+						}
 					}
 				}
 			}
@@ -167,7 +174,13 @@ public class modify extends worker
 	 */
 	private void executeToDoList()
 		{
-		variables.getLogger().info("##Start## : ToDO List execution");
+		variables.getLogger().info("##Start## : ToDo List execution");
+		if((myUSync.getToDoList() != null)
+				&& (myUSync.getToDoList().size() == 0))
+			{
+			variables.getLogger().info("ToDo List is empty, nothing to execute");
+			}
+		
 		for(int i=0;((i<myUSync.getToDoList().size()) && (isNotFinished)); i++)
 			{
 			/**
