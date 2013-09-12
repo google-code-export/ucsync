@@ -371,27 +371,6 @@ public class methodesUtiles
 			}
 		}
 	
-	/**
-	 * Method used to get the task index 
-	 * using stack trace and reflexion
-	 * 
-	 * !!!! Have to be test !!!!
-	 */
-	public static int getTaskIndex() throws Exception
-		{
-		StackTraceElement[] stackTraceElements = Thread.currentThread().getStackTrace();
-		
-		for (int i=0; i<stackTraceElements.length; i++)
-			{
-			variables.getLogger().debug("StackTraceElement :"+i+" "+stackTraceElements[i].getClassName());
-			if(stackTraceElements[i].getClassName().compareTo("task") == 0)
-				{
-				String value = (String) stackTraceElements[i].getClass().getField("taskIndex").get(stackTraceElements[i]);
-				return Integer.parseInt(value);
-				}
-			}
-		throw new Exception("ERROR : It has not been possible to determine task index");
-		}
 	
 	/**
 	 * Methods used to send an email to the administrator

@@ -40,6 +40,9 @@ public class xMLReader
 			}
 		variables.getLogger().info("File content : "+template);
 		variables.getLogger().info("Finished reading");
+		tampon.close();
+		monFichier.close();
+		
 		return template;
 		}
 	
