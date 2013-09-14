@@ -21,13 +21,13 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 	<tasks>
 		<task>
 			<type>usersync</type><!--usersync-->
-			<when>EVERY 1</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--24h or 12h it depend of your installed local-->
+			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--EVERY H--><!--24h or 12h it depend of your installed local-->
 			<description>user data synchronization</description><!--Task description-->
 			<timeout>15</timeout>
-			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
+			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one--><!--Have to be implement-->
 			<smartlinesearch>true</smartlinesearch><!--true,false-->
-			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user-->
-			<linesearchpattern>811%</linesearchpattern><!--Used to exculde some directory number. Must be a SQL "not like" filter-->
+			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user--><!--Have to be implement-->
+			<linesearchpattern>811%</linesearchpattern><!--Used to exclude some directory number. Must be a SQL "not like" filter-->
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
 			<ackmode>manual</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>true</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->

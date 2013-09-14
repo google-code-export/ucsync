@@ -14,6 +14,7 @@ import java.util.ArrayList;
 import misc.simpleToDo;
 import misc.toDo;
 
+import schedule.scheduler;
 import schedule.simpleTask;
 import schedule.task;
 import schedule.userSync;
@@ -22,6 +23,7 @@ import utils.methodesUtiles;
 import utils.testeur;
 import utils.variables;
 import utils.variables.sendReceiveType;
+import utils.variables.serverStatusType;
 
 /**********************************
  * Class used to manage Management request
@@ -115,7 +117,7 @@ public class mngtReceiver extends Thread
 						}
 					else
 						{
-						out.writeObject((Object)new ArrayList<task>());
+						out.writeObject((Object)new ArrayList<simpleTask>());
 						variables.getLogger().info("No available task to manage");
 						}
 					if((variables.getBannedToDoList() != null))
@@ -125,7 +127,7 @@ public class mngtReceiver extends Thread
 						}
 					else
 						{
-						out.writeObject((Object)new ArrayList<ArrayList<toDo>>());
+						out.writeObject((Object)new ArrayList<ArrayList<simpleToDo>>());
 						variables.getLogger().info("No available banned toDo to manage");
 						}
 					out.flush();
@@ -144,6 +146,34 @@ public class mngtReceiver extends Thread
 					//here we get config list
 					variables.setTabTasks(((ArrayList<String[][]>)in.readObject()));
 					variables.getLogger().info("New Tab Task received with success");
+					}
+				else if(myType.equals(sendReceiveType.startService))
+					{
+					if(variables.getMyScheduler() == null)
+						{
+						variables.setMyScheduler(new scheduler());
+						variables.getLogger().debug("Service Started with success");
+						}
+					}
+				else if(myType.equals(sendReceiveType.stopService))
+					{
+					if(variables.getMyScheduler() != null)
+						{
+						variables.getMyScheduler().interrupt();
+						variables.setMyScheduler(null);
+						variables.getLogger().debug("Service Stopped with success");
+						}
+					}
+				else if(myType.equals(sendReceiveType.serviceStatus))
+					{
+					if(variables.getMyScheduler() == null)
+						{
+						out.writeObject((Object)serverStatusType.stopped);
+						}
+					else
+						{
+						out.writeObject((Object)serverStatusType.started);
+						}
 					}
 				}
 			}

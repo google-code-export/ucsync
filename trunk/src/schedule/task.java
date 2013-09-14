@@ -5,6 +5,8 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Locale;
+
 import utils.methodesUtiles;
 import utils.variables;
 import utils.variables.taskStatusType;
@@ -81,8 +83,8 @@ public abstract class task
 				{
 				//get the current hour
 				Date now = new Date();
-				SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm");
-				String currentHour = dateFormat.format(now); 
+				SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm",Locale.FRANCE);
+				String currentHour = dateFormat.format(now);
 				
 				//We now have to find if it's time to launch the task using minute precision
 				if(currentHour.equals(dateTag[1]))
@@ -114,7 +116,7 @@ public abstract class task
 				
 				long diff = currentHour - lastLaunchedHour;
 				
-				if((diff/(1000*60*60))>=Integer.parseInt(dateTag[1]))
+				if((diff/(1000*60))>=Integer.parseInt(dateTag[1]))
 					{
 					lastLaunchedTime = now;
 					return true;
