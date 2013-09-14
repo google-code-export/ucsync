@@ -21,6 +21,7 @@ import schedule.simpleTask;
 import utils.methodesUtiles;
 import utils.variables;
 import utils.variables.sendReceiveType;
+import utils.variables.serverStatusType;
 import utils.variables.taskStatusType;
 import utils.variables.toDoStatusType;
 
@@ -150,6 +151,7 @@ public class toDoLister extends JPanel implements ActionListener
 					listeLine.add(myLine);
 					listToDoList.add(myLine);
 					}
+				listToDoList.add(Box.createVerticalGlue());
 				}
 			filterCombo.setSelectedIndex(0);
 			setInfoList();
@@ -174,13 +176,14 @@ public class toDoLister extends JPanel implements ActionListener
 				if(variables.getTaskList().get(variables.getTaskIndex()).getStatus().equals(taskStatusType.pending))
 					{
 					variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.waitingAck);
-					methodesUtiles.updateData(true);
+					methodesUtiles.updateData(false);
 					}
 				else
 					{
 					variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
-					methodesUtiles.updateData(true);
+					methodesUtiles.updateData(false);
 					}
+				getReportStatus();
 				}
 			else
 				{
@@ -264,7 +267,7 @@ public class toDoLister extends JPanel implements ActionListener
 					for (int i = 0; i <variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); i++)
 						{
 						simpleToDo myTodo = variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(i);
-						String compare = myTodo.getUser()+" "+myTodo.getDescription();
+						String compare = myTodo.getUser()+" "+myTodo.getDescription()+" "+myTodo.getCurrentData()+" "+myTodo.getNewData();
 						
 						if(Pattern.matches(".*"+filter+".*", compare))
 							{
@@ -353,12 +356,18 @@ public class toDoLister extends JPanel implements ActionListener
 	 * Method used to display actual task status
 	 */
 	private void getReportStatus()
-		{
-		if((variables.getTaskList().size() == 0) || (variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() == 0))
+		{// || (variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() == 0)
+		if(variables.getServerStatus().equals(serverStatusType.stopped))
 			{
-			currentStatus.setText("");
+			currentStatus.setText(" ");
 			}
-		else
+		if((variables.getServerStatus().equals(serverStatusType.started)) && (variables.getTaskList().size() == 0))
+			{
+			currentStatus.setText(" Current status : Working");
+			}
+		if((variables.getServerStatus().equals(serverStatusType.started))
+				&& (variables.getTaskList().size() != 0)
+				&& (variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() != 0))
 			{
 			variables.getLogger().info("Report Status : "+variables.getTaskList().get(variables.getTaskIndex()).getStatus().name());
 			

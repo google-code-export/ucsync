@@ -37,7 +37,8 @@ public class variables
 	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible,banned};
 	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
 	public enum taskType{userSync};
-	public enum sendReceiveType{getAll,sendAll};
+	public enum sendReceiveType{getAll,sendAll,stopService,startService,serviceStatus};
+	public enum serverStatusType{started,stopped};
 	
 	private static String version;
 	private static String nomProg;
@@ -56,6 +57,7 @@ public class variables
 	private static bannedLister myBannedLister;
 	private static configLister myConfigLister;
 	private static mainWindow myWindow;
+	private static serverStatusType serverStatus;
 	
 	
 	public variables()
@@ -65,6 +67,7 @@ public class variables
 		taskList = new ArrayList<simpleTask>();
 		bannedToDoList = new ArrayList<ArrayList<simpleToDo>>();
 		taskIndex = 0;
+		serverStatus = serverStatusType.stopped;
 		myToDoLister = new toDoLister();
 		myBannedLister = new bannedLister();
 		myConfigLister = new configLister();
@@ -244,6 +247,16 @@ public class variables
 	public static void setMyWindow(mainWindow myWindow)
 		{
 		variables.myWindow = myWindow;
+		}
+
+	public static serverStatusType getServerStatus()
+		{
+		return serverStatus;
+		}
+
+	public static void setServerStatus(serverStatusType serverStatus)
+		{
+		variables.serverStatus = serverStatus;
 		}
 	
 	

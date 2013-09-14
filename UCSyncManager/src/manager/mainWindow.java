@@ -13,6 +13,7 @@ import javax.swing.JTabbedPane;
 
 import utils.Centrer;
 import utils.variables;
+import utils.variables.serverStatusType;
 
 /**********************************
  * Class used to be the main window
@@ -35,6 +36,7 @@ public class mainWindow extends JFrame
 	private String[] tList;
 	public JComboBox taskList;
 	public JButton go;
+	public JButton startStop;
 	
 	
 	
@@ -62,10 +64,12 @@ public class mainWindow extends JFrame
 		 * Header
 		 */
 		go = new JButton("GO");
+		startStop = new JButton("");
 		taskList = new JComboBox();
 		taskList.setPreferredSize(new Dimension(100,25));
 		
 		updateList();
+		updateStartStop();
 		
 		wait = new JLabel(" ");
 		
@@ -75,6 +79,7 @@ public class mainWindow extends JFrame
 		headerPanel.add(go);
 		headerPanel.add(wait);
 		headerPanel.add(Box.createHorizontalGlue());
+		headerPanel.add(startStop);
 		
 		/**
 		 * Middle
@@ -102,6 +107,7 @@ public class mainWindow extends JFrame
 		mainWindowProcess myProcess = new mainWindowProcess(this);
 		taskList.addActionListener(myProcess);
 		go.addActionListener(myProcess);
+		startStop.addActionListener(myProcess);
 		this.addWindowListener(myProcess);
 		
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -138,6 +144,18 @@ public class mainWindow extends JFrame
 		this.validate();
 		}
 
+	
+	public void updateStartStop()
+		{
+		if(variables.getServerStatus().equals(serverStatusType.stopped))
+			{
+			this.startStop.setText("Start UCSync");
+			}
+		else
+			{
+			this.startStop.setText("Stop UCSync");
+			}
+		}
 
 
 	public JTabbedPane getMyTabbedPane()

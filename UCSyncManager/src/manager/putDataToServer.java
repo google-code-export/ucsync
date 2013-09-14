@@ -11,6 +11,7 @@ import schedule.simpleTask;
 import utils.methodesUtiles;
 import utils.variables;
 import utils.variables.sendReceiveType;
+import utils.variables.serverStatusType;
 
 /**********************************
  * Class used to manage data import
@@ -43,28 +44,43 @@ public class putDataToServer extends serverDataMisc
 		 */
 		try
 			{
-			//First we send data type
-			variables.getOut().writeObject((Object)sendReceiveType.sendAll);
-			variables.getLogger().info("Data type sent with success");
-			
-			//Then we send the corresponding data
-			variables.getOut().writeObject(variables.getTaskList());
-			variables.getLogger().info("Task list exported with success");
-			variables.getOut().writeObject(variables.getBannedToDoList());
-			variables.getLogger().info("Banned toDo List exported with success");
-			variables.getOut().writeObject(variables.getTabTasks());
-			variables.getLogger().info("TabTask exported with success");
-			variables.getOut().flush();
-			
-			JOptionPane.showMessageDialog(null,"Update has been sent with success","Success",JOptionPane.INFORMATION_MESSAGE);
-			
-			if(clear)
+			variables.getOut().writeObject((Object)sendReceiveType.serviceStatus);
+			if(((serverStatusType)variables.getIn().readObject()).equals(serverStatusType.stopped))
 				{
-				variables.setTaskList(new ArrayList<simpleTask>());
-				variables.getMyToDoLister().fill();
+				variables.setServerStatus(serverStatusType.stopped);
+				}
+			else
+				{
+				variables.setServerStatus(serverStatusType.started);
+				
+				//First we send data type
+				variables.getOut().writeObject((Object)sendReceiveType.sendAll);
+				variables.getLogger().info("Data type sent with success");
+				
+				//Then we send the corresponding data
+				variables.getOut().writeObject(variables.getTaskList());
+				variables.getLogger().info("Task list exported with success");
+				variables.getOut().writeObject(variables.getBannedToDoList());
+				variables.getLogger().info("Banned toDo List exported with success");
+				variables.getOut().writeObject(variables.getTabTasks());
+				variables.getLogger().info("TabTask exported with success");
+				variables.getOut().flush();
+				
+				JOptionPane.showMessageDialog(null,"Update has been sent with success","Success",JOptionPane.INFORMATION_MESSAGE);
+				
+				if(clear)
+					{
+					variables.setTaskList(new ArrayList<simpleTask>());
+					variables.getMyToDoLister().fill();
+					variables.getMyToDoLister().enableControl(false);
+					variables.setBannedToDoList(new ArrayList<ArrayList<simpleToDo>>());
+					variables.getMyBannedLister().fill();
+					variables.setTabTasks(new ArrayList<String[][]>());
+					variables.getMyConfigLister().fill();
+					}
 				}
 			}
-		catch (IOException exc)
+		catch (Exception exc)
 			{
 			exc.printStackTrace();
 			variables.getLogger().error(exc);

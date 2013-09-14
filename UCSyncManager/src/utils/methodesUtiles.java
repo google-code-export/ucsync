@@ -24,6 +24,7 @@ import org.apache.commons.codec.digest.DigestUtils;
 import schedule.simpleTask;
 import schedule.task;
 import utils.variables.sendReceiveType;
+import utils.variables.serverStatusType;
 
 
 /*********************************************
@@ -196,6 +197,7 @@ public class methodesUtiles
 			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
 			variables.getLogger().info("Connected to UCSync server");
 			
+			
 			getDataFromServer myData = new getDataFromServer(true);
 			new finishedMonitor(myData);
 			}
@@ -267,26 +269,80 @@ public class methodesUtiles
 			}
 		}
 	
-	
-	
-	/**********************************
-	 * Method used to return
-	 * a unique ID based on current date and
-	 * a random number
-	 **********************************/
-	public synchronized static String getID()
+	/**
+	 * Method used to start UCSync server
+	 */
+	public static void startServer()
 		{
-		//Date and time
-		Date now = new Date();
-		SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-		String currentDate = dateFormat.format(now);
-		
-		//get a random number
-		Random rn = new Random();
-		int rnValue = rn.nextInt();
-		
-		//Generate the md5 hash and return
-		return DigestUtils.md5Hex(currentDate+Integer.toString(rnValue));
+		try
+			{
+			/**
+			 * Init connection
+			 */
+			variables.getMyS().close();
+			variables.setMyS(new Socket(methodesUtiles.getTargetOption("ucsyncserverhost"), Integer.parseInt(methodesUtiles.getTargetOption("ucsyncserverport"))));
+			variables.setOut(new ObjectOutputStream(variables.getMyS().getOutputStream()));
+			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
+			variables.getLogger().info("Connected to UCSync server");
+			
+			variables.getOut().writeObject((Object)sendReceiveType.startService);
+			variables.getOut().writeObject((Object)sendReceiveType.serviceStatus);
+			variables.setServerStatus((serverStatusType)variables.getIn().readObject());
+			variables.getLogger().debug("Server status received : "+variables.getServerStatus());
+			variables.getLogger().info("Server successfully started");
+			
+			variables.getMyToDoLister().fill();
+			variables.getMyToDoLister().enableControl(true);
+			variables.getMyBannedLister().fill();
+			variables.getMyWindow().updateStartStop();
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Application failed to init Socket : System.exit(0) : "+exc.getMessage());
+			JOptionPane.showMessageDialog(null,"Unable to contact UCSync server\r\nCheck if network connectivity and server informations are correct","Erreur",JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+			}
+		}
+	
+	/**
+	 * Method used to start UCSync server
+	 */
+	public static void stopServer()
+		{
+		try
+			{
+			/**
+			 * Init connection
+			 */
+			variables.getMyS().close();
+			variables.setMyS(new Socket(methodesUtiles.getTargetOption("ucsyncserverhost"), Integer.parseInt(methodesUtiles.getTargetOption("ucsyncserverport"))));
+			variables.setOut(new ObjectOutputStream(variables.getMyS().getOutputStream()));
+			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
+			variables.getLogger().info("Connected to UCSync server");
+			
+			variables.getOut().writeObject((Object)sendReceiveType.stopService);
+			variables.getOut().writeObject((Object)sendReceiveType.serviceStatus);
+			variables.setServerStatus((serverStatusType)variables.getIn().readObject());
+			variables.getLogger().debug("Server status received : "+variables.getServerStatus());
+			variables.getLogger().info("Server successfully stopped");
+			
+			variables.setTaskList(new ArrayList<simpleTask>());
+			variables.getMyToDoLister().fill();
+			variables.getMyToDoLister().enableControl(false);
+			variables.setBannedToDoList(new ArrayList<ArrayList<simpleToDo>>());
+			variables.getMyBannedLister().fill();
+			variables.getMyWindow().updateStartStop();
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Application failed to init Socket : System.exit(0) : "+exc.getMessage());
+			JOptionPane.showMessageDialog(null,"Unable to contact UCSync server\r\nCheck if network connectivity and server informations are correct","Erreur",JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+			}
 		}
 	
 	/**

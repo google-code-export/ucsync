@@ -63,7 +63,7 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 		main = new JPanel();
 		main.setLayout(new BoxLayout(main,BoxLayout.X_AXIS));
 		
-		setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
+		this.setLayout(new BoxLayout(this,BoxLayout.Y_AXIS));
 		
 		//Warning
 		warn = new JPanel();
@@ -216,7 +216,13 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 		if(clear)
 			{
 			//Manage banned tab
-			variables.getBannedToDoList().get(variables.getTaskIndex()).remove(myToDo);
+			for(int i=0; i<variables.getBannedToDoList().get(variables.getTaskIndex()).size(); i++)
+				{
+				if(variables.getBannedToDoList().get(variables.getTaskIndex()).get(i).getUUID().equals(myToDo.getUUID()))
+					{
+					variables.getBannedToDoList().get(variables.getTaskIndex()).remove(i);
+					}
+				}
 			variables.getMyBannedLister().fill();
 			}
 		
