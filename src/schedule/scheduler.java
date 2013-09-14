@@ -24,6 +24,9 @@ public class scheduler extends Thread
 	public scheduler()
 		{
 		isNotFinished = true;
+		variables.setTaskList(new ArrayList<task>());
+		variables.setBannedTaskList(new ArrayList<Integer>());
+		variables.setSimpleTaskList(new ArrayList<simpleTask>());
 		
 		start();
 		}
@@ -41,54 +44,7 @@ public class scheduler extends Thread
 				new checkTask();
 				/*****/
 				
-				/**
-				 * Garbage collector
-				 * aims to delete task
-				 */
-				for(int i=0; i<variables.getTaskList().size(); i++)
-					{
-					if(variables.getTaskList().get(i).getStatus().equals(taskStatusType.toDelete))
-						{
-						variables.getTaskList().get(i).stopWorking();
-						
-						//We wait here for task ending
-						int timeout = Integer.parseInt(methodesUtiles.getTargetTask("timeout",variables.getTaskList().get(i).getTaskIndex()));
-						int counter = 0;
-						
-						while(true)
-							{
-							if(variables.getTaskList().get(i).getMyWorker().isFinished())
-								{
-								String TInfo = variables.getTaskList().get(i).getTInfo();
-								variables.getTaskList().remove(i);
-								variables.getLogger().debug(TInfo+"Had been removed successfully");
-								//We start again from zero cause the taskList size is changed now. So 
-								//it is possible to miss a "toDelete" task
-								i=0;
-								break;
-								}
-							else
-								{
-								sleep(Integer.parseInt(methodesUtiles.getTargetOption("garbagefreq")));
-								counter ++;
-								}
-							if(counter>=timeout)
-								{
-								variables.getLogger().error("ERROR : "+variables.getTaskList().get(i).getTInfo()+"has been too long to finished and was finally removed. Check for potential malfunctioning");
-								String TInfo = variables.getTaskList().get(i).getTInfo();
-								variables.getTaskList().remove(i);
-								variables.getLogger().debug(TInfo+"Has been removed successfully");
-								i=0;
-								break;
-								}
-							}
-						}
-					}
-				/*******
-				 * Force Garbage Collector
-				 */
-				System.gc();
-				/*******/
+				garbageCollector();
 				}
 			catch (Exception exc)
 				{
@@ -110,11 +66,86 @@ public class scheduler extends Thread
 			}
 		}
 	
+	/**
+	 * Garbage collector
+	 * aims to delete task
+	 */
+	public void garbageCollector() throws Exception
+		{
+		for(int i=0; i<variables.getTaskList().size(); i++)
+			{
+			if(variables.getTaskList().get(i).getStatus().equals(taskStatusType.toDelete))
+				{
+				variables.getTaskList().get(i).stopWorking();
+				
+				//We wait here for task ending
+				int timeout = Integer.parseInt(methodesUtiles.getTargetTask("timeout",variables.getTaskList().get(i).getTaskIndex()));
+				int counter = 0;
+				
+				while(true)
+					{
+					if(variables.getTaskList().get(i).getMyWorker().isFinished())
+						{
+						String TInfo = variables.getTaskList().get(i).getTInfo();
+						variables.getTaskList().remove(i);
+						variables.getLogger().debug(TInfo+"Had been removed successfully");
+						//We start again from zero cause the taskList size is changed now. So 
+						//it is possible to miss a "toDelete" task
+						i=0;
+						break;
+						}
+					else
+						{
+						sleep(Integer.parseInt(methodesUtiles.getTargetOption("garbagefreq")));
+						counter ++;
+						}
+					if(counter>=timeout)
+						{
+						variables.getLogger().error("ERROR : "+variables.getTaskList().get(i).getTInfo()+"has been too long to finished and was finally removed. Check for potential malfunctioning");
+						String TInfo = variables.getTaskList().get(i).getTInfo();
+						variables.getTaskList().remove(i);
+						variables.getLogger().debug(TInfo+"Has been removed successfully");
+						i=0;
+						break;
+						}
+					}
+				}
+			}
+		/*******
+		 * Force System Garbage Collector
+		 */
+		System.gc();
+		/*******/
+		}
+	
+	public void endTasks()
+		{
+		
+		}
 	
 	
+	/**
+	 * Method used to Kill scheduler
+	 */
 	public void interrupt()
 		{
-		isNotFinished = false;
+		try
+			{
+			for(int i=0; i<variables.getTaskList().size(); i++)
+				{
+				variables.getTaskList().get(i).setStatus(taskStatusType.toDelete);
+				}
+			
+			garbageCollector();
+			
+			isNotFinished = false;
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Failed to interrupt scheduler");
+			}
 		}
 	
 	

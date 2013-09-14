@@ -550,18 +550,28 @@ public class methodesUtiles
 		/**
 		 * We update the real task list
 		 */
-		for(int i=0; i<simpleTaskList.size(); i++)
+		if((variables.getTaskList().size() != 0) && (variables.getSimpleTaskList().size() != 0))
 			{
-			for(int j=0; j<simpleTaskList.get(i).getToDoList().size(); j++)
+			for(int i=0; i<simpleTaskList.size(); i++)
 				{
-				//ToDo List
-				variables.getTaskList().get(i).getToDoList().get(j).setStatus(simpleTaskList.get(i).getToDoList().get(j).getStatus());
+				if(variables.getTaskList().get(i).getId().equals(simpleTaskList.get(i).getId()))
+					{
+					for(int j=0; j<simpleTaskList.get(i).getToDoList().size(); j++)
+						{
+						//ToDo List
+						variables.getTaskList().get(i).getToDoList().get(j).setStatus(simpleTaskList.get(i).getToDoList().get(j).getStatus());
+						variables.getSimpleTaskList().get(i).getToDoList().get(j).setStatus(simpleTaskList.get(i).getToDoList().get(j).getStatus());
+						}
+					//Task
+					variables.getTaskList().get(i).setStatus(simpleTaskList.get(i).getStatus());
+					variables.getSimpleTaskList().get(i).setStatus(simpleTaskList.get(i).getStatus());
+					}
+				else
+					{
+					variables.getLogger().error("Task sent by Manager is not the same one, it will be ignored");
+					}
 				}
-			//Task
-			variables.getTaskList().get(i).setStatus(simpleTaskList.get(i).getStatus());
 			}
-		
-		variables.setSimpleTaskList(simpleTaskList);
 		}
 	
 	/*2013*//*RATEL Alexandre 8)*/
