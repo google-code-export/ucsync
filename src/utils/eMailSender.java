@@ -64,7 +64,7 @@ public class eMailSender
 			
 			// Get session
 			Session session = Session.getDefaultInstance(props, null);
-			session.setDebug(true);
+			session.setDebug(false);
 			
 			//Get Transport Object
 			Transport transport = session.getTransport();
