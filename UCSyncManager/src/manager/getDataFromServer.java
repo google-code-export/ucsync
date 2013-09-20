@@ -1,10 +1,7 @@
 package manager;
 
-import java.io.IOException;
 import java.util.ArrayList;
-
 import javax.swing.JOptionPane;
-
 import misc.serverDataMisc;
 import misc.simpleToDo;
 import schedule.simpleTask;
@@ -43,10 +40,12 @@ public class getDataFromServer extends serverDataMisc
 			if(((serverStatusType)variables.getIn().readObject()).equals(serverStatusType.stopped))
 				{
 				variables.setServerStatus(serverStatusType.stopped);
+				variables.getMyWindow().updateStartStop();
 				}
 			else
 				{
 				variables.setServerStatus(serverStatusType.started);
+				variables.getMyWindow().updateStartStop();
 				
 				//First we send data type involved in the communication
 				variables.getOut().writeObject((Object)sendReceiveType.getAll);

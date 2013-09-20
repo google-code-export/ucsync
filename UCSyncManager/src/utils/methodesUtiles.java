@@ -2,27 +2,16 @@
 package utils;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.Random;
-
 import javax.swing.JOptionPane;
-
 import manager.getDataFromServer;
 import manager.putDataToServer;
 import misc.finishedMonitor;
 import misc.simpleToDo;
-import misc.toDo;
-
-import org.apache.commons.codec.digest.DigestUtils;
-
 import schedule.simpleTask;
-import schedule.task;
 import utils.variables.sendReceiveType;
 import utils.variables.serverStatusType;
 

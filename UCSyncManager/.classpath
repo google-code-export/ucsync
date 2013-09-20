@@ -6,6 +6,5 @@
 	<classpathentry kind="lib" path="F:/JAVAELILEX/UCSyncManager/lib/jdom-1.1.jar"/>
 	<classpathentry kind="lib" path="F:/JAVAELILEX/UCSyncManager/lib/log4j-1.2.17.jar"/>
 	<classpathentry kind="lib" path="F:/JAVAELILEX/UCSyncManager/lib/mail.jar"/>
-	<classpathentry kind="lib" path="F:/JAVAELILEX/UCSyncManager/lib/UCSync.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -5,26 +5,17 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JLabel;
-import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import schedule.simpleTask;
 import utils.methodesUtiles;
 import utils.variables;
-import utils.variables.sendReceiveType;
-import utils.variables.taskStatusType;
 import utils.variables.toDoStatusType;
-
 import misc.bannedLine;
-import misc.finishedMonitor;
-import misc.statusLine;
 
 /**********************************
  * Class used to Manage To Do List
@@ -49,7 +40,9 @@ public class bannedLister extends JPanel implements ActionListener
 	public bannedLister()
 		{
 		update = new JButton("Update the Banned List");
+		update.setToolTipText("Click here to send new data to the server");
 		deleteAll = new JButton("Delete all selected");
+		deleteAll.setToolTipText("Click here to delete all selected banned task");
 		selectAll = new JCheckBox("Check All",true);
 		listeLine = new ArrayList<bannedLine>();
 		

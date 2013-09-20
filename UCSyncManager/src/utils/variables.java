@@ -10,12 +10,11 @@ import manager.configLister;
 import manager.mainWindow;
 import manager.toDoLister;
 import misc.simpleToDo;
-import misc.toDo;
 
 import org.apache.log4j.Logger;
 
 import schedule.simpleTask;
-import schedule.task;
+
 
 /**********************************
  * Class used to store static variables
@@ -37,7 +36,7 @@ public class variables
 	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible,banned};
 	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
 	public enum taskType{userSync};
-	public enum sendReceiveType{getAll,sendAll,stopService,startService,serviceStatus};
+	public enum sendReceiveType{getAll,sendAll,sendConfig,stopService,startService,serviceStatus};
 	public enum serverStatusType{started,stopped};
 	
 	private static String version;

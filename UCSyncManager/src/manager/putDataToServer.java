@@ -48,10 +48,12 @@ public class putDataToServer extends serverDataMisc
 			if(((serverStatusType)variables.getIn().readObject()).equals(serverStatusType.stopped))
 				{
 				variables.setServerStatus(serverStatusType.stopped);
+				variables.getMyWindow().updateStartStop();
 				}
 			else
 				{
 				variables.setServerStatus(serverStatusType.started);
+				variables.getMyWindow().updateStartStop();
 				
 				//First we send data type
 				variables.getOut().writeObject((Object)sendReceiveType.sendAll);

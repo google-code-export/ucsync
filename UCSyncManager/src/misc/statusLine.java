@@ -55,6 +55,7 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 		info = new JLabel();
 		displayResult = new JLabel();
 		banned = new JButton();
+		banned.setToolTipText("Banned this item");
 		desc = new JLabel();
 		
 		init();

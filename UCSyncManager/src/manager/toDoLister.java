@@ -6,7 +6,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.regex.Pattern;
-
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -16,16 +15,11 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-
-import schedule.simpleTask;
 import utils.methodesUtiles;
 import utils.variables;
-import utils.variables.sendReceiveType;
 import utils.variables.serverStatusType;
 import utils.variables.taskStatusType;
 import utils.variables.toDoStatusType;
-
-import misc.finishedMonitor;
 import misc.simpleToDo;
 import misc.statusLine;
 
@@ -64,11 +58,15 @@ public class toDoLister extends JPanel implements ActionListener
 		filterCombo.setMaximumSize(new Dimension(60,20));
 		
 		validation = new JButton("Validate this report");
+		validation.setToolTipText("Click here to activate or deactivate a report. Once activated the report will be processed");
 		update = new JButton("Update this report");
+		update.setToolTipText("Click here to update the current report. It will not modify the activation status");
 		newScan = new JButton("new scan now");
+		newScan.setToolTipText("Click here to delete current report and launch a new one");
 		selectAll = new JCheckBox("Check All",true);
 		listeLine = new ArrayList<statusLine>();
 		infoList = new JLabel("");
+		infoList.setToolTipText("Total/deactivated/waiting");
 		infoList.setForeground(Color.WHITE);
 		currentStatus = new JLabel("");
 		currentStatus.setForeground(Color.WHITE);
@@ -297,7 +295,10 @@ public class toDoLister extends JPanel implements ActionListener
 					}
 				else
 					{
-					listeLine.get(i).check();
+					if(listToDoList.getComponents()[i].isVisible())
+						{
+						listeLine.get(i).check();
+						}
 					}
 				}
 			canBeUpdate = true;

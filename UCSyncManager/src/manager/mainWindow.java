@@ -65,6 +65,7 @@ public class mainWindow extends JFrame
 		 */
 		go = new JButton("GO");
 		startStop = new JButton("");
+		startStop.setToolTipText("Click here to stop/start service. Once stopped, nothing will be synchronised");
 		taskList = new JComboBox();
 		taskList.setPreferredSize(new Dimension(100,25));
 		

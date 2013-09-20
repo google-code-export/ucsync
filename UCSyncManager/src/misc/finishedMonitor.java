@@ -1,6 +1,7 @@
 package misc;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 import utils.variables;
 
@@ -26,6 +27,7 @@ public class finishedMonitor extends serverDataMisc
 	
 	public void run()
 		{
+		
 		while(!finished)
 			{
 			if(myServer.isFinished())

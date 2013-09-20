@@ -4,13 +4,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
-import java.io.IOException;
-import java.util.ArrayList;
-
-import misc.finishedMonitor;
-import misc.simpleToDo;
-
-import schedule.simpleTask;
 import utils.methodesUtiles;
 import utils.variables;
 import utils.variables.serverStatusType;
@@ -50,6 +43,7 @@ public class mainWindowProcess implements ActionListener, WindowListener
 			{
 			if(variables.getServerStatus().equals(serverStatusType.stopped))
 				{
+				
 				methodesUtiles.startServer();
 				}
 			else

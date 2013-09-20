@@ -33,14 +33,15 @@ public class configLister extends JPanel
 	public JButton update;
 	
 	private JLabel when,smartlinesearch,getmorethanprimaryline,ackmode,csvreport,testmode,axlhost,axlusername,
-	axlpassword,devicedescription,linedescription,linealertingname,linedisplay,linetextlabel,lineexternalphonenumbermask,maxnumchar,replacefrenchchar;
+	axlpassword,devicedescription,linedescription,linealertingname,linedisplay,linetextlabel,lineexternalphonenumbermask,
+	maxnumchar,replacefrenchchar,displayurlinreport;
 	
 	private JTextField axlhostText,axlusernameText,axlpasswordText,devicedescriptionText,devicedescriptiontoolongText,linedescriptionText,linedescriptiontoolongText,
 	linealertingnameText,linealertingnametoolongText,linedisplayText,linedisplaytoolongText,linetextlabelText,linetextlabeltoolongText,lineexternalphonenumbermaskText;
 	
-	private JCheckBox smartlinesearchBox,getmorethanprimarylineBox,csvreportBox,testmodeBox,replacefrenchcharBox;
+	private JCheckBox smartlinesearchBox,getmorethanprimarylineBox,csvreportBox,testmodeBox,replacefrenchcharBox,displayurlinreportBox;
 	
-	private JComboBox whenCombo,hourCombo,minuteCombo,oneHourCombo,ackmodeCombo,maxnumcharCombo;
+	public JComboBox whenCombo,hourCombo,minuteCombo,oneHourCombo,ackmodeCombo,maxnumcharCombo;
 	
 	public configLister()
 		{
@@ -59,7 +60,7 @@ public class configLister extends JPanel
 		update.setForeground(Color.WHITE);
 		
 		main = new JPanel();
-		main.setLayout(new GridLayout(19,3));
+		main.setLayout(new GridLayout(21,3));
 		//main.setSize(300, 500);
 		
 		when = new JLabel("Schedule ");
@@ -79,6 +80,7 @@ public class configLister extends JPanel
 		lineexternalphonenumbermask = new JLabel("External phone number mask");
 		maxnumchar = new JLabel("Maximum length ");
 		replacefrenchchar = new JLabel("Replace non ASCII charactere ");
+		displayurlinreport = new JLabel("Display URL in report");
 		
 		axlhostText = new JTextField();
 		axlusernameText = new JTextField();
@@ -100,6 +102,7 @@ public class configLister extends JPanel
 		testmodeBox = new JCheckBox();
 		replacefrenchcharBox = new JCheckBox();
 		getmorethanprimarylineBox = new JCheckBox();
+		displayurlinreportBox = new JCheckBox();
 		
 		whenCombo = new JComboBox(new String[]{"CONTINUOUS","DAILY","EVERY"});
 		hourCombo = new JComboBox(new String[]{"00","01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"});
@@ -133,6 +136,8 @@ public class configLister extends JPanel
 		//Schedule
 		JPanel whenPane = new JPanel();
 		whenPane.add(hourCombo);
+		whenPane.add(oneHourCombo);
+		oneHourCombo.setVisible(false);
 		whenPane.add(new JLabel(":"));
 		whenPane.add(minuteCombo);
 		main.add(when);main.add(whenCombo);main.add(whenPane);
@@ -158,6 +163,9 @@ public class configLister extends JPanel
 		//Replace french char
 		main.add(replacefrenchchar);main.add(replacefrenchcharBox);main.add(new JLabel(""));
 		
+		//Display URL in report
+		main.add(displayurlinreport);main.add(displayurlinreportBox);main.add(new JLabel(""));
+		
 		//AXL
 		main.add(new JLabel(""));main.add(new JLabel(""));main.add(new JLabel(""));
 		main.add(axlhost);main.add(axlhostText);main.add(new JLabel(""));
@@ -165,6 +173,7 @@ public class configLister extends JPanel
 		main.add(axlpassword);main.add(axlpasswordText);main.add(new JLabel(""));
 		
 		//pattern
+		main.add(new JLabel(""));main.add(new JLabel(""));main.add(new JLabel(""));
 		main.add(new JLabel(""));main.add(new JLabel("Normal length"));main.add(new JLabel("Too long"));
 		main.add(devicedescription);main.add(devicedescriptionText);main.add(devicedescriptiontoolongText);
 		main.add(linedescription);main.add(linedescriptionText);main.add(linedescriptiontoolongText);
@@ -184,6 +193,7 @@ public class configLister extends JPanel
 		//Events
 		configListerProcess myProcess = new configListerProcess(this);
 		update.addActionListener(myProcess);
+		whenCombo.addActionListener(myProcess);
 		
 		
 		fill();
@@ -216,22 +226,119 @@ public class configLister extends JPanel
 		{
 		try
 			{
-			//When
 			if(str.equals("when"))
 				{
 				String[] tag = value.split(" ");
 				whenCombo.setSelectedItem(tag[0]);
 				if(tag.length > 1)
 					{
-					String[] tagg = tag[1].split(":");
-					hourCombo.setSelectedItem(tagg[0]);
-					minuteCombo.setSelectedItem(tagg[1]);
+					if(tag[1].contains(":"))
+						{
+						String[] tagg = tag[1].split(":");
+						hourCombo.setSelectedItem(tagg[0]);
+						minuteCombo.setSelectedItem(tagg[1]);
+						}
+					else
+						{
+						oneHourCombo.setSelectedItem(tag[1]);
+						oneHourCombo.setVisible(true);
+						hourCombo.setVisible(false);
+						minuteCombo.setEnabled(false);
+						}
 					}
 				else
 					{
 					hourCombo.setEnabled(false);
 					minuteCombo.setEnabled(false);
 					}
+				}
+			else if(str.equals("smartlinesearch"))
+				{
+				smartlinesearchBox.setSelected(value.equals("true")?true:false);
+				}
+			else if(str.equals("getmorethanprimaryline"))
+				{
+				getmorethanprimarylineBox.setSelected(value.equals("true")?true:false);
+				}
+			else if(str.equals("displayurlinreport"))
+				{
+				displayurlinreportBox.setSelected(value.equals("true")?true:false);
+				}
+			else if(str.equals("ackmode"))
+				{
+				ackmodeCombo.setSelectedItem(value);
+				}
+			else if(str.equals("csvreport"))
+				{
+				csvreportBox.setSelected(value.equals("true")?true:false);
+				}
+			else if(str.equals("testmode"))
+				{
+				testmodeBox.setSelected(value.equals("true")?true:false);
+				}
+			else if(str.equals("axlhost"))
+				{
+				axlhostText.setText(value);
+				}
+			else if(str.equals("axlusername"))
+				{
+				axlusernameText.setText(value);
+				}
+			else if(str.equals("axlpassword"))
+				{
+				axlpasswordText.setText(value);
+				}
+			else if(str.equals("devicedescription"))
+				{
+				devicedescriptionText.setText(value);
+				}
+			else if(str.equals("devicedescriptiontoolong"))
+				{
+				devicedescriptiontoolongText.setText(value);
+				}
+			else if(str.equals("linedescription"))
+				{
+				linedescriptionText.setText(value);
+				}
+			else if(str.equals("linedescriptiontoolong"))
+				{
+				linedescriptiontoolongText.setText(value);
+				}
+			else if(str.equals("linealertingname"))
+				{
+				linealertingnameText.setText(value);
+				}
+			else if(str.equals("linealertingnametoolong"))
+				{
+				linealertingnametoolongText.setText(value);
+				}
+			else if(str.equals("linedisplay"))
+				{
+				linedisplayText.setText(value);
+				}
+			else if(str.equals("linedisplaytoolong"))
+				{
+				linedisplaytoolongText.setText(value);
+				}
+			else if(str.equals("linetextlabel"))
+				{
+				linetextlabelText.setText(value);
+				}
+			else if(str.equals("linetextlabeltoolong"))
+				{
+				linetextlabeltoolongText.setText(value);
+				}
+			else if(str.equals("lineexternalphonenumbermask"))
+				{
+				lineexternalphonenumbermaskText.setText(value);
+				}
+			else if(str.equals("maxnumchar"))
+				{
+				maxnumcharCombo.setSelectedItem(value);
+				}
+			else if(str.equals("replacefrenchchar"))
+				{
+				replacefrenchcharBox.setSelected(value.equals("true")?true:false);
 				}
 			}
 		catch (Exception exc)
