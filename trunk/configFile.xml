@@ -8,9 +8,9 @@
 		<smtpemailserver>10.5.2.224</smtpemailserver>
 		<smtpemail>inal</smtpemail>
 		<smtpemailpassword>25802580</smtpemailpassword>
-		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->
+		<smtpemailadmin>a.ratel@spie.com,supportspie@cg92.fr</smtpemailadmin><!--Email which is used to send ack request and report-->
 		<webserverport>8080</webserverport><!--Port used by the internal web server to listen for ack-->
 		<managerserverport>8081</managerserverport><!--Port used by the internal Management server to listen-->
-		<maxtasktime>1440</maxtasktime><!--Max task time before automatic delete. 1440 minute = 1 day-->
+		<maxtasktime>1300</maxtasktime><!--Max task time before automatic delete. 1440 minute = 1 day-->
 	</config>
 </xml>

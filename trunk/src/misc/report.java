@@ -257,7 +257,7 @@ public class report
 			content.append("\r\nTotal : "+(toDoListSize-(toDoListConflict+toDoListProblem))+" values will be updated");
 			
 			//Add ack URL
-			content.append(getScanReportFooter(myUSync.getId(), conflictPresent, problemPresent));
+			content.append(getScanReportFooter(myUSync.getId(), conflictPresent, problemPresent, myUSync));
 			}
 		else
 			{
@@ -272,12 +272,15 @@ public class report
 	 * Method used to build scan report footer
 	 * - Add process time
 	 */
-	private synchronized static String getScanReportFooter(String ID, boolean conflictPresent, boolean problemPresent) throws Exception
+	private synchronized static String getScanReportFooter(String ID, boolean conflictPresent, boolean problemPresent, userSync myUsync) throws Exception
 		{
 		StringBuffer footer = new StringBuffer();
-		footer.append("\r\n\r\nTo validate this report clic on the following link : ");
-		footer.append(methodesUtiles.getAckURL(ID));
-		footer.append("\r\n\r\nBe carreful, this is a local URL. It will only works from a local computer");
+		if(methodesUtiles.getTargetTask("displayurlinreport", myUsync.getTaskIndex()).equals("true"))
+			{
+			footer.append("\r\n\r\nTo validate this report clic on the following link : ");
+			footer.append(methodesUtiles.getAckURL(ID));
+			footer.append("\r\n\r\nBe carreful, this is a local URL. It will only works from a local computer");
+			}
 		if(conflictPresent)footer.append("\r\n\r\nIn case of conflict, please take a moment to resolve it. Otherwise, report will be complicated to understand");
 		if(problemPresent)footer.append("\r\n\r\nSome problem has been detected during scan process, please take a moment to check if it's normal");
 		

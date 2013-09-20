@@ -147,6 +147,12 @@ public class mngtReceiver extends Thread
 					variables.setTabTasks(((ArrayList<String[][]>)in.readObject()));
 					variables.getLogger().info("New Tab Task received with success");
 					}
+				else if(myType.equals(sendReceiveType.sendConfig))
+					{
+					//here we get config list
+					variables.setTabTasks(((ArrayList<String[][]>)in.readObject()));
+					variables.getLogger().info("New Tab Task received with success");
+					}
 				else if(myType.equals(sendReceiveType.startService))
 					{
 					if(variables.getMyScheduler() == null)

@@ -21,27 +21,27 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 	<tasks>
 		<task>
 			<type>usersync</type><!--usersync-->
-			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--EVERY H--><!--24h or 12h it depend of your installed local-->
+			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--EVERY H--><!--24h example : 16:32 or 09:00 or 00:23-->
 			<description>user data synchronization</description><!--Task description-->
 			<timeout>15</timeout>
-			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one--><!--Have to be implement-->
+			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one-->
 			<smartlinesearch>true</smartlinesearch><!--true,false-->
-			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user--><!--Have to be implement-->
-			<linesearchpattern>811%</linesearchpattern><!--Used to exclude some directory number. Must be a SQL "not like" filter-->
+			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user-->
+			<linesearchpattern>811%</linesearchpattern><!--Used to exculde some directory number. Must be a SQL "not like" filter-->
 			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
-			<ackmode>manual</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
+			<ackmode>report</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
 			<csvreport>true</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
 			<csvseparator>;</csvseparator><!--You can choose which character is used to separate values in csv report-->
 			<testmode>false</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->
 			<axlversion>8</axlversion>
-			<axlhost>10.0.1.167</axlhost>
+			<axlhost>10.5.1.179</axlhost>
 			<axlport>8443</axlport>
-			<axlusername>AXLUser</axlusername>
+			<axlusername>AXLAlex</axlusername>
 			<axlpassword>CCMCisco92</axlpassword>
-			<devicedescription>*M*cucm.nom+' '+*1M*cucm.prenom</devicedescription>
-			<devicedescriptiontoolong>*M*cucm.nom+' '+*1**M*cucm.prenom+'.'</devicedescriptiontoolong>
-			<linedescription>*M*cucm.nom+' '+*1M*cucm.prenom</linedescription>
-			<linedescriptiontoolong>*M*cucm.nom+' '+*1**M*cucm.prenom+'.'</linedescriptiontoolong>
+			<devicedescription></devicedescription>
+			<devicedescriptiontoolong></devicedescriptiontoolong>
+			<linedescription></linedescription>
+			<linedescriptiontoolong></linedescriptiontoolong>
 			<linealertingname>*M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept</linealertingname>
 			<linealertingnametoolong>*M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept</linealertingnametoolong>
 			<linedisplay>*M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept</linedisplay>
@@ -51,6 +51,7 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<lineexternalphonenumbermask>''</lineexternalphonenumbermask>
 			<maxnumchar>30</maxnumchar><!--Maximum number of character allowed by the CUCM for AXL request-->
 			<replacefrenchchar>true</replacefrenchchar><!--If true, french characters are replaced by ASCII one--><!--Exemple : "é" and "è" are replaced by "e" -->
+			<displayurlinreport>true</displayurlinreport><!--If true, a validation url is displayed in the scan report send by email-->
 			<exception>
 				<except>BLOCKED</except>
 				<except>BLOQUE</except>
