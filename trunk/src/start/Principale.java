@@ -130,6 +130,14 @@ public class Principale
 				{
 				variables.getLogger().setLevel(Level.INFO);
 				}
+			else if (level.compareTo("ERROR")==0)
+				{
+				variables.getLogger().setLevel(Level.ERROR);
+				}
+			else
+				{
+				variables.getLogger().setLevel(Level.INFO);
+				}
 			variables.getLogger().info("Niveau de log d'après le fichier de configuration : "+variables.getLogger().getLevel().toString());
 			}
 		catch(Exception exc)
@@ -162,7 +170,7 @@ public class Principale
 		/*********************************
 		 * Lancement du Thread principal
 		 *********************************/
-		variables.setMyScheduler(new scheduler());
+		//variables.setMyScheduler(new scheduler());
 		/*********************************/
 		}
 	

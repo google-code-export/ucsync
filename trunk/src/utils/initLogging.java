@@ -32,14 +32,14 @@ public class initLogging
 		myR.activateOptions();
 		
 		//On paramètre l'appender qui va écrire dans la console
-		/*
+		
 		ConsoleAppender myC = new ConsoleAppender();
 		myC.setLayout(myPattern);
 		myC.activateOptions();
-		*/
+		
 		
 		//On ajoute les appender à notre logger
-		//BasicConfigurator.configure(myC);
+		BasicConfigurator.configure(myC);
 		logger.addAppender(myR);
 		
 		return logger;
