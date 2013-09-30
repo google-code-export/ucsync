@@ -3065,3 +3065,1129 @@ manager.putDataToServer:48) - Data type sent with success
 16/09/2013 - 20:10:32 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
 16/09/2013 - 20:10:58 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
 16/09/2013 - 20:11:01 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:26:14 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:26:14 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:26:14 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:26:14 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:26:14 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:26:14 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:26:14 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>10.5.1.171</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:26:14 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:26:14 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:26:14 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:26:35 - [ERROR] (utils.methodesUtiles:196) - java.net.ConnectException: Connection timed out: connect
+20/09/2013 - 18:26:35 - [ERROR] (utils.methodesUtiles:197) - Application failed to init Socket : System.exit(0) : Connection timed out: connect
+20/09/2013 - 18:27:26 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:27:26 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:27:26 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:27:26 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:27:26 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:27:26 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:27:26 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:27:26 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:27:26 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:27:26 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:27:26 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:27:26 - [ERROR] (manager.getDataFromServer:79) - java.lang.NullPointerException
+20/09/2013 - 18:28:30 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+20/09/2013 - 18:28:34 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:28:37 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:28:37 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:28:37 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:28:37 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:28:37 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:28:37 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:28:37 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:28:37 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:28:37 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:28:37 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:28:37 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:28:37 - [ERROR] (manager.getDataFromServer:79) - java.lang.NullPointerException
+20/09/2013 - 18:29:17 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:29:17 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:29:17 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:29:17 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:29:17 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:29:17 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:29:17 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:29:17 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:29:17 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:29:17 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:29:17 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:29:29 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:30:51 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:30:51 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:30:51 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:30:51 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:30:52 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:30:52 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:30:52 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:30:52 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:30:52 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:30:52 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:30:52 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:30:56 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:31:02 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:31:02 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:31:02 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:31:02 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:31:02 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:31:02 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:31:02 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:31:02 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:31:02 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:31:02 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:31:02 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:31:03 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+20/09/2013 - 18:31:06 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:31:12 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:31:12 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:31:12 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:31:12 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:31:12 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:31:12 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:31:12 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:31:12 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:31:12 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:31:12 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:31:12 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:31:42 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:33:19 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:33:19 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:33:19 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:33:19 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:33:19 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:33:20 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:33:20 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:33:20 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:33:20 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:33:20 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:33:20 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:33:26 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:35:21 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:35:21 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:35:21 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:35:21 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:35:22 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:35:22 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:35:22 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:35:22 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:35:22 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:35:22 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:35:22 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:35:26 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:36:36 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:36:36 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:36:36 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:36:36 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:36:36 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:36:36 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:36:36 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:36:36 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:36:36 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:36:36 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:36:36 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:36:43 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:37:57 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:37:57 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:37:57 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:37:57 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:37:58 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:37:58 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:37:58 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:37:58 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:37:58 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:37:58 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:37:58 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:38:10 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:40:25 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:40:25 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:40:25 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:40:25 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:40:25 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:40:25 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:40:25 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:40:25 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:40:25 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:40:25 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:40:25 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:40:48 - [INFO] (utils.methodesUtiles:247) - Connected to UCSync server
+20/09/2013 - 18:41:04 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:44:04 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:44:04 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:44:04 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:44:04 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:44:05 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:44:05 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:44:05 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:44:05 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:44:05 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:44:05 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:44:05 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:44:14 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:44:33 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:44:33 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:44:33 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:44:33 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:44:33 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:44:33 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:44:33 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:44:33 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:44:33 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:44:33 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:44:33 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:44:34 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:44:45 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:44:45 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:44:45 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:44:45 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:44:45 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:44:45 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:44:45 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:44:45 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:44:45 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:44:45 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:44:45 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 18:44:54 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 18:57:05 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 18:57:05 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 18:57:05 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 18:57:05 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 18:57:05 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 18:57:05 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 18:57:05 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 18:57:05 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 18:57:05 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 18:57:05 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 18:57:05 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 19:01:06 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+20/09/2013 - 19:01:10 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+20/09/2013 - 19:01:20 - [INFO] (start.Principale:42) - 
+
+20/09/2013 - 19:01:20 - [INFO] (start.Principale:43) - #### Entering application
+20/09/2013 - 19:01:20 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+20/09/2013 - 19:01:20 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+20/09/2013 - 19:01:20 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+20/09/2013 - 19:01:20 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+20/09/2013 - 19:01:20 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+20/09/2013 - 19:01:20 - [INFO] (utils.xMLReader:42) - Finished reading
+20/09/2013 - 19:01:20 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+20/09/2013 - 19:01:20 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+20/09/2013 - 19:01:20 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+20/09/2013 - 19:01:28 - [INFO] (utils.methodesUtiles:275) - Connected to UCSync server
+20/09/2013 - 19:01:28 - [DEBUG] (utils.methodesUtiles:280) - Server status received : started
+20/09/2013 - 19:01:28 - [INFO] (utils.methodesUtiles:281) - Server successfully started
+20/09/2013 - 19:01:36 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+20/09/2013 - 19:01:36 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+20/09/2013 - 19:01:36 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+20/09/2013 - 19:01:36 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+20/09/2013 - 19:01:36 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+20/09/2013 - 19:03:07 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+29/09/2013 - 22:53:04 - [INFO] (start.Principale:42) - 
+
+29/09/2013 - 22:53:04 - [INFO] (start.Principale:43) - #### Entering application
+29/09/2013 - 22:53:04 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+29/09/2013 - 22:53:04 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+29/09/2013 - 22:53:04 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+29/09/2013 - 22:53:04 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+29/09/2013 - 22:53:04 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+29/09/2013 - 22:53:04 - [INFO] (utils.xMLReader:42) - Finished reading
+29/09/2013 - 22:53:04 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+29/09/2013 - 22:53:04 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+29/09/2013 - 22:53:04 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+29/09/2013 - 22:53:04 - [ERROR] (manager.getDataFromServer:81) - java.lang.NullPointerException
+29/09/2013 - 22:53:10 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+29/09/2013 - 22:54:02 - [INFO] (start.Principale:42) - 
+
+29/09/2013 - 22:54:02 - [INFO] (start.Principale:43) - #### Entering application
+29/09/2013 - 22:54:02 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+29/09/2013 - 22:54:02 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+29/09/2013 - 22:54:02 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+29/09/2013 - 22:54:02 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+29/09/2013 - 22:54:02 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+29/09/2013 - 22:54:02 - [INFO] (utils.xMLReader:42) - Finished reading
+29/09/2013 - 22:54:02 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+29/09/2013 - 22:54:02 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+29/09/2013 - 22:54:02 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+29/09/2013 - 22:54:02 - [ERROR] (manager.getDataFromServer:81) - java.lang.NullPointerException
+29/09/2013 - 22:54:08 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+29/09/2013 - 22:54:08 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+29/09/2013 - 22:54:08 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+29/09/2013 - 22:54:08 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+29/09/2013 - 22:54:08 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+29/09/2013 - 22:54:08 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
+29/09/2013 - 22:54:17 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+29/09/2013 - 22:57:39 - [INFO] (start.Principale:42) - 
+
+29/09/2013 - 22:57:39 - [INFO] (start.Principale:43) - #### Entering application
+29/09/2013 - 22:57:39 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+29/09/2013 - 22:57:39 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+29/09/2013 - 22:57:39 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+29/09/2013 - 22:57:39 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+29/09/2013 - 22:57:39 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+29/09/2013 - 22:57:39 - [INFO] (utils.xMLReader:42) - Finished reading
+29/09/2013 - 22:57:39 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+29/09/2013 - 22:57:39 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+29/09/2013 - 22:57:39 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+29/09/2013 - 22:57:39 - [INFO] (manager.getDataFromServer:51) - Data type sent with success : getAll
+29/09/2013 - 22:57:39 - [INFO] (manager.getDataFromServer:55) - TabTask imported with success
+29/09/2013 - 22:57:39 - [INFO] (manager.getDataFromServer:59) - Task list imported with success
+29/09/2013 - 22:57:39 - [INFO] (manager.getDataFromServer:63) - Banned toDo List imported with success
+29/09/2013 - 22:57:39 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
+29/09/2013 - 23:03:44 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+29/09/2013 - 23:03:44 - [INFO] (manager.getDataFromServer:51) - Data type sent with success : getAll
+29/09/2013 - 23:03:44 - [INFO] (manager.getDataFromServer:55) - TabTask imported with success
+29/09/2013 - 23:03:44 - [INFO] (manager.getDataFromServer:59) - Task list imported with success
+29/09/2013 - 23:03:44 - [INFO] (manager.getDataFromServer:63) - Banned toDo List imported with success
+29/09/2013 - 23:03:44 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
+29/09/2013 - 23:09:09 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+29/09/2013 - 23:09:09 - [INFO] (manager.getDataFromServer:51) - Data type sent with success : getAll
+29/09/2013 - 23:09:09 - [INFO] (manager.getDataFromServer:55) - TabTask imported with success
+29/09/2013 - 23:09:09 - [INFO] (manager.getDataFromServer:59) - Task list imported with success
+29/09/2013 - 23:09:09 - [INFO] (manager.getDataFromServer:63) - Banned toDo List imported with success
+29/09/2013 - 23:09:09 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
+29/09/2013 - 23:09:10 - [INFO] (utils.methodesUtiles:247) - Connected to UCSync server
+29/09/2013 - 23:09:10 - [INFO] (manager.putDataToServer:60) - Data type sent with success
+29/09/2013 - 23:09:10 - [INFO] (manager.putDataToServer:64) - Task list exported with success
+29/09/2013 - 23:09:10 - [INFO] (manager.putDataToServer:66) - Banned toDo List exported with success
+29/09/2013 - 23:09:10 - [INFO] (manager.putDataToServer:68) - TabTask exported with success
+29/09/2013 - 23:09:13 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+29/09/2013 - 23:09:13 - [INFO] (manager.getDataFromServer:51) - Data type sent with success : getAll
+29/09/2013 - 23:09:13 - [INFO] (manager.getDataFromServer:55) - TabTask imported with success
+29/09/2013 - 23:09:13 - [INFO] (manager.getDataFromServer:59) - Task list imported with success
+29/09/2013 - 23:09:13 - [INFO] (manager.getDataFromServer:63) - Banned toDo List imported with success
+29/09/2013 - 23:09:16 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+29/09/2013 - 23:09:16 - [INFO] (manager.getDataFromServer:51) - Data type sent with success : getAll
+29/09/2013 - 23:09:16 - [INFO] (manager.getDataFromServer:55) - TabTask imported with success
+29/09/2013 - 23:09:16 - [INFO] (manager.getDataFromServer:59) - Task list imported with success
+29/09/2013 - 23:09:16 - [INFO] (manager.getDataFromServer:63) - Banned toDo List imported with success
+29/09/2013 - 23:09:16 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
+29/09/2013 - 23:10:11 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+29/09/2013 - 23:10:23 - [INFO] (start.Principale:42) - 
+
+29/09/2013 - 23:10:23 - [INFO] (start.Principale:43) - #### Entering application
+29/09/2013 - 23:10:23 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+29/09/2013 - 23:10:23 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+29/09/2013 - 23:10:23 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+29/09/2013 - 23:10:23 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+29/09/2013 - 23:10:23 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+29/09/2013 - 23:10:23 - [INFO] (utils.xMLReader:42) - Finished reading
+29/09/2013 - 23:10:23 - [INFO] (utils.methodesUtiles:113) - Detected JRE version : 1.6.0_32
+29/09/2013 - 23:10:23 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+29/09/2013 - 23:10:23 - [INFO] (utils.methodesUtiles:187) - Connected to UCSync server
+29/09/2013 - 23:10:23 - [INFO] (manager.getDataFromServer:51) - Data type sent with success : getAll
+29/09/2013 - 23:10:23 - [INFO] (manager.getDataFromServer:55) - TabTask imported with success
+29/09/2013 - 23:10:23 - [INFO] (manager.getDataFromServer:59) - Task list imported with success
+29/09/2013 - 23:10:23 - [INFO] (manager.getDataFromServer:63) - Banned toDo List imported with success
+29/09/2013 - 23:10:23 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
+29/09/2013 - 23:44:59 - [INFO] (utils.methodesUtiles:247) - Connected to UCSync server
+29/09/2013 - 23:44:59 - [INFO] (manager.putDataToServer:60) - Data type sent with success
+29/09/2013 - 23:44:59 - [INFO] (manager.putDataToServer:64) - Task list exported with success
+29/09/2013 - 23:44:59 - [INFO] (manager.putDataToServer:66) - Banned toDo List exported with success
+29/09/2013 - 23:44:59 - [INFO] (manager.putDataToServer:68) - TabTask exported with success
+29/09/2013 - 23:47:37 - [INFO] (utils.methodesUtiles:247) - Connected to UCSync server
+29/09/2013 - 23:47:37 - [INFO] (manager.toDoLister:373) - Report Status : pending
+29/09/2013 - 23:47:37 - [INFO] (manager.putDataToServer:60) - Data type sent with success
+29/09/2013 - 23:47:37 - [INFO] (manager.putDataToServer:64) - Task list exported with success
+29/09/2013 - 23:47:37 - [INFO] (manager.putDataToServer:66) - Banned toDo List exported with success
+29/09/2013 - 23:47:37 - [INFO] (manager.putDataToServer:68) - TabTask exported with success
+29/09/2013 - 23:47:55 - [INFO] (utils.methodesUtiles:218) - Connected to UCSync server
+29/09/2013 - 23:47:55 - [INFO] (manager.getDataFromServer:51) - Data type sent with success : getAll
+29/09/2013 - 23:47:55 - [INFO] (manager.getDataFromServer:55) - TabTask imported with success
+29/09/2013 - 23:47:55 - [INFO] (manager.getDataFromServer:59) - Task list imported with success
+29/09/2013 - 23:47:55 - [INFO] (manager.getDataFromServer:63) - Banned toDo List imported with success
+29/09/2013 - 23:47:55 - [INFO] (manager.toDoLister:373) - Report Status : waitingAck
+30/09/2013 - 00:09:34 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 15:47:01 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:47:01 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:47:01 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:47:01 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:47:01 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:47:01 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:47:01 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:47:01 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:47:01 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:47:01 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:47:01 - [INFO] (utils.methodesUtiles:207) - Connected to UCSync server
+30/09/2013 - 15:47:07 - [INFO] (utils.methodesUtiles:238) - Connected to UCSync server
+30/09/2013 - 15:47:18 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 15:53:07 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:53:07 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:53:07 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:53:07 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:53:07 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:53:07 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:53:07 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:53:07 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:53:07 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:53:07 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:53:07 - [INFO] (utils.methodesUtiles:207) - Connected to UCSync server
+30/09/2013 - 15:53:15 - [INFO] (utils.methodesUtiles:238) - Connected to UCSync server
+30/09/2013 - 15:53:19 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 15:54:13 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:54:13 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:54:13 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:54:13 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:54:13 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:54:13 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:54:13 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:54:13 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:54:13 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:54:13 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:54:13 - [INFO] (utils.methodesUtiles:207) - Connected to UCSync server
+30/09/2013 - 15:54:15 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 15:55:52 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:55:52 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:55:52 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:55:52 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:55:52 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:55:52 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:55:52 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:55:52 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:55:52 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:55:52 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:55:52 - [INFO] (utils.methodesUtiles:207) - Connected to UCSync server
+30/09/2013 - 15:55:55 - [INFO] (utils.methodesUtiles:238) - Connected to UCSync server
+30/09/2013 - 15:55:58 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 15:56:27 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:56:27 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:56:27 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:56:27 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:56:27 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:56:27 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:56:27 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:56:27 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:56:27 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:56:27 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:56:28 - [ERROR] (utils.methodesUtiles:216) - java.net.ConnectException: Connection refused: connect
+30/09/2013 - 15:56:28 - [ERROR] (utils.methodesUtiles:217) - Application failed to init Socket : System.exit(0) : Connection refused: connect
+30/09/2013 - 15:56:54 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:56:54 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:56:54 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:56:54 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:56:54 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:56:54 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:56:54 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:56:54 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:56:54 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:56:54 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:56:55 - [ERROR] (utils.methodesUtiles:216) - java.net.ConnectException: Connection refused: connect
+30/09/2013 - 15:56:55 - [ERROR] (utils.methodesUtiles:217) - Application failed to init Socket : System.exit(0) : Connection refused: connect
+30/09/2013 - 15:57:16 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:57:16 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:57:16 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:57:16 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:57:17 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:57:17 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:57:17 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:57:17 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:57:17 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:57:17 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:57:17 - [INFO] (utils.methodesUtiles:207) - Connected to UCSync server
+30/09/2013 - 15:58:43 - [INFO] (utils.methodesUtiles:238) - Connected to UCSync server
+30/09/2013 - 15:59:42 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 15:59:42 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 15:59:42 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 15:59:42 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 15:59:42 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 15:59:42 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 15:59:42 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 15:59:42 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 15:59:42 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 15:59:42 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 15:59:42 - [INFO] (utils.methodesUtiles:207) - Connected to UCSync server
+30/09/2013 - 16:02:03 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 16:02:03 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 16:02:03 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 16:02:03 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 16:02:03 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 16:02:03 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 16:02:03 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 16:02:03 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 16:02:03 - [INFO] (utils.methodesUtiles:133) - Detected JRE version : 1.6.0_32
+30/09/2013 - 16:02:03 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 16:02:03 - [INFO] (utils.methodesUtiles:207) - Connected to UCSync server
+30/09/2013 - 16:02:03 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 16:02:03 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 16:02:03 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 16:02:03 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 16:02:53 - [INFO] (utils.methodesUtiles:238) - Connected to UCSync server
+30/09/2013 - 16:02:53 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 16:02:53 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 16:02:53 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 16:02:53 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 16:22:24 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 16:22:27 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 16:22:27 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 16:22:27 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 16:22:27 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 16:22:27 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 16:22:27 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 16:22:27 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 16:22:27 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 16:22:27 - [INFO] (utils.methodesUtiles:134) - Detected JRE version : 1.6.0_32
+30/09/2013 - 16:22:27 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 16:22:27 - [INFO] (utils.methodesUtiles:208) - Connected to UCSync server
+30/09/2013 - 16:22:27 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 16:22:27 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 16:22:27 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 16:22:27 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 16:22:36 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : when new value : DAILY 03:00
+30/09/2013 - 16:22:36 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : smartlinesearch new value : false
+30/09/2013 - 16:22:36 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 16:22:36 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 16:22:39 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 16:44:00 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 16:44:00 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 16:44:00 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 16:44:00 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 16:44:00 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 16:44:00 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 16:44:00 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 16:44:00 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 16:44:00 - [INFO] (utils.methodesUtiles:134) - Detected JRE version : 1.6.0_32
+30/09/2013 - 16:44:00 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 16:44:00 - [INFO] (utils.methodesUtiles:208) - Connected to UCSync server
+30/09/2013 - 16:44:00 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 16:44:00 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 16:44:00 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 16:44:00 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : when new value : CONTINUOUS
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : testmode new value : false
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 16:44:04 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : when new value : CONTINUOUS
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : testmode new value : false
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 16:45:03 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : displayurlinreport new value : false
+30/09/2013 - 16:45:16 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 16:45:44 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 16:45:44 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 16:45:44 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 16:45:44 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 16:45:44 - [INFO] (utils.methodesUtiles:38) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 16:45:44 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 16:45:44 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 16:45:44 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 16:45:44 - [INFO] (utils.methodesUtiles:134) - Detected JRE version : 1.6.0_32
+30/09/2013 - 16:45:44 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 16:45:44 - [INFO] (utils.methodesUtiles:208) - Connected to UCSync server
+30/09/2013 - 16:45:44 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 16:45:44 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 16:45:44 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 16:45:44 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : when new value : DAILY 03:37
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : testmode new value : false
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 16:45:56 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : when new value : EVERY 6
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : testmode new value : false
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 16:46:12 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : when new value : EVERY 9
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : testmode new value : false
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 16:46:24 - [DEBUG] (utils.methodesUtiles:100) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 17:44:57 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 17:44:57 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 17:44:57 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 17:44:57 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 17:44:58 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 17:44:58 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 17:44:58 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 17:44:58 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 17:44:58 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 17:44:58 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 17:44:58 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 17:44:58 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 17:44:58 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 17:44:58 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 17:44:58 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : DAILY 02:00
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : false
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 17:45:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 17:45:16 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 17:46:27 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 17:46:27 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 17:46:27 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 17:46:27 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 17:46:27 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 17:46:27 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 17:46:27 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 17:46:27 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 17:46:27 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 17:46:27 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 17:46:27 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 17:46:27 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 17:46:27 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 17:46:27 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 17:46:27 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : DAILY 02:00
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : false
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 17:46:33 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 17:46:33 - [INFO] (utils.methodesUtiles:296) - Connected to UCSync server
+30/09/2013 - 17:46:35 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 17:47:38 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 17:47:38 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 17:47:38 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 17:47:38 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 17:47:38 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 17:47:38 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 17:47:38 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 17:47:38 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 17:47:38 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 17:47:38 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 17:47:38 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 17:47:38 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 17:47:38 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 17:47:38 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 17:47:38 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : DAILY 02:00
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : false
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 17:47:45 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 17:47:45 - [INFO] (utils.methodesUtiles:237) - Connected to UCSync server
+30/09/2013 - 17:47:45 - [INFO] (manager.updateConfigToServer:41) - Data type sent with success
+30/09/2013 - 17:47:45 - [INFO] (manager.updateConfigToServer:45) - TabTask exported with success
+30/09/2013 - 17:47:48 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 17:48:04 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 17:48:04 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 17:48:04 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 17:48:04 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 17:48:04 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 17:48:04 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 17:48:04 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 17:48:04 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 17:48:04 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 17:48:04 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 17:48:04 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 17:48:04 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 17:48:04 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 17:48:04 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 17:48:04 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 17:48:10 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 18:00:32 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 18:00:32 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 18:00:32 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 18:00:32 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 18:00:32 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 18:00:32 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 18:00:32 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 18:00:32 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 18:00:32 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 18:00:32 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 18:00:32 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 18:00:32 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 18:00:32 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 18:00:32 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 18:00:32 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : DAILY 02:00
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : false
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 18:00:40 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 18:00:40 - [INFO] (utils.methodesUtiles:237) - Connected to UCSync server
+30/09/2013 - 18:00:40 - [INFO] (manager.updateConfigToServer:41) - Data type sent with success
+30/09/2013 - 18:00:40 - [INFO] (manager.updateConfigToServer:45) - TabTask exported with success
+30/09/2013 - 18:00:42 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 18:25:19 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 18:25:19 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 18:25:19 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 18:25:19 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 18:25:19 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 18:25:19 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 18:25:19 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 18:25:19 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 18:25:20 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 18:25:20 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 18:25:20 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 18:25:20 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 18:25:20 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 18:25:20 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 18:25:20 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : DAILY 02:00
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : false
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 18:25:29 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 18:25:29 - [INFO] (utils.methodesUtiles:237) - Connected to UCSync server
+30/09/2013 - 18:25:29 - [INFO] (manager.updateConfigToServer:41) - Data type sent with success
+30/09/2013 - 18:25:29 - [INFO] (manager.updateConfigToServer:45) - TabTask exported with success
+30/09/2013 - 18:25:32 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 18:29:57 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 18:29:57 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 18:29:57 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 18:29:57 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 18:29:57 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 18:29:57 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 18:29:57 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 18:29:57 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 18:29:57 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 18:29:57 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 18:29:57 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 18:29:57 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 18:29:57 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 18:29:57 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 18:29:57 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : DAILY 02:00
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : false
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 18:30:02 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 18:30:02 - [INFO] (utils.methodesUtiles:237) - Connected to UCSync server
+30/09/2013 - 18:30:02 - [INFO] (manager.updateConfigToServer:41) - Data type sent with success
+30/09/2013 - 18:30:02 - [INFO] (manager.updateConfigToServer:45) - TabTask exported with success
+30/09/2013 - 18:30:03 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 18:30:28 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 18:30:28 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 18:30:28 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 18:30:28 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 18:30:28 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 18:30:28 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 18:30:28 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 18:30:28 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 18:30:28 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 18:30:28 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 18:30:28 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 18:30:28 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 18:30:28 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 18:30:28 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 18:30:28 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : DAILY 02:00
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : false
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : true
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : auto
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : false
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : true
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.200
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlpassword new value : Yeay!!!
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : '014146XXXX'
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 37
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : false
+30/09/2013 - 18:31:09 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : false
+30/09/2013 - 18:31:09 - [INFO] (utils.methodesUtiles:237) - Connected to UCSync server
+30/09/2013 - 18:31:09 - [INFO] (manager.updateConfigToServer:41) - Data type sent with success
+30/09/2013 - 18:31:09 - [INFO] (manager.updateConfigToServer:45) - TabTask exported with success
+30/09/2013 - 18:31:13 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 18:31:40 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 18:31:40 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 18:31:40 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 18:31:40 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 18:31:40 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 18:31:40 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 18:31:40 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 18:31:40 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 18:31:40 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 18:31:40 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 18:31:40 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 18:31:40 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 18:31:40 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 18:31:40 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 18:31:40 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 18:31:52 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:06:56 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:06:56 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:06:56 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:06:56 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:06:56 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:06:56 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:06:56 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:06:56 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:06:56 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:06:56 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:06:56 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:06:56 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:06:56 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:06:56 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:06:56 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:07:17 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:10:06 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:10:06 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:10:06 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:10:06 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:10:06 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:10:06 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:10:06 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:10:06 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:10:06 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:10:06 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:10:06 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:10:06 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:10:06 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:10:06 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:10:06 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:11:04 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:14:03 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:14:03 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:14:03 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:14:03 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:14:03 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:14:03 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:14:03 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:14:03 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:14:03 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:14:03 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:14:03 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:14:03 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:14:03 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:14:03 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:14:03 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:14:15 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:14:34 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:14:34 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:14:34 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:14:34 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:14:34 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:14:34 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:14:34 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:14:34 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:14:34 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:14:34 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:14:34 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:14:34 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:14:34 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:14:34 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:14:34 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:14:48 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:14:53 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:14:53 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:14:53 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:14:53 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:14:53 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:14:53 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:14:53 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:14:53 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:14:54 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:14:54 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:14:54 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:14:54 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:14:54 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:14:54 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:14:54 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:15:06 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:15:38 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:15:38 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:15:38 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:15:38 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:15:38 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:15:38 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:15:38 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:15:38 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:15:38 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:15:38 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:15:38 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:15:38 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:15:38 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:15:38 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:15:38 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:15:47 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:16:16 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:16:16 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:16:16 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:16:16 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:16:17 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:16:17 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:16:17 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:16:17 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:16:17 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:16:17 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:16:17 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:16:17 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:16:17 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:16:17 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:16:17 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:16:28 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)
+30/09/2013 - 22:16:47 - [INFO] (start.Principale:42) - 
+
+30/09/2013 - 22:16:47 - [INFO] (start.Principale:43) - #### Entering application
+30/09/2013 - 22:16:47 - [INFO] (start.Principale:44) - ## Welcome to : UCSyncManager version 1.0
+30/09/2013 - 22:16:47 - [INFO] (start.Principale:45) - ## Author : RATEL Alexandre : 2013
+30/09/2013 - 22:16:47 - [INFO] (utils.methodesUtiles:39) - Lecture du fichier de configuration : configFile.xml
+30/09/2013 - 22:16:47 - [INFO] (utils.xMLReader:27) - File name = .\configFile.xml
+30/09/2013 - 22:16:47 - [INFO] (utils.xMLReader:41) - File content : <xml>	<config>		<ucsyncserverhost>127.0.0.1</ucsyncserverhost><!--hostname used to contact UCSync server-->		<ucsyncserverport>8081</ucsyncserverport><!--Port used to contact UCSync server-->		<log4j>DEBUG</log4j>		<smtpemailport>25</smtpemailport>		<smtpemailprotocol>smtp</smtpemailprotocol>		<smtpemailserver>10.5.2.224</smtpemailserver>		<smtpemail>inal</smtpemail>		<smtpemailpassword>25802580</smtpemailpassword>		<smtpemailadmin>a.ratel@spie.com</smtpemailadmin><!--Email which is used to send ack request and report-->	</config></xml>
+30/09/2013 - 22:16:47 - [INFO] (utils.xMLReader:42) - Finished reading
+30/09/2013 - 22:16:47 - [INFO] (utils.methodesUtiles:135) - Detected JRE version : 1.6.0_32
+30/09/2013 - 22:16:47 - [INFO] (start.Principale:91) - Niveau de log d'après le fichier de configuration : DEBUG
+30/09/2013 - 22:16:47 - [INFO] (utils.methodesUtiles:209) - Connected to UCSync server
+30/09/2013 - 22:16:47 - [INFO] (manager.getDataFromServer:52) - Data type sent with success : getAll
+30/09/2013 - 22:16:47 - [INFO] (manager.getDataFromServer:56) - TabTask imported with success
+30/09/2013 - 22:16:47 - [INFO] (manager.getDataFromServer:60) - Task list imported with success
+30/09/2013 - 22:16:47 - [INFO] (manager.getDataFromServer:64) - Banned toDo List imported with success
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : when new value : CONTINUOUS
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : smartlinesearch new value : true
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : getmorethanprimaryline new value : false
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : ackmode new value : manual
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : csvreport new value : true
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : testmode new value : false
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlhost new value : 10.0.1.167
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : axlusername new value : AXLUser
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : devicedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescription new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept+'example'
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedescriptiontoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'.'+' - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingname new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linealertingnametoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplay new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linedisplaytoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabel new value : *M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : linetextlabeltoolong new value : *M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : lineexternalphonenumbermask new value : ''
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : maxnumchar new value : 30
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : replacefrenchchar new value : true
+30/09/2013 - 22:19:16 - [DEBUG] (utils.methodesUtiles:101) - New value define for task 0 : displayurlinreport new value : true
+30/09/2013 - 22:19:16 - [INFO] (utils.methodesUtiles:237) - Connected to UCSync server
+30/09/2013 - 22:19:16 - [INFO] (manager.updateConfigToServer:41) - Data type sent with success
+30/09/2013 - 22:19:16 - [INFO] (manager.updateConfigToServer:45) - TabTask exported with success
+30/09/2013 - 22:20:58 - [INFO] (manager.mainWindowProcess:70) - Closing window : System.exit(0)

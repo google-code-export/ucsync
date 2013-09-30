@@ -179,7 +179,7 @@ public class toDoLister extends JPanel implements ActionListener
 				else
 					{
 					variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
-					methodesUtiles.updateData(false);
+					methodesUtiles.updateData(true);
 					}
 				getReportStatus();
 				}

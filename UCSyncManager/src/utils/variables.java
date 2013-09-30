@@ -38,6 +38,7 @@ public class variables
 	public enum taskType{userSync};
 	public enum sendReceiveType{getAll,sendAll,sendConfig,stopService,startService,serviceStatus};
 	public enum serverStatusType{started,stopped};
+	public enum dataTypes{device,line};
 	
 	private static String version;
 	private static String nomProg;

@@ -28,7 +28,6 @@ public class configLister extends JPanel
 	private JPanel header;
 	private JPanel main;
 	private JScrollPane scrollbar;
-	private JPanel whenPanel;
 	
 	public JButton update;
 	
@@ -36,10 +35,10 @@ public class configLister extends JPanel
 	axlpassword,devicedescription,linedescription,linealertingname,linedisplay,linetextlabel,lineexternalphonenumbermask,
 	maxnumchar,replacefrenchchar,displayurlinreport;
 	
-	private JTextField axlhostText,axlusernameText,axlpasswordText,devicedescriptionText,devicedescriptiontoolongText,linedescriptionText,linedescriptiontoolongText,
+	public JTextField axlhostText,axlusernameText,axlpasswordText,devicedescriptionText,devicedescriptiontoolongText,linedescriptionText,linedescriptiontoolongText,
 	linealertingnameText,linealertingnametoolongText,linedisplayText,linedisplaytoolongText,linetextlabelText,linetextlabeltoolongText,lineexternalphonenumbermaskText;
 	
-	private JCheckBox smartlinesearchBox,getmorethanprimarylineBox,csvreportBox,testmodeBox,replacefrenchcharBox,displayurlinreportBox;
+	public JCheckBox smartlinesearchBox,getmorethanprimarylineBox,csvreportBox,testmodeBox,replacefrenchcharBox,displayurlinreportBox;
 	
 	public JComboBox whenCombo,hourCombo,minuteCombo,oneHourCombo,ackmodeCombo,maxnumcharCombo;
 	
@@ -137,6 +136,8 @@ public class configLister extends JPanel
 		JPanel whenPane = new JPanel();
 		whenPane.add(hourCombo);
 		whenPane.add(oneHourCombo);
+		hourCombo.setEnabled(false);
+		minuteCombo.setEnabled(false);
 		oneHourCombo.setVisible(false);
 		whenPane.add(new JLabel(":"));
 		whenPane.add(minuteCombo);
@@ -194,7 +195,20 @@ public class configLister extends JPanel
 		configListerProcess myProcess = new configListerProcess(this);
 		update.addActionListener(myProcess);
 		whenCombo.addActionListener(myProcess);
+		devicedescriptionText.addMouseListener(myProcess);
+		devicedescriptiontoolongText.addMouseListener(myProcess);
+		linedescriptionText.addMouseListener(myProcess);
+		linedescriptiontoolongText.addMouseListener(myProcess);
+		linealertingnameText.addMouseListener(myProcess);
+		linealertingnametoolongText.addMouseListener(myProcess);
+		linedisplayText.addMouseListener(myProcess);
+		linedisplaytoolongText.addMouseListener(myProcess);
+		linetextlabelText.addMouseListener(myProcess);
+		linetextlabeltoolongText.addMouseListener(myProcess);
+		lineexternalphonenumbermaskText.addMouseListener(myProcess);
 		
+		
+		enableControl(false);
 		
 		fill();
 		}
@@ -213,6 +227,11 @@ public class configLister extends JPanel
 					findAndFill(variables.getTabTasks().get(i)[j][0],variables.getTabTasks().get(i)[j][1]);
 					}
 				}
+			scrollbar.setVisible(true);
+			}
+		else
+			{
+			scrollbar.setVisible(false);
 			}
 		this.repaint();
 		this.validate();
@@ -230,16 +249,19 @@ public class configLister extends JPanel
 				{
 				String[] tag = value.split(" ");
 				whenCombo.setSelectedItem(tag[0]);
+				
 				if(tag.length > 1)
 					{
 					if(tag[1].contains(":"))
 						{
+						//DAILY
 						String[] tagg = tag[1].split(":");
 						hourCombo.setSelectedItem(tagg[0]);
 						minuteCombo.setSelectedItem(tagg[1]);
 						}
 					else
 						{
+						//EVERY
 						oneHourCombo.setSelectedItem(tag[1]);
 						oneHourCombo.setVisible(true);
 						hourCombo.setVisible(false);
@@ -286,7 +308,7 @@ public class configLister extends JPanel
 				}
 			else if(str.equals("axlpassword"))
 				{
-				axlpasswordText.setText(value);
+				//axlpasswordText.setText(value);
 				}
 			else if(str.equals("devicedescription"))
 				{
@@ -348,6 +370,14 @@ public class configLister extends JPanel
 			variables.getLogger().error("Error during configuration tab filling : "+exc.getMessage());
 			}
 		
+		}
+	
+	/**
+	 * Method used to enable/disable control bar
+	 */
+	public void enableControl(boolean b)
+		{
+		this.update.setEnabled(b);
 		}
 	
 	

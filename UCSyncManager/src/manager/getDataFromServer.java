@@ -40,36 +40,37 @@ public class getDataFromServer extends serverDataMisc
 			if(((serverStatusType)variables.getIn().readObject()).equals(serverStatusType.stopped))
 				{
 				variables.setServerStatus(serverStatusType.stopped);
-				variables.getMyWindow().updateStartStop();
+				if(variables.getMyWindow() != null)variables.getMyWindow().updateStartStop();
 				}
 			else
 				{
 				variables.setServerStatus(serverStatusType.started);
-				variables.getMyWindow().updateStartStop();
+				}
 				
-				//First we send data type involved in the communication
-				variables.getOut().writeObject((Object)sendReceiveType.getAll);
-				variables.getLogger().info("Data type sent with success : "+sendReceiveType.getAll);
-				
-				//TabTask
-				variables.setTabTasks((ArrayList<String[][]>)variables.getIn().readObject());
-				variables.getLogger().info("TabTask imported with success");
-				
-				//TaskList
-				variables.setTaskList(((ArrayList<simpleTask>)variables.getIn().readObject()));
-				variables.getLogger().info("Task list imported with success");
-				
-				//BannedList
-				variables.setBannedToDoList((ArrayList<ArrayList<simpleToDo>>)variables.getIn().readObject());
-				variables.getLogger().info("Banned toDo List imported with success");
-				
-				if(clear)
-					{
-					variables.getMyToDoLister().fill();
-					variables.getMyToDoLister().enableControl(true);
-					variables.getMyBannedLister().fill();
-					variables.getMyConfigLister().fill();
-					}
+			//First we send data type involved in the communication
+			variables.getOut().writeObject((Object)sendReceiveType.getAll);
+			variables.getLogger().info("Data type sent with success : "+sendReceiveType.getAll);
+			
+			//TabTask
+			variables.setTabTasks((ArrayList<String[][]>)variables.getIn().readObject());
+			variables.getLogger().info("TabTask imported with success");
+			
+			//TaskList
+			variables.setTaskList(((ArrayList<simpleTask>)variables.getIn().readObject()));
+			variables.getLogger().info("Task list imported with success");
+			
+			//BannedList
+			variables.setBannedToDoList((ArrayList<ArrayList<simpleToDo>>)variables.getIn().readObject());
+			variables.getLogger().info("Banned toDo List imported with success");
+			
+			if(clear)
+				{
+				variables.getMyToDoLister().fill();
+				variables.getMyToDoLister().enableControl(true);
+				variables.getMyBannedLister().fill();
+				variables.getMyBannedLister().enableControl(true);
+				variables.getMyConfigLister().fill();
+				variables.getMyConfigLister().enableControl(true);
 				}
 			variables.getOut().flush();
 			}

@@ -77,7 +77,9 @@ public class putDataToServer extends serverDataMisc
 					variables.getMyToDoLister().enableControl(false);
 					variables.setBannedToDoList(new ArrayList<ArrayList<simpleToDo>>());
 					variables.getMyBannedLister().fill();
+					variables.getMyToDoLister().enableControl(false);
 					variables.setTabTasks(new ArrayList<String[][]>());
+					variables.getMyConfigLister().enableControl(false);
 					variables.getMyConfigLister().fill();
 					}
 				}

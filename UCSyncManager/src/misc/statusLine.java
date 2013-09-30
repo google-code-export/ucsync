@@ -228,7 +228,7 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 			}
 		
 		//manage task pane
-		myToDo.setStatus(toDoStatusType.disabled);
+		manageStatus();
 		init();
 		this.setFond(this.defaultFond);
 		this.banned.setText(">");
@@ -312,10 +312,26 @@ public class statusLine extends JPanel implements ActionListener, MouseListener
 			}
 		else
 			{
-			myToDo.setStatus(toDoStatusType.disabled);
+			manageStatus();
 			}
 		this.displayResult.setText(myToDo.getStatus().name()+" ");
 		variables.getMyToDoLister().setInfoList();
+		}
+	
+	private void manageStatus()
+		{
+		if(myToDo.isConflictDetected())
+			{
+			myToDo.setStatus(toDoStatusType.conflict);
+			}
+		else if(myToDo.isProblemDetected())
+			{
+			myToDo.setStatus(toDoStatusType.impossible);
+			}
+		else
+			{
+			myToDo.setStatus(toDoStatusType.disabled);
+			}
 		}
 	
 	public void mouseClicked(MouseEvent evt)

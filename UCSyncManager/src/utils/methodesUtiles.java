@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import manager.getDataFromServer;
 import manager.putDataToServer;
+import manager.updateConfigToServer;
 import misc.finishedMonitor;
 import misc.simpleToDo;
 import schedule.simpleTask;
@@ -77,6 +78,27 @@ public class methodesUtiles
 		 * If this point is reached, the option looked for was not found
 		 */
 		throw new Exception("Option not found"); 
+		}
+	
+	/**
+	 * Method used to define new configuration values
+	 */
+	public synchronized static void setTargetTask(String node, int index, String value) throws Exception
+		{
+		boolean valueFound = false;
+		for(int i=0;i<variables.getTabTasks().get(index).length; i++)
+			{
+			if(variables.getTabTasks().get(index)[i][0].compareTo(node)==0)
+				{
+				variables.getTabTasks().get(index)[i][1] = value;
+				valueFound = true;
+				}
+			}
+		if(!valueFound)
+			{
+			throw new Exception("No value found");
+			}
+		variables.getLogger().debug("New value define for task "+index+" : "+node+" new value : "+value);
 		}
 	
 	/***************************************
@@ -186,8 +208,35 @@ public class methodesUtiles
 			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
 			variables.getLogger().info("Connected to UCSync server");
 			
-			
 			getDataFromServer myData = new getDataFromServer(true);
+			new finishedMonitor(myData);
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Application failed to init Socket : System.exit(0) : "+exc.getMessage());
+			JOptionPane.showMessageDialog(null,"Unable to contact UCSync server\r\nCheck if network connectivity and server informations are correct","Erreur",JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+			}
+		}
+	
+	/**
+	 * Method used to update taskConfig file
+	 */
+	public static void updateTaskConfig()
+		{
+		try
+			{
+			/**
+			 * Init connection
+			 */
+			variables.setMyS(new Socket(methodesUtiles.getTargetOption("ucsyncserverhost"), Integer.parseInt(methodesUtiles.getTargetOption("ucsyncserverport"))));
+			variables.setOut(new ObjectOutputStream(variables.getMyS().getOutputStream()));
+			variables.setIn(new ObjectInputStream(variables.getMyS().getInputStream()));
+			variables.getLogger().info("Connected to UCSync server");
+			
+			updateConfigToServer myData = new updateConfigToServer(true);
 			new finishedMonitor(myData);
 			}
 		catch (Exception exc)

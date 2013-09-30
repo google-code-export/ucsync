@@ -69,9 +69,6 @@ public class mainWindow extends JFrame
 		taskList = new JComboBox();
 		taskList.setPreferredSize(new Dimension(100,25));
 		
-		updateList();
-		updateStartStop();
-		
 		wait = new JLabel(" ");
 		
 		headerPanel.setLayout(new BoxLayout(headerPanel, BoxLayout.X_AXIS));
@@ -114,6 +111,9 @@ public class mainWindow extends JFrame
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		
 		this.setVisible(true);
+		
+		updateList();
+		updateStartStop();
 		}
 	
 	/**

@@ -76,7 +76,9 @@ public class bannedLister extends JPanel implements ActionListener
 		update.addActionListener(this);
 		selectAll.addActionListener(this);
 		deleteAll.addActionListener(this);
-				
+		
+		enableControl(false);
+		
 		fill();
 		}
 	
@@ -172,6 +174,15 @@ public class bannedLister extends JPanel implements ActionListener
 			}
 		}
 	
+	/**
+	 * Method used to enable/disable control bar
+	 */
+	public void enableControl(boolean b)
+		{
+		this.selectAll.setEnabled(b);
+		this.update.setEnabled(b);
+		this.deleteAll.setEnabled(b);
+		}
 	
 	
 	/*2013*//*RATEL Alexandre 8)*/
