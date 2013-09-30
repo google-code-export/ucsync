@@ -100,7 +100,8 @@ public class methodesUtiles
 		{
 		String file = null;
 		ArrayList<ArrayList<String>> returnedValues = new ArrayList<ArrayList<String>>();
-		ArrayList<ArrayList<String[][]>> answer;
+		//ArrayList<ArrayList<String[][]>> answer;
+		ArrayList<String[][]> answer;
 		ArrayList<String> listParams = new ArrayList<String>();
 		
 		try
@@ -111,18 +112,15 @@ public class methodesUtiles
 			listParams.add("tasks");
 			listParams.add("task");
 			listParams.add("exception");
-			answer= xMLGear.getResultListTabExt(file, listParams);
+			answer= xMLGear.getResultListTab(file, listParams);
 			
 			for(int i=0; i<answer.size(); i++)
 				{
 				ArrayList<String> list = new ArrayList<String>();
-				for(int j=0; j<answer.get(i).size(); j++)
+				for(int j=0; j<answer.get(i).length; j++)
 					{
-					for(int a=0; a<answer.get(i).get(j).length; a++)
-						{
-						list.add(new String(answer.get(i).get(j)[a][1]));
-						variables.getLogger().debug("Exception found : "+answer.get(i).get(j)[a][1]);
-						}
+					list.add(new String(answer.get(i)[j][1]));
+					variables.getLogger().debug("Exception found : "+answer.get(i)[j][1]);
 					}
 				returnedValues.add(list);
 				}
@@ -574,5 +572,72 @@ public class methodesUtiles
 			}
 		}
 	
-	/*2013*//*RATEL Alexandre 8)*/
+	/**
+	 * Method used to write new task config File
+	 */
+	public static void writeTaskFile()
+		{
+		File fichier;
+		fichier = new File(".\\"+variables.getTaskFileName());
+		FileWriter fileWriter = null;
+		BufferedWriter tampon = null;
+		try
+			{
+			fileWriter = new FileWriter(fichier);
+			tampon = new BufferedWriter(fileWriter);
+			
+			//Writing the file
+			tampon.write("<xml>\r\n");
+			tampon.write("	<tasks>\r\n");
+			for(int i=0;i<variables.getTabTasks().size(); i++)
+				{
+				tampon.write("		<task>\r\n");
+				for(int j=0;j<variables.getTabTasks().get(i).length; j++)
+					{
+					String[][] value = variables.getTabTasks().get(i);
+					
+					//Exception list
+					if(value[j][0].equals("exception"))
+						{
+						tampon.write("			<exception>\r\n");
+						for(int a=0;a<variables.getExceptionList().get(i).size(); a++)
+							{
+							tampon.write("				<except>"+variables.getExceptionList().get(i).get(a)+"</except>\r\n");
+							}
+						tampon.write("			</exception>\r\n");
+						}
+					else
+						{
+						tampon.write("			<"+value[j][0]+">"+value[j][1]+"</"+value[j][0]+">\r\n");
+						}
+					}
+				tampon.write("		</task>\r\n");
+				}
+			tampon.write("	</tasks>\r\n");
+			tampon.write("</xml>\r\n");
+			}
+		catch(Exception e)
+			{
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+			}
+		finally
+			{
+			try
+				{
+				tampon.flush();
+				tampon.close();
+				fileWriter.close();
+				}
+			catch(Exception e)
+				{
+				System.out.println(e.getMessage());
+				e.printStackTrace();
+				}
+			}
+		}	
+		
+	
+	/*2013*//*RATEL Alexandre 8)*/	
 	}
+	
