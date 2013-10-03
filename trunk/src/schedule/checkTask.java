@@ -100,14 +100,17 @@ public class checkTask
 				{
 				if(myTaskList.get(i).getType().equals(taskType.userSync))
 					{
-					myTaskList.get(i).setStatus(taskStatusType.toDelete);
+					myTaskList.get(i).setStatus(taskStatusType.banned);
 					
 					//We have to send an email to the administrator to warn him
 					StringBuffer cont = new StringBuffer("ERROR : \r\n");
-					cont.append(myTaskList.get(i).getTInfo()+"has been deleted with error.\r\n");
+					cont.append(myTaskList.get(i).getTInfo()+"has been deleted because it finished with error.\r\n");
 					cont.append("Please consult appropriate logs and contact your administrator\r\n\r\n");
 					cont.append("Best regards : The "+variables.getNomProg()+" team");
 					methodesUtiles.sendToAdminList("ERROR : "+variables.getNomProg(), cont.toString(), "emailerrorsend");
+					
+					variables.getLogger().error(myTaskList.get(i).getTInfo()+"has been deleted because it finished with error");
+					methodesUtiles.addBannedTask(new Integer(i));
 					}
 				else
 					{
@@ -141,7 +144,7 @@ public class checkTask
 				}
 
 			//If task doesn't already exist and it is not banned, we create it
-			if((!exist)&&(!variables.getBannedTaskList().contains((Integer) i)))
+			if(!exist)
 				{
 				if(methodesUtiles.getTargetTask("type",i).compareTo("usersync") == 0)
 					{
@@ -159,7 +162,7 @@ public class checkTask
 						{
 						exc.printStackTrace();
 						variables.getLogger().error(exc);
-						variables.getBannedTaskList().add(new Integer(i));
+						methodesUtiles.addBannedTask(new Integer(i));
 						}
 					}
 				else

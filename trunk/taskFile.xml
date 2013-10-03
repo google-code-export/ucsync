@@ -1,38 +1,19 @@
-<!--Fichier de paramétrage des tâches de synchro-->
-<!--Rappel :
-Nom = cucm.nom
-Prénom = cucm.prenom
-UserID = cucm.userid
-Département = cucm.dept
-Télephone = cucm.number
-Champs active directory : A venir. exemple : mactived.ipphone
-Texte libre à mettre entre guillement simple, exemple = 'test'
-utiliser des + pour séparer les éléments
-Un chiffre entre étoiles placé avant une valeure indique le nombre de lettre à utiliser, exemple : *1*cucm.prenom = On utilise la première lettre du prénom
-Le symbole *M* indique que tout la valeure suivante doit être converti en majuscule
-Le symbole *1M* indique que seul la première lettre doit être converti en majuscule. Le chiffre peut être ajusté.
-Le symbole *m* indique que tout la valeure suivante doit être converti en minuscule
-Le symbole *1m* indique que seul la première lettre doit être converti en minuscule. Le chiffre peut être ajusté.
-Le symbole *1S/* indique que la chaine doit être Splité en utilisant le caratère "/". Ensuite on gardera uniquement le premier résultat. Exemple : FST/OPT/DIR donnera FST
-Le symbole *""R""* indique de remplacer un caractère par un autre. Exemple *"DP_"R""* avec DP_RFT donnera RFT
-Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 premières lettres du nom misent en majuscule. *M**4* est équivalent. *2M**5*cucm.nom affichera les 5 première lettres du nom dont les deux premières seront en majuscule.
--->
 <xml>
 	<tasks>
 		<task>
-			<type>usersync</type><!--usersync-->
-			<when>CONTINUOUS</when><!--DAILY HH:MM--><!--CONTINUOUS--><!--EVERY H--><!--24h or 12h it depend of your installed local-->
-			<description>user data synchronization</description><!--Task description-->
+			<type>usersync</type>
+			<when>CONTINUOUS</when>
+			<description>user data synchronization</description>
 			<timeout>15</timeout>
-			<scandepth>udp,phone,analog</scandepth><!--udp,phone,analog--><!--You can choose each or just one--><!--Have to be implement-->
-			<smartlinesearch>true</smartlinesearch><!--true,false-->
-			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern><!--Used to adjust telephonenumber get from end user--><!--Have to be implement-->
-			<linesearchpattern>811%</linesearchpattern><!--Used to exclude some directory number. Must be a SQL "not like" filter-->
-			<getmorethanprimaryline>false</getmorethanprimaryline><!--true,false-->
-			<ackmode>manual</ackmode><!--report,manual,auto--><!--"report" send an email to ask administrator validation before process. Used "auto" to automatically process scanned values-->
-			<csvreport>true</csvreport><!--true,false--><!--"true" the report sent by email is using csv format, "false" verbose format is used-->
-			<csvseparator>;</csvseparator><!--You can choose which character is used to separate values in csv report-->
-			<testmode>false</testmode><!--true,false--><!--"true" Execute step is never process, only scan step-->
+			<scandepth>udp,phone,analog</scandepth>
+			<smartlinesearch>true</smartlinesearch>
+			<smartlinesearchpattern>XXXXXX</smartlinesearchpattern>
+			<linesearchpattern>811%</linesearchpattern>
+			<getmorethanprimaryline>false</getmorethanprimaryline>
+			<ackmode>manual</ackmode>
+			<csvreport>true</csvreport>
+			<csvseparator>;</csvseparator>
+			<testmode>false</testmode>
 			<axlversion>8</axlversion>
 			<axlhost>10.0.1.167</axlhost>
 			<axlport>8443</axlport>
@@ -49,9 +30,9 @@ Les combinaisons sont possibles, par exemple : *4**M*cucm.nom affichera les 4 pr
 			<linetextlabel>*M*cucm.nom+' '+*1M*cucm.prenom+' - '+*1S/*cucm.dept</linetextlabel>
 			<linetextlabeltoolong>*M*cucm.nom+' '+*1**M*cucm.prenom+'. - '+*1S/*cucm.dept</linetextlabeltoolong>
 			<lineexternalphonenumbermask>''</lineexternalphonenumbermask>
-			<maxnumchar>30</maxnumchar><!--Maximum number of character allowed by the CUCM for AXL request-->
-			<replacefrenchchar>true</replacefrenchchar><!--If true, french characters are replaced by ASCII one--><!--Exemple : "é" and "è" are replaced by "e" -->
-			<displayurlinreport>true</displayurlinreport><!--If true, a validation url is displayed in the scan report send by email-->
+			<maxnumchar>30</maxnumchar>
+			<replacefrenchchar>true</replacefrenchchar>
+			<displayurlinreport>true</displayurlinreport>
 			<exception>
 				<except>BLOCKED</except>
 				<except>BLOQUE</except>

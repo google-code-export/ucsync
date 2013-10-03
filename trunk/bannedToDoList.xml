@@ -1,9 +1,11 @@
 <xml>
-	<task>
-		<todo>
-			<uuid>4ed58bd3-896c-9686-ce43-fb198f0ddba7</uuid>
-			<description>352891 line linealertingname change needed</description>
-			<user>VIGOUROUX</user>
-		</todo>
-	</task>
+	<tasks>
+		<task>
+			<todo>
+				<uuid>fc88864a-1038-0eb5-453d-d706ee0d6349</uuid>
+				<description>351235 line linedescription change needed</description>
+				<user>beloo</user>
+			</todo>
+		</task>
+	</tasks>
 </xml>

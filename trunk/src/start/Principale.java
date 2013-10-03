@@ -170,7 +170,7 @@ public class Principale
 		/*********************************
 		 * Lancement du Thread principal
 		 *********************************/
-		//variables.setMyScheduler(new scheduler());
+		variables.setMyScheduler(new scheduler());
 		/*********************************/
 		}
 	

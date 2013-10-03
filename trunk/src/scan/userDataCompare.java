@@ -150,7 +150,7 @@ public class userDataCompare
 	 */
 	private void findDeviceChange(device d, String currentData, patternType pt, int indexPatternContent) throws Exception
 		{
-		if(!methodesUtiles.isExceptionWord(currentData))
+		if(!methodesUtiles.isExceptionWord(currentData, myUSync.getTaskIndex()))
 			{
 			Boolean newDataIsImpossible = false;
 			String problemDesc = new String("");
@@ -188,7 +188,14 @@ public class userDataCompare
 					{
 					myToDo.setProblem(problemDesc);
 					}
-				myUSync.getToDoList().add(myToDo);
+				if(myUSync.getToDoList().size()<=15000)
+					{
+					myUSync.getToDoList().add(myToDo);
+					}
+				else
+					{
+					myUSync.maxSizedHasBeenReached();
+					}
 				}
 			}
 		}
@@ -198,7 +205,7 @@ public class userDataCompare
 	 */
 	private void findLineChange(line l, String currentData, patternType pt, int indexPatternContent) throws Exception
 		{
-		if(!methodesUtiles.isExceptionWord(currentData))
+		if(!methodesUtiles.isExceptionWord(currentData, myUSync.getTaskIndex()))
 			{
 			Boolean newDataIsImpossible = false;
 			String problemDesc = new String("");
@@ -236,7 +243,14 @@ public class userDataCompare
 					{
 					myToDo.setProblem(problemDesc);
 					}
-				myUSync.getToDoList().add(myToDo);
+				if(myUSync.getToDoList().size()<=15000)
+					{
+					myUSync.getToDoList().add(myToDo);
+					}
+				else
+					{
+					myUSync.maxSizedHasBeenReached();
+					}
 				}
 			}
 		}

@@ -37,12 +37,14 @@ public class userSync extends task
 	private ArrayList<deviceAssociatedLine> globalAssociatedLineList;
 	private ArrayList<line> globalLineList;
 	private ArrayList<patternContent> userSyncTemplate;
+	private boolean maxSizeReached;
 	
 	
 	public userSync(int taskIndex) throws Exception
 		{
 		super(taskIndex,taskType.userSync);
 		
+		maxSizeReached = false;
 		userSyncTemplate = new ArrayList<patternContent>();
 		fillUserSyncTemplate();
 		}
@@ -115,7 +117,20 @@ public class userSync extends task
 				throw exc;
 				}
 			}
-		
+		}
+	
+	/**
+	 * Method used to warn once
+	 * that toDoList maximum size
+	 * has been reached
+	 */
+	public void maxSizedHasBeenReached()
+		{
+		if(!maxSizeReached)
+			{
+			maxSizeReached = true;
+			variables.getLogger().info("ToDoList maximum sized has been reached : 15000");
+			}
 		}
 	
 

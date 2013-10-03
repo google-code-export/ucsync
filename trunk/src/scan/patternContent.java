@@ -91,7 +91,7 @@ public class patternContent
 					{
 					buffer.append(specialRegex(myDevice.getModel(),pat));
 					}
-				else if(Pattern.matches(".*tname", pat))
+				else if(Pattern.matches(".*dname", pat))
 					{
 					buffer.append(specialRegex(myDevice.getName(),pat));
 					}
