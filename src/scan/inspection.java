@@ -104,8 +104,8 @@ public class inspection extends worker
 			variables.getLogger().error(exc);
 			variables.getLogger().error(exc.getMessage());
 			exc.printStackTrace();
-			variables.getLogger().error(myUSync.getTInfo()+"An error occured : "+exc.getMessage()+" Task will be deleted");
-			myUSync.setStatus(taskStatusType.toDelete);
+			variables.getLogger().error(myUSync.getTInfo()+"An error occured : "+exc.getMessage()+" : Task will be deleted");
+			myUSync.setStatus(taskStatusType.error);
 			}
 		finally
 			{
@@ -238,24 +238,27 @@ public class inspection extends worker
 		
 		try
 			{
-			ArrayList<simpleToDo> myBannedToDoList = variables.getBannedToDoList().get(myUSync.getTaskIndex());
-			
-			//Finding
-			for(int i=0; (i<myBannedToDoList.size())&&(isNotFinished); i++)
+			if((variables.getBannedToDoList().size() >= (myUSync.getTaskIndex()+1)) && (variables.getBannedToDoList().get(myUSync.getTaskIndex()) != null))
 				{
-				for(int j=0; j<myUSync.getToDoList().size(); j++)
+				ArrayList<simpleToDo> myBannedToDoList = variables.getBannedToDoList().get(myUSync.getTaskIndex());
+				
+				//Finding
+				for(int i=0; (i<myBannedToDoList.size())&&(isNotFinished); i++)
 					{
-					if(myBannedToDoList.get(i).getUUID().equals(myUSync.getToDoList().get(j).getUUID()))
+					for(int j=0; j<myUSync.getToDoList().size(); j++)
 						{
-						myUSync.getToDoList().remove(j);
-						duplicatesFound = true;
+						if(myBannedToDoList.get(i).getUUID().equals(myUSync.getToDoList().get(j).getUUID()))
+							{
+							myUSync.getToDoList().remove(j);
+							duplicatesFound = true;
+							}
 						}
 					}
-				}
-			
-			if(duplicatesFound)
-				{
-				removeBannedToDo();
+				
+				if(duplicatesFound)
+					{
+					removeBannedToDo();
+					}
 				}
 			}
 		catch(Exception exc)

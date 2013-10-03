@@ -35,10 +35,11 @@ public class variables
 	lineexternalphonenumbermask};
 	
 	public enum toDoStatusType{success,error,processing,waiting,delete,disabled,init,conflict,impossible,banned};
-	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error};
+	public enum taskStatusType{init,working,waitingAck,pending,done,toDelete,error,banned};
 	public enum taskType{userSync};
 	public enum sendReceiveType{getAll,sendAll,sendConfig,stopService,startService,serviceStatus};
 	public enum serverStatusType{started,stopped};
+	public enum dataTypes{device,line};
 	
 	private static String nomProg;
 	private static String version;
@@ -50,7 +51,6 @@ public class variables
 	private static ArrayList<String[][]> tabTasks;
 	private static eMailSender eMSender;
 	private static ArrayList<task> taskList;
-	private static ArrayList<Integer> bannedTaskList;
 	private static scheduler myScheduler;
 	private static webAckReceiver myWebServer;
 	private static webMngtManager myMngtServer;
@@ -68,7 +68,6 @@ public class variables
 		taskFileName = new String("taskFile.xml");
 		bannedToDoListFileName = new String("bannedToDoList.xml");
 		taskList = new ArrayList<task>();
-		bannedTaskList = new ArrayList<Integer>();
 		exceptionList = new ArrayList<ArrayList<String>>();
 		bannedToDoList = new ArrayList<ArrayList<simpleToDo>>();
 		simpleTaskList = new ArrayList<simpleTask>();
@@ -167,16 +166,6 @@ public class variables
 	public synchronized static void setTaskList(ArrayList<task> taskList)
 		{
 		variables.taskList = taskList;
-		}
-
-	public static ArrayList<Integer> getBannedTaskList()
-		{
-		return bannedTaskList;
-		}
-
-	public static void setBannedTaskList(ArrayList<Integer> bannedTaskList)
-		{
-		variables.bannedTaskList = bannedTaskList;
 		}
 
 	public static scheduler getMyScheduler()

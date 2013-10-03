@@ -25,7 +25,6 @@ public class scheduler extends Thread
 		{
 		isNotFinished = true;
 		variables.setTaskList(new ArrayList<task>());
-		variables.setBannedTaskList(new ArrayList<Integer>());
 		variables.setSimpleTaskList(new ArrayList<simpleTask>());
 		
 		start();
@@ -88,7 +87,7 @@ public class scheduler extends Thread
 						{
 						String TInfo = variables.getTaskList().get(i).getTInfo();
 						variables.getTaskList().remove(i);
-						variables.getLogger().debug(TInfo+"Had been removed successfully");
+						variables.getLogger().debug(TInfo+"Has been removed successfully");
 						//We start again from zero cause the taskList size is changed now. So 
 						//it is possible to miss a "toDelete" task
 						i=0;

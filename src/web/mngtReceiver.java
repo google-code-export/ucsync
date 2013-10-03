@@ -142,10 +142,6 @@ public class mngtReceiver extends Thread
 					variables.setBannedToDoList(((ArrayList<ArrayList<simpleToDo>>)in.readObject()));
 					variables.getLogger().info("New Banned List received with success");
 					methodesUtiles.writeBannedToDoList();
-					
-					//here we get config list
-					variables.setTabTasks(((ArrayList<String[][]>)in.readObject()));
-					variables.getLogger().info("New Tab Task received with success");
 					}
 				else if(myType.equals(sendReceiveType.sendConfig))
 					{

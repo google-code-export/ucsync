@@ -12,6 +12,8 @@ import java.util.Date;
 import java.util.HashSet;
 import java.util.Random;
 import misc.simpleToDo;
+import misc.toDo;
+
 import org.apache.commons.codec.digest.DigestUtils;
 
 import schedule.simpleTask;
@@ -100,8 +102,7 @@ public class methodesUtiles
 		{
 		String file = null;
 		ArrayList<ArrayList<String>> returnedValues = new ArrayList<ArrayList<String>>();
-		//ArrayList<ArrayList<String[][]>> answer;
-		ArrayList<String[][]> answer;
+		ArrayList<ArrayList<String[][]>> answer;
 		ArrayList<String> listParams = new ArrayList<String>();
 		
 		try
@@ -111,16 +112,21 @@ public class methodesUtiles
 			
 			listParams.add("tasks");
 			listParams.add("task");
-			listParams.add("exception");
-			answer= xMLGear.getResultListTab(file, listParams);
+			answer= xMLGear.getResultListTabExt(file, listParams);
 			
 			for(int i=0; i<answer.size(); i++)
 				{
 				ArrayList<String> list = new ArrayList<String>();
-				for(int j=0; j<answer.get(i).length; j++)
+				for(int j=0; j<answer.get(i).size(); j++)
 					{
-					list.add(new String(answer.get(i)[j][1]));
-					variables.getLogger().debug("Exception found : "+answer.get(i)[j][1]);
+					for(int a=0; a<answer.get(i).get(j).length; a++)
+						{
+						if(answer.get(i).get(j)[a][0].equals("except"))
+							{
+							list.add(new String(answer.get(i).get(j)[a][1]));
+							variables.getLogger().debug("Exception found in task "+i+" : "+answer.get(i).get(j)[a][1]);
+							}
+						}
 					}
 				returnedValues.add(list);
 				}
@@ -148,78 +154,50 @@ public class methodesUtiles
 	public static ArrayList<ArrayList<simpleToDo>> initBannedToDoList() throws Exception
 		{
 		String file = null;
-		ArrayList<String[][]> answer;
+		ArrayList<ArrayList<String[][]>> answer;
 		ArrayList<ArrayList<simpleToDo>> bannedList = new ArrayList<ArrayList<simpleToDo>>();
 		ArrayList<String> listParams = new ArrayList<String>();
 		
 		try
 			{
-			variables.getLogger().info("Get the Banned ToDo list from this file : "+variables.getBannedToDoListFileName());
+			variables.getLogger().info("Get the Banned ToDo list from the file : "+variables.getBannedToDoListFileName());
 			file = xMLReader.fileRead(".\\"+variables.getBannedToDoListFileName());
 			
+			listParams.add("tasks");
 			listParams.add("task");
-			listParams.add("todo");
 			
-			answer= xMLGear.getResultListTab(file, listParams);
+			answer= xMLGear.getResultListTabExt(file, listParams);
 			
-			ArrayList<simpleToDo> tempBannedList = new ArrayList<simpleToDo>();
-			
-			for(int i=0; i<answer.size(); i++)
+			for(int i=0; i<variables.getTabTasks().size(); i++)
 				{
 				String uuid = null;
 				String description = null;
 				String user = null;	
-				
-				for(int a=0; a<answer.get(i).length; a++)
-					{
-					if(answer.get(i)[a][0].equals("uuid"))uuid = answer.get(i)[a][1];
-					if(answer.get(i)[a][0].equals("description"))description = answer.get(i)[a][1];
-					if(answer.get(i)[a][0].equals("user"))user = answer.get(i)[a][1];
-					}
-				if((uuid != null) && (description != null) && (user != null))
-					{
-					tempBannedList.add(new simpleToDo(description,user,uuid));
-					}
-				else
-					{
-					throw new Exception("Failed to build banned to do List");
-					}
-				}
-			bannedList.add(tempBannedList);
-			
-			/*Have to be improve
-			answer= xMLGear.getResultListTabExt(file, listParams);
-			
-			for(int i=0; i<answer.size(); i++)
-				{
 				ArrayList<simpleToDo> tempBannedList = new ArrayList<simpleToDo>();
 				
-				for(int j=0; j<answer.get(i).size(); j++)
+				if(answer.size() >= (i+1))
 					{
-					String uuid = null;
-					String description = null;
-					String user = null;	
-					
-					for(int a=0; a<answer.get(i).get(j).length; a++)
+					for(int j=0; j<answer.get(i).size(); j++)
 						{
-						System.out.println("##"+answer.get(i).get(j)[a][0]+" "+answer.get(i).get(j)[a][1]);
-						if(answer.get(i).get(j)[a][0].equals("uuid"))uuid = answer.get(i).get(j)[a][1];
-						if(answer.get(i).get(j)[a][0].equals("description"))description = answer.get(i).get(j)[a][1];
-						if(answer.get(i).get(j)[a][0].equals("user"))user = answer.get(i).get(j)[a][1];
-						}
-					if((uuid != null) && (description != null) && (user != null))
-						{
-						tempBannedList.add(new simpleToDo(description,user,uuid));
-						}
-					else
-						{
-						throw new Exception("Failed to build banned to do List");
+						for(int a=0; a<answer.get(i).get(j).length; a++)
+							{
+							if(answer.get(i).get(j)[a][0].equals("uuid"))uuid = answer.get(i).get(j)[a][1];
+							if(answer.get(i).get(j)[a][0].equals("description"))description = answer.get(i).get(j)[a][1];
+							if(answer.get(i).get(j)[a][0].equals("user"))user = answer.get(i).get(j)[a][1];
+							}
+						if((uuid != null) && (description != null) && (user != null))
+							{
+							tempBannedList.add(new simpleToDo(description,user,uuid));
+							variables.getLogger().debug("New banned toDo found for task "+i+" : "+user+", "+description+", "+uuid);
+							}
+						else
+							{
+							throw new Exception("Failed to build banned to do List");
+							}
 						}
 					}
 				bannedList.add(tempBannedList);
-				}*/
-			
-			variables.getLogger().info("Banned toDo Lit size : "+bannedList.get(0).size());
+				}
 			
 			return bannedList;
 			}
@@ -285,13 +263,13 @@ public class methodesUtiles
 	/***************************************
 	 * Method used to get a specific Exception value
 	 ***************************************/
-	public synchronized static boolean isExceptionWord(String str)
+	public synchronized static boolean isExceptionWord(String str, int index)
 		{
-		for(int i=0; i<variables.getExceptionList().size(); i++)
+		for(int i=0; i<variables.getExceptionList().get(index).size(); i++)
 			{
-			if(variables.getExceptionList().get(i).equals(str))
+			if(str.contains(variables.getExceptionList().get(index).get(i)))
 				{
-				variables.getLogger().debug("Exception word found : "+str);
+				variables.getLogger().debug("Exception word found in : "+str);
 				return true;
 				}
 			}
@@ -373,19 +351,28 @@ public class methodesUtiles
 	/**
 	 * Methods used to send an email to the administrator
 	 */
-	public synchronized static void sendToAdminList(String sub, String cont, String desc) throws Exception
+	public synchronized static void sendToAdminList(String sub, String cont, String desc)
 		{
-		String sendTo = new String("");
-		String subject = sub;
-		String content = cont;
-		String eMailDesc = desc;
-		
-		String[] emailTab = methodesUtiles.getTargetOption("smtpemailadmin").split(",");
-		
-		for(int j=0; j<emailTab.length; j++)
+		try
 			{
-			sendTo = emailTab[j];
-			variables.geteMSender().send(sendTo, subject, content, eMailDesc);
+			String sendTo = new String("");
+			String subject = sub;
+			String content = cont;
+			String eMailDesc = desc;
+			
+			String[] emailTab = methodesUtiles.getTargetOption("smtpemailadmin").split(",");
+			
+			for(int j=0; j<emailTab.length; j++)
+				{
+				sendTo = emailTab[j];
+				variables.geteMSender().send(sendTo, subject, content, eMailDesc);
+				}
+			}
+		catch (Exception exc)
+			{
+			exc.printStackTrace();
+			variables.getLogger().error(exc);
+			variables.getLogger().error("Failed to send email to the admin list. check if the smtp server is reachable : "+exc.getMessage());
 			}
 		}
 	
@@ -450,24 +437,26 @@ public class methodesUtiles
 			
 			//Ecriture
 			buffRapport.append("<xml>\r\n");
+			buffRapport.append("	<tasks>\r\n");
 			
-			for(int i=0; i<variables.getBannedToDoList().size(); i++)
+			for(int i=0; i<variables.getTaskList().size(); i++)
 				{
-				buffRapport.append("	<task>\r\n");
+				buffRapport.append("		<task>\r\n");
 				if((variables.getBannedToDoList().get(i) != null) &&(variables.getBannedToDoList().get(i).size() != 0))
 					{
 					for(int j=0; j<variables.getBannedToDoList().get(i).size(); j++)
 						{
-						buffRapport.append("		<todo>\r\n");
-						buffRapport.append("			<uuid>"+variables.getBannedToDoList().get(i).get(j).getUUID()+"</uuid>\r\n");
-						buffRapport.append("			<description>"+variables.getBannedToDoList().get(i).get(j).getDescription()+"</description>\r\n");
-						buffRapport.append("			<user>"+variables.getBannedToDoList().get(i).get(j).getUser()+"</user>\r\n");
-						buffRapport.append("		</todo>\r\n");
+						buffRapport.append("			<todo>\r\n");
+						buffRapport.append("				<uuid>"+variables.getBannedToDoList().get(i).get(j).getUUID()+"</uuid>\r\n");
+						buffRapport.append("				<description>"+variables.getBannedToDoList().get(i).get(j).getDescription()+"</description>\r\n");
+						buffRapport.append("				<user>"+variables.getBannedToDoList().get(i).get(j).getUser()+"</user>\r\n");
+						buffRapport.append("			</todo>\r\n");
 						}
 					}
-				buffRapport.append("	</task>\r\n");
+				buffRapport.append("		</task>\r\n");
 				}
 			
+			buffRapport.append("	</tasks>\r\n");
 			buffRapport.append("</xml>\r\n");
 			
 			tamponRapport.write(buffRapport.toString());
@@ -636,6 +625,18 @@ public class methodesUtiles
 				}
 			}
 		}	
+	
+	/**
+	 * Method used to add a task to the
+	 * banned task list
+	 * 
+	 * A banned task will never been launched again
+	 */
+	public static void addBannedTask(Integer i)
+		{
+		variables.getTaskList().get(i).setToDoList(new ArrayList<toDo>());
+		variables.getLogger().debug("Task "+i+" has been banned, please restart "+variables.getNomProg()+" if you want to try again");
+		}
 		
 	
 	/*2013*//*RATEL Alexandre 8)*/	
