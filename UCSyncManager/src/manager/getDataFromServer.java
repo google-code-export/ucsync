@@ -40,12 +40,12 @@ public class getDataFromServer extends serverDataMisc
 			if(((serverStatusType)variables.getIn().readObject()).equals(serverStatusType.stopped))
 				{
 				variables.setServerStatus(serverStatusType.stopped);
-				if(variables.getMyWindow() != null)variables.getMyWindow().updateStartStop();
 				}
 			else
 				{
 				variables.setServerStatus(serverStatusType.started);
 				}
+			if(variables.getMyWindow() != null)variables.getMyWindow().updateStartStop();
 				
 			//First we send data type involved in the communication
 			variables.getOut().writeObject((Object)sendReceiveType.getAll);

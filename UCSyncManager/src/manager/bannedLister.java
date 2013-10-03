@@ -92,7 +92,10 @@ public class bannedLister extends JPanel implements ActionListener
 			listToDoList.removeAll();
 			listeLine.clear();
 			
-			if((variables.getBannedToDoList().size() == 0) || (variables.getBannedToDoList().get(variables.getTaskIndex()).size() == 0) || (variables.getTaskList().size() == 0))
+			if((variables.getBannedToDoList().size() == 0)
+					|| (variables.getBannedToDoList().size()<(variables.getTaskIndex()+1))
+					|| (variables.getBannedToDoList().get(variables.getTaskIndex()).size() == 0)
+					)
 				{
 				listToDoList.add(new JLabel("No banned toDo"));
 				}
@@ -152,17 +155,23 @@ public class bannedLister extends JPanel implements ActionListener
 			if(listeLine.get(i).getCheckStatus())
 				{
 				//we change the corresponding task status
-				for(int j=0; j<variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); j++)
+				if(variables.getTaskList().size() != 0)
 					{
-					if(variables.getBannedToDoList().get(variables.getTaskIndex()).get(i).getUUID().equals(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(j).getUUID()))
+					for(int j=0; j<variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); j++)
 						{
-						variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(j).setStatus(toDoStatusType.disabled);
-						variables.getMyToDoLister().getListeLine().get(j).unBannedThis(false);
+						if(variables.getBannedToDoList().get(variables.getTaskIndex()).get(i).getUUID().equals(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(j).getUUID()))
+							{
+							variables.getTaskList().get(variables.getTaskIndex()).getToDoList().get(j).setStatus(toDoStatusType.disabled);
+							variables.getMyToDoLister().getListeLine().get(j).unBannedThis(false);
+							}
 						}
 					}
 				
 				listeLine.remove(i);
 				listToDoList.remove(i);
+				variables.getLogger().debug("Banned toDo "+variables.getBannedToDoList().get(variables.getTaskIndex()).get(i).getUser()
+						+" : "+variables.getBannedToDoList().get(variables.getTaskIndex()).get(i).getUUID()
+						+" has been unbanned");
 				variables.getBannedToDoList().get(variables.getTaskIndex()).remove(i);
 				deleteFound = true;
 				}

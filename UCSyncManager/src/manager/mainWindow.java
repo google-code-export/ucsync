@@ -121,13 +121,13 @@ public class mainWindow extends JFrame
 	 */
 	public void updateList()
 		{
-		if(variables.getTaskList().size() == 0)
+		if(variables.getTabTasks().size() == 0)
 			{
 			tList = new String[]{"No Task to Manage - Please click GO to update"};
 			}
 		else
 			{
-			tList = new String[variables.getTaskList().size()];
+			tList = new String[variables.getTabTasks().size()];
 			for(int i=0; i<tList.length; i++)
 				{
 				tList[i] = "Manage Task "+(i+1);
@@ -140,6 +140,8 @@ public class mainWindow extends JFrame
 			{
 			taskList.addItem(s);
 			}
+		
+		taskList.setSelectedIndex(variables.getTaskIndex());
 		
 		this.repaint();
 		this.validate();

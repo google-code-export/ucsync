@@ -45,13 +45,19 @@ public class toDoLister extends JPanel implements ActionListener
 	private JLabel infoList;
 	private JLabel currentStatus;
 	private boolean canBeUpdate;
-	
+	private int total;
+	private int warn;
+	private int wait;
 	private String[] filter;
 	private JComboBox filterCombo;
 	
 	
 	public toDoLister()
 		{
+		int total = 0;
+		int warn = 0;
+		int wait = 0;
+		
 		canBeUpdate = true;
 		filter = new String[]{"No Filter","Only Warn","Only Waiting","Find..."};
 		filterCombo = new JComboBox(filter);
@@ -171,17 +177,25 @@ public class toDoLister extends JPanel implements ActionListener
 			{
 			if((variables.getTaskList().size() != 0)&&(variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size() != 0))
 				{
-				if(variables.getTaskList().get(variables.getTaskIndex()).getStatus().equals(taskStatusType.pending))
+				switch(JOptionPane.showConfirmDialog(null,wait+" items are going to be updated.\r\nStill agree to launch ?","Are you sure ?",JOptionPane.YES_NO_OPTION))
 					{
-					variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.waitingAck);
-					methodesUtiles.updateData(false);
+					case 0:
+						{
+						if(variables.getTaskList().get(variables.getTaskIndex()).getStatus().equals(taskStatusType.pending))
+							{
+							variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.waitingAck);
+							methodesUtiles.updateData(false);
+							}
+						else
+							{
+							variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
+							methodesUtiles.updateData(true);
+							}
+						getReportStatus();
+						break;
+						}
+					case 1:break;
 					}
-				else
-					{
-					variables.getTaskList().get(variables.getTaskIndex()).setStatus(taskStatusType.pending);
-					methodesUtiles.updateData(true);
-					}
-				getReportStatus();
 				}
 			else
 				{
@@ -317,9 +331,9 @@ public class toDoLister extends JPanel implements ActionListener
 			{
 			if(canBeUpdate)
 				{
-				int total = variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size();
-				int warn = 0;
-				int wait = 0;
+				total = variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size();
+				warn = 0;
+				wait = 0;
 				
 				for(int i=0; i<variables.getTaskList().get(variables.getTaskIndex()).getToDoList().size(); i++)
 					{

@@ -220,12 +220,9 @@ public class configLister extends JPanel
 		{
 		if((variables.getTabTasks() != null) && (variables.getTabTasks().size() != 0))
 			{
-			for(int i=0; i<variables.getTabTasks().size(); i++)
+			for(int j=0; j<variables.getTabTasks().get(variables.getTaskIndex()).length; j++)
 				{
-				for(int j=0; j<variables.getTabTasks().get(i).length; j++)
-					{
-					findAndFill(variables.getTabTasks().get(i)[j][0],variables.getTabTasks().get(i)[j][1]);
-					}
+				findAndFill(variables.getTabTasks().get(variables.getTaskIndex())[j][0],variables.getTabTasks().get(variables.getTaskIndex())[j][1]);
 				}
 			scrollbar.setVisible(true);
 			}
